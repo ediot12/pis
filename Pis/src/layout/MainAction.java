@@ -34,4 +34,4 @@ public class MainAction implements CommandAction{
 		return "/semi/layout/main.jsp";
 	}
 	 
-}
+} 

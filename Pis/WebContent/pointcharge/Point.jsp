@@ -20,7 +20,7 @@
 	      	var check = confirm("결제를 진행하시겠습니까?");	// 확인, 취소 버튼있는 alert창 
 	      	
 	      	if(check){	// 확인버튼을 눌렀을때 포인트 결제하는 페이지로 이동
-	      		url="/semi/payment.do";
+	      		url="/Pis/pointcharge/payment.do";
 	      		window.open(url,"post","toolbar=no ,width=580 ,height=610,directories=no,status=yes,scrollbars=yes,menubar=no");
 	      	}
 	    
