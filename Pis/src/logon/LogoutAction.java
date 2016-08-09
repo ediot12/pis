@@ -14,6 +14,6 @@ public class LogoutAction implements CommandAction{
 		
 		return "/semi/logon/logout.jsp";
 	}
-
+ 
 }
  
