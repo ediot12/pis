@@ -39,6 +39,10 @@ div#map {
 				var ftel = new String('${search.tel}');
 				var fcount = ${abc.count};
 				var fcapa = ${search.capacity2};
+				var fweekd_bt = new String('${search.weekday_begin_time}');
+				var fweekd_et = new String('${search.weekday_end_time}');
+				var fweeke_bt = new String('${search.weekend_begin_time}');
+				var fweeke_et = new String('${search.weekend_end_time}');
 				
 				
 				if(map==null){
@@ -81,17 +85,19 @@ div#map {
 				});//마커 찍게 하는거
 				
 				
-				daum.maps.event.addListener(marker, 'click', (function(marker, fcount,faddress,ftel,fcapa) {
+				daum.maps.event.addListener(marker, 'click', (function(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et) {
                     return function() {
                         var infowindow = new daum.maps.InfoWindow({
-                            content: '<div style="padding:5px; width:200px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
+                            content: '<div style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
                             '<br>전화번호 : '+ftel+
-                            '<br>남은대수 : '+fcapa+'</div>',
+                            '<br>남은대수 : '+fcapa+
+                            '<br>평일운영시간 :'+fweekd_bt+'~'+fweekd_et+
+                            '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+'</div>',
                             removable : true
                         });
                       infowindow.open(map, marker);
                     }
-                })(marker, fcount,faddress,ftel,fcapa));
+                })(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et));
 				
 				
 				
