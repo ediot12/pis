@@ -2,7 +2,7 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
+import controller.CommandAction;
 
 public class PaymentAction implements CommandAction{
 	@Override
