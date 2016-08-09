@@ -40,4 +40,3 @@ IMP.request_pay({
 
 </script>
 </head>
-ㅁㄴㅇㄻㄴㅇㄹㄴ
