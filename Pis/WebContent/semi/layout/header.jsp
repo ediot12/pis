@@ -7,7 +7,7 @@
 <html>
 <head>
 <style type="text/css">
-	#logo{
+	#logo{ 
 		padding : 0;
 		margin : 0 auto;
 		position: absolute;
@@ -15,7 +15,7 @@
 		left: 20px;
 	}
 	#one{
-		padding : 0;
+		padding : 0; 
 		margin : 0 auto;
 		position: absolute;
 		right: 20px;
@@ -43,17 +43,37 @@
 <body>
 		<div id="logo">
 			<a href="index.jsp">
-	    		<img alt="로고" src="../image/logo.jpg" width="500px" height="90px">
+	    		<img alt="로고" src="/Pis/semi/image/logo.jpg" width="500px" height="90px">
 	    	</a>
 	    </div>
 	   	
 	    <nav>
 	    	<div id="one">
-			    <ul>
-			    	<li><a href="login.jsp">로그인</a></li>
-			    	<li>회원가입</li>
-			    	<li>사이트맵</li>
-			    </ul>
+	    		<c:choose>
+					<c:when test="${memId != null}">
+						<c:choose>
+							<c:when test="${memId.equals('admin')}">
+						    	<ul>
+						    		<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+						    		<li>사이트맵</li>
+						    	</ul>
+							</c:when>
+							<c:otherwise>
+								<ul>
+									<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+						    		<li>사이트맵</li>
+						    	</ul>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+					    <ul>
+					    	<li><a href="/Pis/semi/logon/loginForm.do">로그인</a></li>
+					    	<li>회원가입</li>
+					    	<li>사이트맵</li>
+					    </ul>
+			    	</c:otherwise>
+			    </c:choose>
 		    </div>
 		</nav>
 		

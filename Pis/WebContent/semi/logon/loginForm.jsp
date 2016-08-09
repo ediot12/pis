@@ -9,5 +9,5 @@
   <tr height="30">
   		<td colspan="2" align="middle">
   			<input type=submit value="로그인"></td></tr> 
-  </table>
+  </table> 
 </body>
