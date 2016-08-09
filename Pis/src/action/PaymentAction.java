@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.Session;
 
+import controller.CommandAction;
+
 public class PaymentAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -12,8 +14,9 @@ public class PaymentAction implements CommandAction{
 		
 		String point = request.getParameter("point");
 		request.setAttribute("point", point);
+		System.out.println("paymentaction");
 		
-		return "/payment.jsp";
+		return "/pointcharge/payment.jsp";
 	}
 
 }
