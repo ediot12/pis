@@ -1,2 +1,3 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<% response.sendRedirect("layout/main.jsp"); %>
+<% response.sendRedirect("/Pis/semi/layout/main.do"); %>
+  
