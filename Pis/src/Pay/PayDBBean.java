@@ -27,7 +27,7 @@ public class PayDBBean {
 			pstmt.setInt(2, article.getPoint());
 			pstmt.setTimestamp(3, article.getPdate());
 			pstmt.setString(4, article.getInfo());			
-			pstmt.executeUpdate();
+			pstmt.executeUpdate(); 
 			
 			System.out.println("db¿¡ insert");
 		}catch(Exception e){

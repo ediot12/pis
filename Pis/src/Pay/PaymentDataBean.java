@@ -13,7 +13,7 @@ public class PaymentDataBean {
 	}
 	public void setPay_type(String pay_type) {
 		this.pay_type = pay_type;
-	}
+	} 
 	public String getNum() {
 		return num;
 	}

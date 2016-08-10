@@ -3,16 +3,8 @@
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<script>
-	function check(){
-		
-		url="/Pis/pointcharge/paymentForm.do";
-  		window.open(url,"post","toolbar=no ,width=630 ,height=610,directories=no,status=yes,scrollbars=yes,menubar=no");
-	}
-	
-</script>
 
-<form name=reservation  method=post onclick="check()">
+<form name=reservation  method=post  action="/Pis/pointcharge/paymentForm.do">
 <table width="560" border="0" cellspacing="0" cellpadding="0" >
  <tr>
  	<td align="center"><table width="400" border="0" cellspacing="0" cellpadding="0">
@@ -104,7 +96,7 @@
       </table></td>
     </tr>
     <tr>
-      <td height="40" align="center"><input type="button" value="결 제"></td>
+      <td height="40" align="center"><input type="submit" value="결 제"></td>
     </tr>
 
 </table>
