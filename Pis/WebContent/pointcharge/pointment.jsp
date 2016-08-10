@@ -52,9 +52,9 @@
           <td height="1" colspan="2"></td>
        	</tr>
         <tr>
-          <td width="110">예약번호</td> 
+          <td width="110">아이디</td> 
 		  <!--주문번호는 50Byte(한글 25자) 입니다. ' " ` 는 사용하실수 없습니다. 따옴표,쌍따옴표,백쿼테이션 -->
-          <td width="290"><input type='text' name='reservation_num' size='30' placeholder="예약db에서 넘어온값"></td>
+          <td width="290">아이디</td>
         </tr>
         <tr>
           <td height="1" colspan="2"></td>
@@ -63,50 +63,23 @@
           <td height="1" colspan="2"></td>
        	</tr>
     	<tr>
-          <td width="110">주차장명</td> 
+          <td width="110">이름</td> 
 		 <!--  상품명 50Byte(한글 25자) 입니다. ' " ` 는 사용하실수 없습니다. 따옴표,쌍따옴표,백쿼테이션-->
-          <td width="290"><input type="text" name="parking_name" size="30" placeholder="예약db에서 넘어온값"></td>
+          <td width="290">이름</td>
         </tr>
 		<tr bgcolor="#E3E3E3">
           <td height="1" colspan="2"></td>
        	</tr>
         <tr>
-          <td width="110">결제금액</td> 
+          <td width="110">충전금액</td> 
 		  <!--금액은 ,없이 입력 -->
-          <td width="290"><input type='text' name='pay' size='30' value="${point }"></td>
+          <td width="290">금액</td>
         </tr>
-        <tr bgcolor="#E3E3E3">
-          <td height="1" colspan="2"></td>
-        </tr>
-        <tr>
-          <td width="110">예약자명</td> 
-          <td width="290"><input type='text' name='reservation_name' size='30' placeholder="예약자명"></td>
-        </tr>
-        <tr bgcolor="#E3E3E3">
-          <td height="1" colspan="2"></td>
-        </tr>
-        <tr>
-          <td width="110">전자우편</td> 
-		  <!--KSPAY에서 결제정보를 메일로 보내줍니다.(신용카드거래에만 해당)-->
-          <td width="290"><input type='text' name='sndEmail' size='30' placeholder="예약db에서 넘어온값"></td>
-        </tr>
-        <tr bgcolor="#E3E3E3">
-          <td height="1" colspan="2"></td>
-        </tr>
-        <tr>
-          <td width="110">이동전화</td> 
-		  <!--전화번호 value 값에 숫자만 넣게 해주시길 바랍니다. : '-' 가 들어가면 안됩니다.-->
-          <td width="290"><input type='text' name='reservation_phone' size='12' maxlength='12' placeholder="-없이 입력"></td>
-        </tr>
-        <tr bgcolor="#E3E3E3">
-          <td height="1" colspan="2"></td>
-        </tr>
-      </table></td>
-    </tr>
+        
     <tr>
       <td height="40" align="center"><input type="button" value="결 제"></td>
     </tr>
 
 </table>
 </form>
-
+</table>

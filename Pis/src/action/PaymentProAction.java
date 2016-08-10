@@ -8,7 +8,7 @@ import controller.CommandAction;
 public class PaymentProAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-//		payment.jsp에 값이 넘어갈 예약 값 받아옴
+//		paymentForm.jsp에 값이 넘어갈 예약 값 받아옴
 		
 		return null;
 	}

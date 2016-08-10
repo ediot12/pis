@@ -16,7 +16,7 @@ public class PaymentDBBean {
 	}
 	
 //	결제 내역 db에 저장
-	public void getReservDB(PaymentDataBean article) throws Exception {
+	public void Insertpayment(PaymentDataBean article) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
@@ -36,6 +36,31 @@ public class PaymentDBBean {
 		}catch(Exception e){
 			
 		}
+	}
+	
+//	point결제내역 db 저장 
+	public void InsertPoint(PointmentDataBean member) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement("insert into values(?,?,?)");
+			pstmt.setString(1, member.getPay_type());
+			pstmt.setString(2, member.getId());
+			pstmt.setInt(3, member.getPoint());
+			
+			pstmt.executeUpdate();
+			
+			System.out.println("db에 insert");
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
+			if(conn != null) try{conn.close();} catch(Exception e){}
+		}
+		
 	}
 
 	

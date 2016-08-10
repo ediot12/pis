@@ -18,19 +18,14 @@
 		
 		if(document.pointform.point.value){		// 선택된 값이 있을때
 	      	var check = confirm("결제를 진행하시겠습니까?");	// 확인, 취소 버튼있는 alert창 
-	      	
 	      	if(check){	// 확인버튼을 눌렀을때 포인트 결제하는 페이지로 이동
-	      		url="/Pis/pointcharge/payment.do";
+	      		url="/Pis/pointcharge/pointment.do";
 	      		window.open(url,"post","toolbar=no ,width=580 ,height=610,directories=no,status=yes,scrollbars=yes,menubar=no");
 	      	}
 	    
 		}
 	
-	}
-	
-	
-
-	
+	}	
 </script>
 
 </head>
@@ -38,7 +33,7 @@
 
 
 <p><h1>포인트충전</h1></p>
-<form name="pointform" onsubmit="pointcheck()">
+<form name="pointform"  onsubmit="pointcheck()">
 <!-- radio 버튼으로 클릭된 값이 on 으로 넘어감 -->
 <table>
 	<tr class="hr" height="20">
@@ -46,23 +41,23 @@
 	<td align="center" width="300">적립혜택</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" id="1000">1,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="1000">1,000원</td>
 	<td width="300">1,000P</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" id="5000">5,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="6000">5,000원</td>
 	<td align="left" width="300">5,000P + 1,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" id="10000">10,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="12000">10,000원</td>
 	<td align="left" width="300">10,000P + 2,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" id="50000">50,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="56000">50,000원</td>
 	<td align="left" width="300">50,000P + 6,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" id="100000">100,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="120000">100,000원</td>
 	<td align="left" width="300">100,000P + 20,000P 추가적립</td>
 	</tr>
 	<tr>

@@ -10,13 +10,13 @@ import Pay.PaymentDBBean;
 import Pay.PointmentDataBean;
 import controller.CommandAction;
 
-public class PaymentAction implements CommandAction{
+public class PointmentAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
 		
 		
-		return "/pointcharge/payment.jsp";
+		return "/pointcharge/pointment.jsp";
 	}
 
 }

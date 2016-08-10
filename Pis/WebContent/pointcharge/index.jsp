@@ -5,9 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<%
-		response.sendRedirect("/semi/Point.do");
+		response.sendRedirect("/Pis/pointcharge/Point.do");
 	%>
 </body>
 </html>
