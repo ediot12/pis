@@ -3,8 +3,6 @@ package mvc.pis;
 import java.sql.Timestamp;
 
 public class PisDataBean {
-	
-	
 	private int num;
 	private String writer;
 	private int readcount;

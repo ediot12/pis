@@ -9,9 +9,7 @@ import mvc.pis.*;
 public class UpdateProAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
-		
-		
-		
+	
 		String pageNum = request.getParameter("pageNum");
 		PisDataBean article = new PisDataBean();
 		article.setNum(Integer.parseInt(request.getParameter("num")));

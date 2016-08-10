@@ -8,7 +8,6 @@ import mvc.pis.PisDataBean;
 
 public class PisDBBean {
 	
-	
 	private static PisDBBean instance = new PisDBBean();
 
 	public static PisDBBean getInstance() {
