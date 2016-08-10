@@ -6,31 +6,31 @@
 <head>
 <title></title>
 <style>
-	.parktable{
+	.table{
 		width:1100px;
 		text-align: center;
 		margin : 20;
 		border-color: #31A0B4;
 	}
-	.parktitle{
+	.title{
 		font-size:30px;
 		text-align: left;
 		height: 40px;
 	}
-	.parktitle .parkbutton{
+	.title .button{
 		float: right;
 	}
-	.parkbutton{
+	.button{
 		background:#31A0B4;
 		color:#FFFFFF;
 		margin : 0 2;
 		padding: 5;
 	}
-	.carparkcolor td{
+	.color td{
 		background:#31A0B4;
 		color:#FFFFFF;
 	}
-	.parktable tr{
+	.table tr{
 		height: 35px;
 		font-size:13;
 	}
@@ -39,23 +39,14 @@
 <body>
 	<center>
 	<b>- 전체 주차장 :${count} -</b>
-	<div class="parktitle">
-		<form>
-		<b>주차장관리</b>
-			<select name="searchn">
-			<option value="0">주차장이름</option>
-			<option value="1">주차장주소</option>
-			</select>
-				
-			<input type="text" name="search" size="15" maxlength="50" />
-			<input type="submit" value="검색" />
+	<div class="title">
+	<b>주차장관리</b>
 		<a href="/Pis/semi/admin/carpark/carparkInput.do">
-			<input type="button" value="주차장등록" class="parkbutton">
+			<input type="button" value="주차장등록" class="button">
 		</a>
-		</form>
 	</div>
-	<table class="parktable" border="1" cellpadding="0" cellspacing="0" >
-		<tr class="carparkcolor">
+	<table class="table" border="1" cellpadding="0" cellspacing="0" >
+		<tr class="color">
 			<td width="250px" height="30px">주차장명</td>
 			<td width="350px" height="30px">주차장 주소</td>
 			<td width="150px" height="30px">전화번호</td>
@@ -76,7 +67,6 @@
 		</tr>
 		</c:forEach>
 	</table>
-	
 		<c:if test="${count > 0}">
 			<c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
 			<c:set var="pageBlock" value="${10}"/>
@@ -88,16 +78,28 @@
 			</c:if>
 			         
 			<c:if test="${startPage > 10}">
-				<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="parkbutton"></a>
+				<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="button"></a>
 			</c:if>
 			
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
-					<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="parkbutton"></a>
+					<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="button"></a>
 				</c:forEach>
 			
 			<c:if test="${endPage < pageCount}">
-				<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="parkbutton"></a>
+				<a href="/Pis/semi/admin/carpark/carpark.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="button"></a>
 			</c:if>
 		</c:if>
+		<br>
+		<br>
+		<form>
+			<select name="searchn">
+			<option value="0">주차장이름</option>
+			<option value="1">주차장주소</option>
+			</select>
+				
+			<input type="text" name="search" size="15" maxlength="50" />
+			<input type="submit" value="검색"/>
+		</form>
+		<br>
 </body>
 </html>

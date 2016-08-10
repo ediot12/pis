@@ -116,11 +116,11 @@
 								<li><b><a href="/Pis/semi/admin/chart/month.do">월별 사용자빈도</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">게시글관리</a></b>
+						<li><b><a href="/Pis/semi/admin/board/noticeForm.do">게시글관리</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
+								<li><b><a href="/Pis/semi/admin/board/noticeForm.do">공지사항</a></b></li>
 								<li><b><a href="#">자주묻는질문관리</a></b></li>
-								<li><b><a href="#">1:1문의관리</a></b></li>
+								<li><b><a href="/Pis/semi/admin/board/question.do">1:1문의관리</a></b></li>
 								<li><b><a href="#">주차장제보관리</a></b></li>
 								<li><b><a href="#">불편신고관리</a></b></li>
 							</ul>
