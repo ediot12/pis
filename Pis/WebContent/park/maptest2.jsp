@@ -135,6 +135,8 @@ ul{
 	        infoDiv.innerHTML = result[0].fullName;
 	    }    
 	}
+	
+	
 		</script>
 		</c:if>
 		</div>

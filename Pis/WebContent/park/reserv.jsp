@@ -3,6 +3,8 @@
 <html>
 <head>
 <style>
+
+
 table {
 	border-color: #31A0B4;
 	color: #31A0B4;
