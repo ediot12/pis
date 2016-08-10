@@ -1,15 +1,10 @@
 package chart;
 
 import java.sql.*;
-import java.util.Date;
-import java.text.*;
-import javax.sql.*;
 
 import chart.ChartDataBean;
 
-import javax.naming.*;
-import java.util.*;
-
+ 
 public class ChartDBBean {
 	public static ChartDBBean instance = new ChartDBBean();
 	public static ChartDBBean getInstance(){ return instance; }
@@ -19,7 +14,7 @@ public class ChartDBBean {
 			return DriverManager.getConnection(jdbcDriver);
 	}
 	
-	//main.jsp -> 오늘 방문자 추가!!
+	//main.jsp -> 오늘 방문자 추가!! 
 	public void setVisitTotalCount(ChartDataBean article) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;

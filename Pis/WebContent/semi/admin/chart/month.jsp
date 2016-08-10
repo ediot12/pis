@@ -7,14 +7,15 @@
 <head>
 <title></title>
 <style>
-	#chart_days{
+	#chart_days{ 
 		position: absolute;
 		left : 400px;
+		z-index: -1;
 	}
 	#text{
 		font-size: 25px;
 		color: #31A0B4;
-		text-align: left;
+		text-align: left; 
 	}
 </style>
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -23,9 +24,9 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = new google.visualization.DataTable();
-         data.addColumn('string', '일');
+         data.addColumn('string', '월');
  	 	 data.addColumn('number', '방문자수');
-        
+
    		<%
    			ChartDBBean cb = ChartDBBean.getInstance();
    		
@@ -33,45 +34,24 @@
    			
    			String year = Integer.toString(cal.get(Calendar.YEAR));
 			String Month = Integer.toString(cal.get(Calendar.MONTH)+1);
-			
-   			if(Month.length()==1){Month = "0"+Month;}
-   			
-  	 		 if(Month.equals("01")||Month.equals("03")||Month.equals("05")||Month.equals("07")||Month.equals("08")||Month.equals("10")||Month.equals("12")){
 
-  	 	 		for(int i=1; i<=31; i++){
-  	 	 			String day = Integer.toString(i);
-  	 	 			if(day.length()==2){}
-  	 	 			else{day= "0"+i;}
-  	 	 			String c_date = year+"/"+Month+"/"+day;
+  	 	 		for(int i=1; i<=12; i++){
+  	 	 			String mon = Integer.toString(i);
+  	 	 			
+  	 	 			if(mon.length()==2){}
+  	 	 			else{mon="0"+i;}
+  	 	 			
+  	 	 			String c_date = year+"/"+mon;
+  	 	 			
 	  	 	 	%>
 	   		 		data.addRows([             
-	         			['<%=i %>', <%=cb.Chart_days(c_date)%>]           
+	         			['<%= i %>', <%=cb.Chart_mon(c_date)%>]           
 	         		]);
-  	 	 	<% }} else if(Month.equals("04")||Month.equals("06")||Month.equals("09")||Month.equals("11")){
-  	 			for(int i=1; i<=30; i++){
-  	 				String day = Integer.toString(i);
-  	 				if(day.length()==2){}
-  	 	 			else{day= "0"+i;}
-  	 				String c_date = year+"/"+Month+"/"+i;
-	  	 	 	%>
-	   		 		data.addRows([             
-	         			[<%=i %>, <%=cb.Chart_days(c_date)%>]
-	         		]);
-	   		<%}} else {
-  	 			for(int i=1; i<=28; i++){
-  	 				String day = Integer.toString(i);
-  	 				if(day.length()==2){}
-  	 	 			else{day= "0"+i;}
-  	 				String c_date = year+"/"+Month+"/"+i;
-	  	 	 	%>
-	   		 		data.addRows([             
-	         			[<%=i %>, <%=cb.Chart_days(c_date)%>]           
-	         		]);
-	   		<% } } %>
+  	 	 	<% }%>
         var options = {
           chart: {
-            title: '일별 방문자수',
-            subtitle: '월 :'+<%=Month%>+'월'
+            title: '월별 방문자수',
+            subtitle: '년도 :'+<%=year%>+"년",
           }
         };
 
@@ -81,11 +61,9 @@
       }
     </script>
   </head>
-  <body>
-  
   	<br><br>
   	<div id="text">
-		<b>일별 방문자수</b>
+		<b>월별 방문자수</b>
 	</div>
 	<br><br>
     <div id="chart_days" style="width: 1150px; height: 500px;"></div>
