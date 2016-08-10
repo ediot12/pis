@@ -10,7 +10,7 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Parking.CommandAction;
+import controller.CommandAction;
 import Parking.SearchInfoBean;
 
 public class InsertReservAction implements CommandAction {
