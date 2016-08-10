@@ -10,6 +10,7 @@ public class WriteFormAction implements CommandAction{
 			throws Throwable{
 		
 		
+		
 				int num=0;
 				try{
 					if(request.getParameter("num")!=null){

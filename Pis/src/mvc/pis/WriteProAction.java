@@ -12,6 +12,7 @@ import mvc.pis.PisDBBean;
 public class WriteProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
+		
 		request.setCharacterEncoding("utf-8"); //한글 인코딩
 		
 		PisDataBean article = new PisDataBean();//데이터 처리 빈

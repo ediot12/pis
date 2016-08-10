@@ -11,6 +11,7 @@ public class UpdateProAction implements CommandAction{
 			throws Throwable{
 		
 		
+		
 		String pageNum = request.getParameter("pageNum");
 		PisDataBean article = new PisDataBean();
 		article.setNum(Integer.parseInt(request.getParameter("num")));
