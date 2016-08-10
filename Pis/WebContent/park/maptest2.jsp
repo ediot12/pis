@@ -3,7 +3,7 @@
 <html>
 <head>
 <script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
+		src="//apis.daum.net/maps/maps3.js?apikey=695ba71a42e2ca4d5170303619a2f56a&libraries=services"></script>
 <style>
 div#right {
 	position : fixed;
@@ -144,8 +144,8 @@ ul{
 		<form name="test" method="post" action="test.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
-				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free'">
-				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge'">
+				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free&result=${result}'">
+				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge&result=${result}'">
 				
 		</form>
 		<br>
@@ -253,7 +253,9 @@ ul{
 				<ul>
 					<li>서울특별시 ${search.addr }</li>
 					<li>${search.parking_name }</li>
+					<c:if test="${search.tel!=null }">
 					<li>${search.tel }</li>
+					</c:if>
 					<input type="button" value="ㄱㄱ"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
