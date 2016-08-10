@@ -6,35 +6,160 @@
 		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
 <style>
 div#right {
+	position : fixed;
 	float: right;
-	position: absolute;
 	top: 5px;
 	right: 0px;
-	width: 300px;
+	width: 20%;
+	color : #31A0B4;
+	font-size: 9pt;
+	text-align: center;
+	
+}
+
+#res{
+	overflow-y: scroll;
+}
+
+div#left{
+	
+	float : left;
+	top: 5px;
+	left : 0px;
+	width : 20%;
+	color : #31A0B4;
+	font-size: 9pt;
+	text-align: center;
+}
+
+div#map {
+	position : fixed;
+	top: 5px;
+	left : 20%;
+	width : 60%;
+	height : 100%;
+}
+
+table{
 	font-size: 9pt;
 }
+
+table.search td#main{
+	
+	text-align: center;
+}
+
+.title {font-weight:bold;display:block;}
+    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
+    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 
 ul{
 	color : #31A0B4;
 }
 
-div#left{
-	
-}
-div#map {
-	float: center;
-	position: absolute;
-	top: 5px;
-	right: 350px;
-}
 </style>
-<title></title>
+<title>Parking Information Service</title>
 <body>
-	<div id="map" style="width: 700px; height: 700px;"></div>
-	<div id="right">
-
+<div id="map">
+		<c:if test="${result==null }">
+		<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new daum.maps.LatLng(37.56629305031, 126.97988661), // 지도의 중심좌표
+	        level: 7 // 지도의 확대 레벨
+	    };  
+	
+	// 지도를 생성합니다    
+	var map = new daum.maps.Map(mapContainer, mapOption); 
+	
+	var mapTypeControl = new daum.maps.MapTypeControl();
+	
+	//지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	//daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+	
+	//지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	var zoomControl = new daum.maps.ZoomControl();
+	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+	
+	// 주소-좌표 변환 객체를 생성합니다
+	var geocoder = new daum.maps.services.Geocoder();
+	
+	var marker = new daum.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+	    infowindow = new daum.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+	
+	
+	// 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
+	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+	    searchDetailAddrFromCoords(mouseEvent.latLng, function(status, result) {
+	        if (status === daum.maps.services.Status.OK) {
+	            var detailAddr = !!result[0].roadAddress.name ? '<div>도로명주소 : ' + result[0].roadAddress.name + '</div>' : '';
+	            detailAddr += '<div>지번 주소 : ' + result[0].jibunAddress.name + '</div>';
+	            
+	            var content = '<div class="bAddr">' +
+	                            '<span class="title">법정동 주소정보</span>' + 
+	                            detailAddr + 
+	                        '</div>';
+	
+	            // 마커를 클릭한 위치에 표시합니다 
+	            marker.setPosition(mouseEvent.latLng);
+	            marker.setMap(map);
+	
+	            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+	            infowindow.setContent(content);
+	            infowindow.open(map, marker);
+	        }   
+	    });
+	});
+	
+	// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
+	daum.maps.event.addListener(map, 'idle', function() {
+	    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+	});
+	
+	function searchAddrFromCoords(coords, callback) {
+	    // 좌표로 행정동 주소 정보를 요청합니다
+	    geocoder.coord2addr(coords, callback);         
+	}
+	
+	function searchDetailAddrFromCoords(coords, callback) {
+	    // 좌표로 법정동 상세 주소 정보를 요청합니다
+	    geocoder.coord2detailaddr(coords, callback);
+	}
+	
+	// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+	function displayCenterInfo(status, result) {
+	    if (status === daum.maps.services.Status.OK) {
+	        var infoDiv = document.getElementById('centerAddr');
+	        infoDiv.innerHTML = result[0].fullName;
+	    }    
+	}
+		</script>
+		</c:if>
+		</div>
+		<div id="left">
+		<form name="test" method="post" action="test.do">
+			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
+				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
+				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free'">
+				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge'">
+				
+		</form>
+		<br>
+		
+		
+	<div id="res">
+	<table class="search">
+	
+		<tr>
+		<td id="main">검색 결과</td>
+		</tr>
 		<c:if test="${result!=null }">
 			<c:forEach var="search" items="${search }" begin="0" end="${count }" varStatus="abc">
+			
+		<tr>
+		<td>
 				<script>
 				var check = ${count};
 				var lat = ${search.lat};
@@ -49,6 +174,7 @@ div#map {
 				var fweekd_et = new String('${search.weekday_end_time}');
 				var fweeke_bt = new String('${search.weekend_begin_time}');
 				var fweeke_et = new String('${search.weekend_end_time}');
+				var frates = ${search.rates};
 				
 				
 				if(map==null){
@@ -61,6 +187,16 @@ div#map {
 					};
 					var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 					map.setCenter(new daum.maps.LatLng(avlat, avlng));
+					
+					var mapTypeControl = new daum.maps.MapTypeControl();
+
+					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+					// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+					var zoomControl = new daum.maps.ZoomControl();
+					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 				
 				
 				
@@ -91,19 +227,21 @@ div#map {
 				});//마커 찍게 하는거
 				
 				
-				daum.maps.event.addListener(marker, 'click', (function(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et) {
+				daum.maps.event.addListener(marker, 'click', (function(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates) {
                     return function() {
                         var infowindow = new daum.maps.InfoWindow({
                             content: '<div style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
                             '<br>전화번호 : '+ftel+
                             '<br>남은대수 : '+fcapa+
                             '<br>평일운영시간 :'+fweekd_bt+'~'+fweekd_et+
-                            '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+'</div>',
+                            '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+
+                            '<br>기본요금 : 10분/'+frates+'원'+
+                            '</div>',
                             removable : true
                         });
                       infowindow.open(map, marker);
                     }
-                })(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et));
+                })(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates));
 				
 				
 				
@@ -115,51 +253,54 @@ div#map {
 					<li>${search.parking_name }</li>
 					<li>${search.tel }</li>
 					<input type="button" value="ㄱㄱ"
-						onclick="getValue('${search.lat}','${search.lng}','${search.addr }','${search.parking_name }','${search.tel }','${search.capacity2 }','${search.parking_type_nm }')">
+						onclick="getValue('${search.lat}',
+						'${search.lng}','${search.addr }','${search.parking_name }',
+						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }')">
 				</ul>
+				
 				<hr>
+				</td>
+				</tr>
 
 			</c:forEach>
 
-
-
-		</c:if>
-
-
-
-	</div>
-	<p id="result"></p>
+			</c:if>
+			
+		</table>
+		</div>
+		</div>
+		<div id="right">
+		
+		<form name="reserv" method="post" action="reserv.do">
+			주소 : <input type="text" name="addr" id="addr" readonly="readonly"><br> 이름 : <input type="text"
+				name="parking_name" id="parking_name" readonly="readonly"><br>
+			전번 : <input type="text" name="tel" id="tel" readonly="readonly"><br>
+			<div id=capacity></div>
+			<div id=parking_type_nm></div>
+			<div id=rates></div>
+			<input type="submit" value="예약하기">
+		</form>
 
 	
-	<script>
+		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
+		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
+
+
+
+		</div>
+		
+		<script>
 	
 		
-		function getValue() {
-/* 
-			var lat = document.getElementById('lat');
-			var lng = document.getElementById('lng'); */
 
-			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
-					parseFloat(lng)));
-/* 
-			var marker = new daum.maps.Marker({
-				map : map,
-				position : new daum.maps.LatLng(parseFloat(lat.value),
-						parseFloat(lng.value))
-			});//마커 찍게 하는거
-
-			map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); */
-
-		}
-
-		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm) {
+		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates) {
 
 			/* var lat = document.getElementById('lat');
 			var lng = document.getElementById('lng'); */
 			
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng)));
-			alert('여기');
+			
 			var seoul = '서울특별시 ';
 			/* map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); */
 			document.getElementById('addr').value = seoul + addr;
@@ -167,6 +308,7 @@ div#map {
 			document.getElementById('tel').value = tel;
 			document.getElementById('capacity').innerHTML = '남은주차대수 : ' + capacity;
 			document.getElementById('parking_type_nm').innerHTML = '주차장종류 : ' + parking_type_nm;
+			document.getElementById('rates').innerHTML = '기본요금 : 10분 /'+ rates+'원';
 
 		}
 
@@ -230,10 +372,8 @@ div#map {
 
 				// 지도를 생성합니다 
 			
-					alert('hd');
 					var locPosition = new daum.maps.LatLng(lat, lon);
 					map.setCenter(new daum.maps.LatLng(lat, lon));
-					alert('오냐');
 					/* var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					mapOption = {
 						center : new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
@@ -328,26 +468,8 @@ div#map {
 			
 			
 		}
-	</script>
-
-	<div id="left">
-		<form name="test" method="post" action="test.do">
-			P.I.S <input type="text" name="addr"> <input type="submit"
-				value="검색"><br>
-		</form>
-		<br>
-		<form name="reserv" method="post" action="reserv.do">
-			주소 : <input type="text" name="addr" id="addr" readonly="readonly"><br> 이름 : <input type="text"
-				name="parking_name" id="parking_name" readonly="readonly"><br>
-			전번 : <input type="text" name="tel" id="tel" readonly="readonly"><br>
-			<div id=capacity></div>
-			<div id=parking_type_nm></div>
-			<input type="submit" value="예약하기">
-		</form>
-
+		</script>
+		
 	
-		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
-		<input type="text" id="loc" value="클릭하면 너의 위치가 표시되노라" size="30" readonly="readonly">
-	</div>
 </body>
 </html>

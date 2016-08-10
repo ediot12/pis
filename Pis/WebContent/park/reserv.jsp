@@ -44,13 +44,14 @@ table {
 						<td><input type="text" readonly></td>
 					</tr>
 					<tr>
-						<td>주차장위치</td>
+						<td>주차장이름</td>
 						<td><input type="text" readonly
 							value="${vecList.parking_name }" size="30"></td>
 					</tr>
 					<tr>
-						<td>이름</td>
-						<td><input type="text" readonly></td>
+						<td>주차장위치</td>
+						<td><input type="text" readonly
+							value="서울특별시 ${vecList.addr }" size="30"></td>
 					</tr>
 					<tr>
 						<td>차종</td>
@@ -62,6 +63,11 @@ table {
 						<td>이용 날짜</td>
 						<td><input type="text" id="calendar" name="calendar"></td>
 					</tr>
+					<tr>
+					<td>도착 예정 시간</td>
+					<td></td>
+					</tr>
+					
 
 
 
