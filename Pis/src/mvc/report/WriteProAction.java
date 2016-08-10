@@ -13,6 +13,7 @@ public class WriteProAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 		
+		
 		request.setCharacterEncoding("utf-8");
 		
 		ReportDataBean article = new ReportDataBean();
