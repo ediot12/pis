@@ -8,7 +8,8 @@ import controller.CommandAction;
 public class PaymentFormAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		// TODO Auto-generated method stub
+		String point = (String)request.getAttribute("point");
+		
 		return "/pointcharge/paymentForm.jsp";
 	}
 
