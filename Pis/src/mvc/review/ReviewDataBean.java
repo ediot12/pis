@@ -3,6 +3,7 @@ package mvc.review;
 import java.sql.Timestamp;
 
 public class ReviewDataBean {
+	
 	private int num;
 	private String writer;
 	private String subject;

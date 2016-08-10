@@ -12,6 +12,7 @@ public class MainFormAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 		
+		
 		SimpleDateFormat sd =
 		        new SimpleDateFormat("yyyy-MM-dd");
 		

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.CommandAction;
 
 public class WriteProAction implements CommandAction{
+	
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 		
