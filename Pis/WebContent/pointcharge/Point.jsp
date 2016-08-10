@@ -8,7 +8,7 @@
 
 <script>
 
-
+ 
 // 	radio버튼에서 선택된 값 체크하는 함수 
 	function pointcheck(){
 		if(!document.pointform.point.value){	// 선택된 값이 없을때

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+ 
 <body>
 
 <form name=reservation  method=post action="/Pis/pointcharge/paymentForm.do">

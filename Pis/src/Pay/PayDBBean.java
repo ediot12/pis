@@ -13,7 +13,7 @@ public class PayDBBean {
 	private Connection getConnection() throws Exception{
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
-	}
+	} 
 	
 //	결제 내역 db에 저장
 	public void InsertPAY(PayDataBean article) throws Exception {

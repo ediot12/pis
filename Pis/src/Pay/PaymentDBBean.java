@@ -14,7 +14,7 @@ public class PaymentDBBean {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
 	}
-	
+	 
 //	결제 내역 db에 저장
 	public void Insertpayment(PaymentDataBean article) throws Exception {
 		Connection conn = null;

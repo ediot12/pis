@@ -14,7 +14,7 @@ public class PointmentDBBean {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
 	}
-	
+	 
 //	point결제  db에 저장
 	public void InsertPoint(PointmentDataBean article) throws Exception {
 		Connection conn = null;

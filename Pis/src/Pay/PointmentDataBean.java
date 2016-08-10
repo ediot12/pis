@@ -10,7 +10,7 @@ public class PointmentDataBean {
 	public void setPay_type(String pay_type) {
 		this.pay_type = pay_type;
 	}
-	public String getId() {
+	public String getId() { 
 		return id;
 	}
 	public void setId(String id) {
