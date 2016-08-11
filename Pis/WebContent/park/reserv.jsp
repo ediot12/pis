@@ -34,7 +34,7 @@ table {
 <body>
 
 	<center>
-		<form method="post" name="insert">
+		<form method="post" name="insert" action="../pointcharge/Point.do">
 			<table border="1">
 				<c:forEach var="vecList" items="${reserv }" begin="0">
 					<tr>
