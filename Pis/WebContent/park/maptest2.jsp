@@ -3,7 +3,7 @@
 <html>
 <head>
 <script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=695ba71a42e2ca4d5170303619a2f56a&libraries=services"></script>
+		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script>
 	$(function(){
@@ -112,9 +112,9 @@
 		clear:both;
 	}
 	div#right {
-	position : absolute;
+	position : relative;
 	float: right;
-	top: 30%;
+	top: 24%;
 	right: 0px;
 	width: 20%;
 	color : #31A0B4;
@@ -123,7 +123,7 @@
 	
 }
 #res{
-
+	margin-left : 15%;
 	width : 100%;
 	height : 90%;
 	text-align: center;
@@ -132,9 +132,10 @@
 div#left{
 	position : relative;
 	float : left;
-	top: 20%;
+	top: 24%;
 	left : 0px;
 	width : 20%;
+	height : 90%;
 	color : #31A0B4;
 	font-size: 9pt;
 	text-align: center;
@@ -145,7 +146,8 @@ div#map {
 	top: 30%;
 	left : 20%;
 	width : 60%;
-	height : 100%;
+	height : 90%;
+	background-color: silver;
 }
 table{
 	font-size: 9pt;
@@ -428,7 +430,7 @@ ul#list li{
 		</script>
 		</c:if>
 		</div>
-		<div id="left" style="overflow: auto;">
+		<div id="left" style="overflow-y: auto; overflow-x:hidden ">
 		<form name="test" method="post" action="test.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
@@ -539,11 +541,11 @@ ul#list li{
 				
 				</script>
 				<ul id="list">
-					<li>- 서울특별시 ${search.addr }</li>
-					<li>- ${search.parking_name }</li>
+					<li>서울특별시 ${search.addr }</li>
+					<li>${search.parking_name }</li>
 					<c:if test="${search.tel!=null }">
-					<li>- ${search.tel }</li>
-					</c:if>&nbsp;
+					<li>${search.tel }</li>
+					</c:if>
 					<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
@@ -572,7 +574,9 @@ ul#list li{
 			<div id=rates></div>
 			<input type="submit" value="예약하기">
 		</form>
-
+		<br>
+		<br>
+		<br>
 	
 		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
 		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
