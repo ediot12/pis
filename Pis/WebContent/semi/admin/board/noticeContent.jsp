@@ -25,6 +25,9 @@
 		background:#31A0B4;
 		color:#FFFFFF;
 	}
+	.colorblack{
+		color:#000000;
+	}
 </style>
 </head>
 
@@ -36,16 +39,16 @@
 	</div>
 <br>
 <form>
-<table border="1" cellspacing="0" cellpadding="0" align="center"> 
+<table border="1" cellspacing="0" cellpadding="0" align="center" class="table"> 
   <tr height="30">
     <td align="center" width="200" class="color">글제목</td>
-    <td align="center" width="650" align="center">${bdb.subject}</td>
+    <td align="center" width="650" align="center" class="colorblack">${bdb.subject}</td>
     <td align="center" width="200" class="color">조회수</td>
-    <td align="center" width="100" align="center">${bdb.readcount}</td>
+    <td align="center" width="100" align="center" class="colorblack">${bdb.readcount}</td>
   </tr>
   <tr>
     <td align="center" width="200" height="450" class="color">글내용</td>
-    <td align="left" colspan="3" width="950"><pre>${bdb.content}</pre></td>
+    <td align="left" colspan="3" width="950" class="colorblack" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">${bdb.content}</pre></td>
   </tr>
 </table>
 <br>

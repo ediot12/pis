@@ -34,6 +34,9 @@
 		height: 35px;
 		font-size:13;
 	}
+	.colorblack{
+		color:#000000;
+	}
 </style>
 </head>
 <body>
@@ -57,13 +60,13 @@
 		</tr>
 		<c:forEach var="parkList" items="${parkList}">
 		<tr>
-			<td width="250px">${parkList.parking_name}</td>
-			<td width="350px">${parkList.addr}</td>
-			<td width="150px">${parkList.tel}</td>
-			<td width="50px">${parkList.weekday_begin_time}~${parkList.weekday_end_time}</td>
-			<td width="50px">${parkList.weekend_begin_time}~${parkList.weekend_end_time}</td>
-			<td width="130px">${parkList.operation_rule_nm}</td>
-			<td width="20px">${parkList.capacity2}</td>
+			<td width="250px" class="colorblack">${parkList.parking_name}</td>
+			<td width="350px" class="colorblack">${parkList.addr}</td>
+			<td width="150px" class="colorblack">${parkList.tel}</td>
+			<td width="50px" class="colorblack">${parkList.weekday_begin_time}~${parkList.weekday_end_time}</td>
+			<td width="50px" class="colorblack">${parkList.weekend_begin_time}~${parkList.weekend_end_time}</td>
+			<td width="130px" class="colorblack">${parkList.operation_rule_nm}</td>
+			<td width="20px" class="colorblack">${parkList.capacity2}</td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -98,7 +101,7 @@
 			</select>
 				
 			<input type="text" name="search" size="15" maxlength="50" />
-			<input type="submit" value="검색"/>
+			<input type="submit" value="검색" class="button"/>
 		</form>
 		<br>
 </body>
