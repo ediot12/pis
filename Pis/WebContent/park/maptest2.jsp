@@ -539,6 +539,8 @@ ul#list li{
 				
 				
 				
+				
+				
 				</script>
 				<ul id="list">
 					<li>서울특별시 ${search.addr }</li>
