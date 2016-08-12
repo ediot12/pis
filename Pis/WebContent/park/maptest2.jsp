@@ -3,12 +3,118 @@
 <html>
 <head>
 <script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
-<style>
-div#right {
-	position : fixed;
+		src="//apis.daum.net/maps/maps3.js?apikey=695ba71a42e2ca4d5170303619a2f56a&libraries=services"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+	$(function(){
+		$("ul.menu li").hover(function(){
+			$(">ul:not(:animated)",this).slideDown("fast");
+		},
+		function(){
+			$(">ul",this).slideUp("fast");
+		});
+	});
+	
+	function selectCheck(){
+		if(document.reserv.addr.value==''){
+			alert('선택을 하지 않았습니다.');
+			return false;
+		}
+	}
+</script>
+<style type="text/css">
+#logo{ 
+		padding : 0;
+		margin : 0 auto;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+	}
+	#one{
+		padding : 0; 
+		margin : 0 auto;
+		position: absolute;
+		right: 20px;
+		top: 1px;
+	}
+	#one > ul{
+		list-style:none;
+		padding:10px 0;
+	}
+	#one > ul > li{
+		display:inline;
+		text-transform:uppercase;
+		padding:0 10px;
+		color:#31A0B4;
+	}
+	#one > ul > li > a{
+		text-decoration:none;
+		color:#31A0B4;
+	}
+	#one > ul > li > a:hover{
+		text-decoration:underline;
+	}
+	#container{
+		position : relative;
+		top : 20%;
+		border-top: 4px solid #31A0B4; 
+		border-bottom: 4px solid #31A0B4;
+		height:50px;
+		z-index: 2;
+	}
+	#textline{
+		display: table; margin-left: auto; margin-right: auto; 
+	}
+	*{
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}
+	ul.menu li{
+		float:left;
+		width:179px;
+		height:48px;
+		position:relative;
+		
+	}
+	ul.menu li a{
+		display:block;
+		width:100%;
+		height:100%;
+		line-height:48px;
+		text-indent:30px;
+		font-weight:bold;
+		color:#31A0B4;
+		text-decoration:none;
+		position:relative;
+	}
+	ul.sub{
+		display:none;
+		background: #FFFFFF;
+		border: 2px solid #31A0B4;
+	}
+	ul.sub li{
+		float:none;
+	}
+	ul.sub li ul.sub{
+		position:absolute;
+		left:179px;
+		top:0;
+	}
+	ul.menu{
+		zoom:1;
+	}
+	ul.menu:after {
+		height:0;
+		visibility:hidden;
+		content:".";
+		display:block;
+		clear:both;
+	}
+	div#right {
+	position : absolute;
 	float: right;
-	top: 5px;
+	top: 30%;
 	right: 0px;
 	width: 20%;
 	color : #31A0B4;
@@ -16,51 +122,233 @@ div#right {
 	text-align: center;
 	
 }
-
 #res{
-	overflow-y: scroll;
-}
 
-div#left{
+	width : 100%;
+	height : 90%;
+	text-align: center;
 	
+}
+div#left{
+	position : relative;
 	float : left;
-	top: 5px;
+	top: 20%;
 	left : 0px;
 	width : 20%;
 	color : #31A0B4;
 	font-size: 9pt;
 	text-align: center;
+	
 }
-
 div#map {
-	position : fixed;
-	top: 5px;
+	position : absolute;
+	top: 30%;
 	left : 20%;
 	width : 60%;
 	height : 100%;
 }
-
 table{
 	font-size: 9pt;
 }
-
 table.search td#main{
-	
+	width : 230px;
 	text-align: center;
 }
-
 .title {font-weight:bold;display:block;}
     .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-
-ul{
+    
+ul#list li{
 	color : #31A0B4;
+	text-align: left;
+	list-style-type: square;
 }
 
+	#footer{
+			margin-top : 60%;
+			border-top: 4px solid #31A0B4; 
+			text-align: center;
+			color : #31A0B4;
+			
+		}
 </style>
-<title>Parking Information Service</title>
+<title>PIS(주차장안내시스템)</title>
 <body>
+<div id="logo">
+			<a href="index.jsp">
+	    		<img alt="로고" src="/Pis/semi/image/logo.jpg" width="500px" height="90px">
+	    	</a>
+	    </div>
+	   	
+	    <nav>
+	    	<div id="one">
+	    		<c:choose>
+					<c:when test="${memId != null}">
+						<c:choose>
+							<c:when test="${memId.equals('admin')}">
+						    	<ul>
+						    		<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+						    		<li>사이트맵</li>
+						    	</ul>
+							</c:when>
+							<c:otherwise>
+								<ul>
+									<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+						    		<li>사이트맵</li>
+						    	</ul>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+					    <ul>
+					    	<li><a href="/Pis/semi/logon/loginForm.do">로그인</a></li>
+					    	<li>회원가입</li>
+					    	<li>사이트맵</li>
+					    </ul>
+			    	</c:otherwise>
+			    </c:choose>
+		    </div>
+		</nav>
+<div id="container">
+	<div id="textline">
+	<c:choose>
+		<c:when test="${memId != null}">
+			<c:choose>
+				<c:when test="${memId.equals('admin')}">	
+					<ul class="menu">
+						<li><b><a href="#">서비스</a></b>
+							<ul class="sub">
+								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="#">예약정보</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">커뮤니티</a></b>
+							<ul class="sub">
+								<li><b><a href="#">공지사항</a></b></li>
+								<li><b><a href="#">사용후기</a></b></li>
+								<li><b><a href="#">불편신고</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">고객센터</a></b>
+							<ul class="sub">
+								<li><b><a href="#">아이디찾기</a></b></li>
+								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<li><b><a href="#">환불규정</a></b></li>
+								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="#">1:1문의</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">마이페이지</a></b>
+							<ul class="sub">
+								<li><b><a href="#">회원정보수정</a></b></li>
+								<hr />
+								<li><b><a href="#">포인트충전</a></b></li>
+								<li><b><a href="#">포인트사용내역</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">회원관리</a></b></li>
+						<li><b><a href="/Pis/semi/admin/carpark/carpark.do">주차장관리</a></b>
+							<ul class="sub">
+								<li><b><a href="/Pis/semi/admin/carpark/carpark.do">주차장 관리</a></b></li>
+								<li><b><a href="#">지역별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/semi/admin/chart/days.do">일별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/semi/admin/chart/month.do">월별 사용자빈도</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="/Pis/semi/admin/board/noticeForm.do">게시글관리</a></b>
+							<ul class="sub">
+								<li><b><a href="/Pis/semi/admin/board/noticeForm.do">공지사항</a></b></li>
+								<li><b><a href="#">자주묻는질문관리</a></b></li>
+								<li><b><a href="/Pis/semi/admin/board/question.do">1:1문의관리</a></b></li>
+								<li><b><a href="#">주차장제보관리</a></b></li>
+								<li><b><a href="#">불편신고관리</a></b></li>
+							</ul>
+						</li>
+					</ul>
+				</c:when>
+				<c:otherwise>
+			   	  	<ul class="menu">
+						<li><b><a href="#">서비스</a></b>
+							<ul class="sub">
+								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="#">예약정보</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">커뮤니티</a></b>
+							<ul class="sub">
+								<li><b><a href="#">공지사항</a></b></li>
+								<li><b><a href="#">사용후기</a></b></li>
+								<li><b><a href="#">불편신고</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">고객센터</a></b>
+							<ul class="sub">
+								<li><b><a href="#">아이디찾기</a></b></li>
+								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<hr />
+								<li><b><a href="#">환불규정</a></b></li>
+								<hr />
+								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="#">1:1문의</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">마이페이지</a></b>
+							<ul class="sub">
+								<li><b><a href="#">회원정보수정</a></b></li>
+								<hr />
+								<li><b><a href="#">포인트충전</a></b></li>
+								<li><b><a href="#">포인트사용내역</a></b></li>
+							</ul>
+						</li>
+					</ul>
+			</c:otherwise>
+			</c:choose>
+		</c:when>
+		<c:otherwise>
+			<ul class="menu">
+				<li><b><a href="#">서비스</a></b>
+						<ul class="sub">
+							<li><b><a href="#">예약</a></b></li>
+							<li><b><a href="#">예약정보</a></b></li>
+						</ul>
+					</li>
+					<li><b><a href="#">커뮤니티</a></b>
+							<ul class="sub">
+								<li><b><a href="#">공지사항</a></b></li>
+								<li><b><a href="#">사용후기</a></b></li>
+								<li><b><a href="#">불편신고</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">고객센터</a></b>
+							<ul class="sub">
+								<li><b><a href="#">아이디찾기</a></b></li>
+								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<hr />
+								<li><b><a href="#">환불규정</a></b></li>
+								<hr />
+								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="#">1:1문의</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="#">마이페이지</a></b>
+							<ul class="sub">
+								<li><b><a href="/Pis/semi/logon/loginForm.do">로그인</a></b></li>
+								<li><b><a href="#">회원정보수정</a></b></li>
+								<hr />
+								<li><b><a href="#">포인트충전</a></b></li>
+								<li><b><a href="#">포인트사용내역</a></b></li>
+							</ul>
+						</li>
+					</ul>
+		</c:otherwise>
+	</c:choose>
+	</div>
+</div>
+
 <div id="map">
 		<c:if test="${result==null }">
 		<script>
@@ -140,12 +428,12 @@ ul{
 		</script>
 		</c:if>
 		</div>
-		<div id="left">
+		<div id="left" style="overflow: auto;">
 		<form name="test" method="post" action="test.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
-				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free'">
-				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge'">
+				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free&result=${result}'">
+				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge&result=${result}'">
 				
 		</form>
 		<br>
@@ -250,11 +538,13 @@ ul{
 				
 				
 				</script>
-				<ul>
-					<li>서울특별시 ${search.addr }</li>
-					<li>${search.parking_name }</li>
-					<li>${search.tel }</li>
-					<input type="button" value="ㄱㄱ"
+				<ul id="list">
+					<li>- 서울특별시 ${search.addr }</li>
+					<li>- ${search.parking_name }</li>
+					<c:if test="${search.tel!=null }">
+					<li>- ${search.tel }</li>
+					</c:if>&nbsp;
+					<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
 						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }')">
@@ -273,7 +563,7 @@ ul{
 		</div>
 		<div id="right">
 		
-		<form name="reserv" method="post" action="reserv.do">
+		<form name="reserv" method="post" action="reserv.do" onsubmit="return selectCheck()">
 			주소 : <input type="text" name="addr" id="addr" readonly="readonly"><br> 이름 : <input type="text"
 				name="parking_name" id="parking_name" readonly="readonly"><br>
 			전번 : <input type="text" name="tel" id="tel" readonly="readonly"><br>
@@ -290,6 +580,8 @@ ul{
 
 
 		</div>
+		
+		
 		
 		<script>
 	
@@ -471,6 +763,11 @@ ul{
 			
 		}
 		</script>
+		
+		<div id="footer">
+<b>PIS(Parking Information System)</b><br>
+김창배 박송이 박흥철 장찬규 주다연
+</div>
 		
 	
 </body>

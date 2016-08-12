@@ -1,41 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*" %>
 <html>
 <head>
-<style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<script src="reserv.js"></script>
+
+<%
+	Date date = new Date();
+	int hour = date.getHours();
+	int min = date.getMinutes();
 
 
-table {
-	border-color: #31A0B4;
-	color: #31A0B4;
-	width: 500px;
-	height: 500px;
-}
-</style>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-
-
-<script>
-	$(function() {
-
-		$("#calendar").datepicker();
-
-		//옵션  : 매개변수값 2번째가 옵션의 타입이며 3번째 항목은 옵션에 대한 설정 값
-		$("#calendar").datepicker("option", "dateFormat", "yy-mm-dd"); //데이터 포맷으로 날짜의 반환 타입을 지정
-		$("#calendar").datepicker("option", "showAnim", "slideDown"); //달력의 표시 형태
-
-	});
-</script>
+%>
 <title>Insert title here</title>
 </head>
 <body>
 
 	<center>
-		<form method="post" name="insert">
-			<table border="1">
+		<form method="post" name="insert" action="../pointcharge/Point.do" onsubmit="return checkPay()">
+			<table border="1" id="ok">
 				<c:forEach var="vecList" items="${reserv }" begin="0">
 					<tr>
 						<td>이름</td>
@@ -63,11 +48,40 @@ table {
 					</tr>
 					<tr>
 						<td>이용 날짜</td>
-						<td><input type="text" id="calendar" name="calendar"></td>
+						<td><input type="text" id="calendar1" name="calendar1">부터
+						<input type="text" id="calendar2" name="calendar2">까지
+						</td>
 					</tr>
 					<tr>
-					<td>도착 예정 시간</td>
-					<td></td>
+					<td>입차 예정 시간</td>
+					<td><select>
+					<%for(int i=hour;i<24;i++){ %>
+					<option><%=i %></option>
+					<%} %>
+					</select>시
+					<select>
+					<%for(int i=min;i<60;i++){ %>
+					<option><%=i %></option>
+					<%} %>
+					</select>분
+				
+					</td>
+					</tr>
+					
+					<tr>
+					<td>입차 예정 시간</td>
+					<td><select>
+					<%for(int i=0;i<24;i++){ %>
+					<option><%=i %></option>
+					<%} %>
+					</select>시
+					<select>
+					<%for(int i=0;i<60;i++){ %>
+					<option><%=i %></option>
+					<%} %>
+					</select>분
+				
+					</td>
 					</tr>
 					
 
