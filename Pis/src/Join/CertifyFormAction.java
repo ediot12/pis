@@ -14,6 +14,7 @@ public class CertifyFormAction implements CommandAction {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 	
+		
 		SendEmail sendEmail = new SendEmail();
 		CreateCode code = new CreateCode();
 /*		LogonDataBean member = new LogonDataBean();*/
