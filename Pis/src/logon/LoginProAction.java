@@ -13,7 +13,7 @@ public class LoginProAction implements CommandAction{
 
 		request.getSession().setAttribute("memId", id);
 		
-		return "/semi/logon/loginPro.jsp";
+		return "/Pis/logon/loginPro.jsp";
 	}
 
 }
