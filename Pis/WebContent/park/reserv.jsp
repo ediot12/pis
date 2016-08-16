@@ -33,12 +33,12 @@
 					<tr>
 						<td>주차장이름</td>
 						<td><input type="text" readonly
-							value="${vecList.parking_name }" size="30"></td>
+							value="${vecList.parking_name }" size="30" name="parkname"></td>
 					</tr>
 					<tr>
 						<td>주차장위치</td>
 						<td><input type="text" readonly
-							value="서울특별시 ${vecList.addr }" size="30"></td>
+							value="서울특별시 ${vecList.addr }" size="30" name="parkloca"></td>
 					</tr>
 					<tr>
 						<td>차종</td>
@@ -54,14 +54,14 @@
 					</tr>
 					<tr>
 					<td>입차 예정 시간</td>
-					<td><select>
+					<td><select name="inhour">
 					<%for(int i=hour;i<24;i++){ %>
-					<option><%=i %></option>
+					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>시
-					<select>
+					<select name="inmin">
 					<%for(int i=min;i<60;i++){ %>
-					<option><%=i %></option>
+					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>분
 				
@@ -70,14 +70,14 @@
 					
 					<tr>
 					<td>입차 예정 시간</td>
-					<td><select>
+					<td><select name="outhour">
 					<%for(int i=0;i<24;i++){ %>
-					<option><%=i %></option>
+					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>시
-					<select>
+					<select name="outmin">
 					<%for(int i=0;i<60;i++){ %>
-					<option><%=i %></option>
+					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>분
 				

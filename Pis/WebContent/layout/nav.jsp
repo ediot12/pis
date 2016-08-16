@@ -121,7 +121,7 @@
 					<ul class="menu">
 						<li><b><a href="#">서비스</a></b>
 							<ul class="sub">
-								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>
@@ -174,7 +174,7 @@
 			   	  	<ul class="menu">
 						<li><b><a href="#">서비스</a></b>
 							<ul class="sub">
-								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>

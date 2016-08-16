@@ -36,8 +36,8 @@
 <title>PIS(주차장안내시스템)</title>
 <body>
 <div id="logo">
-			<a href="index.jsp">
-	    		<img alt="로고" src="/Pis/semi/image/logo.jpg" width="500px" height="90px">
+			<a href="/Pis/layout/main.do">
+	    		<img alt="로고" src="/Pis/image/logo.jpg" width="500px" height="90px">
 	    	</a>
 	    </div>
 	   	
@@ -48,13 +48,13 @@
 						<c:choose>
 							<c:when test="${memId.equals('admin')}">
 						    	<ul>
-						    		<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+						    		<li><a href="../Join/logout.do">로그아웃</a></li>
 						    		<li>사이트맵</li>
 						    	</ul>
 							</c:when>
 							<c:otherwise>
 								<ul>
-									<li><a href="/Pis/semi/logon/logout.do">로그아웃</a></li>
+									<li><a href="../Join/logout.do">로그아웃</a></li>
 						    		<li>사이트맵</li>
 						    	</ul>
 							</c:otherwise>
@@ -62,8 +62,8 @@
 					</c:when>
 					<c:otherwise>
 					    <ul>
-					    	<li><a href="/Pis/semi/logon/loginForm.do">로그인</a></li>
-					    	<li>회원가입</li>
+					    	<li><a href="../Join/loginForm.do">로그인</a></li>
+					    	<li><a href="../Join/inputForm.do">회원가입</a></li>
 					    	<li>사이트맵</li>
 					    </ul>
 			    	</c:otherwise>
@@ -79,7 +79,7 @@
 					<ul class="menu">
 						<li><b><a href="#">서비스</a></b>
 							<ul class="sub">
-								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>
@@ -109,19 +109,19 @@
 							</ul>
 						</li>
 						<li><b><a href="#">회원관리</a></b></li>
-						<li><b><a href="/Pis/semi/admin/carpark/carpark.do">주차장관리</a></b>
+						<li><b><a href="/Pis/admin/carpark/carpark.do">주차장관리</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/semi/admin/carpark/carpark.do">주차장 관리</a></b></li>
+								<li><b><a href="/Pis/admin/carpark/carpark.do">주차장 관리</a></b></li>
 								<li><b><a href="#">지역별 사용자빈도</a></b></li>
-								<li><b><a href="/Pis/semi/admin/chart/days.do">일별 사용자빈도</a></b></li>
-								<li><b><a href="/Pis/semi/admin/chart/month.do">월별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/admin/chart/days.do">일별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/admin/chart/month.do">월별 사용자빈도</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="/Pis/semi/admin/board/noticeForm.do">게시글관리</a></b>
+						<li><b><a href="/Pis/admin/board/noticeForm.do">게시글관리</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/semi/admin/board/noticeForm.do">공지사항</a></b></li>
-								<li><b><a href="/Pis/semi/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
-								<li><b><a href="/Pis/semi/admin/board/question.do">1:1문의관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/noticeForm.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/question.do">1:1문의관리</a></b></li>
 								<li><b><a href="#">주차장제보관리</a></b></li>
 								<li><b><a href="#">불편신고관리</a></b></li>
 							</ul>
@@ -132,7 +132,7 @@
 			   	  	<ul class="menu">
 						<li><b><a href="#">서비스</a></b>
 							<ul class="sub">
-								<li><b><a href="#">예약</a></b></li>
+								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>
@@ -196,7 +196,7 @@
 						</li>
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/semi/logon/loginForm.do">로그인</a></b></li>
+								<li><b><a href="/Pis/logon/loginForm.do">로그인</a></b></li>
 								<li><b><a href="#">회원정보수정</a></b></li>
 								<hr />
 								<li><b><a href="#">포인트충전</a></b></li>
@@ -289,11 +289,11 @@
 		</c:if>
 		</div>
 		<div id="left" style="overflow-y: auto; overflow-x:hidden ">
-		<form name="test" method="post" action="test.do">
+		<form name="test" method="post" action="parkmap.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
-				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=free&result=${result}'">
-				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/test.do?paycheck=charge&result=${result}'">
+				무료<input type="radio" value="free" name="paycheck" onclick="location.href='/Pis/park/parkmap.do?paycheck=free&result=${result}'">
+				유료<input type="radio" value="charge" name="paycheck" onclick="location.href='/Pis/park/parkmap.do?paycheck=charge&result=${result}'">
 				
 		</form>
 		<br>
