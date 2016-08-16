@@ -2,7 +2,7 @@
 		xmlns="http://apache.org/xml/xmlns/jakarta/commons/jocl">
 
 	<object class="org.apache.commons.dbcp.DriverManagerConnectionFactory">
-		<string value="jdbc:oracle:thin:@192.168.20.36:1521:XE"/>
+		<string value="jdbc:oracle:thin:@192.168.20.12:1521:XE"/>
 		<string value="pis"/>
 		<string value="123123"/>
 	</object>
