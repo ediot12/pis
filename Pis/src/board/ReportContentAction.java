@@ -20,7 +20,7 @@ public class ReportContentAction implements CommandAction{
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("rdb", rdb);
 		
-		return "/semi/admin/board/reportContent.jsp";//ÇØ´ç ºä
+		return "/admin/board/reportContent.jsp";//ÇØ´ç ºä
 	}
 
 }

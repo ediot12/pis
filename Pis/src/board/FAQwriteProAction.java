@@ -24,7 +24,7 @@ public class FAQwriteProAction implements CommandAction {
 				dbpro.insertArticle(fdb);
 				
 				System.out.println();
-		return "/semi/admin/board/FAQwritePro.jsp";
+		return "/admin/board/FAQwritePro.jsp";
 	}
 
 }

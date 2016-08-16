@@ -40,7 +40,7 @@ public class CarparkInputProAction implements CommandAction{
 		CarDBBean cdb = CarDBBean.getInstance(); //DBÃ³¸®
 		cdb.setCarpark(pib);
 		
-		return "/semi/admin/carpark/carparkInputPro.jsp";
+		return "/admin/carpark/carparkInputPro.jsp";
 	}
 	
 }

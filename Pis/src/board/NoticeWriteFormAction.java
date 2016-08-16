@@ -24,7 +24,7 @@ public class NoticeWriteFormAction implements CommandAction {
 		//해당 뷰에서 사용할 속성
 		request.setAttribute("num", new Integer(num));
 		
-		return "/semi/admin/board/noticewriteForm.jsp";
+		return "/admin/board/noticewriteForm.jsp";
 	}
 
 }

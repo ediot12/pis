@@ -30,7 +30,7 @@ public class QuestionContentProAction implements CommandAction{
 			request.setAttribute("content_num", content_num);
 			request.setAttribute("p_num", p_num);
 			
-		return "/semi/admin/board/questionContentPro.jsp";
+		return "/admin/board/questionContentPro.jsp";
 	}
 
 }

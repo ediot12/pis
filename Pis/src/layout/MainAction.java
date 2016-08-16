@@ -31,7 +31,7 @@ public class MainAction implements CommandAction{
 		request.getSession().setAttribute("totalCount", totalCount); // 전체 방문자 수
 		request.getSession().setAttribute("todayCount", todayCount); // 오늘 방문자 수
 		
-		return "/semi/layout/main.jsp";
+		return "/layout/main.jsp";
 	}
 	 
 } 

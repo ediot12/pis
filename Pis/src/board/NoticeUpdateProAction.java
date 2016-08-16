@@ -25,7 +25,7 @@ public class NoticeUpdateProAction implements CommandAction{
         request.setAttribute("pageNum", new Integer(pageNum));
 
         
-		return "/semi/admin/board/noticeUpdatePro.jsp";
+		return "/admin/board/noticeUpdatePro.jsp";
 	}
 
 }

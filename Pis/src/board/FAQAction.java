@@ -59,7 +59,7 @@ public class FAQAction implements CommandAction {//글내용 처리
 	    
 	    
 		
-		return "/semi/admin/board/FAQ.jsp";//해당 뷰
+		return "/admin/board/FAQ.jsp";//해당 뷰
 	}
 
 }
