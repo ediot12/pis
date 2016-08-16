@@ -28,6 +28,13 @@ public class CommentDBBean {
 			pstmt.setString(3, cdb.getCommentt());
 			pstmt.setTimestamp(4, cdb.getReg_date());
 			pstmt.executeUpdate();
+			
+			String sql = "update question set checked='답변완료' where num=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cdb.getContent_num());
+			pstmt.executeUpdate();
+			
 		}catch(Exception e){ e.printStackTrace(); }
 		finally{
 			jdbcUtil.close(pstmt);
@@ -111,6 +118,12 @@ public class CommentDBBean {
 			pstmt=conn.prepareStatement("delete from q_comment where content_num=? and comment_num=?");
 			pstmt.setInt(1, content_num);
 			pstmt.setInt(2, comment_num);
+			pstmt.executeUpdate();
+			
+			String sql = "update question set checked='' where num=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, content_num);
 			pstmt.executeUpdate();
 			
 		}catch(Exception ex){
