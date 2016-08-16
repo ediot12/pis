@@ -8,33 +8,77 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Request;
 
 public class PaymentDBBean {
 
 	
-	private Connection getConnection() throws Exception{
+	private Connection getConnection() throws Exception {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
-			return DriverManager.getConnection(jdbcDriver);
+		return DriverManager.getConnection(jdbcDriver);
 	}
-	 
-	public String requestPro(HttpServletRequest reqeust,HttpServletResponse response) throws Throwable{
-		
+
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+
+		HttpSession session = request.getSession();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
-		try{
-			conn=getConnection();
-			
-		}
-		catch(SQLException e){
+		ResultSet rs = null;
+		String name = (String) session.getAttribute("memId");
+		String phoneNum = null;
+		String parkname = request.getParameter("parkname");
+		String parkloca = request.getParameter("parkloca");
+		String carType = request.getParameter("car");
+		String beginday = request.getParameter("calendar1");
+		String outday = request.getParameter("calendar2");
+		String beginTimehour = request.getParameter("inhour");
+		String beginTimeMin = request.getParameter("inmin");
+		String outTimehour = request.getParameter("outhour");
+		String outTimemin = request.getParameter("outmin");
+
+		String beginTime = beginTimehour + "시" + beginTimeMin + "분";
+		String outTime = outTimehour + "시" + outTimemin + "분";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select phone from members where id=" + name);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				phoneNum = rs.getString(1);
+			}
+			pstmt = conn.prepareStatement("insert into reservpark values(?,?,?,?,?,?,?,?,?)");
+			pstmt.setString(1, name);
+			pstmt.setString(2, phoneNum);
+			pstmt.setString(3, parkname);
+			pstmt.setString(4, parkloca);
+			pstmt.setString(5, carType);
+			pstmt.setString(6, beginday);
+			pstmt.setString(7, outday);
+			pstmt.setString(8, beginTime);
+			pstmt.setString(9, outTime);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		
-		
-		
-		return "kk";
+
+		return "/park/paySuccess.jsp";
 	}
-	
-	
+
 }
