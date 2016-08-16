@@ -11,6 +11,18 @@ public class PaymentDataBean {
 	private String outDay;
 	private String beginTime;
 	private String outTime;
+	private int pay;
+	
+	
+	
+
+	public int getPay() {
+		return pay;
+	}
+
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
 
 	public String getName() {
 		return name;
