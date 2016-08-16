@@ -16,7 +16,7 @@ public class ReportDBBean {
 	private Connection getConnection() throws Exception{
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
-	}
+	} 
 	
 	//Report.jsp : 페이징을 위해서 전체 DB에 입력된 행의 수가 필요하다!!
 	public int getArticleCount() throws Exception{

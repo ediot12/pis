@@ -15,7 +15,7 @@ public class ReportAction implements CommandAction{
 		request.setCharacterEncoding("utf-8");
 		
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-		
+		 
 		String pageNum = request.getParameter("pageNum");
 		
 		if(pageNum == null){ pageNum = "1";}

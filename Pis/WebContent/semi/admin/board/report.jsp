@@ -15,7 +15,7 @@
 		font-size:30px;
 		text-align: left;
 		height: 40px;
-	}
+	} 
 	.title .button{
 		float: right;
 	}

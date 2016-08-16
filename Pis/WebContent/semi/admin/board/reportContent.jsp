@@ -14,7 +14,7 @@
 		font-size:30px;
 		text-align: left;
 		height: 40px;
-	}
+	} 
 	.button{
 		background:#31A0B4;
 		color:#FFFFFF;

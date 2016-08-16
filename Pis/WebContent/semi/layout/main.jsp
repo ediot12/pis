@@ -18,7 +18,7 @@
 		position: relative;
 		z-index: -1;
 	}
-	.maintext{
+	.maintext{ 
 		background: #31A0B4;
 		color : #FFFFFF;
 		font-size: 11px;
