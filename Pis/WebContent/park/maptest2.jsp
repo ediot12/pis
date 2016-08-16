@@ -2,10 +2,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+<link rel="stylesheet" href="park.css">
 <script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=695ba71a42e2ca4d5170303619a2f56a&libraries=services"></script>
+		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
+		$(document).ready(function(){
+		    $("div#markin").click(function(){
+		        alert("The paragraph was clicked.");
+		    });
+		});
 	$(function(){
 		$("ul.menu li").hover(function(){
 			$(">ul:not(:animated)",this).slideDown("fast");
@@ -21,158 +28,11 @@
 			return false;
 		}
 	}
+
+	
+	
 </script>
-<style type="text/css">
-#logo{ 
-		padding : 0;
-		margin : 0 auto;
-		position: absolute;
-		top: 20px;
-		left: 20px;
-	}
-	#one{
-		padding : 0; 
-		margin : 0 auto;
-		position: absolute;
-		right: 20px;
-		top: 1px;
-	}
-	#one > ul{
-		list-style:none;
-		padding:10px 0;
-	}
-	#one > ul > li{
-		display:inline;
-		text-transform:uppercase;
-		padding:0 10px;
-		color:#31A0B4;
-	}
-	#one > ul > li > a{
-		text-decoration:none;
-		color:#31A0B4;
-	}
-	#one > ul > li > a:hover{
-		text-decoration:underline;
-	}
-	#container{
-		position : relative;
-		top : 20%;
-		border-top: 4px solid #31A0B4; 
-		border-bottom: 4px solid #31A0B4;
-		height:50px;
-		z-index: 2;
-	}
-	#textline{
-		display: table; margin-left: auto; margin-right: auto; 
-	}
-	*{
-		margin:0;
-		padding:0;
-		list-style-type:none;
-	}
-	ul.menu li{
-		float:left;
-		width:179px;
-		height:48px;
-		position:relative;
-		
-	}
-	ul.menu li a{
-		display:block;
-		width:100%;
-		height:100%;
-		line-height:48px;
-		text-indent:30px;
-		font-weight:bold;
-		color:#31A0B4;
-		text-decoration:none;
-		position:relative;
-	}
-	ul.sub{
-		display:none;
-		background: #FFFFFF;
-		border: 2px solid #31A0B4;
-	}
-	ul.sub li{
-		float:none;
-	}
-	ul.sub li ul.sub{
-		position:absolute;
-		left:179px;
-		top:0;
-	}
-	ul.menu{
-		zoom:1;
-	}
-	ul.menu:after {
-		height:0;
-		visibility:hidden;
-		content:".";
-		display:block;
-		clear:both;
-	}
-	div#right {
-	position : absolute;
-	float: right;
-	top: 30%;
-	right: 0px;
-	width: 20%;
-	color : #31A0B4;
-	font-size: 9pt;
-	text-align: center;
-	
-}
-#res{
 
-	width : 100%;
-	height : 90%;
-	text-align: center;
-	
-}
-div#left{
-	position : relative;
-	float : left;
-	top: 20%;
-	left : 0px;
-	width : 20%;
-	color : #31A0B4;
-	font-size: 9pt;
-	text-align: center;
-	
-}
-div#map {
-	position : absolute;
-	top: 30%;
-	left : 20%;
-	width : 60%;
-	height : 100%;
-}
-table{
-	font-size: 9pt;
-}
-table.search td#main{
-	width : 230px;
-	text-align: center;
-}
-.title {font-weight:bold;display:block;}
-    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
-    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
-    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-    
-ul#list li{
-	color : #31A0B4;
-	text-align: left;
-	list-style-type: square;
-}
-
-	#footer{
-			margin-top : 60%;
-			border-top: 4px solid #31A0B4; 
-			text-align: center;
-			color : #31A0B4;
-			
-		}
-</style>
 <title>PIS(주차장안내시스템)</title>
 <body>
 <div id="logo">
@@ -260,7 +120,7 @@ ul#list li{
 						<li><b><a href="/Pis/semi/admin/board/noticeForm.do">게시글관리</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/semi/admin/board/noticeForm.do">공지사항</a></b></li>
-								<li><b><a href="#">자주묻는질문관리</a></b></li>
+								<li><b><a href="/Pis/semi/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
 								<li><b><a href="/Pis/semi/admin/board/question.do">1:1문의관리</a></b></li>
 								<li><b><a href="#">주차장제보관리</a></b></li>
 								<li><b><a href="#">불편신고관리</a></b></li>
@@ -428,7 +288,7 @@ ul#list li{
 		</script>
 		</c:if>
 		</div>
-		<div id="left" style="overflow: auto;">
+		<div id="left" style="overflow-y: auto; overflow-x:hidden ">
 		<form name="test" method="post" action="test.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
@@ -468,7 +328,6 @@ ul#list li{
 				
 				
 				if(map==null){
-					
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					mapOption = {
 						center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -517,21 +376,33 @@ ul#list li{
 				});//마커 찍게 하는거
 				
 				
-				daum.maps.event.addListener(marker, 'click', (function(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates) {
+				var fInfo = new daum.maps.InfoWindow({
+                    content: '<div id="markin" style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
+                    '<br>전화번호 : '+ftel+
+                    '<br>남은대수 : '+fcapa+
+                    '<br>평일운영시간 :'+fweekd_bt+'~'+fweekd_et+
+                    '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+
+                    '<br>기본요금 : 10분/'+frates+'원'+
+                    '</div>',
+                    removable : true
+                });
+				
+				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates) {
                     return function() {
-                        var infowindow = new daum.maps.InfoWindow({
-                            content: '<div style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
-                            '<br>전화번호 : '+ftel+
-                            '<br>남은대수 : '+fcapa+
-                            '<br>평일운영시간 :'+fweekd_bt+'~'+fweekd_et+
-                            '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+
-                            '<br>기본요금 : 10분/'+frates+'원'+
-                            '</div>',
-                            removable : true
-                        });
+                        var infowindow = fInfo
                       infowindow.open(map, marker);
                     }
-                })(marker, fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates));
+                })(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates));
+				
+				daum.maps.event.addListener(map,'click',(function(fInfo){
+					return function(){
+					var infowindow = fInfo
+					infowindow.close();
+				}
+				})(fInfo));
+				
+				
+				
 				
 				
 				
@@ -539,11 +410,11 @@ ul#list li{
 				
 				</script>
 				<ul id="list">
-					<li>- 서울특별시 ${search.addr }</li>
-					<li>- ${search.parking_name }</li>
+					<li>서울특별시 ${search.addr }</li>
+					<li>${search.parking_name }</li>
 					<c:if test="${search.tel!=null }">
-					<li>- ${search.tel }</li>
-					</c:if>&nbsp;
+					<li>${search.tel }</li>
+					</c:if>
 					<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
@@ -572,7 +443,9 @@ ul#list li{
 			<div id=rates></div>
 			<input type="submit" value="예약하기">
 		</form>
-
+		<br>
+		<br>
+		<br>
 	
 		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
 		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
@@ -585,15 +458,14 @@ ul#list li{
 		
 		<script>
 	
-		
-
+	
+		//최소한 지도가 뜬 이후에나
 		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates) {
-
-			/* var lat = document.getElementById('lat');
-			var lng = document.getElementById('lng'); */
-			
+	
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng)));
+			
+			
 			
 			var seoul = '서울특별시 ';
 			/* map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); */
@@ -668,13 +540,7 @@ ul#list li{
 			
 					var locPosition = new daum.maps.LatLng(lat, lon);
 					map.setCenter(new daum.maps.LatLng(lat, lon));
-					/* var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					mapOption = {
-						center : new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
-						level : 3
-					// 지도의 확대 레벨
-					};
-					var map = new daum.maps.Map(mapContainer, mapOption); */
+					
 					var geocoder = new daum.maps.services.Geocoder();
 					var marker = new daum.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
 					infowindow = new daum.maps.InfoWindow({
@@ -696,8 +562,6 @@ ul#list li{
 							}
 						});
 
-					// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
-				
 
 					
 
@@ -707,56 +571,6 @@ ul#list li{
 					}
 
 				
-					
-				// 주소-좌표 변환 객체를 생성합니다
-			/* 	else{
-					document.getElementById('map').innerHTML = "";
-					var locPosition = new daum.maps.LatLng(lat, lon);
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					mapOption = {
-						center : new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
-						level : 3
-					// 지도의 확대 레벨
-					};
-					var map = new daum.maps.Map(mapContainer, mapOption);
-					var geocoder = new daum.maps.services.Geocoder();
-					var marker = new daum.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
-					infowindow = new daum.maps.InfoWindow({
-						zindex : 1
-					}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
-					
-					searchDetailAddrFromCoords(locPosition,function(status, result) {
-						if (status === daum.maps.services.Status.OK) {
-								var detailAddr = result[0].jibunAddress.name;
-								var content = detailAddr;
-								// 마커를 클릭한 위치에 표시합니다 
-								marker.setPosition(locPosition);
-								marker.setMap(map);
-								// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-						
-								infowindow.setContent(content);
-								infowindow.open(map, marker);
-								document.getElementById('loc').value = result[0].jibunAddress.name;
-							}
-						});
-
-					// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
-				
-
-					
-
-					function searchDetailAddrFromCoords(coords, callback) {
-						// 좌표로 법정동 상세 주소 정보를 요청합니다
-						geocoder.coord2detailaddr(coords, callback);
-					}
-					
-				} */
-				
-				
-				// 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
-				/* var locPosition = new daum.maps.LatLng(lat, lon); */
-			
-
 			
 				});
 			
