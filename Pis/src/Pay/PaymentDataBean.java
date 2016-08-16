@@ -1,54 +1,97 @@
 package Pay;
 
 public class PaymentDataBean {
-	private String pay_type;	// 결제수단
-	private String num;			// 예약번호
-	private String parking_name; // 주차장명
-	private int cost; // 결제금액
-	private String name; // 예약자명
-	private String email; // 전자우편
-	private String phonenum; // 이동전화
-	public String getPay_type() {
-		return pay_type;
+
+	private String name;
+	private String phoneNum;
+	private String parkName;
+	private String parkLoca;
+	private String carType;
+	private String beginDay;
+	private String outDay;
+	private String beginTime;
+	private String outTime;
+	private int pay;
+	
+
+	public int getPay() {
+		return pay;
 	}
-	public void setPay_type(String pay_type) {
-		this.pay_type = pay_type;
-	} 
-	public String getNum() {
-		return num;
+
+	public void setPay(int pay) {
+		this.pay = pay;
 	}
-	public void setNum(String num) {
-		this.num = num;
-	}
-	public String getParking_name() {
-		return parking_name;
-	}
-	public void setParking_name(String parking_name) {
-		this.parking_name = parking_name;
-	}
-	public int getCost() {
-		return cost;
-	}
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getPhoneNum() {
+		return phoneNum;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
-	public String getPhonenum() {
-		return phonenum;
+
+	public String getParkName() {
+		return parkName;
 	}
-	public void setPhonenum(String phonenum) {
-		this.phonenum = phonenum;
+
+	public void setParkName(String parkName) {
+		this.parkName = parkName;
 	}
-	
+
+	public String getParkLoca() {
+		return parkLoca;
+	}
+
+	public void setParkLoca(String parkLoca) {
+		this.parkLoca = parkLoca;
+	}
+
+	public String getCarType() {
+		return carType;
+	}
+
+	public void setCarType(String carType) {
+		this.carType = carType;
+	}
+
+	public String getBeginDay() {
+		return beginDay;
+	}
+
+	public void setBeginDay(String beginDay) {
+		this.beginDay = beginDay;
+	}
+
+	public String getOutDay() {
+		return outDay;
+	}
+
+	public void setOutDay(String outDay) {
+		this.outDay = outDay;
+	}
+
+	public String getBeginTime() {
+		return beginTime;
+	}
+
+	public void setBeginTime(String beginTime) {
+		this.beginTime = beginTime;
+	}
+
+	public String getOutTime() {
+		return outTime;
+	}
+
+	public void setOutTime(String outTime) {
+		this.outTime = outTime;
+	}
+
 }
