@@ -6,7 +6,7 @@ import java.util.*;
 import board.CommentDataBean;
 import chart.jdbcUtil;
 
-public class CommentDBBean {  
+public class CommentDBBean {   
 	private static CommentDBBean instance = new CommentDBBean();
 	public static CommentDBBean getInstance(){ return instance; }
 	private CommentDBBean(){}
