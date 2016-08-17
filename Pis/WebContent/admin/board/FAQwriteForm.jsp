@@ -4,7 +4,7 @@
 <head>
 <title></title>
 <link href="../../style.css" rel="stylesheet" type="text/css">
-</head>
+</head> 
 
 <body> 
 	<center>

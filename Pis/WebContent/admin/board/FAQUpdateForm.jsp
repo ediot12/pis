@@ -9,7 +9,7 @@
 <body> 
 	<center>
 	<br>
-	<div class="title">
+	<div class="title"> 
 		<b>자주묻는질문</b>
 	</div>
 	<form action="/Pis/admin/board/FAQUpdatePro.do?pageNum=${pageNum}" method="post" onsubmit="return writeSave()">
