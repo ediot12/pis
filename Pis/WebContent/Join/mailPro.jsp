@@ -3,7 +3,7 @@
 <html> 
 <head>
 <title>메일인증</title>
-</head>    
+</head>
 <body bgcolor="${bodyback_c}">
 <div align="center">
 <c:if test="${check==1}">
