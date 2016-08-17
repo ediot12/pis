@@ -19,7 +19,7 @@
 <body>
 
 	<center>
-		<form method="post" name="insert" action="../pointcharge/Point.do" onsubmit="return checkPay()">
+		<form method="post" name="insert" action="../pointcharge/reserv_pointment.do" onsubmit="return checkPay()">
 			<table border="1" id="ok">
 				<c:forEach var="vecList" items="${reserv }" begin="0">
 					<tr>

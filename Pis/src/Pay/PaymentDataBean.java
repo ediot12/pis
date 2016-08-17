@@ -2,6 +2,7 @@ package Pay;
 
 public class PaymentDataBean {
 
+	private String id;
 	private String name;
 	private String phoneNum;
 	private String parkName;
@@ -13,6 +14,14 @@ public class PaymentDataBean {
 	private String outTime;
 	private int pay;
 	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public int getPay() {
 		return pay;

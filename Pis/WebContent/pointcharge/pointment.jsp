@@ -2,10 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
- 
+<script>
+	function chargepage(){
+ 		var pay_method = $("#pay_method").val();
+		url="/Pis/pointcharge/paymentForm.do?pay_method="+pay_method;
+		window.open(url,"post","toolbar=no ,width=580 ,height=610,directories=no,status=yes,scrollbars=yes,menubar=no");
+	}
+</script>
 <body>
 
-<form name=reservation  method=post action="/Pis/pointcharge/paymentForm.do">
+<form name=reservation  method=post onsubmit="chargepage()" > 
 <table width="560" border="0" cellspacing="0" cellpadding="0" >
 	<tr>
 		<td><h1>결제시스템</h1></td>
@@ -50,7 +56,7 @@
 	<tr>
 		<td width="110">충전금액</td> 
 		<!--금액은 ,없이 입력 -->
- 		<td width="290">금액</td>
+ 		<td width="290">${point }</td>
 	</tr>
         
     <tr>
