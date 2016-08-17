@@ -185,11 +185,8 @@
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
-<<<<<<< HEAD
-=======
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
->>>>>>> branch 'master' of https://github.com/ediot12/pis
-								<hr />
+								<hr/>
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>
 							</ul>
