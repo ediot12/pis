@@ -6,7 +6,7 @@
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head> 
-<body>
+<body>   
 <center>
 <div class="colorblack">
 <c:if test="${x==1}">
