@@ -42,7 +42,7 @@
 </head>
 <body>
 		<div id="logo">
-			<a href="index.jsp">
+			<a href="/Pis/layout/main.do">
 	    		<img alt="로고" src="/Pis/image/logo.jpg" width="500px" height="90px">
 	    	</a>
 	    </div>
