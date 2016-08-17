@@ -5,7 +5,7 @@
  <head>
 <link href="../../style.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
+<script> 
     $(document).ready(function(){
 
         $("#report tr:odd").addClass("odd");
