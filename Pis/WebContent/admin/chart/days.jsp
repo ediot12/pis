@@ -6,18 +6,7 @@
 <html>
 <head>
 <title></title>
-<style>
-	#chart_days{ 
-		position: absolute;
-		left : 400px;
-		z-index: -1;
-	}
-	#text{
-		font-size: 25px;
-		color: #31A0B4; 
-		text-align: left;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><%-- chart관련 스크립트 받아옴. --%>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']}); <%-- 구글 차트에서 bar형태의 패키지를 연결함 --%>

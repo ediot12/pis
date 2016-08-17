@@ -4,46 +4,7 @@
 <html>
 <head>
 <title></title>
-<style>
-	.table{
-		width:1100px;
-		text-align: center;
-		margin : 20;
-		border-color: #31A0B4;
-	}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	} 
-	.title .button{
-		float: right;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-	}
-	.colorblack{
-		color:#000000;
-	}
-	.color{
-		color:#FFFFFF;
-		background:#31A0B4;
-	}
-	a:HOVER {
-		text-decoration:underline;
-	}
-	a{
-		text-decoration:none;
-		color : #000000;
-	}
-	.table tr{
-		height: 35px;
-		font-size:13;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <center>

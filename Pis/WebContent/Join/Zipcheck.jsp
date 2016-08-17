@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>우편번호검색</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="../style.css" rel="stylesheet" type="text/css">
 <script>
 	function dongCheck() {
 		if (document.zipForm.area4.value == "") {
@@ -24,14 +24,16 @@
 	}
 </script>
 </head>
-<body align="center" bgcolor="#FFFFCC">
+<body bgcolor="#FFFFCC">
 <center>
-<b>우편번호 찾기</b>
+<div class="title">
+	<b>우편번호 찾기</b>
+</div>
 <form name="zipForm" method="post" action="Zipcheck.do">
 <table>
 <tr>
 	<td><br> 도로명 주소 입력 : <input name="area4" type="text">
-						<input type="button" value="검색" onclick="dongCheck();">
+						<input type="button" value="검색" onclick="dongCheck();" class="button">
 						<input type="hidden" name="check" value="n">
 						</td>
 				</tr>
@@ -40,13 +42,13 @@
 			
 				<c:if test="${totalList==0 }">
 				<tr>
-					<td align="center"><br>검색된 결과가 없습니다.</td>
+					<td align="center" class="colorblack"><br>검색된 결과가 없습니다.</td>
 				</tr>
 				</c:if>
 				
 				<c:if test="${totalList!=0 }"> 
 				<tr>
-					<td align="center"><br> ※검색 후, 아래 우편번호를 클릭하면 자동으로 입력됩니다.</td>
+					<td align="center" class="colorblack"><br> ※검색 후, 아래 우편번호를 클릭하면 자동으로 입력됩니다.</td>
 				</tr>
 		
 			<c:forEach var="i" items="${zipcodeList}">
@@ -68,7 +70,7 @@
 			</td>
 			</tr>	
 			<tr>
-				<td align="center"><br>
+				<td align="center" class="colorblack"><br>
 				<a href="javascript:this.close();">닫기</a>
 			<tr>
 				</td>

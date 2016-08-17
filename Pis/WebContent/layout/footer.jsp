@@ -1,10 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <head>
-	<style type="text/css">
-		#footer{
-			border-top: 4px solid #31A0B4; 
-		}
-	</style>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head> 
 <body>
 <div id="footer">

@@ -5,36 +5,7 @@
 <!DOCTYPE html>
 <html> 
 <head>
-<style type="text/css">
-	#maintext{
-		text-align: center
-	}
-	.maintable{
-		font-size : 20px;
-		color:#31A0B4;
-		text-align: center; 
-	}
-	#mainimg{
-		position: relative;
-		z-index: -1;
-	}
-	.maintext{ 
-		background: #31A0B4;
-		color : #FFFFFF;
-		font-size: 11px;
-	}
-	.maincolor{
-		color : #000000;
-		font-size : 11px;
-	}
-	a:HOVER {
-		text-decoration:underline;
-	}
-	a{
-		text-decoration:none;
-		color : #000000;
-	}
-</style>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<center>
