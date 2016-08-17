@@ -15,12 +15,10 @@ import controller.CommandAction;
 public class PointAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-//		Point.jsp에서 선택된 point값 저장
 		request.setCharacterEncoding("utf-8");
-		String point = request.getParameter("point");
 
-		
-		
+
+/*			
 		if(point!=null){
 				int p = Integer.parseInt(point);
 				
@@ -35,11 +33,9 @@ public class PointAction implements CommandAction {
 				
 				request.setAttribute("point", p);
 				}
-					
-			
+*/   
 		
 				System.out.println("pointaction");
-				System.out.println(point);
 
 		
 		return "/pointcharge/Point.jsp";

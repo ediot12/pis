@@ -6,7 +6,12 @@
 </head>
 <body>
 	<%
-		response.sendRedirect("/Pis/pointcharge/Point.do");
+		response.sendRedirect("/Pis/pointcharge/point.do");
 	%>
 </body>
 </html>
+
+
+
+  
+
