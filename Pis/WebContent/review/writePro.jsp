@@ -1,6 +1,8 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 
-<meta http-equiv="Refresh" content="0;url=/Pis/review/mainForm.do" >
+<jsp:useBean id="article" scope="page" class="mvc.review.ReviewDataBean">
+   <jsp:setProperty name="article" property="*"/>
+</jsp:useBean>
 
 <!DOCTYPE html >
 <html>
@@ -8,10 +10,6 @@
 <title></title>
 </head>
 <body>
-
-<%-- <%response.sendRedirect("mainForm.do");%> --%>
-<script>
-
-</script>
+<%response.sendRedirect("mainForm.do");%>
 </body>
 </html>

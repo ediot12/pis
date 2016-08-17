@@ -83,7 +83,7 @@ public class MainAction implements CommandAction{
 	    request.setAttribute("articleList", articleList);
 	    request.setAttribute("articleList2", articleList2);
 		
-		return "/layout/main.jsp";
+		return "/semi/layout/main.jsp";
 	}
 	 
 } 

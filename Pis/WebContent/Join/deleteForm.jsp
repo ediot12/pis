@@ -1,12 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="color.jspf" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>회원탈퇴</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<title></title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 <script>
 function begin(){
 	document.myform.passwd.focus();
@@ -18,15 +17,15 @@ function checkIt(){
 		document.myform.passwd.focus();
 		return false;
 	}
-}
+} 
 </script>
 </head>
-<BODY onload="begin()" bgcolor="${bodyback_c}">
+<BODY onload="begin()">
 <form name="myform" action="/Pis/Join/deletePro.do" method="post" onSubmit="return checkIt()">
 <TABLE cellSpacing=1 cellPadding=1 width="260" border=1 align="center">
 
 <TR height="30">
-<TD colspan="2" align="left" bgcolor="${title_c}">
+<TD colspan="2" align="left">
 <font size="+1"><b>회원탈퇴</b></font></TD></TR>
 
 <TR height="30">

@@ -5,6 +5,6 @@
 <title></title>
 </head>
 <body>
-<% response.sendRedirect("/Pis/notice/list.do"); %>
+
 </body>
 </html>

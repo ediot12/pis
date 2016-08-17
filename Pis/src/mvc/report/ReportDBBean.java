@@ -13,7 +13,6 @@ import mvc.report.ReportDBBean;
 
 public class ReportDBBean {
 	
-	
 	private static ReportDBBean instance = new ReportDBBean();
 	public static ReportDBBean getInstance(){
 		return instance;
@@ -39,14 +38,15 @@ public class ReportDBBean {
 				conn=getConnection();
 				
 				
-				sql = "insert into Report(num,writer,subject,content,type)" + "values(Report_num.NEXTVAL,?,?,?,?)";
+				sql = "insert into Report(num,writer,subject,readcount,content,reply)" + "values(Report_num.NEXTVAL,?,?,?,?,?)";
 				  
 				
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, article.getWriter());
 				pstmt.setString(2, article.getSubject());
-				pstmt.setString(3, article.getContent());
-				pstmt.setInt(4, article.getType());
+				pstmt.setInt(3, article.getReadcount());
+				pstmt.setString(4, article.getContent());
+				pstmt.setString(5, article.getReply());
 				
 				pstmt.executeUpdate();
 		}catch(Exception e){
@@ -101,7 +101,7 @@ public class ReportDBBean {
 			List articleList = null;
 			try{
 				conn = getConnection();
-				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type, rownum r from Report where rownum >= ? and rownum <= ? order by num desc");
+				pstmt = conn.prepareStatement("select num,writer,readcount,subject,content,regdt,reply, rownum r from Report where rownum >= ? and rownum <= ? order by num desc");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
@@ -113,10 +113,11 @@ public class ReportDBBean {
 						ReportDataBean article = new ReportDataBean();
 						article.setNum(rs.getInt("num"));
 						article.setWriter(rs.getString("writer"));
+						article.setReadcount(rs.getInt("readcount"));
 						article.setSubject(rs.getString("subject"));
 						article.setContent(rs.getString("content"));
 						article.setRegdt(rs.getTimestamp("regdt"));
-						article.setType(rs.getInt("type"));
+						article.setReply(rs.getString("reply"));
 						articleList.add(article);
 					}while(rs.next());
 				}
@@ -149,9 +150,9 @@ public class ReportDBBean {
 			ReportDataBean article = null;
 			try{
 				conn = getConnection();
-				/*pstmt = conn.prepareStatement("update Report set readcount=readcount+1 where num = ?");
+				pstmt = conn.prepareStatement("update Report set readcount=readcount+1 where num = ?");
 				pstmt.setInt(1, num);
-				pstmt.executeUpdate();*/
+				pstmt.executeUpdate();
 
 				pstmt = conn.prepareStatement("select * from Report where num = ?");
 				pstmt.setInt(1, num);
@@ -160,10 +161,11 @@ public class ReportDBBean {
 					article = new ReportDataBean();
 					article.setNum(rs.getInt("num"));
 					article.setWriter(rs.getString("writer"));
+					article.setReadcount(rs.getInt("readcount"));
 					article.setSubject(rs.getString("subject"));
 					article.setContent(rs.getString("content"));
 					article.setRegdt(rs.getTimestamp("regdt"));
-					article.setType(rs.getInt("type"));
+					article.setReply(rs.getString("reply"));
 				
 				}
 			} catch (Exception e) {
@@ -188,7 +190,7 @@ public class ReportDBBean {
 			return article;
 		}
 		
-		/*//수정할 한줄의 데이터 가져올떄...
+		//수정할 한줄의 데이터 가져올떄...
 		public ReportDataBean updateGetArticle(int num)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -207,8 +209,9 @@ public class ReportDBBean {
 					article.setWriter(rs.getString("writer"));
 					article.setSubject(rs.getString("subject"));
 					article.setRegdt(rs.getTimestamp("regdt"));
+					article.setReadcount(rs.getInt("readcount"));
 					article.setContent(rs.getString("content"));
-					article.setType(rs.getInt("type"));
+					article.setReply(rs.getString("reply"));
 				
 					
 				}
@@ -239,7 +242,7 @@ public class ReportDBBean {
 				pstmt.setString(1, article.getWriter());
 				pstmt.setString(2, article.getSubject());
 				pstmt.setString(3, article.getContent());
-				pstmt.setInt(4, article.getNum());
+				pstmt.setInt(5, article.getNum());
 				pstmt.executeUpdate();
 				x = 1;
 				}
@@ -289,7 +292,7 @@ public class ReportDBBean {
 			return x;
 		}
 	
-	*/
+	
 	
 
 }

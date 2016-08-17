@@ -3,7 +3,7 @@ package mvc.review;
 import java.sql.Timestamp;
 
 public class ReviewDataBean {
-
+	
 	private int num;
 	private String writer;
 	private String subject;
@@ -12,7 +12,6 @@ public class ReviewDataBean {
 	private int readcount;
 	private String content;
 	private int score;
-	private String bfile;
 	
 	public int getNum() {
 		return num;
@@ -62,13 +61,6 @@ public class ReviewDataBean {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public String getBfile() {
-		return bfile;
-	}
-	public void setBfile(String bfile) {
-		this.bfile = bfile;
-	}
-	
 	
 	
 	

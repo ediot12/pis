@@ -2,18 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이메일 인증코드 입력</title>
+<title></title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<body bgcolor="${bodyback_c}">
+<body>
 <form action="/Pis/Join/mailPro.do" method="post">
-<table border="1" width="220">
-<tr bgcolor="${title_c}">
-<td colspan="2">이메일 인증번호</td>
+<table border="1" cellpadding="0" cellspacing="0" class="shorttable">
+<tr>
+<td colspan="2" class="color">이메일 인증번호</td>
 </tr>
 <tr>
 <td colspan="2"><input type="text" name="tempkey" size="19" maxlength="6">
 <input type="submit" name="" value="전 송"></td>
 </tr>
 </body>
-</html>
+</html> 

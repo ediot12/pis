@@ -4,7 +4,7 @@
 <head>
 <title></title>
 </head>
-<body>
-<% response.sendRedirect("/project/review/mainForm.do"); %>
+<body>aaa
+
 </body>
 </html>

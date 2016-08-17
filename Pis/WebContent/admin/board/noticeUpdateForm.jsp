@@ -3,29 +3,7 @@
 <html>
 <head>
 <title></title>
-<style>
-	.table{
-		width:1100px;
-		text-align: center;
-		margin : 20;
-		border-color: #31A0B4;
-	}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-	}
-	.color{
-		background:#31A0B4;
-		color:#FFFFFF;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css"> 
 </head>
 
 <body> 

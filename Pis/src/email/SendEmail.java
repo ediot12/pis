@@ -12,8 +12,8 @@ public class SendEmail {
 	 public void send(String address, String key) throws MessagingException{
 	        // 메일 관련 정보
 		  String host = "smtp.gmail.com"; /*이메일 서버*/
-	        String user = "welcome.Pis5@gmail.com"; /*이메일 계정*/
-	        String password = "20160725!"; /*이메일 계정 비번*/
+	        String user = "team.uding@gmail.com"; /*이메일 계정*/
+	        String password = "kh$20160725"; /*이메일 계정 비번*/
 	         
 	        // 메일 내용
 	        String recipient = address;

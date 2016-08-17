@@ -7,6 +7,7 @@ import java.util.*;
 import mvc.review.ReviewDataBean;
 
 
+
 public class ReviewDBBean {
 	
 	private static ReviewDBBean instance = new ReviewDBBean();
@@ -34,15 +35,15 @@ public class ReviewDBBean {
 			conn=getConnection();
 			
 			
-			sql = "insert into Review(num,writer,subject,content,score,bfile)" + "values(Review_num.NEXTVAL,?,?,?,?,?)";
+			sql = "insert into Review(num,writer,subject, readcount,content,score)" + "values(Review_num.NEXTVAL,?,?,?,?,?)";
 			  
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, article.getWriter());
 			pstmt.setString(2, article.getSubject());
-			pstmt.setString(3, article.getContent());
-			pstmt.setInt(4, article.getScore());
-			pstmt.setString(5, article.getBfile());
+			pstmt.setInt(3, article.getReadcount());
+			pstmt.setString(4, article.getContent());
+			pstmt.setInt(5, article.getScore());
 			pstmt.executeUpdate();
 	}catch(Exception e){
 		e.printStackTrace();
@@ -96,7 +97,7 @@ public class ReviewDBBean {
 		List articleList = null;
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,score, rownum r from Review where rownum >= ? and rownum <= ? order by num desc");
+			pstmt = conn.prepareStatement("select num,writer,readcount,subject,content,regdt,score, rownum r from Review where rownum >= ? and rownum <= ? order by num desc");
 			
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -108,6 +109,7 @@ public class ReviewDBBean {
 					ReviewDataBean article = new ReviewDataBean();
 					article.setNum(rs.getInt("num"));
 					article.setWriter(rs.getString("writer"));
+					article.setReadcount(rs.getInt("readcount"));
 					article.setSubject(rs.getString("subject"));
 					article.setContent(rs.getString("content"));
 					article.setRegdt(rs.getTimestamp("regdt"));
@@ -144,9 +146,9 @@ public class ReviewDBBean {
 		ReviewDataBean article = null;
 		try{
 			conn = getConnection();
-			/*pstmt = conn.prepareStatement("update Review set readcount=readcount+1 where num = ?");
+			pstmt = conn.prepareStatement("update Review set readcount=readcount+1 where num = ?");
 			pstmt.setInt(1, num);
-			pstmt.executeUpdate();*/
+			pstmt.executeUpdate();
 
 			pstmt = conn.prepareStatement("select * from Review where num = ?");
 			pstmt.setInt(1, num);
@@ -155,11 +157,11 @@ public class ReviewDBBean {
 				article = new ReviewDataBean();
 				article.setNum(rs.getInt("num"));
 				article.setWriter(rs.getString("writer"));
+				article.setReadcount(rs.getInt("readcount"));
 				article.setSubject(rs.getString("subject"));
 				article.setContent(rs.getString("content"));
 				article.setRegdt(rs.getTimestamp("regdt"));
 				article.setScore(rs.getInt("score"));
-				article.setBfile(rs.getString("bfile"));
 			
 			}
 		} catch (Exception e) {
@@ -203,7 +205,7 @@ public class ReviewDBBean {
 				article.setWriter(rs.getString("writer"));
 				article.setSubject(rs.getString("subject"));
 				article.setRegdt(rs.getTimestamp("regdt"));
-				article.setBfile(rs.getString("bfile"));
+				article.setReadcount(rs.getInt("readcount"));
 				article.setContent(rs.getString("content"));
 				article.setScore(rs.getInt("score"));
 			
@@ -224,6 +226,7 @@ public class ReviewDBBean {
 		PreparedStatement pstmt = null;
 		int a = 1;
 
+		String sql = "";
 		int x = -1;
 		
 		try{

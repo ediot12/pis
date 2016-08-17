@@ -1,11 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8"
-%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="color.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>아이디찾기</title>
+<title></title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <c:if test="${id==''}">
@@ -15,9 +14,16 @@ history.go(-1);
 </script>
 </c:if>
 <c:if test="${id!=''}">
+<center>
+<br>
+<div class="title">
+	<b>아이디 찾기</b>
+</div>
+<div class="colorblack"> 
 요청하신 아이디는 ${id}입니다.
-<br><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a>
-<br><a href="/Pis/Join/main.do">창닫기</a>
+</div>
+<br><a href="/Pis/Join/findPWForm.do"><input type="button" value="비밀번호찾기" class="button"></a>
+&nbsp;&nbsp;<a href="/Pis/Join/main.do"><input type="button" value="창닫기" class="button"></a>
 </c:if>
 </body>
 </html>

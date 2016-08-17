@@ -13,5 +13,4 @@
 <body>
 <%response.sendRedirect("mainForm.do");%>
 </body>
-
 </html>

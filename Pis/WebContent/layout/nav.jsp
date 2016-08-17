@@ -56,62 +56,7 @@
 	
 	});
 </script>
-<style type="text/css">
-	#container{
-		border-top: 4px solid #31A0B4; 
-		border-bottom: 4px solid #31A0B4;
-		height:50px;
-	}
-	#textline{
-		display: table; margin-left: auto; margin-right: auto; 
-	}
-	*{
-		margin:0;
-		padding:0;
-		list-style-type:none;
-	}
-	ul.menu li{
-		float:left;
-		width:179px;
-		height:48px;
-		position:relative;
-		
-	}
-	ul.menu li a{
-		display:block;
-		width:100%;
-		height:100%;
-		line-height:48px;
-		text-indent:30px;
-		font-weight:bold;
-		color:#31A0B4;
-		text-decoration:none;
-		position:relative;
-	}
-	ul.sub{
-		display:none;
-		background: #FFFFFF;
-		border: 2px solid #31A0B4;
-	}
-	ul.sub li{
-		float:none;
-	}
-	ul.sub li ul.sub{
-		position:absolute;
-		left:179px;
-		top:0;
-	}
-	ul.menu{
-		zoom:1;
-	}
-	ul.menu:after {
-		height:0;
-		visibility:hidden;
-		content:".";
-		display:block;
-		clear:both;
-	}
-</style>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <div id="container">
 	<div id="textline">
@@ -240,7 +185,10 @@
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
+<<<<<<< HEAD
+=======
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
+>>>>>>> branch 'master' of https://github.com/ediot12/pis
 								<hr />
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>

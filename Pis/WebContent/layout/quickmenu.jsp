@@ -1,50 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE>
 <html>
-<style>
-
-	#quick{
-		width: 120px;
-		height: 30px;
-		font-size: 16px;
-		font-weight: bold;
-		background-color: #31A0B4;
-		color: black;
-		text-align: center;
-		
-	}
-	
-	.menubar1{
-		width: 120px;
-		height: 90px;
-		border-bottom: 2px solid;
-		border-color: #31A0B4;
-		margin: auto;
-		
-	}
-	
-	.menubar2{
-		width: 120px;
-		height: 90px;		
-		margin: auto;
-	}
-	
-	#menu{
-		width: 120px;
-		height: 300px;
-		position: fixed;
-		top: 40%;
-		left: 90%;
-		border: 2px solid;
-		
-	}
-	
-	A:link {text-decoration:none;color:#31A0B4; font-style: italic;}
-	A:hover{text-decoration:yes;color:#31A0B4; font-style: italic;}
-	A:visited {text-decoration:none;color:#31A0B4; font-style: italic;}
-
-</style>
-
+<link href="../style.css" rel="stylesheet" type="text/css">
 <body>
 <div id="menu">
 	<div id=quick align="center">퀵메뉴</div>
@@ -61,4 +18,4 @@
 </div>
 
 </body>
-</html>
+</html> 

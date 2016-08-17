@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html> 
 <head>
-<title>메일인증</title>
+<title></title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
-<body bgcolor="${bodyback_c}">
-<div align="center">
+<body>
+<center>
+<div class="colorblack">
 <c:if test="${check==1}">
 	인증이 완료되었습니다. 
 	<p>

@@ -2,10 +2,9 @@
 <!DOCTYPE html >
 <html>
 <head>
-
 <title></title>
 </head>
 <body>
-<%response.sendRedirect("mainForm.do");%>
+
 </body>
 </html>

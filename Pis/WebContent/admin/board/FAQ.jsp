@@ -3,31 +3,9 @@
 <!DOCTYPE html>
 <html>
  <head>
- <style>
-        #report { border-collapse:collapse; width:1100px; margin:0px; padding:0px;b}
-        #report th { background:#31A0B4; color:#FFFFFF; padding:7px 15px; text-align:center;}
-        #report td { background:#FFFFFF; color:#000000; padding:7px 15px; text-align:center;}
-        #report tr.odd td { background:#37B6CC; color:#FFFFFF; cursor:pointer; }
-        #report div.arrow { width:16px; height:16px; display:block;}
-        #report div.up { background-position:0px 0px;}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	}
-	.title .button{
-		float: right;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-		border-radius:5px;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
+<script>  
     $(document).ready(function(){
 
         $("#report tr:odd").addClass("odd");

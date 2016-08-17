@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <body>
-<form name="myform" action="/Pis/logon/loginPro.do" method="post" onSubmit="return checkIt()">
+<form name="myform" action="/Pis/semi/logon/loginPro.do" method="post" onSubmit="return checkIt()">
 <table cellSpacing=1 cellpadding=1 width="260" border=1 align="center">
 	<tr height="30"> 
 		<td width="110" align="center">아이디</td>
