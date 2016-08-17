@@ -3,6 +3,7 @@
 <html> 
 <head>
 <title>메일인증</title>
+
 </head>
 <body bgcolor="${bodyback_c}">
 <div align="center">
