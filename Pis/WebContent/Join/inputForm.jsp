@@ -56,7 +56,6 @@
 <input type="button" value="인증받기" onClick="mail(this.form)" class="button">
 <input type="hidden" name="certify"> 
 </td>
-
 </tr>
 <form name="form"> 
 <tr>
