@@ -1,16 +1,14 @@
-package mvc.report;
+package mvc.notice;
 
 import java.sql.Timestamp;
 
-public class ReportDataBean {
-	
+public class PisDataBean {
 	private int num;
 	private String writer;
+	private int readcount;
 	private String subject;
-	private Timestamp regdt;
 	private String content;
-	private int type;
-	
+	private Timestamp regdt;
 	public int getNum() {
 		return num;
 	}
@@ -23,11 +21,23 @@ public class ReportDataBean {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
 	public String getSubject() {
 		return subject;
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Timestamp getRegdt() {
 		return regdt;
@@ -35,21 +45,7 @@ public class ReportDataBean {
 	public void setRegdt(Timestamp regdt) {
 		this.regdt = regdt;
 	}
-	
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	
-	
-	
 
+	
+	
 }

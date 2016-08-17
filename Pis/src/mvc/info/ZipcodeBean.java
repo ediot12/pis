@@ -2,6 +2,7 @@ package mvc.info;
 
 public class ZipcodeBean {
 	
+	
 	private String zipcode;//우편번호
 	private String area1;
 	private String area2;
