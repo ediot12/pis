@@ -11,11 +11,10 @@
 <div class="colorblack">
 <c:if test="${x==1}">
 </c:if> <div class="colorblack">
+<br>
 비밀번호가 변경되었습니다.
 <p>오늘도 좋은 하루 되세요!</p>
-<p>               
-====================
-</p>
+</br>     
 </div>
 <a href="/Pis/layout/main.do" class="button">
 닫기</a>
