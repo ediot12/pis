@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import logon.LogonDataBean;
+
 public class PayDBBean {
 	public static PayDBBean instance = new PayDBBean();
 	public static PayDBBean getInstance(){ return instance;}
@@ -38,6 +40,65 @@ public class PayDBBean {
 		}
 		
 	}
+	
+	
+//	pointment.jsp ::: name 값 가져와야함 
+	public String selectName(String id)throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String name = "";
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select name from members where id=?" );
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				name = rs.getString("name");
+			}
+			
+		}catch(Exception e){
+			
+		}
+		return name;
+	}
+	
+	
 
+//	paymentForm.jsp ::: el로 출력될 id정보값 
+	public LogonDataBean selectUserInfo(String id)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		LogonDataBean logon = null;
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select * from members where id=?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			logon = new LogonDataBean();		
+			
+			if(rs.next()){				
+				logon.setName(rs.getString("name"));
+				logon.setEmail(rs.getString("email"));
+				logon.setPhone(rs.getString("phone"));
+				logon.setAddress(rs.getString("address"));
+				logon.setZipcode(rs.getString("zipcode"));
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
+			if(conn != null) try{conn.close();} catch(Exception e){}
+		}
+		
+		return logon;
+	}
 	
 }

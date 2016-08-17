@@ -31,7 +31,7 @@
 	<tr>
 		<td width="110">아이디</td> 
 		<!--주문번호는 50Byte(한글 25자) 입니다. ' " ` 는 사용하실수 없습니다. 따옴표,쌍따옴표,백쿼테이션 -->
-		<td width="290">아이디</td>
+		<td width="290">${memId }</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="2"></td>
@@ -42,7 +42,7 @@
 	<tr>
 		<td width="110">이름</td> 
 		<!--  상품명 50Byte(한글 25자) 입니다. ' " ` 는 사용하실수 없습니다. 따옴표,쌍따옴표,백쿼테이션-->
-		<td width="290">이름</td>
+		<td width="290">${name }</td>
 	</tr>
 	<tr bgcolor="#E3E3E3">
 		<td height="1" colspan="2"></td>
@@ -50,7 +50,7 @@
 	<tr>
 		<td width="110">충전금액</td> 
 		<!--금액은 ,없이 입력 -->
- 		<td width="290">금액</td>
+ 		<td width="290"> ${point }</td>
 	</tr>
         
     <tr>

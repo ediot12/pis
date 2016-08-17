@@ -19,8 +19,7 @@
 		if(document.pointform.point.value){		// 선택된 값이 있을때
 	      	var check = confirm("결제를 진행하시겠습니까?");	// 확인, 취소 버튼있는 alert창 
 	      	if(check){	// 확인버튼을 눌렀을때 포인트 결제하는 페이지로 이동
-	      		url="/Pis/pointcharge/pointment.do";
-	      		window.open(url,"post","toolbar=no ,width=580 ,height=610,directories=no,status=yes,scrollbars=yes,menubar=no");
+	      		document.pointform.submit();
 	      	}
 	    
 		}
@@ -33,7 +32,7 @@
 
 
 <p><h1>포인트충전</h1></p>
-<form name="pointform"  onsubmit="pointcheck()">
+<form name="pointform"  action="pointment.do" onsubmit="pointcheck()">
 <!-- radio 버튼으로 클릭된 값이 on 으로 넘어감 -->
 <table>
 	<tr class="hr" height="20">
