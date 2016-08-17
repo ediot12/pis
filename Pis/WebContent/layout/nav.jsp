@@ -4,6 +4,7 @@
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script>
+
 	$(function(){
 		$("ul.menu li").hover(function(){
 			$(">ul:not(:animated)",this).slideDown("fast");
@@ -134,8 +135,8 @@
 						</li>
 						<li><b><a href="#">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<li><b><a href="#">환불규정</a></b></li>
 								<li><b><a href="#">주차장제보</a></b></li>
 								<li><b><a href="#">자주묻는질문</a></b></li>
@@ -144,7 +145,7 @@
 						</li>
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
-								<li><b><a href="#">회원정보수정</a></b></li>
+								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>
@@ -187,8 +188,8 @@
 						</li>
 						<li><b><a href="#">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
@@ -199,7 +200,7 @@
 						</li>
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
-								<li><b><a href="#">회원정보수정</a></b></li>
+								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>
@@ -213,7 +214,7 @@
 			<ul class="menu">
 				<li><b><a href="#">서비스</a></b>
 						<ul class="sub">
-							<li><b><a href="#">예약</a></b></li>
+							<li><b><a href="../park/parkmap.do">예약</a></b></li>
 							<li><b><a href="#">예약정보</a></b></li>
 						</ul>
 					</li>
@@ -226,8 +227,8 @@
 						</li>
 						<li><b><a href="#">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
@@ -239,7 +240,7 @@
 						<li><b><a href="#">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
-								<li><b><a href="#">회원정보수정</a></b></li>
+								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>
