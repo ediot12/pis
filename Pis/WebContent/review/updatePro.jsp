@@ -6,8 +6,9 @@
 </jsp:useBean>
 
 <c:if test="${check==1}">
-<meta http-equiv="Refresh" content="0;url=/project/review/mainForm.do?pageNum=${pageNum}" >
+<meta http-equiv="Refresh" content="0;url=/Pis/review/mainForm.do?pageNum=${pageNum}" >
 </c:if>
+
 
 <!DOCTYPE html >
 <html>

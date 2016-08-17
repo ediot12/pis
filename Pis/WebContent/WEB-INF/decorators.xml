@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators>
-	<decorator page="/semi/layout.jsp" name="layout">
-		<pattern>/*/*/*</pattern>
+<excludes>
+<pattern>/park/parkmap.do</pattern>
+<pattern>/park/maptest2.jsp</pattern>
+</excludes>
+	<decorator page="/layout.jsp" name="layout">
+		<pattern>/*</pattern>
 	</decorator>
 </decorators>

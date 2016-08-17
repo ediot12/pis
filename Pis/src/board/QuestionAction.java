@@ -59,7 +59,7 @@ public class QuestionAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 	    request.setAttribute("articleList", articleList);
 	   
-		return "/semi/admin/board/question.jsp";
+		return "/admin/board/question.jsp";
 	}
 
 }

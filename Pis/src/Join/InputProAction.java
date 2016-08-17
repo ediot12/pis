@@ -21,12 +21,12 @@ public class InputProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable{
 		
+		
 		// 파일이 저장될 서버의 경로. 되도록이면 getRealPath를 이용하자.
 		// String savePath = "c:/Pis/workspace/Pis/WebContent/fileSave";
 		/*String savePath = request.getServletContext().getRealPath("filesave");*/
 		request.setCharacterEncoding("utf-8");
-		
-		String savePath = "C:/Users/장찬규/workspace/semi/WebContent/filesave";
+		String savePath = request.getServletContext().getRealPath("filesave");
 		String realPath = ""; 
 		String type = "utf-8";
 		int sizeLimit = 5*1024*1024;//5M

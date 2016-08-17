@@ -10,7 +10,7 @@ public class MonthAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		return "/semi/admin/chart/month.jsp";
+		return "/admin/chart/month.jsp";
 	}
  
 } 

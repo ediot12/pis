@@ -12,7 +12,7 @@ public class LogoutAction implements CommandAction{
 		
 		request.getSession().invalidate();
 		
-		return "/semi/logon/logout.jsp";
+		return "/logon/logout.jsp";
 	}
  
 }

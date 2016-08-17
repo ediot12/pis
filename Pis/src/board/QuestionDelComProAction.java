@@ -23,7 +23,7 @@ public class QuestionDelComProAction implements CommandAction{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("content_num", content_num);
 		
-		return "/semi/admin/board/questionDelComPro.jsp";
+		return "/admin/board/questionDelComPro.jsp";
 	}
 
 }

@@ -26,7 +26,7 @@ public class FAQUpdateProAction implements CommandAction{
         request.setAttribute("pageNum", new Integer(pageNum));
 
         
-		return "/semi/admin/board/FAQUpdatePro.jsp";
+		return "/admin/board/FAQUpdatePro.jsp";
 	}
 
 }

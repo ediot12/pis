@@ -60,7 +60,7 @@ public class NoticeFormAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 	    request.setAttribute("articleList", articleList);
 	   
-		return "/semi/admin/board/noticeForm.jsp";
+		return "/admin/board/noticeForm.jsp";
 	}
 
 }

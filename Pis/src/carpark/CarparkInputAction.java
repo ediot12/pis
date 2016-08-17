@@ -10,7 +10,7 @@ public class CarparkInputAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {	
 				
-		return "/semi/admin/carpark/carparkInput.jsp";//ÇØ´çºä
+		return "/admin/carpark/carparkInput.jsp";//ÇØ´çºä
 	}
 
 }
