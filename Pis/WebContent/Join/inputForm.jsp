@@ -56,21 +56,22 @@
 <input type="button" value="인증받기" onClick="mail(this.form)" class="button">
 <input type="hidden" name="certify"> 
 </td>
-
 </tr>
+<form name="form"> 
 <tr>
 <td class="color">거주자여부</td>
 <td class="colorblack">
-<input type="radio" name="resident" value="1" checked="checked">거주자
-<input type="radio" name="resident" value="2" >비거주자
+<input type="radio" name="resident" value="1" checked="checked" onClick="this.form.upload.disabled=false">거주자
+<input type="radio" name="resident" value="2" onClick="this.form.upload.disabled=true">비거주자
 </td>
 </tr>
 <tr>
 <td class="color">거주자자료첨부</td>
 <td class="colorblack">
-<input type="file" name="upload">
+<input type="file" name="upload" disabled>
 </td>
 </tr>
+</form>
 </table>
 <input type="submit" name="confirm" value="등 록" class="button">
 <input type="button" value="취 소" onclick="document.location.href='/Pis/layout/main.do'" class="button">

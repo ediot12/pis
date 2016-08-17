@@ -1,0 +1,194 @@
+#logo {
+	padding: 0;
+	margin: 0 auto;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+#one {
+	padding: 0;
+	margin: 0 auto;
+	position: absolute;
+	right: 20px;
+	top: 1px;
+}
+
+#one>ul {
+	list-style: none;
+	padding: 10px 0;
+}
+
+#one>ul>li {
+	display: inline;
+	text-transform: uppercase;
+	padding: 0 10px;
+	color: #31A0B4;
+}
+
+#one>ul>li>a {
+	text-decoration: none;
+	color: #31A0B4;
+}
+
+#one>ul>li>a:hover {
+	text-decoration: underline;
+}
+
+#container {
+	position: relative;
+	top: 20%;
+	border-top: 4px solid #31A0B4;
+	border-bottom: 4px solid #31A0B4;
+	height: 50px;
+	z-index: 2;
+}
+
+#textline {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.menu li {
+	float: left;
+	width: 179px;
+	height: 48px;
+	position: relative;
+}
+
+ul.menu li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 48px;
+	text-indent: 30px;
+	font-weight: bold;
+	color: #31A0B4;
+	text-decoration: none;
+	position: relative;
+}
+
+ul.sub {
+	display: none;
+	background: #FFFFFF;
+	border: 2px solid #31A0B4;
+}
+
+ul.sub li {
+	float: none;
+}
+
+ul.sub li ul.sub {
+	position: absolute;
+	left: 179px;
+	top: 0;
+}
+
+ul.menu {
+	zoom: 1;
+}
+
+ul.menu:after {
+	height: 0;
+	visibility: hidden;
+	content: ".";
+	display: block;
+	clear: both;
+}
+
+div#right {
+	position: relative;
+	float: right;
+	top: 24%;
+	right: 0px;
+	width: 20%;
+	color: #31A0B4;
+	font-size: 9pt;
+	text-align: center;
+}
+
+#res {
+	margin-left: 15%;
+	width: 100%;
+	height: 90%;
+	text-align: center;
+}
+
+div#left {
+	position: relative;
+	float: left;
+	top: 24%;
+	left: 0px;
+	width: 20%;
+	height: 90%;
+	color: #31A0B4;
+	font-size: 9pt;
+	text-align: center;
+}
+
+div#map {
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	width: 60%;
+	height: 90%;
+	background-color: silver;
+}
+
+table {
+	font-size: 9pt;
+}
+
+table.search td#main {
+	width: 230px;
+	text-align: center;
+}
+
+.title {
+	font-weight: bold;
+	display: block;
+}
+
+.hAddr {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border-radius: 2px;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 1;
+	padding: 5px;
+}
+
+#centerAddr {
+	display: block;
+	margin-top: 2px;
+	font-weight: normal;
+}
+
+.bAddr {
+	padding: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+ul#list li {
+	color: #31A0B4;
+	text-align: left;
+	list-style-type: square;
+}
+
+#footer {
+	margin-top: 60%;
+	border-top: 4px solid #31A0B4;
+	text-align: center;
+	color: #31A0B4;
+}

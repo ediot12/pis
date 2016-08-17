@@ -9,12 +9,14 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.CommandAction;
 import Parking.SearchInfoBean;
 
 public class InsertReservAction implements CommandAction {
 
+	
 	private Connection getConnection() throws Exception {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 		return DriverManager.getConnection(jdbcDriver);
@@ -29,11 +31,20 @@ public class InsertReservAction implements CommandAction {
 		Vector<SearchInfoBean> vecList = new Vector<SearchInfoBean>();
 
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		String parking_name = request.getParameter("parking_name");
-		System.out.println(parking_name);
+		String id = (String) session.getAttribute("memId");
+		System.out.println(id);
 
 		try {
 			conn = getConnection();
+			pstmt = conn.prepareStatement("select name,phone from members where id ='" + id + "'");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				request.setAttribute("name", rs.getString(1));
+				request.setAttribute("phone", rs.getString(2));
+			}
+			
 			pstmt = conn.prepareStatement("select * from park_info where parking_name like '"+request.getParameter("parking_name")+"'");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
