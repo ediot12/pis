@@ -41,6 +41,7 @@ public class PaymentDBBean implements CommandAction {
 		String outTimehour = request.getParameter("outhour");
 		String outTimemin = request.getParameter("outmin");
 
+		
 		String beginTime = beginTimehour + "시" + beginTimeMin + "분";
 		String outTime = outTimehour + "시" + outTimemin + "분";
 

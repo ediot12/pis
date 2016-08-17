@@ -13,6 +13,7 @@
 	int min = date.getMinutes();
 
 
+	
 %>
 <title>Insert title here</title>
 </head>
