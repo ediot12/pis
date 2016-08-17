@@ -8,6 +8,7 @@
 </head> 
 <body>   
 <center>
+
 <div class="colorblack">
 <c:if test="${x==1}">
 </c:if> <div class="colorblack">
