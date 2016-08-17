@@ -6,7 +6,7 @@
 #report div.up { background-position:0px 0px;}
 
 .shorttable{width:550px; text-align:center; margin:20; border-color:#31A0B4;}
-.shorttable tr{height: 35px; font-size:13;}
+.shorttable tr{height: 35px; font-size:13;} 
 .inputtable{width:800px; margin:20; border-color:#31A0B4;}
 .inputtable tr{height: 35px; font-size:13;}
 .table{width:1100px; text-align:center; margin:20; border-color:#31A0B4;}
