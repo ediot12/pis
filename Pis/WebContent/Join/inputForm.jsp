@@ -35,7 +35,7 @@
 <td class="color">이 름</td>
 <td class="colorblack"> <input type="text" name="name" size="15" maxlength="15" onblur="id_noNumber(this.form)"></td>
 </tr>
-<tr>
+<tr> 
 <td class="color">전화번호</td>
 <td class="colorblack"> <input type="text" name="phone" size="15" maxlength="11"></tr>
 <tr>

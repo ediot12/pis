@@ -33,4 +33,4 @@
 <input type="button" value="취소" onclick="document.location.href='/Pis/Join/main.do?pageNum=${pageNum}'" class="button"> 
 </form>
 </body>
-</html>
+</html> 

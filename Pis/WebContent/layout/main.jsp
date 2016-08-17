@@ -16,7 +16,7 @@
 	<br><br><img src="../image/main.jpg" alt="메인이미지" width="1100px" height="330px" id="mainimg"><br><br><br><br><br>
 	<table>
 	<tr><td>
-	<table class= "maintable">
+	<table class= "maintable"> 
 		<tr>
 			<td width="500px" colspan="3"><b>공지사항</b></td>
 		</tr>

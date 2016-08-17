@@ -17,7 +17,7 @@ function checkIt(){
 		document.myform.passwd.focus();
 		return false;
 	}
-}
+} 
 </script>
 </head>
 <BODY onload="begin()">

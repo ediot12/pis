@@ -19,7 +19,7 @@ history.go(-1);
 <div class="title">
 	<b>아이디 찾기</b>
 </div>
-<div class="colorblack">
+<div class="colorblack"> 
 요청하신 아이디는 ${id}입니다.
 </div>
 <br><a href="/Pis/Join/findPWForm.do"><input type="button" value="비밀번호찾기" class="button"></a>

@@ -8,11 +8,7 @@
 	<style type="text/css">
 	</style>
 	<decorator:head />
-	<style>
-		td{
-			color:#31A0B4;
-		}
-	</style>
+	<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<table width="100%">

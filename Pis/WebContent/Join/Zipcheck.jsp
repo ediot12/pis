@@ -6,7 +6,7 @@
 <head>
 <title>우편번호검색</title>
 <link href="../style.css" rel="stylesheet" type="text/css">
-<script>
+<script> 
 	function dongCheck() {
 		if (document.zipForm.area4.value == "") {
 			alert("도로명 주소를 입력하세요");

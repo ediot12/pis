@@ -12,7 +12,7 @@
     self.close();
 }
 </script>
-</head>
+</head> 
 <body>
 <c:if test="${check==1}">
 <table width="270" border="0" cellspacing="0" cellpadding="5">

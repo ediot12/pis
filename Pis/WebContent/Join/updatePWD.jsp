@@ -5,7 +5,7 @@
 <head>
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
-</head>
+</head> 
 <body>
 <c:if test="${x==1}">
 </c:if> <div class="colorblack">비밀번호가 변경되었습니다.</div>

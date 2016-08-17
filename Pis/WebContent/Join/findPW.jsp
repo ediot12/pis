@@ -34,7 +34,7 @@ document.getElementById("upup").innerHTML="<b><font color=blue size=2pt align='c
 	return false;}
 	return true;
 }
-</script>
+</script> 
 </head>
 <body>
 <center>

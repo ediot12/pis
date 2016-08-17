@@ -15,7 +15,7 @@
 <form action="findID.do" method="post">
 <table border="1" cellpadding="0" cellspacing="0" class="shorttable">
 <tr>
-<td class="color">이름</td>
+<td class="color">이름</td> 
 <td><input type="text" name="name" size="15" maxlength="10"></td>
 </tr>
 <tr>

@@ -17,8 +17,9 @@
 .button{background:#31A0B4; color:#FFFFFF; margin:0 2; padding:5; border-radius:5px;}
 .color{background:#31A0B4; color:#FFFFFF; text-align: center;}
 .colorblack{color:#000000;}
+td{color:#31A0B4;}
 	
-a:HOVER {text-decoration:underline;}
+a:HOVER {text-decoration:underline;} 
 a{text-decoration:none; color : #000000;}
 
 #footer{border-top: 4px solid #31A0B4;}

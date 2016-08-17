@@ -14,7 +14,7 @@
   <td>
   <font size="+1" ><b>회원정보가 삭제되었습니다.</b></font>
       <meta http-equiv="Refresh" content="5;url=/Pis/layout/main.do" >
-    </td>
+    </td> 
   </tr>
 </table>
 <input type="submit" value="확인" class="button">
