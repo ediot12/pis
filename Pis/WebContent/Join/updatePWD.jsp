@@ -19,5 +19,5 @@
 </div>
 <a href="/Pis/layout/main.do" class="button">
 닫기</a>
-</body>
+</body>  
 </html>
