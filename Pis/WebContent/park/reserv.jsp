@@ -19,16 +19,16 @@
 <body>
 
 	<center>
-		<form method="post" name="insert" action="../pointcharge/Point.do" onsubmit="return checkPay()">
+		<form method="post" name="insert" action="/Pis/park/paySuccess.do" onsubmit="return checkPay()">
 			<table border="1" id="ok">
 				<c:forEach var="vecList" items="${reserv }" begin="0">
 					<tr>
 						<td>이름</td>
-						<td><input type="text" readonly></td>
+						<td><input type="text" readonly name="name" value="${name }"></td>
 					</tr>
 					<tr>
 						<td>전화번호</td>
-						<td><input type="text" readonly></td>
+						<td><input type="text" readonly name="phone" value="${phone }"></td>
 					</tr>
 					<tr>
 						<td>주차장이름</td>
@@ -69,14 +69,14 @@
 					</tr>
 					
 					<tr>
-					<td>입차 예정 시간</td>
+					<td>출차 예정 시간</td>
 					<td><select name="outhour">
 					<%for(int i=0;i<24;i++){ %>
 					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>시
 					<select name="outmin">
-					<%for(int i=0;i<60;i++){ %>
+					<%for(int i=0;i<60;i=i+5){ %>
 					<option value=<%=i %>><%=i %></option>
 					<%} %>
 					</select>분

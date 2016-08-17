@@ -380,8 +380,8 @@
                     content: '<div id="markin" style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
                     '<br>전화번호 : '+ftel+
                     '<br>남은대수 : '+fcapa+
-                    '<br>평일운영시간 :'+fweekd_bt+'~'+fweekd_et+
-                    '<br>주말운영시간 :'+fweeke_bt+'~'+fweeke_et+
+                    '<br>평일운영시간 :'+fweekd_bt+'시~'+fweekd_et+'시'+
+                    '<br>주말운영시간 :'+fweeke_bt+'시~'+fweeke_et+'시'+
                     '<br>기본요금 : 10분/'+frates+'원'+
                     '</div>',
                     removable : true

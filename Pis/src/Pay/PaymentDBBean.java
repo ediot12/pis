@@ -1,6 +1,8 @@
 package Pay;
 
+import controller.CommandAction;
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,9 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.connector.Request;
 
-public class PaymentDBBean {
+public class PaymentDBBean implements CommandAction {
 
-	
 	private Connection getConnection() throws Exception {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 		return DriverManager.getConnection(jdbcDriver);
@@ -26,7 +27,9 @@ public class PaymentDBBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String name = (String) session.getAttribute("memId");
+		request.setCharacterEncoding("utf-8");
+		String id = (String) session.getAttribute("memId");
+		String name = null;
 		String phoneNum = null;
 		String parkname = request.getParameter("parkname");
 		String parkloca = request.getParameter("parkloca");
@@ -40,12 +43,14 @@ public class PaymentDBBean {
 
 		String beginTime = beginTimehour + "시" + beginTimeMin + "분";
 		String outTime = outTimehour + "시" + outTimemin + "분";
+
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select phone from members where id=" + name);
+			pstmt = conn.prepareStatement("select id,phone from members where id='"+id+"'");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				phoneNum = rs.getString(1);
+				name = rs.getString(1);
+				phoneNum = rs.getString(2);
 			}
 			pstmt = conn.prepareStatement("insert into reservpark values(?,?,?,?,?,?,?,?,?)");
 			pstmt.setString(1, name);
@@ -58,6 +63,16 @@ public class PaymentDBBean {
 			pstmt.setString(8, beginTime);
 			pstmt.setString(9, outTime);
 			pstmt.executeUpdate();
+			request.setAttribute("name", name);
+			request.setAttribute("phoneNum", phoneNum);
+			request.setAttribute("parkname", parkname);
+			request.setAttribute("parkloca", parkloca);
+			request.setAttribute("cartype", carType);
+			request.setAttribute("beginday", beginday);
+			request.setAttribute("outday", outday);
+			request.setAttribute("begintime", beginTime);
+			request.setAttribute("outtime", outTime);
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
