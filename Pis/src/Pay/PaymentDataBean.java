@@ -13,7 +13,7 @@ public class PaymentDataBean {
 	private String outTime;
 	private int pay;
 	
-
+ 
 	public int getPay() {
 		return pay;
 	}

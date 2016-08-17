@@ -20,7 +20,7 @@ public class PointListDBBean {
 			return DriverManager.getConnection(jdbcDriver);
 	} 
 	
-	
+	 
 //	ppointlist :::  페이징을 위해 count
     public int getArticleCount() throws Exception {
         Connection conn = null;

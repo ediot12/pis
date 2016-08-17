@@ -5,6 +5,7 @@
  
 <body>
 
+
 <form name=reservation  method=post action="/Pis/pointcharge/paymentForm.do">
 <table width="560" border="0" cellspacing="0" cellpadding="0" >
 	<tr>

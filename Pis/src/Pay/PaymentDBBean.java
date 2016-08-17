@@ -23,7 +23,7 @@ public class PaymentDBBean implements CommandAction {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

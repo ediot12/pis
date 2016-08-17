@@ -18,7 +18,7 @@ public class PointmentAction implements CommandAction{
 		request.getSession().setAttribute("point", point);
 		
 		String id = (String) request.getSession().getAttribute("memId");
-		  
+		   
 		PayDBBean paydb = PayDBBean.getInstance();
 		String name = paydb.selectName(id);
 		request.setAttribute("name", name);

@@ -9,6 +9,7 @@ var IMP = window.IMP;
 IMP.init('imp81908602'); //iamport 대신 자신의 "가맹점 식별코드"를 사용하시면 됩니다
 
 
+
 IMP.request_pay({
 	pay_method : '${pay_method}',
 	merchant_uid : 'Parking Infomation System ' + new Date().getTime(),

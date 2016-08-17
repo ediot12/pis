@@ -82,7 +82,7 @@ public class PayDBBean {
 			
 			logon = new LogonDataBean();		
 			
-			if(rs.next()){				
+			if(rs.next()){ 				
 				logon.setName(rs.getString("name"));
 				logon.setEmail(rs.getString("email"));
 				logon.setPhone(rs.getString("phone"));

@@ -8,7 +8,7 @@ public class PayDataBean {
 	private int point;
 	private Timestamp pdate;
 	private String info;
-	
+	 
 	
 	public String getId() {
 		return id;

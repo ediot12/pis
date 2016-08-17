@@ -33,7 +33,7 @@ public class PointAction implements CommandAction {
 				
 				request.setAttribute("point", p);
 				}
-*/  
+*/   
 		
 				System.out.println("pointaction");
 

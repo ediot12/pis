@@ -26,7 +26,7 @@ public class PaymentFormAction implements CommandAction {
 		System.out.println(id);
 		System.out.println("1단계");
 		LogonDataBean member = paydb.selectUserInfo(id);
-		  
+		   
 		System.out.println("2단계");
 		request.setAttribute("member", member);
 		
