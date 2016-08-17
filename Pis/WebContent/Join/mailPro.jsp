@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<html> 
 <head>
 <title>메일인증</title>
-</head> 
+</head>    
 <body bgcolor="${bodyback_c}">
 <div align="center">
 <c:if test="${check==1}">
