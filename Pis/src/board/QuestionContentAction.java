@@ -47,7 +47,7 @@ public class QuestionContentAction implements CommandAction {//글내용 처리
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("qdb", qdb);
 		
-		return "/semi/admin/board/questionContent.jsp";//해당 뷰
+		return "/admin/board/questionContent.jsp";//해당 뷰
 	}
 
 }

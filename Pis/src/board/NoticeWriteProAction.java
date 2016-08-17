@@ -24,7 +24,7 @@ public class NoticeWriteProAction implements CommandAction {
 				dbpro.insertArticle(bdb);
 				
 				System.out.println();
-		return "/semi/admin/board/noticewritePro.jsp";
+		return "/admin/board/noticewritePro.jsp";
 	}
 
 }

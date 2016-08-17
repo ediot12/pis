@@ -3,7 +3,7 @@
 
 <c:choose>
 	<c:when test="${check==1}">
-	<meta http-equiv="Refresh" content="0;url=/Pis/Join/main.do"> 
+	<meta http-equiv="Refresh" content="0;url=/Pis/layout/main.do"> 
 	</c:when>
 <c:when test="${check==0}">
 <script>

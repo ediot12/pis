@@ -21,7 +21,7 @@ public class FAQUpdateFormAction implements CommandAction{
         request.setAttribute("fdb", fdb);
         
         
-		return "/semi/admin/board/FAQUpdateForm.jsp";
+		return "/admin/board/FAQUpdateForm.jsp";
 	}
 
 }

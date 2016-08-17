@@ -8,8 +8,8 @@ public class LogoutAction implements CommandAction{
 			HttpServletResponse response) throws Throwable{
 		
 		request.getSession().invalidate();
-		HttpSession session = request.getSession();
-		return "/Join/logout.jsp";
+		
+		return "/layout/main.do";
 	
 	}
 }

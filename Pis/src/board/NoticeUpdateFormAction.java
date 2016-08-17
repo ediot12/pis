@@ -19,7 +19,7 @@ public class NoticeUpdateFormAction implements CommandAction{
         request.setAttribute("pageNum", new Integer(pageNum));
         request.setAttribute("bdb", bdb);
         
-		return "/semi/admin/board/noticeUpdateForm.jsp";
+		return "/admin/board/noticeUpdateForm.jsp";
 	}
 
 }

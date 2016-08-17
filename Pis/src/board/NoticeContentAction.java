@@ -20,7 +20,7 @@ public class NoticeContentAction implements CommandAction {//글내용 처리
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("bdb", bdb);
 		
-		return "/semi/admin/board/noticeContent.jsp";//해당 뷰
+		return "/admin/board/noticeContent.jsp";//해당 뷰
 	}
 
 }

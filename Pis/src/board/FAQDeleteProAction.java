@@ -21,7 +21,7 @@ public class FAQDeleteProAction implements CommandAction{
 		//해당 뷰에서 사용할 속성
 		request.setAttribute("pageNum", new Integer(pageNum));
         	
-		return "/semi/admin/board/FAQDeletePro.jsp";
+		return "/admin/board/FAQDeletePro.jsp";
 	}
 
 }

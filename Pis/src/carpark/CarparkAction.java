@@ -72,7 +72,7 @@ public class CarparkAction implements CommandAction{
 		request.setAttribute("pageSize", new Integer(pageSize));
 		request.setAttribute("number", new Integer(number));
 		
-		return "/semi/admin/carpark/carpark.jsp";
+		return "/admin/carpark/carpark.jsp";
 	}
 
 }

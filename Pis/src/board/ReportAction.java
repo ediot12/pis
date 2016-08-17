@@ -58,7 +58,7 @@ public class ReportAction implements CommandAction{
 		request.setAttribute("number", new Integer(number));
 	    request.setAttribute("articleList", articleList);
 	   
-		return "/semi/admin/board/report.jsp";
+		return "/admin/board/report.jsp";
 	}
 
 }

@@ -4,14 +4,13 @@ import java.sql.Timestamp;
 
 public class ReportDataBean {
 	
-	
 	private int num;
 	private String writer;
 	private String subject;
 	private Timestamp regdt;
-	private int readcount;
 	private String content;
-	private String reply;
+	private int type;
+	
 	public int getNum() {
 		return num;
 	}
@@ -36,24 +35,20 @@ public class ReportDataBean {
 	public void setRegdt(Timestamp regdt) {
 		this.regdt = regdt;
 	}
-	public int getReadcount() {
-		return readcount;
-	}
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
-	}
+	
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getReply() {
-		return reply;
+	public int getType() {
+		return type;
 	}
-	public void setReply(String reply) {
-		this.reply = reply;
+	public void setType(int type) {
+		this.type = type;
 	}
+	
 	
 	
 

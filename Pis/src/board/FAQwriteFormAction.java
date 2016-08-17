@@ -22,7 +22,7 @@ public class FAQwriteFormAction implements CommandAction{
 		request.setAttribute("num", new Integer(num));
 		
         
-		return "/semi/admin/board/FAQwriteForm.jsp";
+		return "/admin/board/FAQwriteForm.jsp";
 	}
 
 }
