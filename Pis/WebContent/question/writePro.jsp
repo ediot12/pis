@@ -1,10 +1,4 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
-
-<jsp:useBean id="article" scope="page" class="mvc.report.ReportDataBean">
-   <jsp:setProperty name="article" property="*"/>
-</jsp:useBean>
-
-
 <!DOCTYPE html >
 <html>
 <head>
@@ -13,5 +7,4 @@
 <body>
 <%response.sendRedirect("mainForm.do");%>
 </body>
-
 </html>
