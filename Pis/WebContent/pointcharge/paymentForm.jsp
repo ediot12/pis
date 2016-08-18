@@ -13,7 +13,7 @@ IMP.init('imp81908602'); //iamport 대신 자신의 "가맹점 식별코드"를 
 IMP.request_pay({
 	pay_method : '${pay_method}',
 	merchant_uid : 'Parking Infomation System ' + new Date().getTime(),
-	name : '${member.name}',
+	name : '포인트충전',
 	amount : '${point}',
 	buyer_email : '${member.email}',
 	buyer_name : '${member.name}',
@@ -29,6 +29,7 @@ IMP.request_pay({
 		msg += '\n카드 승인번호 : ' + rsp.apply_num;
 		
 		alert(msg);
+		location.href="/Pis/pointcharge/pointcharge.do";
 		
 	} else {
 		var msg = '결제에 실패하였습니다.';

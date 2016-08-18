@@ -17,6 +17,33 @@ public class PayDBBean {
 			return DriverManager.getConnection(jdbcDriver);
 	} 
 	
+//	PointChargeAction ::: 최근 total_point 값을 가져옴. 
+	public int getTotalPoint(String id)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int total_point = 0;
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select total_point from pointment where id=? order by pdate desc");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				total_point = rs.getInt("total_point");
+			}
+			
+		}catch(Exception e){
+			
+			
+		}
+		
+		return total_point;
+	}
+	
+	
+	
 //	결제 내역 db에 저장
 	public void InsertPAY(PayDataBean article) throws Exception {
 		Connection conn = null;
@@ -24,11 +51,13 @@ public class PayDBBean {
 		
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("insert into Pay values(?,?,?,?)" );
+			pstmt = conn.prepareStatement("insert into pointment values(?,?,?,?,?,?)" );
 			pstmt.setString(1, article.getId());
 			pstmt.setInt(2, article.getPoint());
-			pstmt.setTimestamp(3, article.getPdate());
-			pstmt.setString(4, article.getInfo());			
+			pstmt.setInt(3, article.getUse_point());
+			pstmt.setString(4, article.getInfo());	
+			pstmt.setTimestamp(5, article.getPdate());
+			pstmt.setInt(6, article.getTotal_point());		
 			pstmt.executeUpdate(); 
 			
 			System.out.println("db에 insert");
@@ -60,7 +89,11 @@ public class PayDBBean {
 			}
 			
 		}catch(Exception e){
-			
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
+			if(conn != null) try{conn.close();} catch(Exception e){}
 		}
 		return name;
 	}
