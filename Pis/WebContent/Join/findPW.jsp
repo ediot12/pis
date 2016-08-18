@@ -4,34 +4,20 @@
 <html>
 <head>
 <link href="../style.css" rel="stylesheet" type="text/css">
-	<script>
-function checkpass(){
-	var userinput = eval("document.userinput");	
-	if(!userinput.passwd.value){
-		alert("비밀번호를 입력하세요");
-		return false;
-	}return true;
-}
-
+<script>
 function checkpass1_2(){
+	
 var userinput = eval("document.userinput");	
 
-if(!userinput.passwd.value){
-	alert("비밀번호를 입력하세요");
-	return false;
-}
-
 if(userinput.passwd.value != userinput.passwd2.value){
-	alert("비밀번호를 동일하게 입력하세요");
-	return false;
-}
-
-if(userinput.passwd.value != userinput.passwd2.value){
-document.getElementById("upup").innerHTML="<b><font color=red size=2pt align='center'>비밀번호 확인다름</font></b>"
-	return false;
+	document.getElementById("change").innerHTML=
+	"<b><font color=red size=2pt align='center'>비밀번호 확인다름</font></b>"
+		return false;
 }else{
-document.getElementById("upup").innerHTML="<b><font color=blue size=2pt align='center'>비밀번호 확인일치</font></b>"
-	return false;}
+	document.getElementById("change").innerHTML=
+	"<b><font color=blue size=2pt align='center'>비밀번호 확인일치</font></b>"
+		return false;}
+		
 	return true;
 }
 </script> 
@@ -53,16 +39,16 @@ history.go(-1);
 		<table border="1" cellpadding="0" cellspacing="0" class="shorttable">
 			<tr>
 				<td class="color">비밀번호</td>
-				<td><input type="password" name="passwd" size="15" maxlength="10"
-				onblur="checkpass()"></td>
+				<td><input type="password" name="passwd" size="15" maxlength="10">
+				</td>
 			</tr>  
 			<tr>
 				<td class="color">비밀번호확인</td>
 				<td><input type="password" name="passwd2" size="15" maxlength="10"
-				onblur="checkpass1_2()"></td>
+				onblur="checkpass1_2(this.form)"></td>
 			</tr>  
 				<tr>
-				<td class="color">일치여부</td><td id="upup" width="50"></td>
+				<td class="color">일치여부</td><td id="change" width="50"></td>
 			</tr>
 		</table>
 		<input type="hidden" name="id"  value="${id}">

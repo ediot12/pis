@@ -187,21 +187,24 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
    }
     
     //updatePwd
-    public int updatePwd(String passwd, String id){
+    public int updatePwd(String passwd, String passwd2, String id){
  	   Connection conn = null;
         PreparedStatement pstmt = null;
         int x = 0;
+        
         try {
             conn = getConnection();
-           
+           if(passwd.equals(passwd2)){
             pstmt = conn.prepareStatement(
          		   "update MEMBERS set passwd=? where id=?");
             pstmt.setString(1, passwd);
             pstmt.setString(2, id);
             
-            x = pstmt.executeUpdate();
+            pstmt.executeUpdate();
             
-        } catch(Exception ex) {
+            x=1;
+           }else{ x=0;}
+           } catch(Exception ex) {
             ex.printStackTrace();
         } finally {
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}

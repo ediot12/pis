@@ -20,6 +20,7 @@ public class LogonDataBean {
 	private String grade;
 	
 	
+	
 	public String getId() {
 		return id;
 	}

@@ -58,6 +58,8 @@ public class InputProAction implements CommandAction {
         member.setDiscount("0");        
         member.setGrade("¿œπ›");
         
+        
+        
 		
         LogonDBBean manager = LogonDBBean.getInstance();
         manager.insertMember(member);
