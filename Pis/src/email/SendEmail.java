@@ -13,7 +13,7 @@ public class SendEmail {
 	        // 메일 관련 정보
 		    String host = "smtp.gmail.com"; /*이메일 서버*/
 	        String user = "welcome.pis5@gmail.com"; /*이메일 계정*/
-	        String password = "gmdcksckdekthd!"; /*이메일 계정 비번*/
+	        String password = "123456789!@"; /*이메일 계정 비번*/
 	         
 	        // 메일 내용
 	        String recipient = address;

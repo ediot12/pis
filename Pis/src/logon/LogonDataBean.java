@@ -15,6 +15,8 @@ public class LogonDataBean {
 	private String email;
 	private String certify;
 	private String certifyKey;
+	private String discount;
+	private String grade;
 	
 	
 	public String getId() {
@@ -88,5 +90,17 @@ public class LogonDataBean {
 	}
 	public void setCertifyKey(String certifyKey) {
 		this.certifyKey = certifyKey;
+	}
+	public String getDiscount() {
+		return discount;
+	}
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 }

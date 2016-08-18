@@ -56,6 +56,8 @@ public class InputProAction implements CommandAction {
         member.setResident(multi.getParameter("resident"));
         member.setUpload(file_name);
         member.setReg_date(new Timestamp(System.currentTimeMillis())); 
+        member.setDiscount("0");        
+        member.setGrade("¿œπ›");
         
 		
         LogonDBBean manager = LogonDBBean.getInstance();

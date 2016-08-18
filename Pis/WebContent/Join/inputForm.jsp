@@ -61,7 +61,7 @@
 <tr>
 <td class="color">거주자여부</td>
 <td class="colorblack">
-<input type="radio" name="resident" value="1" checked="checked" onClick="this.form.upload.disabled=false">거주자
+<input type="radio" name="resident" value="1" onClick="this.form.upload.disabled=false">거주자
 <input type="radio" name="resident" value="2" onClick="this.form.upload.disabled=true">비거주자
 </td>
 </tr>

@@ -7,7 +7,6 @@
 </head>
 <body>
 <center>
-
 <div class="colorblack">
 <c:if test="${check==1}">
 	<br>
