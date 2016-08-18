@@ -1,9 +1,9 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
 
-<jsp:useBean id="article" scope="page" class="mvc.report.ReportDataBean">
+
+<jsp:useBean id="article" scope="page" class="mvc.notice.PisDataBean">
    <jsp:setProperty name="article" property="*"/>
 </jsp:useBean>
-
 
 <!DOCTYPE html >
 <html>
@@ -11,7 +11,7 @@
 <title></title>
 </head>
 <body>
-<%response.sendRedirect("mainForm.do");%>
+<%response.sendRedirect("list.do");%>
 </body>
-
 </html>
+

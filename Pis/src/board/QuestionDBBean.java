@@ -14,6 +14,37 @@ public class QuestionDBBean {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
 	}
+	// 글쓰기 insert 
+	public void insertArticle(QuestionDataBean article)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int num=article.getNum();
+		int number=0;
+		String sql="";
+		try{
+			conn=getConnection();
+			
+			
+			sql = "insert into question(num,writer,subject,content,kind,checked)" + "values(question_num.NEXTVAL,?,?,?,?,?)";
+			  
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, article.getWriter());
+			pstmt.setString(2, article.getSubject());
+			pstmt.setString(3, article.getContent());
+			pstmt.setString(4, article.getKind());
+			pstmt.setString(5, article.getChecked());
+			pstmt.executeUpdate();
+	}catch(Exception e){
+		e.printStackTrace();
+	}finally{
+		if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+        if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+        if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		}
+	}
 	
 	//Question.jsp : 페이징을 위해서 전체 DB에 입력된 행의 수가 필요하다!!
 			public int getArticleCount() throws Exception{
@@ -48,11 +79,52 @@ public class QuestionDBBean {
 					conn = getConnection();
 					pstmt = conn.prepareStatement("select num,"
 							+ "kind,subject,checked, regdt, content, r  " +
-					        "from (select num,writer,kind,subject,checked, regdt, content, rownum r " +
-					        "from (select num,writer,kind,subject,checked, regdt, content " +
-					        "from Question order by num desc) order by num desc) where r >= ? and r <= ? ");
+					        "from (select num,kind,subject,checked, regdt, content, rownum r " +
+					        "from (select num,kind,subject,checked, regdt, content " +
+					        "from Question order by num desc) order by num desc) where r >= ? and r <= ?");
 					pstmt.setInt(1, start);
 					pstmt.setInt(2, end);
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()){
+						articleList = new ArrayList(end);
+						do{
+							QuestionDataBean qdb = new QuestionDataBean();
+							qdb.setNum(rs.getInt("num"));
+							qdb.setKind(rs.getString("kind"));
+							qdb.setSubject(rs.getString("subject"));
+							qdb.setChecked(rs.getString("checked"));
+							qdb.setRegdt(rs.getTimestamp("regdt"));
+							qdb.setContent(rs.getString("content"));
+							articleList.add(qdb);
+							
+						}while(rs.next());
+					}
+				}catch(Exception e){ e.printStackTrace(); }
+				finally{
+					jdbcUtil.close(rs);
+					jdbcUtil.close(pstmt);
+					jdbcUtil.close(conn);
+				}
+				return articleList;
+			}
+			public List getArticles(int start, int end, String writer) throws Exception{
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				List articleList = null;
+				try{
+					conn = getConnection();
+					pstmt = conn.prepareStatement(
+							"select num,writer,subject,content,regdt,checked,kind, rownum from question where rownum >= ? and rownum <= ? and writer =? order by num desc");
+							/*"select num,"
+							+ "kind,subject,checked, regdt, content, r  " +
+					        "from (select num,kind,subject,checked, regdt, content, rownum r " +
+					        "from (select num,kind,subject,checked, regdt, content " +
+					        "from Question order by num desc) order by num desc) where r >= ? and r <= ? and writer = ?");*/
+					pstmt.setInt(1, start);
+					pstmt.setInt(2, end);
+					pstmt.setString(3, writer);
 					rs = pstmt.executeQuery();
 					
 					if(rs.next()){

@@ -1,9 +1,8 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
-
 <!DOCTYPE html >
 <html>
-<head>
 
+<head>
 <style>
 	.box-button{
     padding-top: 20px;
@@ -22,16 +21,25 @@
 </style>
 <title></title>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script src="script.js"></script>
+<script>
+function zipCheck(){
+	
+	url="/Pis/info/zipcheck.do?check=y";
+	
+	window.open(url,"post","toolbar=no ,width=500 ,height=300,directories=no,status=yes,scrollbars=yes,menubar=no");
+}
+
+
+</script>
 </head>
 <body>
 	<center>
 	<div class="title">
-		<b>후기 글 작성</b>
+		<b>주차장 제보</b>
 	</div>
 	<br>
 		<form method="post" name="writeform"
-			action="/Pis/review/writePro.do" onsubmit="return writeSave()" enctype="multipart/form-data">
+			action="/Pis/info/writePro.do" onsubmit="return writeSave()" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${num}">
 			<table width="700" border="1" cellspacing="0" cellpadding="0"
 				align="center" style="table-layout:fixed">
@@ -39,31 +47,27 @@
 					<td width="70" align="center"><b>작성자</b></td>
 					<td width="230"><input type="text" size="20" maxlength="10"
 						name="writer"></td>
-						<td width="70" align="center"><b>평가하기</b>
-						<td width="230">
-					<select name="score">
-					<option value="">선택</option>
-					<option value="1">★</option>
-					<option value="2">★★</option>
-					<option value="3">★★★</option>
-					<option value="4">★★★★</option>
-					<option value="5">★★★★★</option>
-					</select></td>
-						
-					
-				</tr>
-				
-				<tr>
-					<td width="70" align="center"><b>제 목</b></td>
-					<td width="330"><input type="text" size="20" maxlength="20"
-						name="subject"></td>
 						<td width="70" align="center"><b>첨부</b></td>
 						<td width="330">
     					<input type="file" name="bfile">
 				</tr>
 				
 				<tr>
-				
+					<td width="70" align="center"><b>제 목</b></td>
+					<td width="630"><input colspan="4" type="text" size="20" maxlength="20"
+						name="subject"></td>				
+				</tr>
+				<tr>
+					<td width="200">우편번호</td>
+					<td><input type="text" name="zipcode" size="7" readonly="readonly">
+						<input type="button" value="우편번호찾기" onClick="zipCheck()"></td>
+				</tr>
+				<td>주소</td>
+				<td><input type="text" name="address" size="70"> </td>
+				</tr>
+
+
+
 				<tr>
 					<td align="center">내용</td>
       				<td colspan="3"><textarea name="content"  cols="80" rows="20"></textarea></td>
@@ -73,7 +77,7 @@
 				<tr>
 					<td colspan="4" align="right">
 					<input class="box-gray" type="reset" value="취 소" onclick="document.location.href='mainForm.do'">
-					<input class="box-gray" type="submit" value="작 성">
+					<input class="box-gray" type="submit" value="제보하기">
 				</tr>
 				
 			</table>

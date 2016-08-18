@@ -26,7 +26,6 @@
 </style>
 
 
-
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -36,29 +35,40 @@
 
 		<table width="700" cellpadding="0" cellspacing="0">
 			<tr>
-				<td align="left"><b>불편 신고</b></td>
+				<td align="left"><b>불편 신고 관리</b></td>
 			</tr>
 		</table>
 
 		
-			<table boder=1 width="700" cellpadding="0" cellspacing="0"
-			style="border-top: 2px solid #3d9013">
+			<table border=1 width="700" cellpadding="0" cellspacing="0">
 				<tr height="30">
-					<td class="target" align="center" width="50">No</td>
-					<td class="target" align="center" width="300">제 목</td>
+					<td class="target" align="center" width="50">번호</td>
+					<td class="target" align="center" width="150">불편유형</td>
+					<td class="target" align="center" width="350">제 목</td>
 					<td class="target" align="center" width="100">작성자</td>
-					<td class="target" align="center" width="100">답변</td>
 					<td class="target" align="center" width="100">작성일</td>
 				</tr>
 				<c:if test="${count != 0 }">
 				 <c:forEach var="article" items="${articleList}">
 					<tr height="30" align="center">
 						<td>${article.num }</td>
-						<td><a href="/project/report/content.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
+						<td>
+						<c:if test="${article.type == 1 }">
+									결 제 
+								</c:if> <c:if test="${article.type == 2 }">
+								불 친절
+								</c:if> <c:if test="${article.type == 3 }">
+									주차 불편(주변피해)
+								</c:if> <c:if test="${article.type == 4 }">
+										불법 주정차
+								</c:if> <c:if test="${article.type == 5 }">
+									기타
+								</c:if>
+							</td>
+						<td><a href="/Pis/report/content.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
 
 
 						<td>${article.writer }</td>
-						<td>${article.reply }</td>
 						<td>${sd.format(article.regdt)}</td>
 				</c:forEach> 
 			</table>
@@ -66,7 +76,7 @@
 		<br>
 		<table width="700" class="box-button">
 			<tr>
-				<td align="right"><a href="/project/report/writeForm.do" class="box-gray">글 작성</a></td>
+				<td align="right"><a href="/Pis/report/writeForm.do" class="box-gray">글 작성</a></td>
 			</tr>
 		</table>
 		
@@ -84,15 +94,15 @@
 			</c:if>
 
 			<c:if test="${startPage>10 }">
-				<a href="/project/review/mainForm.do?pageNum=${startPage-10 }">[이전]</a>
+				<a href="/Pis/report/mainForm.do?pageNum=${startPage-10 }">[이전]</a>
 			</c:if>
 
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="/project/review/mainForm.do?pageNum=${i}">[${i}]</a>
+				<a href="/Pis/report/mainForm.do?pageNum=${i}">[${i}]</a>
 			</c:forEach>
 
 			<c:if test="${endPage<pageCount }">
-				<a href="/project/review/mainForm.do?pageNum=${startPage+10 }">[다음]</a>
+				<a href="/Pis/report/mainForm.do?pageNum=${startPage+10 }">[다음]</a>
 			</c:if>
 		</c:if>
 </body>

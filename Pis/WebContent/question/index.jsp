@@ -5,6 +5,6 @@
 <title></title>
 </head>
 <body>
-<% response.sendRedirect("/Pis/report/mainForm.do"); %>
+<% response.sendRedirect("/Pis/question/mainForm.do"); %>
 </body>
 </html>

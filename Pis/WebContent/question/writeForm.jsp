@@ -1,8 +1,8 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html >
 <html>
 <head>
-
 <style>
 	.target{border-bottom: 1px solid #a5a5a5}
 	.box-button{
@@ -24,33 +24,26 @@
 </head>
 <body>
 <center>
-		<b>불편 신고 </b> <br>
+<b>1:1문의 하기 </b> <br>
 		<form method="post" name="writeform"
-			action="/Pis/report/writePro.do" onsubmit="return writeSave()">
+			action="/Pis/question/writePro.do" onsubmit="return writeSave()">
 			<input type="hidden" name="num" value="${num}">
-				
-			
 			<table width="600" border="1" cellspacing="0" cellpadding="0"
 				align="center" style="table-layout:fixed">
-
-
 				<tr>
 					<td width="70" align="center"><b>작성자</b></td>
-					<td width="230"><input type="text" size="20" maxlength="10"
-						name="writer"></td>
-						<td width="70" align="center" colspan="3"><b>불편 종류</b>
+					<td width="230">${memId }</td>
+						<td width="70" align="center" colspan="3"><b>문의 종류</b></td>
 						<td width="230">
-					<select name="type">
-					<option value="">불편종류</option>
-					<option value="1">결제</option>
-					<option value="2">불 친절</option>
-					<option value="3">주차 불편(주변 피해)</option>
-					<option value="4">불법 주정차</option>
-					<option value="5">기타</option>
+					<select name="kind">
+					<option value="">문의종류</option>
+					<option value="회원정보">회원정보</option>
+					<option value="예약">예약</option>
+					<option value="취소">취소</option>
+					<option value="환불">환불</option>
+					<option value="기타">기타</option>
 					</select></td>
-						
-					
-				</tr>
+					</tr>
 				
 				<tr>
 					<td width="70" align="center"><b>제 목</b></td>
@@ -63,14 +56,11 @@
 					<td width="330"><textarea name="content" rows="14" cols="70"></textarea>
 					</td>
 				</tr>
-				
 				<tr>
 					<td class="box-button" colspan="6" align="right" >
-					<input class="box-gray" type="submit" value="신고하기" OnClick="window.location='/Pis/report/mainForm.do'">
-					</td>
-					
-				</tr>
-				
+					<input type="button" value="취소하기" OnClick="window.location='/Pis/question/mainForm.do'">
+					<input type="submit" value="문의하기"> </td>
+					</tr>
 			</table>
 		</form>
 </body>
