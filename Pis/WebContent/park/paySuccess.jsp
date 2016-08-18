@@ -2,9 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
+<center>
+<br>
+
 	<form action="#" method="post">
 		<table>
 			<tr>
@@ -33,7 +36,7 @@
 			<tr>
 				<td>차종 :</td>
 				<td><input type="text" readonly="readonly" name="cartype"
-					value="${carType }" size="40"></td>
+					value="${cartype }" size="40"></td>
 			</tr>
 
 			<tr>
