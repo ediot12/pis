@@ -10,8 +10,14 @@
 <center>
 
 <div class="colorblack">
+<c:if test="${x==0}">
+<script>
+alert("비밀번호가 동일하지 않습니다\n 다시 입력해주세요.")
+history.go(-1);
+</script>
+</c:if>
 <c:if test="${x==1}">
-</c:if> <div class="colorblack">
+ <div class="colorblack">
 <br>
 비밀번호가 변경되었습니다.
 <p>오늘도 좋은 하루 되세요!</p>
@@ -19,5 +25,6 @@
 </div>
 <a href="/Pis/layout/main.do" class="button">
 닫기</a>
+</c:if>
 </body>  
 </html>
