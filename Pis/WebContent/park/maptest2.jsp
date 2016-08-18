@@ -287,6 +287,7 @@
 	
 		</script>
 		</c:if>
+		
 		</div>
 		<div id="left" style="overflow-y: auto; overflow-x:hidden ">
 		<form name="test" method="post" action="parkmap.do">
@@ -305,7 +306,17 @@
 		<tr>
 		<td id="main">검색 결과</td>
 		</tr>
+		
 		<c:if test="${result!=null }">
+		<c:if test="${count==0 }">
+		<script>
+		
+		document.getElementById('map').innerHTML = null;
+		document.getElementById('map').innerHTML = '<img src="icon/DataNotFound.jpg" alt="이미지" width="60%" height="80%">';
+	
+		alert('ㅎㅇ');
+		</script>
+		</c:if>
 			<c:forEach var="search" items="${search }" begin="0" end="${count }" varStatus="abc">
 			
 		<tr>
@@ -328,6 +339,9 @@
 				
 				
 				if(map==null){
+					var points = new Array();
+									
+					
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					mapOption = {
 						center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -338,7 +352,8 @@
 					map.setCenter(new daum.maps.LatLng(avlat, avlng));
 					
 					var mapTypeControl = new daum.maps.MapTypeControl();
-
+					// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+					var bounds = new daum.maps.LatLngBounds();   
 					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
 					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
 					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
@@ -367,7 +382,8 @@
 				
 				
 				}
-				
+				points[fcount-1] = new daum.maps.LatLng(parseFloat(lat),parseFloat(lng));
+				bounds.extend(points[fcount-1]);
 				
 				var marker = new daum.maps.Marker({
 					map : map,
@@ -377,23 +393,26 @@
 				
 				
 				var fInfo = new daum.maps.InfoWindow({
-                    content: '<div id="markin" style="padding:5px; width:220px ;height:150px;font-size:9pt">주소 : 서읕륵별시 ' + faddress +
+                    content: '<div id="markin">주소 : 서읕륵별시 ' + faddress +
                     '<br>전화번호 : '+ftel+
                     '<br>남은대수 : '+fcapa+
-                    '<br>평일운영시간 :'+fweekd_bt+'시~'+fweekd_et+'시'+
-                    '<br>주말운영시간 :'+fweeke_bt+'시~'+fweeke_et+'시'+
+                    '<br>평일운영시간 : '+fweekd_bt+'시~'+fweekd_et+'시'+
+                    '<br>주말운영시간 : '+fweeke_bt+'시~'+fweeke_et+'시'+
                     '<br>기본요금 : 10분/'+frates+'원'+
                     '</div>',
                     removable : true
                 });
 				
 				
-				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates) {
-                    return function() {
-                        var infowindow = fInfo
-                      infowindow.open(map, marker);
+				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates,lat,lng) {
+					return function() {
+						map.setLevel(3);
+						map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
+                        var infowindow = fInfo;
+                        infowindow.open(map, marker);
                     }
-                })(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates));
+                    
+                })(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates,lat,lng));
 				
 				daum.maps.event.addListener(map,'click',(function(fInfo){
 					return function(){
@@ -404,10 +423,9 @@
 				
 				
 				
-				
-				
-				
-				
+				if(check==fcount){
+					map.setBounds(bounds);
+				}
 				
 				</script>
 				<ul id="list">
@@ -416,10 +434,12 @@
 					<c:if test="${search.tel!=null }">
 					<li>${search.tel }</li>
 					</c:if>
-					<input type="button" value="선택"
+				<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
-						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }')">
+						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }');viewSelect('${search.lat}',
+							'${search.lng}','${search.parking_name }')">
+					
 				</ul>
 				
 				<hr>
@@ -447,26 +467,25 @@
 		<br>
 		<br>
 		<br>
-	
 		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
 		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
-
-
-
 		</div>
-		
-		
-		
 		<script>
-	
-	
+		function viewSelect(lat,lng,parking_name){
+			
+			map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
+			var infowindow = new daum.maps.InfoWindow({
+				map : map,
+				position : new daum.maps.LatLng(parseFloat(lat)+0.001,parseFloat(lng)),
+				content : parking_name,
+				zindex : 1
+			}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+		}
 		//최소한 지도가 뜬 이후에나
 		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates) {
 	
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng)));
-			
-			
 			
 			var seoul = '서울특별시 ';
 			/* map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); */
@@ -528,7 +547,6 @@
 				map.setCenter(locPosition);
 			}
 		}
-		
 		function checkLocation(){
 			
 			navigator.geolocation.getCurrentPosition(function(position) {
@@ -552,7 +570,7 @@
 						if (status === daum.maps.services.Status.OK) {
 								var detailAddr = result[0].jibunAddress.name;
 								var content = detailAddr;
-								// 마커를 클릭한 위치에 표시합니다 
+								// 마커를 클릭한 위치에 표시합니다
 								marker.setPosition(locPosition);
 								marker.setMap(map);
 								// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
@@ -562,20 +580,11 @@
 								document.getElementById('loc').value = result[0].jibunAddress.name;
 							}
 						});
-
-
-					
-
 					function searchDetailAddrFromCoords(coords, callback) {
 						// 좌표로 법정동 상세 주소 정보를 요청합니다
 						geocoder.coord2detailaddr(coords, callback);
 					}
-
-				
-			
 				});
-			
-			
 		}
 		</script>
 		

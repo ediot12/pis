@@ -83,6 +83,8 @@ public class ParkingInfoSelectAction implements CommandAction {
 				System.out.println(rs.getInt(1));
 			}
 			request.setAttribute("search", vecList);
+			
+			
 			request.setAttribute("result", request.getParameter("addr"));
 
 		} catch (SQLException e) {
