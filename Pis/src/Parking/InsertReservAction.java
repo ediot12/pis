@@ -27,6 +27,7 @@ public class InsertReservAction implements CommandAction {
 		ResultSet rs = null;
 		String id = (String) session.getAttribute("memid");
 
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("select name,phone from members where id ='" + id + "'");

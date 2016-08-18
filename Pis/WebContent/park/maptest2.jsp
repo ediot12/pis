@@ -403,7 +403,6 @@
                     removable : true
                 });
 				
-				
 				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates,lat,lng) {
 					return function() {
 						map.setLevel(3);

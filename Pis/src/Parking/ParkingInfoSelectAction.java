@@ -14,7 +14,6 @@ import controller.CommandAction;
 public class ParkingInfoSelectAction implements CommandAction {
 
 	
-	
 	private Connection getConnection() throws Exception {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 		return DriverManager.getConnection(jdbcDriver);
