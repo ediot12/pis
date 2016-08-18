@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 
+
 public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
    
 	private static LogonDBBean instance = new LogonDBBean();
@@ -35,7 +36,7 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             conn = getConnection();
  //DriverManager.getConnection(jdbc:apache:commons:dbcp:/pool);
             pstmt = conn.prepareStatement(
-            "insert into MEMBERS values (?,?,?,?,?,?,?,?,?,?,?)");
+            "insert into MEMBERS values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstmt.setString(1, member.getId());
             pstmt.setString(2, member.getPasswd());
             pstmt.setString(3, member.getName());
@@ -47,6 +48,8 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             pstmt.setString(9, member.getResident());
             pstmt.setString(10, member.getUpload());
             pstmt.setTimestamp(11, member.getReg_date());
+            pstmt.setString(12, member.getDiscount());
+            pstmt.setString(13, member.getGrade());
             pstmt.executeUpdate();
            
         } catch(Exception ex) {

@@ -25,7 +25,9 @@
 		<tr>
 			<td valign="top" width="21%" height="700px"></td>
 			<td valign="top" width="57%" height="700px" id="main"><decorator:body /></td>
-			<td valign="top" width="22%" height="700px"></td>
+			<td valign="top" width="22%" height="700px">
+			<jsp:include page="layout/quickmenu.jsp" flush="true"/>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="3" width="100%" height="40px" align="center">

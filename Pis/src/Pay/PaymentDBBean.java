@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
 
 public class PaymentDBBean implements CommandAction {
 
@@ -53,16 +52,17 @@ public class PaymentDBBean implements CommandAction {
 				name = rs.getString(1);
 				phoneNum = rs.getString(2);
 			}
-			pstmt = conn.prepareStatement("insert into reservpark values(?,?,?,?,?,?,?,?,?)");
-			pstmt.setString(1, name);
-			pstmt.setString(2, phoneNum);
-			pstmt.setString(3, parkname);
-			pstmt.setString(4, parkloca);
-			pstmt.setString(5, carType);
-			pstmt.setString(6, beginday);
-			pstmt.setString(7, outday);
-			pstmt.setString(8, beginTime);
-			pstmt.setString(9, outTime);
+			pstmt = conn.prepareStatement("insert into reservpark values(?,?,?,?,?,?,?,?,?,null)");
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, phoneNum);
+			pstmt.setString(4, parkname);
+			pstmt.setString(5, parkloca);
+			pstmt.setString(6, carType);
+			pstmt.setString(7, beginday);
+			pstmt.setString(8, outday);
+			pstmt.setString(9, beginTime);
+			pstmt.setString(10, outTime);
 			pstmt.executeUpdate();
 			request.setAttribute("name", name);
 			request.setAttribute("phoneNum", phoneNum);

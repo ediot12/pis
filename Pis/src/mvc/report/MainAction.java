@@ -14,6 +14,7 @@ public class MainAction implements CommandAction{
 			throws Throwable{
 
 		
+	
 		request.setCharacterEncoding("utf-8");
 		
 		SimpleDateFormat sd =

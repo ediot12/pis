@@ -73,9 +73,9 @@
 						</li>
 						<li><b><a href="#">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">고객센터</a></b>
@@ -83,9 +83,9 @@
 								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
 								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<li><b><a href="#">환불규정</a></b></li>
-								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">마이페이지</a></b>
@@ -126,9 +126,9 @@
 						</li>
 						<li><b><a href="#">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">고객센터</a></b>
@@ -138,9 +138,9 @@
 								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
-								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">마이페이지</a></b>
@@ -165,9 +165,9 @@
 					</li>
 					<li><b><a href="#">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">고객센터</a></b>
@@ -177,9 +177,9 @@
 								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
-								<li><b><a href="#">주차장제보</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="#">마이페이지</a></b>

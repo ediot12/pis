@@ -8,12 +8,14 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+
+
 public class SendEmail {
 	 public void send(String address, String key) throws MessagingException{
 	        // 메일 관련 정보
 		    String host = "smtp.gmail.com"; /*이메일 서버*/
 	        String user = "welcome.pis5@gmail.com"; /*이메일 계정*/
-	        String password = "gmdcksckdekthd!"; /*이메일 계정 비번*/
+	        String password = "123456789!@"; /*이메일 계정 비번*/
 	         
 	        // 메일 내용
 	        String recipient = address;
