@@ -1,19 +1,18 @@
-package mvc.review;
+package mvc.info;
 
 import java.sql.Timestamp;
 
-public class ReviewDataBean {
-
+public class InfoDataBean {
+	
+	
 	private int num;
 	private String writer;
 	private String subject;
-	private String passwd;
 	private Timestamp regdt;
-	private int readcount;
 	private String content;
-	private int score;
 	private String bfile;
-	
+	private String zipcode;
+	private String address;
 	public int getNum() {
 		return num;
 	}
@@ -32,23 +31,11 @@ public class ReviewDataBean {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
 	public Timestamp getRegdt() {
 		return regdt;
 	}
 	public void setRegdt(Timestamp regdt) {
 		this.regdt = regdt;
-	}
-	public int getReadcount() {
-		return readcount;
-	}
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
 	}
 	public String getContent() {
 		return content;
@@ -56,21 +43,24 @@ public class ReviewDataBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
 	public String getBfile() {
 		return bfile;
 	}
 	public void setBfile(String bfile) {
 		this.bfile = bfile;
 	}
-	
-	
-	
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	
 	
 
