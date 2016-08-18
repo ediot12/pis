@@ -8,6 +8,43 @@
 	href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="reserv.js"></script>
+<script>
+	var date = new Date();
+	var hour = date.getHours();
+	var min = (parseInt((date.getMinutes()/10))+1)*10;
+	if(min>50){
+		hour = hour + 1;
+		min = 0;
+	}
+	$(function() {
+		
+		for (var i = hour; i < 24; i++) {
+			$("#test").append("<option value='"+i+"'>" + i + "</option>");
+		}
+		for (var i = min; i < 60; i=i+10) {
+			$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+		}
+
+	});
+	
+	function checkTime(obj){
+		if(obj.value!=hour){
+			$("#test2").find("option").remove();
+			for (var i = 0; i < 60; i=i+10) {
+				
+				$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
+		if(obj.value==date.getHours()){
+			$("#test2").find("option").remove();
+			for (var i = min; i < 60; i=i+10) {
+				$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
+		
+		
+	}
+</script>
 
 <%
 	if (session.getAttribute("memId") == null) {
@@ -19,10 +56,6 @@
 
 <%
 	}
-
-	Date date = new Date();
-	int hour = date.getHours();
-	int min = date.getMinutes();
 %>
 <title>Insert title here</title>
 </head>
@@ -66,22 +99,10 @@
 						</tr>
 						<tr>
 							<td>입차 예정 시간</td>
-							<td><select name="inhour">
-									<%
-										for (int i = hour; i < 24; i++) {
-									%>
-									<option value=<%=i%>><%=i%></option>
-									<%
-										}
-									%>
-							</select>시 <select name="inmin">
-									<%
-										for (int i = min; i < 60; i++) {
-									%>
-									<option value=<%=i%>><%=i%></option>
-									<%
-										}
-									%>
+							<td>
+							<select id="test" onchange="checkTime(this)">
+							</select>시
+							<select id="test2">
 							</select>분</td>
 						</tr>
 
@@ -97,7 +118,7 @@
 									%>
 							</select>시 <select name="outmin">
 									<%
-										for (int i = 0; i < 60; i = i + 5) {
+										for (int i = 0; i < 60; i = i + 10) {
 									%>
 									<option value=<%=i%>><%=i%></option>
 									<%
@@ -106,12 +127,20 @@
 							</select>분</td>
 						</tr>
 
+						<tr>
+							<td>기본료(30분당)</td>
+							<td><input type="text" readonly value=" ${vecList.rates }원"
+								size="30" name="rates"></td>
+						</tr>
 
 
+
+						<input type="hidden" name="pay_nm" value="${vecList.pay_nm }">
 
 					</c:forEach>
 				</c:if>
 			</table>
+
 			<input type="submit" value="예약하기">
 
 		</form>
