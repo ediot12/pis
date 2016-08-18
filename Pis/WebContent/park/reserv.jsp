@@ -19,26 +19,26 @@
 	$(function() {
 		
 		for (var i = hour; i < 24; i++) {
-			$("#test").append("<option value='"+i+"'>" + i + "</option>");
+			$("#inhour").append("<option value='"+i+"'>" + i + "</option>");
 		}
 		for (var i = min; i < 60; i=i+10) {
-			$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+			$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 		}
 
 	});
 	
 	function checkTime(obj){
 		if(obj.value!=hour){
-			$("#test2").find("option").remove();
+			$("#inmin").find("option").remove();
 			for (var i = 0; i < 60; i=i+10) {
 				
-				$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
 		if(obj.value==date.getHours()){
-			$("#test2").find("option").remove();
+			$("#inmin").find("option").remove();
 			for (var i = min; i < 60; i=i+10) {
-				$("#test2").append("<option value='"+i+"'>" + i + "</option>");
+				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
 		
@@ -57,7 +57,7 @@
 <%
 	}
 %>
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
 
@@ -100,9 +100,9 @@
 						<tr>
 							<td>입차 예정 시간</td>
 							<td>
-							<select id="test" onchange="checkTime(this)">
+							<select name="inhour" id="inhour" onchange="checkTime(this)">
 							</select>시
-							<select id="test2">
+							<select name="inmin" id="inmin">
 							</select>분</td>
 						</tr>
 
