@@ -19,7 +19,7 @@ public class PointAction implements CommandAction {
 
 		
 		System.out.println("pointaction");
-		
+		  
 		
 		return "/pointcharge/Point.jsp";
 	

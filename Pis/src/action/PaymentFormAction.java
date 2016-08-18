@@ -26,7 +26,7 @@ public class PaymentFormAction implements CommandAction {
 		System.out.println(point);
 		System.out.println(pay_method);
 		
-		
+		  
 		PayDBBean paydb = PayDBBean.getInstance();
 		System.out.println(id);
 		System.out.println("1´Ü°è");

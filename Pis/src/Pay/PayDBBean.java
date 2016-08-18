@@ -42,7 +42,7 @@ public class PayDBBean {
 		return total_point;
 	}
 	
-	
+	  
 	
 //	결제 내역 db에 저장
 	public void InsertPAY(PayDataBean article) throws Exception {

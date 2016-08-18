@@ -36,7 +36,7 @@ IMP.request_pay({
 		msg += '에러내용 : ' + rsp.error_msg;
 	}
 });
-
+  
 
 	
 
