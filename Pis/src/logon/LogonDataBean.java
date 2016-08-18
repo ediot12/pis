@@ -2,6 +2,7 @@ package logon;
 
 import java.sql.*;
 
+
 public class LogonDataBean {
 	private String id;
 	private String passwd;

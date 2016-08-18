@@ -8,6 +8,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+
+
 public class SendEmail {
 	 public void send(String address, String key) throws MessagingException{
 	        // 메일 관련 정보
