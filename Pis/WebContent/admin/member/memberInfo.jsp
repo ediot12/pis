@@ -15,7 +15,7 @@
 <body>
 	<center>
 	<br>
-	<div class="title">
+	<div class="title"> 
 		<b>"${mdb.name}"</b>님 회원관리
 		<a href="/Pis/admin/member/member.do">
 			<input type="button" value="목록보기" class="button">

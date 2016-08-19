@@ -12,7 +12,7 @@
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable(); 
          data.addColumn('string', '월');
  	 	 data.addColumn('number', '방문자수');
 

@@ -16,7 +16,7 @@
 		var dt = new Date();
 		var y = dt.getFullYear();
 		var m = dt.getMonth() + 1;
-		var d = dt.getDate();
+		var d = dt.getDate(); 
 		var d2 = dt.getDate() + 3;
 		var h = dt.getHours();
 		mindt = y + "-" + m + "-" + d;

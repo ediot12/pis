@@ -16,7 +16,7 @@ public class MemberCheckAction implements CommandAction{
 		MemberDBBean dbpro = MemberDBBean.getInstance();
 		MemberDataBean mdb =  dbpro.getMember(id);
 	    
-	    request.setAttribute("id", id);  
+	    request.setAttribute("id", id);   
 	    request.setAttribute("mdb", mdb);
 		
 		

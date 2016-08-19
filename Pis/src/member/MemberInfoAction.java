@@ -23,3 +23,4 @@ public class MemberInfoAction implements CommandAction{
 	}
 
 }
+ 

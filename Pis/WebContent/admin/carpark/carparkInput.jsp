@@ -10,7 +10,7 @@
 <body> 
 <center>
 <div class="title">
-	<b>주차장 추가하기</b>
+	<b>주차장 추가하기</b> 
 </div>
 <br>
 <form method="post" name="writeform" action="/Pis/admin/carpark/carparkInputPro.do" onsubmit="return writeSave()">

@@ -10,7 +10,7 @@
 <body>
 	<center>
 	<b>- 전체 주차장 :${count} -</b>
-	<div class="title">
+	<div class="title"> 
 	<b>주차장관리</b>
 		<a href="/Pis/admin/carpark/carparkInput.do">
 			<input type="button" value="주차장등록" class="button">

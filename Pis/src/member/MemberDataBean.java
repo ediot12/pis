@@ -25,7 +25,7 @@ public class MemberDataBean {
 		this.id = id;
 	}
 	public String getPasswd() {
-		return passwd;
+		return passwd; 
 	}
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;

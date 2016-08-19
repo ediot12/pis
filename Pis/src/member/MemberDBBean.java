@@ -29,7 +29,7 @@ public class MemberDBBean {
 			        "from members m left outer join pointment l on (m.id=l.id) where rownum>= ? and rownum<= ? order by m.name asc");
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery(); 
 			
 			if(rs.next()){
 				articleList = new ArrayList(end);

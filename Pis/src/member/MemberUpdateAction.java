@@ -21,7 +21,7 @@ public class MemberUpdateAction implements CommandAction{
 			
 			dbpro.updateArticle(mdb);
 		
-		return "/admin/member/memberupdate.jsp";
+		return "/admin/member/memberupdate.jsp"; 
 	}
 
 }

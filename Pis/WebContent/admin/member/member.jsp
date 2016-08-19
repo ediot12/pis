@@ -18,7 +18,7 @@
 			<td width="15%" class="color">아이디</td>
 			<td width="15%" class="color">이름</td>
 			<td width="15%" class="color">회원등급</td>
-			<td width="15%" class="color">거주자승인</td>
+			<td width="15%" class="color">거주자승인</td> 
 			<td width="10%" class="color">할인율</td>
 			<td width="15%" class="color">포인트잔액</td>
 			<td width="10%" class="color">상세내역</td>
