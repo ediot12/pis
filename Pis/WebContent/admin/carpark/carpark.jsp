@@ -5,39 +5,7 @@
 <html>
 <head>
 <title></title>
-<style>
-	.table{
-		width:1100px;
-		text-align: center;
-		margin : 20;
-		border-color: #31A0B4;
-	}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	}
-	.title .button{
-		float: right;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-	}
-	.color td{
-		background:#31A0B4;
-		color:#FFFFFF;
-	}
-	.table tr{
-		height: 35px;
-		font-size:13;
-	}
-	.colorblack{
-		color:#000000;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<center>
