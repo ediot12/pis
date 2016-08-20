@@ -11,38 +11,76 @@
 <script>
 	var date = new Date();
 	var hour = date.getHours();
-	var min = (parseInt((date.getMinutes()/10))+1)*10;
-	if(min>50){
+	var min = (parseInt((date.getMinutes() / 10)) + 1) * 10;
+	if (min > 50) {
 		hour = hour + 1;
 		min = 0;
 	}
 	$(function() {
-		
+
 		for (var i = hour; i < 24; i++) {
 			$("#inhour").append("<option value='"+i+"'>" + i + "</option>");
 		}
-		for (var i = min; i < 60; i=i+10) {
+		for (var i = min; i < 60; i = i + 10) {
 			$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 		}
+		for (var i = hour; i < 24; i++) {
+			$("#outhour").append("<option value='"+i+"'>" + i + "</option>");
+		}
+		for (var i = min; i < 60; i = i + 10) {
+			$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
+		}
+		
 
 	});
+
+	function checkTime(obj) {
+		var outhour = document.getElementById('outhour').value;
+		
+		if (obj.value != hour) {
+			$("#inmin").find("option").remove();
+			for (var i = 0; i < 60; i = i + 10) {
+
+				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
+		if (obj.value == date.getHours()) {
+			$("#inmin").find("option").remove();
+			for (var i = min; i < 60; i = i + 10) {
+				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
+		
+		if(obj.value>outhour){
+			document.getElementById('outhour').value = obj.value;
+			checkOutTime(document.getElementById('outhour').value);
+		}
+
+	}
 	
-	function checkTime(obj){
-		if(obj.value!=hour){
-			$("#inmin").find("option").remove();
-			for (var i = 0; i < 60; i=i+10) {
-				
-				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
+	function checkOutTime(obj) {
+		
+		var inhour = document.getElementById('inhour').value;
+		
+		if (obj.value != hour) {
+			$("#outmin").find("option").remove();
+			for (var i = 0; i < 60; i = i + 10) {
+
+				$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
-		if(obj.value==date.getHours()){
-			$("#inmin").find("option").remove();
-			for (var i = min; i < 60; i=i+10) {
-				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
+		if (obj.value == date.getHours()) {
+			$("#outmin").find("option").remove();
+			for (var i = min; i < 60; i = i + 10) {
+				$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
 		
-		
+		if(obj.value<inhour){
+			document.getElementById('inhour').value = obj.value;
+			checkTime(document.getElementById('inhour').value);
+		}
+
 	}
 </script>
 
@@ -56,6 +94,7 @@
 
 <%
 	}
+	Date date = new Date();
 %>
 <title></title>
 </head>
@@ -94,23 +133,31 @@
 						</tr>
 						<tr>
 							<td>이용 날짜</td>
-							<td><input type="text" id="calendar1" name="calendar1">부터
-								<input type="text" id="calendar2" name="calendar2">까지</td>
+							<td><input type="text" id="calendar1" name="calendar1"></td>
+
 						</tr>
 						<tr>
 							<td>입차 예정 시간</td>
-							<td>
-							<select name="inhour" id="inhour" onchange="checkTime(this)">
-							</select>시
-							<select name="inmin" id="inmin">
+							<td><select name="inhour" id="inhour"
+								onchange="checkTime(this)">
+							</select>시 <select name="inmin" id="inmin">
+							</select>분</td>
+						</tr>
+						
+						
+						<tr>
+							<td>출차 예정 시간</td>
+							<td><select name="outhour" id="outhour"
+								onchange="checkOutTime(this)">
+							</select>시 <select name="outmin" id="outmin">
 							</select>분</td>
 						</tr>
 
-						<tr>
+						<%-- <tr>
 							<td>출차 예정 시간</td>
 							<td><select name="outhour">
 									<%
-										for (int i = 0; i < 24; i++) {
+										for (int i = date.getHours(); i < 24; i++) {
 									%>
 									<option value=<%=i%>><%=i%></option>
 									<%
@@ -125,11 +172,11 @@
 										}
 									%>
 							</select>분</td>
-						</tr>
+						</tr> --%>
 
 						<tr>
 							<td>기본료(30분당)</td>
-							<td><input type="text" readonly value=" ${vecList.rates }원"
+							<td><input type="text" readonly value="${vecList.rates }"
 								size="30" name="rates"></td>
 						</tr>
 
@@ -141,7 +188,7 @@
 				</c:if>
 			</table>
 
-			<input type="submit" value="예약하기">
+			<input type="submit" value="확인">
 
 		</form>
 </body>

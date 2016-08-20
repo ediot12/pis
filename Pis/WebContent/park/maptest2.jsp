@@ -314,7 +314,6 @@
 		document.getElementById('map').innerHTML = null;
 		document.getElementById('map').innerHTML = '<img src="icon/DataNotFound.jpg" alt="이미지" width="60%" height="80%">';
 	
-		alert('ㅎㅇ');
 		</script>
 		</c:if>
 			<c:forEach var="search" items="${search }" begin="0" end="${count }" varStatus="abc">
@@ -384,13 +383,14 @@
 				}
 				points[fcount-1] = new daum.maps.LatLng(parseFloat(lat),parseFloat(lng));
 				bounds.extend(points[fcount-1]);
+				var abc = new Array();
 				
 				var marker = new daum.maps.Marker({
 					map : map,
 					position : new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng))
 				});//마커 찍게 하는거
-				
+				abc[fcount-1] = marker;
 				
 				var fInfo = new daum.maps.InfoWindow({
                     content: '<div id="markin">주소 : 서읕륵별시 ' + faddress +
@@ -405,6 +405,10 @@
 				
 				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates,lat,lng) {
 					return function() {
+						getValue('${search.lat}',
+								'${search.lng}','${search.addr }','${search.parking_name }',
+								'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }');viewSelect('${search.lat}',
+									'${search.lng}','${search.parking_name }');
 						map.setLevel(3);
 						map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
                         var infowindow = fInfo;
@@ -436,8 +440,7 @@
 				<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
-						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }');viewSelect('${search.lat}',
-							'${search.lng}','${search.parking_name }')">
+						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }')">
 					
 				</ul>
 				
@@ -475,7 +478,7 @@
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
 			var infowindow = new daum.maps.InfoWindow({
 				map : map,
-				position : new daum.maps.LatLng(parseFloat(lat)+0.001,parseFloat(lng)),
+				/* position : new daum.maps.LatLng(parseFloat(lat)+0.001,parseFloat(lng)), */
 				content : parking_name,
 				zindex : 1
 			}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
