@@ -3,30 +3,15 @@ package Reservation;
 public class ReservBean {
 
 	private String id;// 아이디
-	private String parking_code;
+	private String name;
+	private String parking_name;
+	private String parking_loca;
 	private String phoneNum;// 전화번호
-	private String location;// 위치
 	private String carType;// 차종
-	private String useTime;// 사용시간
 	private String beginTime;// 시작시간
-	private String endTime;// 종료시간
+	private String outTime;// 종료시간
 	private int cost;// 돈
-
-	public String getParking_code() {
-		return parking_code;
-	}
-
-	public void setParking_code(String parking_code) {
-		this.parking_code = parking_code;
-	}
-
-	public int getCost() {
-		return cost;
-	}
-
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
+	private int num;
 
 	public String getId() {
 		return id;
@@ -34,6 +19,30 @@ public class ReservBean {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getParking_name() {
+		return parking_name;
+	}
+
+	public void setParking_name(String parking_name) {
+		this.parking_name = parking_name;
+	}
+
+	public String getParking_loca() {
+		return parking_loca;
+	}
+
+	public void setParking_loca(String parking_loca) {
+		this.parking_loca = parking_loca;
 	}
 
 	public String getPhoneNum() {
@@ -44,28 +53,12 @@ public class ReservBean {
 		this.phoneNum = phoneNum;
 	}
 
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
 	public String getCarType() {
 		return carType;
 	}
 
 	public void setCarType(String carType) {
 		this.carType = carType;
-	}
-
-	public String getUseTime() {
-		return useTime;
-	}
-
-	public void setUseTime(String useTime) {
-		this.useTime = useTime;
 	}
 
 	public String getBeginTime() {
@@ -76,20 +69,28 @@ public class ReservBean {
 		this.beginTime = beginTime;
 	}
 
-	public String getEndTime() {
-		return endTime;
+	public String getOutTime() {
+		return outTime;
 	}
 
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
+	public void setOutTime(String outTime) {
+		this.outTime = outTime;
 	}
 
-	public int getPay() {
+	public int getCost() {
 		return cost;
 	}
 
-	public void setPay(int cost) {
+	public void setCost(int cost) {
 		this.cost = cost;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 }

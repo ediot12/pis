@@ -123,7 +123,7 @@
 						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
-								<li><b><a href="#">예약정보</a></b></li>
+								<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
@@ -162,7 +162,7 @@
 				<li><b><a href="../park/parkmap.do">서비스</a></b>
 						<ul class="sub">
 							<li><b><a href="../park/parkmap.do">예약</a></b></li>
-							<li><b><a href="#">예약정보</a></b></li>
+							<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 						</ul>
 					</li>
 					<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
