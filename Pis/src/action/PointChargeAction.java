@@ -40,7 +40,7 @@ public class PointChargeAction implements CommandAction{
 
 //		***** 중천한만큼 더해졌는지 확인
 		System.out.println(total_point);
-		
+		 
 		
 		if(point!=0){			
 			PayDataBean article = new PayDataBean();

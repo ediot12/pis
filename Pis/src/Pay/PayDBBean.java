@@ -118,7 +118,7 @@ public class PayDBBean {
 		}
 		
 	}
-	
+	 
 	
 //	pointment.jsp ::: name 값 가져와야함 
 	public String selectName(String id)throws Exception {

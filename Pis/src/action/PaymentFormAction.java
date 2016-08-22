@@ -25,7 +25,7 @@ public class PaymentFormAction implements CommandAction {
 //		***** TEST *****
 		System.out.println(point);			// 충전할 포인트 
 		System.out.println(pay_method);		// 결제수단 check
-		
+		 
 		  
 		PayDBBean paydb = PayDBBean.getInstance();
 		System.out.println(id);				// id check
