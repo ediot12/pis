@@ -26,7 +26,7 @@ public class MainAction implements CommandAction{
 		String memId = (String) request.getSession().getAttribute("memId");
 		LogonDBBean logdb = LogonDBBean.getInstance();
 		String grade = logdb.getGrade(memId);
-		request.getSession().setAttribute("grade", grade);
+		request.getSession().setAttribute("grade", grade); 
 		
 		PayDBBean paydb = PayDBBean.getInstance();
 		int point = paydb.getPoint(memId);

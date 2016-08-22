@@ -79,7 +79,7 @@ public class PointListDBBean {
 	  				  article.setNum(rs.getInt("num"));
 	  				  article.setId(rs.getString("id"));
 	  				  article.setPoint(rs.getInt("point"));
-	  				  article.setUse_point(rs.getInt("use_point"));
+	  				  article.setUse_point(rs.getInt("use_point")); 
 	  				  article.setInfo(rs.getString("info"));
 	  				  article.setReg_date(rs.getTimestamp("pdate"));
 	  			
