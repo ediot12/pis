@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <title></title>
 <link href="../../style.css" rel="stylesheet" type="text/css"> 
 </head>
@@ -45,15 +45,15 @@
 			</c:if>
 				         
 			<c:if test="${startPage > 10}">
-				<a href="/Pis/semi/admin/board/report.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="button"></a>
+				<a href="/Pis/admin/board/report.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="button"></a>
 			</c:if>
 				
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
-					<a href="/Pis/semi/admin/board/report.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="button"></a>
+					<a href="/Pis/admin/board/report.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="button"></a>
 				</c:forEach>
 				
 				<c:if test="${endPage < pageCount}">
-					<a href="/Pis/semi/admin/board/report.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="button"></a>
+					<a href="/Pis/admin/board/report.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="button"></a>
 				</c:if>
 			</c:if>
 		<form>

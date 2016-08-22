@@ -3,42 +3,27 @@
 <html>
 <head>
 
-<style>
-	.target{border-bottom: 1px solid #a5a5a5}
-	.box-button{
-	text-align: right;
-    padding-top:5px;
-	}
-	.box-gray{
-	background: #555c67;
-    padding: 4px 7px;
-    border: 0px;
-    color: #ffffff !important;
-    cursor: pointer;
-	}
-
-</style>
 <title></title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script src="script.js"></script>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <center>
-		<b>불편 신고 </b> <br>
+	<br>
+	<div class="title">
+		<b>불편신고</b>
+	</div>
 		<form method="post" name="writeform"
 			action="/Pis/report/writePro.do" onsubmit="return writeSave()">
 			<input type="hidden" name="num" value="${num}">
 				
 			
-			<table width="600" border="1" cellspacing="0" cellpadding="0"
-				align="center" style="table-layout:fixed">
-
-
+			<table class="table" border="1" cellspacing="0" cellpadding="0"
+			 style="table-layout:fixed">
 				<tr>
-					<td width="70" align="center"><b>작성자</b></td>
-					<td width="230">${memId}</td>
-						<td width="70" align="center" colspan="3"><b>불편 종류</b>
-						<td width="230">
+					<td width="70" align="center" class="color"><b>작성자</b></td>
+					<td width="150">${memId}</td>
+						<td width="70" align="center" class="color"><b>불편 종류</b>
+						<td width="230" colspan="3">
 					<select name="type">
 					<option value="">불편종류</option>
 					<option value="결제">결제</option>
@@ -52,25 +37,19 @@
 				</tr>
 				
 				<tr>
-					<td width="70" align="center"><b>제 목</b></td>
-					<td width="330" colspan="6"><input type="text" size="20" maxlength="20"
+					<td width="70" class="color"><b>제 목</b></td>
+					<td width="330" colspan="5" align="left"><input type="text" size="44" maxlength="20"
 						name="subject"></td>
 				</tr>
 					
 				<tr>
-					<td width="70" align="center"><b>내 용</b></td>
-					<td width="330"><textarea name="content" rows="14" cols="70"></textarea>
+					<td width="70" class="color"><b>내 용</b></td>
+					<td width="330" colspan="5"><textarea name="content" rows="14" cols="146"></textarea>
 					</td>
 				</tr>
-				
-				<tr>
-					<td class="box-button" colspan="6" align="right" >
-					<input class="box-gray" type="submit" value="신고하기" OnClick="window.location='/Pis/report/mainForm.do'">
-					</td>
-					
-				</tr>
-				
+
 			</table>
+			<input  type="submit" value="신고하기" class="button" OnClick="window.location='/Pis/report/mainForm.do'">
 		</form>
 </body>
 </html>

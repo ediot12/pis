@@ -94,7 +94,7 @@ public class InfoDBBean {
 			return x;
 		}
 		
-		public List getArticles(int start, int end)throws Exception{
+		public List getArticles(int start, int end, String writer)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
