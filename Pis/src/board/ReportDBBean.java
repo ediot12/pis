@@ -49,9 +49,9 @@ public class ReportDBBean {
 		List articleList = null;
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select num,kind, writer,subject,regdt, content, r  " +
-			        "from (select num,kind, writer,subject,regdt, content, rownum r " +
-			        "from (select num,kind, writer,subject,regdt, content " +
+			pstmt = conn.prepareStatement("select num,type, writer,subject,regdt, content, r  " +
+			        "from (select num,type, writer,subject,regdt, content, rownum r " +
+			        "from (select num,type, writer,subject,regdt, content " +
 			        "from Report order by num desc) order by num desc) where r >= ? and r <= ? ");
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -62,7 +62,7 @@ public class ReportDBBean {
 				do{
 					ReportDataBean rdb = new ReportDataBean();
 					rdb.setNum(rs.getInt("num"));
-					rdb.setKind(rs.getString("kind"));
+					rdb.setType(rs.getString("type"));
 					rdb.setWriter(rs.getString("writer"));
 					rdb.setSubject(rs.getString("subject"));
 					rdb.setRegdt(rs.getTimestamp("regdt"));
@@ -91,7 +91,7 @@ public class ReportDBBean {
 			try{
 				conn = getConnection();
 				
-				pstmt = conn.prepareStatement("select count(*) from Report where kind='"+search_name[n]+"' and subject like '%"+search+"%'");
+				pstmt = conn.prepareStatement("select count(*) from Report where type='"+search_name[n]+"' and subject like '%"+search+"%'");
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) x= rs.getInt(1);
@@ -114,10 +114,10 @@ public class ReportDBBean {
 			String[] search_name = {"회원정보", "예약", "취소", "환불", "기타"};
 			try{
 				conn = getConnection();
-				String sql="select num,kind, writer,subject,regdt, content, r  " +
-			            "from (select num,kind, writer,subject,regdt, content, rownum r " +
+				String sql="select num,type, writer,subject,regdt, content, r  " +
+			            "from (select num,type, writer,subject,regdt, content, rownum r " +
 			            "from (select * from Report order by num desc)"
-			            + "where kind='"+search_name[n]+"' and subject like '%"+search+"%' order by num desc) where r >= ? and r <= ? ";
+			            + "where type='"+search_name[n]+"' and subject like '%"+search+"%' order by num desc) where r >= ? and r <= ? ";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
@@ -128,7 +128,7 @@ public class ReportDBBean {
 					do{
 						ReportDataBean rdb = new ReportDataBean();
 						rdb.setNum(rs.getInt("num"));
-						rdb.setKind(rs.getString("kind"));
+						rdb.setType(rs.getString("type"));
 						rdb.setWriter(rs.getString("writer"));
 						rdb.setSubject(rs.getString("subject"));
 						rdb.setRegdt(rs.getTimestamp("regdt"));
@@ -159,7 +159,7 @@ public class ReportDBBean {
 				if(rs.next()){
 					rdb = new ReportDataBean();
 					rdb.setNum(rs.getInt("num"));
-					rdb.setKind(rs.getString("kind"));
+					rdb.setType(rs.getString("type"));
 					rdb.setWriter(rs.getString("writer"));
 					rdb.setSubject(rs.getString("subject"));
 					rdb.setRegdt(rs.getTimestamp("regdt"));

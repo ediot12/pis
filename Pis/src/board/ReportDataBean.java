@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class ReportDataBean {
 	private int num; //번호
-	private String kind;//불편종류
+	private String type;//불편종류
 	private String writer;//작성자
 	private String subject; //제목
 	private Timestamp regdt; //작성일
@@ -35,11 +35,11 @@ public class ReportDataBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getKind() {
-		return kind;
+	public String getType() {
+		return type;
 	}
-	public void setKind(String kind) {
-		this.kind = kind;
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getWriter() {
 		return writer;

@@ -27,7 +27,7 @@
 					<c:out value="${number}" />
 					<c:set var="number" value="${number - 1}" />
 				</td>
-				<td class="colorblack">${rdb.kind}</td>
+				<td class="colorblack">${rdb.type}</td>
 				<td class="colorblack"><a href="/Pis/admin/board/reportContent.do?num=${rdb.num}&pageNum=${currentPage}">${rdb.subject}</a></td>
 				<td class="colorblack">${rdb.writer}</td>
 				<td class="colorblack">${date.format(rdb.regdt)}</td>
