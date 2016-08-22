@@ -94,17 +94,18 @@ public class ReportDBBean {
 			return x;
 		}
 		
-		public List getArticles(int start, int end)throws Exception{
+		public List getArticles(int start, int end, String writer)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			List articleList = null;
 			try{
 				conn = getConnection();
-				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type, rownum r from Report where rownum >= ? and rownum <= ? order by num desc");
+				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type, rownum r from Report where rownum >= ? and rownum <= ? and writer =? order by num desc");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
+				pstmt.setString(3, writer);
 				rs=pstmt.executeQuery();
 				
 				if(rs.next()){
