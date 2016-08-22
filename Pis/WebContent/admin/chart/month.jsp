@@ -19,9 +19,12 @@
    		<%
    			ChartDBBean cb = ChartDBBean.getInstance();
    		
+   			String year = request.getParameter("year");
+   			System.out.println(year);
    			Calendar cal = Calendar.getInstance();
-   			
-   			String year = Integer.toString(cal.get(Calendar.YEAR));
+   			if(year==null){
+   				year = Integer.toString(cal.get(Calendar.YEAR));
+   			}
 			String Month = Integer.toString(cal.get(Calendar.MONTH)+1);
 
   	 	 		for(int i=1; i<=12; i++){
@@ -44,18 +47,25 @@
           }
         };
 
-        var chart = new google.charts.Bar(document.getElementById('chart_days'));
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
         chart.draw(data, options);
       }
     </script>
   </head>
+  	<center>
   	<br><br>
-  	<div id="text">
+  	<div class="title">
 		<b>월별 방문자수</b>
 	</div>
+	<a href="/Pis/admin/chart/month.do?year=<%=Integer.parseInt(year)-1%>">
+		<input type="button" value="◀" class="button"></a>
+		<%=year%>
+	<a href="/Pis/admin/chart/month.do?year=<%=Integer.parseInt(year)+1%>">
+		<input type="button" value="▶" class="button">
+	</a>
 	<br><br>
-    <div id="chart_days" style="width: 1150px; height: 500px;"></div>
+    <div id="columnchart_material" style="width: 1150px; height: 500px;"></div>
     
 </body>
 </html>

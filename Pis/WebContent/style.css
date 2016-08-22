@@ -3,7 +3,6 @@
 	width: 1100px;
 	margin: 0px;
 	padding: 0px;
-	b
 }
 
 #report th {
@@ -205,6 +204,7 @@ ul.menu li {
 	width: 179px;
 	height: 48px;
 	position: relative;
+	z-index: 1;
 }
 
 ul.menu li a {
@@ -278,16 +278,4 @@ ul.menu:after {
 	top: 40%;
 	left: 90%;
 	border: 2px solid;
-}
-
-#chart_days {
-	position: absolute;
-	left: 400px;
-	z-index: -1;
-}
-
-#text {
-	font-size: 25px;
-	color: #31A0B4;
-	text-align: left;
 }
