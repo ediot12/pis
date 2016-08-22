@@ -6,16 +6,16 @@
 div#myReserv {
 	float: left;
 	display: inline-block;
-	background-color: lightgrey;
+	background-color: #EAEAEA;
 	width: 300px;
 	height: 100px;
-	border: 15px solid green;
+	border: 5px solid #31A0B4;
 	padding: 15px;
 	margin: 15px;
-	border: 15px solid green;
+	border: 5px solid #31A0B4;
 	color: black;
-	font-size: 9pt;
-	background-color: lightgrey;
+	font-size: 10pt;
+	background-color: #EAEAEA;
 }
 </style>
 <%
@@ -26,16 +26,23 @@ div#myReserv {
 <body>
 	<div>
 		<br>
-		<%=id%>님의 예약 현황
+		<div align="center">
+		<h2><%=id%>님의 예약 현황</h2>
+		</div>
 		<c:if test="${myreservList!=null }">
 			<c:forEach var="myreservList" items="${myreservList }" begin="0">
 
-				<div id="myReserv">
-					주차장이름 : ${myreservList.parking_name }<br> 주차장위치 :
-					${myreservList.parking_loca }<br> 입차예정시간 :
-					${myreservList.beginTime }<br> <font color="red">출차예정시간
-						: ${myreservList.outTime }</font><br> 결제금액 : ${myreservList.cost }
-					포인트
+				<div id="myReserv" align="center"> 
+					<form name="myReserv" onsubmit="checkoutTime()">
+					<table >				
+					<tr align="left">주차장이름 : ${myreservList.parking_name }</tr><br>
+					<tr align="left">주차장위치 : ${myreservList.parking_loca }</tr><br>
+					<tr align="left">입차예정시간 : ${myreservList.beginTime }</tr><br>
+					<tr align="left" name="outtime"><font color="red">출차예정시간 : ${myreservList.outTime }</font></tr><br> 
+					<tr align="left">결제금액 : ${myreservList.cost }포인트</tr><br>
+					<tr align="right"><input type="submit" value="예약취소"></tr>					
+					</table>
+					</form>
 				</div>
 			</c:forEach>
 		</c:if>
