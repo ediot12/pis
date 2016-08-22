@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*, java.text.*, chart.*, java.sql.*"  %>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <title></title>
 <link href="../../style.css" rel="stylesheet" type="text/css">

@@ -4,7 +4,7 @@
 <%@ page import="java.util.*, java.text.*, chart.*, java.sql.*"  %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <title></title>
 <link href="../../style.css" rel="stylesheet" type="text/css">
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

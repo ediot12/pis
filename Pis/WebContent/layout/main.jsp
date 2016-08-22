@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page import="java.sql.*, java.util.*, java.util.Date, java.text.*" %>
 <!DOCTYPE html>
-<html> 
+<html>  
 <head>
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
