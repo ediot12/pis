@@ -97,9 +97,10 @@ public class ReviewDBBean {
 		try{
 			conn = getConnection();
 			pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,score, rownum r from Review where rownum >= ? and rownum <= ? order by num desc");
-			
+																				
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
+			
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){

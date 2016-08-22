@@ -52,19 +52,8 @@
 				 <c:forEach var="article" items="${articleList}">
 					<tr height="30" align="center">
 						<td>${article.num }</td>
-						<td>
-						<c:if test="${article.type == 1 }">
-									결 제 
-								</c:if> <c:if test="${article.type == 2 }">
-								불 친절
-								</c:if> <c:if test="${article.type == 3 }">
-									주차 불편(주변피해)
-								</c:if> <c:if test="${article.type == 4 }">
-										불법 주정차
-								</c:if> <c:if test="${article.type == 5 }">
-									기타
-								</c:if>
-							</td>
+						<td>${article.type }</td>
+						
 						<td><a href="/Pis/report/content.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
 
 

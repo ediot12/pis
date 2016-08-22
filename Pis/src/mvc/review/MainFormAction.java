@@ -27,6 +27,7 @@ public class MainFormAction implements CommandAction{
 		int endRow = currentPage * pageSize;
 		int count = 0;
 		int number = 0;
+		String writer=(String)request.getSession().getAttribute("memId");
 		
 		List articleList = null;
 		ReviewDBBean rdd = ReviewDBBean.getInstance();
