@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 
-
+    
 public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
    
 	private static LogonDBBean instance = new LogonDBBean();

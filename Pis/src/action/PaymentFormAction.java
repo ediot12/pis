@@ -21,7 +21,7 @@ public class PaymentFormAction implements CommandAction {
 //		"pay_method"이름으로 pay_method 값 저장
 		request.setAttribute("pay_method", pay_method);
 		
-		
+		   
 //		***** TEST *****
 		System.out.println(point);			// 충전할 포인트 
 		System.out.println(pay_method);		// 결제수단 check
