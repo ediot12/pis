@@ -314,7 +314,6 @@
 		document.getElementById('map').innerHTML = null;
 		document.getElementById('map').innerHTML = '<img src="icon/DataNotFound.jpg" alt="이미지" width="60%" height="80%">';
 	
-		alert('ㅎㅇ');
 		</script>
 		</c:if>
 			<c:forEach var="search" items="${search }" begin="0" end="${count }" varStatus="abc">
@@ -384,13 +383,14 @@
 				}
 				points[fcount-1] = new daum.maps.LatLng(parseFloat(lat),parseFloat(lng));
 				bounds.extend(points[fcount-1]);
+				var abc = new Array();
 				
 				var marker = new daum.maps.Marker({
 					map : map,
 					position : new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng))
 				});//마커 찍게 하는거
-				
+				abc[fcount-1] = marker;
 				
 				var fInfo = new daum.maps.InfoWindow({
                     content: '<div id="markin">주소 : 서읕륵별시 ' + faddress +
@@ -405,6 +405,9 @@
 				
 				daum.maps.event.addListener(marker, 'click', (function(marker, fInfo,fcount,faddress,ftel,fcapa,fweekd_bt,fweekd_et,fweeke_bt,fweeke_et,frates,lat,lng) {
 					return function() {
+						getValue('${search.lat}',
+								'${search.lng}','${search.addr }','${search.parking_name }',
+								'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }','${search.weekday_begin_time}','${search.weekday_end_time}','${search.weekend_begin_time}','${search.weekend_end_time}');
 						map.setLevel(3);
 						map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
                         var infowindow = fInfo;
@@ -436,8 +439,7 @@
 				<input type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
-						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }');viewSelect('${search.lat}',
-							'${search.lng}','${search.parking_name }')">
+						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }','${search.weekday_begin_time}','${search.weekday_end_time}','${search.weekend_begin_time}','${search.weekend_end_time}')">
 					
 				</ul>
 				
@@ -455,12 +457,18 @@
 		<div id="right">
 		
 		<form name="reserv" method="post" action="reserv.do" onsubmit="return selectCheck()">
+			<input type="hidden" value="abc" name="time1" id="time1">
+			<input type="hidden" value="abc" name="time2" id="time2">
+			<input type="hidden" value="abc" name="time5" id="time5">
+			<input type="hidden" value="abc" name="time6" id="time6">
 			주소 : <input type="text" name="addr" id="addr" readonly="readonly"><br> 이름 : <input type="text"
 				name="parking_name" id="parking_name" readonly="readonly"><br>
-			전번 : <input type="text" name="tel" id="tel" readonly="readonly"><br>
+			전번 : <input type="text" name="tel" id="tel" readonly="readonly" ><br>
 			<div id=capacity></div>
 			<div id=parking_type_nm></div>
 			<div id=rates></div>
+			<div id=time3></div>
+			<div id=time4></div>
 			<input type="submit" value="예약하기">
 		</form>
 		<br>
@@ -475,13 +483,13 @@
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
 			var infowindow = new daum.maps.InfoWindow({
 				map : map,
-				position : new daum.maps.LatLng(parseFloat(lat)+0.001,parseFloat(lng)),
+				/* position : new daum.maps.LatLng(parseFloat(lat)+0.001,parseFloat(lng)), */
 				content : parking_name,
 				zindex : 1
 			}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 		}
 		//최소한 지도가 뜬 이후에나
-		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates) {
+		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates,fweekbt,fweeket,fweekebt,fweekeet) {
 	
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng)));
@@ -494,6 +502,15 @@
 			document.getElementById('capacity').innerHTML = '남은주차대수 : ' + capacity;
 			document.getElementById('parking_type_nm').innerHTML = '주차장종류 : ' + parking_type_nm;
 			document.getElementById('rates').innerHTML = '기본요금 : 10분 /'+ rates+'원';
+			document.getElementById('time3').innerHTML = '평일운영시간 : ' +fweekbt+'시 ~ '+fweeket+'시';
+			document.getElementById('time4').innerHTML = '주말운영시간 : ' +fweekebt+'시 ~ '+fweekeet+'시';
+			
+			document.getElementById('time1').value = fweekbt;//평일 오픈 시간
+			document.getElementById('time2').value = fweekebt;//주말 오픈 시간
+			document.getElementById('time5').value = fweeket;//평일 클로징 시간
+			document.getElementById('time6').value = fweekeet;//주말 클로징 시간
+			
+			
 
 		}
 

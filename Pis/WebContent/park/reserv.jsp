@@ -10,39 +10,112 @@
 <script src="reserv.js"></script>
 <script>
 	var date = new Date();
-	var hour = date.getHours();
-	var min = (parseInt((date.getMinutes()/10))+1)*10;
-	if(min>50){
+
+	var wdopen = ${wdopen};
+	var wdclose = ${wdclose};
+	var weopen = ${weopen};
+	var weclose = ${weclose};
+	var today = date.getDay();//오늘
+	var close;
+
+	var hour = date.getHours();//이것은 현재시간
+
+	if (today == 0 || today == 6) {//오늘이 일요일이거나 토요일이면
+		if (hour < wdopen) {//만약 현재시간보다 오픈시간이 더 크면 보여줄 시간은 오픈시간으로.
+			hour = wdopen;
+		}
+		close = wdclose;
+	}
+	if (today == 1 || today == 2 || today == 3 || today == 4 || today == 5) {//오늘이 평일이면
+		if (hour < weopen) {//만약 현재시간보다 오픈시간이 더 크면 보여줄 시간은 오픈시간으로.
+			hour = weopen;
+		}
+		close = weclose;
+	}
+
+	var min = (parseInt((date.getMinutes() / 10)) + 1) * 10;
+
+	if (min > 50) {
 		hour = hour + 1;
 		min = 0;
 	}
+
 	$(function() {
-		
-		for (var i = hour; i < 24; i++) {
+
+		for (var i = hour; i <= close; i++) {
 			$("#inhour").append("<option value='"+i+"'>" + i + "</option>");
 		}
-		for (var i = min; i < 60; i=i+10) {
+		for (var i = min; i < 60; i = i + 10) {
 			$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
+		}
+		for (var i = hour; i <= close; i++) {
+			$("#outhour").append("<option value='"+i+"'>" + i + "</option>");
+		}
+		for (var i = min; i < 60; i = i + 10) {
+			$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
 		}
 
 	});
-	
-	function checkTime(obj){
-		if(obj.value!=hour){
+
+	function checkTime(obj) {
+		var outhour = document.getElementById('outhour').value;
+
+		if (obj.value != hour) {
 			$("#inmin").find("option").remove();
-			for (var i = 0; i < 60; i=i+10) {
-				
+			for (var i = 0; i < 60; i = i + 10) {
+
 				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
-		if(obj.value==date.getHours()){
+		if (obj.value == date.getHours()) {
 			$("#inmin").find("option").remove();
-			for (var i = min; i < 60; i=i+10) {
+			for (var i = min; i < 60; i = i + 10) {
 				$("#inmin").append("<option value='"+i+"'>" + i + "</option>");
 			}
 		}
 		
+		if(obj.value == close){
+			$("#inmin").find("option").remove();
+			$("#inmin").append("<option value='"+0+"'>" + 0 + "</option>");
+			$("#outmin").find("option").remove();
+			$("#outmin").append("<option value='"+0+"'>" + 0 + "</option>");
+		}
+
+		if (obj.value > outhour) {
+			document.getElementById('outhour').value = obj.value;
+			checkOutTime(document.getElementById('outhour'));
+		}
+
+	}
+
+	function checkOutTime(obj) {
+
+		var inhour = document.getElementById('inhour').value;
+
+		if (obj.value != hour) {
+			$("#outmin").find("option").remove();
+			for (var i = 0; i < 60; i = i + 10) {
+
+				$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
+		if (obj.value == date.getHours()) {
+			$("#outmin").find("option").remove();
+			for (var i = min; i < 60; i = i + 10) {
+				$("#outmin").append("<option value='"+i+"'>" + i + "</option>");
+			}
+		}
 		
+		if(obj.value == close){
+			$("#outmin").find("option").remove();
+			$("#outmin").append("<option value='"+0+"'>" + 0 + "</option>");
+		}
+
+		if (obj.value < inhour) {
+			document.getElementById('inhour').value = obj.value;
+			checkTime(document.getElementById('inhour'));
+		}
+
 	}
 </script>
 
@@ -56,6 +129,7 @@
 
 <%
 	}
+	Date date = new Date();
 %>
 <title></title>
 </head>
@@ -94,23 +168,31 @@
 						</tr>
 						<tr>
 							<td>이용 날짜</td>
-							<td><input type="text" id="calendar1" name="calendar1">부터
-								<input type="text" id="calendar2" name="calendar2">까지</td>
+							<td><input type="text" id="calendar1" name="calendar1"></td>
+
 						</tr>
 						<tr>
 							<td>입차 예정 시간</td>
-							<td>
-							<select name="inhour" id="inhour" onchange="checkTime(this)">
-							</select>시
-							<select name="inmin" id="inmin">
+							<td><select name="inhour" id="inhour"
+								onchange="checkTime(this)">
+							</select>시 <select name="inmin" id="inmin">
 							</select>분</td>
 						</tr>
 
+
 						<tr>
+							<td>출차 예정 시간</td>
+							<td><select name="outhour" id="outhour"
+								onchange="checkOutTime(this)">
+							</select>시 <select name="outmin" id="outmin">
+							</select>분</td>
+						</tr>
+
+						<%-- <tr>
 							<td>출차 예정 시간</td>
 							<td><select name="outhour">
 									<%
-										for (int i = 0; i < 24; i++) {
+										for (int i = date.getHours(); i < 24; i++) {
 									%>
 									<option value=<%=i%>><%=i%></option>
 									<%
@@ -125,11 +207,11 @@
 										}
 									%>
 							</select>분</td>
-						</tr>
+						</tr> --%>
 
 						<tr>
 							<td>기본료(30분당)</td>
-							<td><input type="text" readonly value=" ${vecList.rates }원"
+							<td><input type="text" readonly value="${vecList.rates }"
 								size="30" name="rates"></td>
 						</tr>
 
@@ -141,7 +223,7 @@
 				</c:if>
 			</table>
 
-			<input type="submit" value="예약하기">
+			<input type="submit" value="확인">
 
 		</form>
 </body>

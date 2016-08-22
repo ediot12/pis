@@ -16,7 +16,6 @@ import Parking.SearchInfoBean;
 
 public class InsertReservAction implements CommandAction {
 
-	
 	private Connection getConnection() throws Exception {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 		return DriverManager.getConnection(jdbcDriver);
@@ -34,7 +33,15 @@ public class InsertReservAction implements CommandAction {
 		HttpSession session = request.getSession();
 		String parking_name = request.getParameter("parking_name");
 		String id = (String) session.getAttribute("memId");
-		System.out.println(id);
+		
+		//날짜 관련
+		String weekdayOpen = request.getParameter("time1");
+		String weekdayClose= request.getParameter("time5");
+		String weekendOpen = request.getParameter("time2");
+		String weekendClose = request.getParameter("time6");
+		////////
+		
+		
 
 		try {
 			conn = getConnection();
@@ -44,8 +51,15 @@ public class InsertReservAction implements CommandAction {
 				request.setAttribute("name", rs.getString(1));
 				request.setAttribute("phone", rs.getString(2));
 			}
+
 			
-			pstmt = conn.prepareStatement("select * from park_info where parking_name like '"+request.getParameter("parking_name")+"'");
+			//한번 끊어준다
+			pstmt.close();
+			rs.close();
+			
+			///////////////
+			pstmt = conn.prepareStatement(
+					"select * from park_info where parking_name like '" + request.getParameter("parking_name") + "'");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				SearchInfoBean searchList = new SearchInfoBean();
@@ -71,6 +85,10 @@ public class InsertReservAction implements CommandAction {
 				searchList.setDay_maximum(rs.getInt(20));
 				vecList.add(searchList);
 				request.setAttribute("reserv", vecList);
+				request.setAttribute("wdopen", weekdayOpen);
+				request.setAttribute("wdclose", weekdayClose);
+				request.setAttribute("weopen", weekendOpen);
+				request.setAttribute("weclose", weekendClose);
 			} else {
 				System.out.println("잘못된 접근 입니다.");
 			}

@@ -36,12 +36,11 @@
 						<td width="70" align="center" colspan="3"><b>문의 종류</b></td>
 						<td width="230">
 					<select name="kind">
-					<option value="">문의종류</option>
-					<option value="회원정보">회원정보</option>
-					<option value="예약">예약</option>
-					<option value="취소">취소</option>
-					<option value="환불">환불</option>
-					<option value="기타">기타</option>
+						<option value="회원정보">회원정보</option>
+						<option value="예약">예약</option>
+						<option value="취소">취소</option>
+						<option value="환불">환불</option>
+						<option value="기타">기타</option>
 					</select></td>
 					</tr>
 				

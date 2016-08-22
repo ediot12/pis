@@ -113,7 +113,7 @@
 								<li><b><a href="/Pis/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
 								<li><b><a href="/Pis/admin/board/question.do">1:1문의관리</a></b></li>
 								<li><b><a href="#">주차장제보관리</a></b></li>
-								<li><b><a href="#">불편신고관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/report.do">불편신고관리</a></b></li>
 							</ul>
 						</li>
 					</ul>
@@ -123,7 +123,7 @@
 						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
-								<li><b><a href="#">예약정보</a></b></li>
+								<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
@@ -162,7 +162,7 @@
 				<li><b><a href="../park/parkmap.do">서비스</a></b>
 						<ul class="sub">
 							<li><b><a href="../park/parkmap.do">예약</a></b></li>
-							<li><b><a href="#">예약정보</a></b></li>
+							<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 						</ul>
 					</li>
 					<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>

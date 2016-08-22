@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE>
 <html>
 <head>
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
-ccc
+<center>
+<table>
+ㅊㅋㅊㅋ
+</table>
 </body>
 </html>

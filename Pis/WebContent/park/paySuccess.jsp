@@ -8,7 +8,7 @@
 <center>
 <br>
 
-	<form action="#" method="post">
+	<form action="/Pis/park/payAfter.do" method="post">
 		<table>
 			<tr>
 				<td colspan="2">
@@ -28,6 +28,11 @@
 			</tr>
 
 			<tr>
+				<td>주차장이름 : </td>
+				<td><input type="text" readonly="readonly" name="parkname"
+					value="${parkname }" size="40"></td>
+			</tr>
+			<tr>
 				<td>주차장위치 : </td>
 				<td><input type="text" readonly="readonly" name="parkloca"
 					value="${parkloca }" size="40"></td>
@@ -42,23 +47,29 @@
 			<tr>
 				<td>이용기간 :</td>
 				<td><input type="text" readonly="readonly" name="useday"
-					value="${beginday }" size="40"></td>
+					value="${begintime } ~ ${outtime}" size="40"></td>
 			</tr>
 
 			<tr>
-				<td>도착 예정 시간 :</td>
-				<td><input type="text" readonly="readonly" name="cometime"
-					value="" size="40"></td>
+				<td>입차 예정 시간 :</td>
+				<td><input type="text" readonly="readonly" name="begintime"
+					value="${begintime }" size="40"></td>
+			</tr>
+			
+			<tr>
+				<td>출차 예정 시간 :</td>
+				<td><input type="text" readonly="readonly" name="outtime"
+					value="${outtime }" size="40"></td>
 			</tr>
 
 			<tr>
 				<td>차감 포인트 :</td>
 				<td><input type="text" readonly="readonly" name="point"
-					value="" size="40"></td>
+					value="${payment }" size="40"></td>
 			</tr>
 
 			<tr>
-				<td colspan="2"><input type="submit" value="확인"></td>
+				<td colspan="2"><input type="submit" value="예약하기"></td>
 		</table>
 	</form>
 
