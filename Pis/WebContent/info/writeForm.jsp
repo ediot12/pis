@@ -26,7 +26,7 @@ function zipCheck(){
 	
 	url="/Pis/info/zipcheck.do?check=y";
 	
-	window.open(url,"post","toolbar=no ,width=500 ,height=300,directories=no,status=yes,scrollbars=yes,menubar=no");
+	window.open(url,"post","toolbar=no ,width=1000 ,height=1000,directories=no,status=yes,scrollbars=yes,menubar=no");
 }
 
 
@@ -45,8 +45,8 @@ function zipCheck(){
 				align="center" style="table-layout:fixed">
 				<tr>
 					<td width="70" align="center"><b>작성자</b></td>
-					<td width="230"><input type="text" size="20" maxlength="10"
-						name="writer"></td>
+					<td width="230">${memId}
+						</td>
 						<td width="70" align="center"><b>첨부</b></td>
 						<td width="330">
     					<input type="file" name="bfile">

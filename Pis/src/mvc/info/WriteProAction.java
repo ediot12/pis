@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -21,7 +22,7 @@ public class WriteProAction implements CommandAction {
 		// 파일이 저장될 서버의 경로. 되도록이면 getRealPath를 이용하자.
 		// String savePath = "c:/Pis/workspace/Pis/WebContent/fileSave";
 		/*String savePath = request.getServletContext().getRealPath("fileSave");*/
-		String savePath = "C:/Users/coco/git/pis2/Pis/WebContent/fileSave";
+		String savePath = "C:/Users/coco/gitt/pis/Pis/WebContent/filesave";
 		String realPath = ""; 
 		String type = "utf-8";
 		int sizeLimit = 5*1024*1024;//5M
@@ -38,12 +39,15 @@ public class WriteProAction implements CommandAction {
 		String file_name = String.valueOf(file);
 		String real_file = new File(file_name).getName();
 		
+		HttpSession session = request.getSession();
+		
 		InfoDataBean article = new InfoDataBean();//데이터 처리 빈
 		article.setNum(Integer.parseInt(multi.getParameter("num")));
-		article.setWriter(multi.getParameter("writer"));
+		article.setWriter((String)session.getAttribute("memId"));
 		article.setSubject(multi.getParameter("subject"));
 		article.setContent(multi.getParameter("content"));
 		article.setAddress(multi.getParameter("address"));
+		article.setZipcode(multi.getParameter("zipcode"));
 		article.setBfile(real_file);
 		article.setRegdt(new Timestamp(System.currentTimeMillis()));
 		

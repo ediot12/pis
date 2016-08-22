@@ -36,17 +36,16 @@
 
 				<tr>
 					<td width="70" align="center"><b>작성자</b></td>
-					<td width="230"><input type="text" size="20" maxlength="10"
-						name="writer"></td>
+					<td width="230">${memId}</td>
 						<td width="70" align="center" colspan="3"><b>불편 종류</b>
 						<td width="230">
 					<select name="type">
 					<option value="">불편종류</option>
-					<option value="1">결제</option>
-					<option value="2">불 친절</option>
-					<option value="3">주차 불편(주변 피해)</option>
-					<option value="4">불법 주정차</option>
-					<option value="5">기타</option>
+					<option value="결제">결제</option>
+					<option value="불 친절">불 친절</option>
+					<option value="주차 불편(주변 피해)">주차 불편(주변 피해)</option>
+					<option value="불법 주정차">불법 주정차</option>
+					<option value="기타">기타</option>
 					</select></td>
 						
 					

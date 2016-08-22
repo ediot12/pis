@@ -37,8 +37,7 @@
 				align="center" style="table-layout:fixed">
 				<tr>
 					<td width="70" align="center"><b>작성자</b></td>
-					<td width="230"><input type="text" size="20" maxlength="10"
-						name="writer"></td>
+					<td width="230">${memId }</td>
 						<td width="70" align="center"><b>평가하기</b>
 						<td width="230">
 					<select name="score">
