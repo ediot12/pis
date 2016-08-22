@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*, java.text.*, chart.*, java.sql.*"  %>
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <!DOCTYPE html>
@@ -22,12 +21,14 @@
 						<c:choose>
 							<c:when test="${memId.equals('admin')}">
 						    	<ul>
+						    		<li>${memId}</li>
 						    		<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
 						    		<li>사이트맵</li>
 						    	</ul>
 							</c:when>
 							<c:otherwise>
 								<ul>
+								    <li>${memId}</li>
 									<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
 						    		<li>사이트맵</li>
 						    	</ul>

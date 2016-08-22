@@ -6,24 +6,13 @@
 <html>
 <head>
 <title></title>
-<style>
-	#chart_days{ 
-		position: absolute;
-		left : 400px;
-		z-index: -1;
-	}
-	#text{
-		font-size: 25px;
-		color: #31A0B4;
-		text-align: left; 
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable(); 
          data.addColumn('string', '월');
  	 	 data.addColumn('number', '방문자수');
 

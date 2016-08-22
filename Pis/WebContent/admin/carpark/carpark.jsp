@@ -5,44 +5,12 @@
 <html>
 <head>
 <title></title>
-<style>
-	.table{
-		width:1100px;
-		text-align: center;
-		margin : 20;
-		border-color: #31A0B4;
-	}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	}
-	.title .button{
-		float: right;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-	}
-	.color td{
-		background:#31A0B4;
-		color:#FFFFFF;
-	}
-	.table tr{
-		height: 35px;
-		font-size:13;
-	}
-	.colorblack{
-		color:#000000;
-	}
-</style>
+<link href="../../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<center>
 	<b>- 전체 주차장 :${count} -</b>
-	<div class="title">
+	<div class="title"> 
 	<b>주차장관리</b>
 		<a href="/Pis/admin/carpark/carparkInput.do">
 			<input type="button" value="주차장등록" class="button">

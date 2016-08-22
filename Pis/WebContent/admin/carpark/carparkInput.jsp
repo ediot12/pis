@@ -4,38 +4,13 @@
 <html>
 <head>
 <title>게시판</title>
+<link href="../../style.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="script.js"></script>
-<style>
-	.table{
-		width:800px;
-		text-align: left;
-		margin : 20;
-		border-color: #31A0B4;
-	}
-	.title{
-		font-size:30px;
-		text-align: left;
-		height: 40px;
-	}
-	.button{
-		background:#31A0B4;
-		color:#FFFFFF;
-		margin : 0 2;
-		padding: 5;
-	}
-	.table td{
-		height: 40;
-	}
-	.titletd{
-		background: #31A0B4;
-		color: #FFFFFF;
-	}
-</style>
 </head>
 <body> 
 <center>
 <div class="title">
-	<b>주차장 추가하기</b>
+	<b>주차장 추가하기</b> 
 </div>
 <br>
 <form method="post" name="writeform" action="/Pis/admin/carpark/carparkInputPro.do" onsubmit="return writeSave()">

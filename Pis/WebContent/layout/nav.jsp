@@ -16,7 +16,7 @@
 		var dt = new Date();
 		var y = dt.getFullYear();
 		var m = dt.getMonth() + 1;
-		var d = dt.getDate();
+		var d = dt.getDate(); 
 		var d2 = dt.getDate() + 3;
 		var h = dt.getHours();
 		mindt = y + "-" + m + "-" + d;
@@ -65,13 +65,13 @@
 			<c:choose>
 				<c:when test="${memId.equals('admin')}">	
 					<ul class="menu">
-						<li><b><a href="#">서비스</a></b>
+						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">커뮤니티</a></b>
+						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
 								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
@@ -82,13 +82,15 @@
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
 								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
+								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
+								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="#">자주묻는질문</a></b></li>
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">마이페이지</a></b>
+						<li><b><a href="/Pis/Join/modifyForm.do">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
@@ -96,7 +98,7 @@
 								<li><b><a href="#">포인트사용내역</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">회원관리</a></b></li>
+						<li><b><a href="/Pis/admin/member/member.do">회원관리</a></b></li>
 						<li><b><a href="/Pis/admin/carpark/carpark.do">주차장관리</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/admin/carpark/carpark.do">주차장 관리</a></b></li>
@@ -111,20 +113,20 @@
 								<li><b><a href="/Pis/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
 								<li><b><a href="/Pis/admin/board/question.do">1:1문의관리</a></b></li>
 								<li><b><a href="#">주차장제보관리</a></b></li>
-								<li><b><a href="#">불편신고관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/report.do">불편신고관리</a></b></li>
 							</ul>
 						</li>
 					</ul>
 				</c:when>
 				<c:otherwise>
 			   	  	<ul class="menu">
-						<li><b><a href="#">서비스</a></b>
+						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
-								<li><b><a href="#">예약정보</a></b></li>
+								<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">커뮤니티</a></b>
+						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
 								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
@@ -143,7 +145,7 @@
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">마이페이지</a></b>
+						<li><b><a href="/Pis/Join/modifyForm.do">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
@@ -157,13 +159,13 @@
 		</c:when>
 		<c:otherwise>
 			<ul class="menu">
-				<li><b><a href="#">서비스</a></b>
+				<li><b><a href="../park/parkmap.do">서비스</a></b>
 						<ul class="sub">
 							<li><b><a href="../park/parkmap.do">예약</a></b></li>
-							<li><b><a href="#">예약정보</a></b></li>
+							<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 						</ul>
 					</li>
-					<li><b><a href="#">커뮤니티</a></b>
+					<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
 								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
@@ -182,10 +184,9 @@
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">마이페이지</a></b>
+						<li><b><a href="/Pis/Join/loginForm.do">마이페이지</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
-								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr/>
 								<li><b><a href="#">포인트충전</a></b></li>
 								<li><b><a href="#">포인트사용내역</a></b></li>

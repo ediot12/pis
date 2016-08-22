@@ -20,9 +20,10 @@
 			<td width="100">
 			<select name="kind">
 				<option value="회원정보">회원정보</option>
-				<option value="예약">에약</option>
-				<option value="취소">취소</option>
+				<option value="예약">예약</option>
+				<option value="결제">결제</option>
 				<option value="환불">환불</option>
+				<option value="기타">기타</option>
 			</select>
 			<td width="90" height="30" class="color">제목</td>
 			<td width="400" height="30" align="left"><input type="text" size="70" name="subject" ></td>

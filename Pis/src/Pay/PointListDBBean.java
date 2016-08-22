@@ -1,6 +1,6 @@
 package Pay;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +21,7 @@ public class PointListDBBean {
 	} 
 	
 	 
-//	ppointlist :::  페이징을 위해 count
+//	pointlist :::  페이징을 위해 count
     public int getArticleCount() throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -48,7 +48,7 @@ public class PointListDBBean {
         return x;
     }
 	
-	
+/*	
 //	pointlist ::: 결제된내역과 point에 대한 내역을 조인해서 pointlist테이블에 값을 저장 
 	public void InsertList(String id)throws Exception{
 		Connection conn = null;
@@ -59,7 +59,7 @@ public class PointListDBBean {
 		try{
 			conn = getConnection();
 			pstmt = conn.prepareStatement("SELECT pointment.id, pointment.point, pointment.use_point, pointment.info,"+
-					"pointment. pdate,reservpark.parkname  FROM pointment, reservpark WHERE pointment.id = reservpark.id and pointment.id=?");
+					"pointment.pdate, reservpark.parkname  FROM pointment, reservpark WHERE pointment.id = reservpark.id and pointment.id=?");
 			
 			pstmt.setString(1, id);
 			pstmt.executeQuery();
@@ -98,7 +98,7 @@ public class PointListDBBean {
 		
 	}
 	
-	
+*/	
 //	pointlist ::: DB로부터 여러행을 결과로 받는다.
 	public List getArticles(int start, int end) throws Exception {
         Connection conn = null;

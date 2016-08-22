@@ -16,6 +16,16 @@ public class PointChargeAction implements CommandAction{
 		request.setCharacterEncoding("utf-8");
 		
 		int point =  Integer.parseInt((String) request.getSession().getAttribute("point"));
+		     
+		if(point == 5000){
+			point += 1000;
+		}else if(point == 10000){
+			point += 2000;
+		}else if(point == 50000){
+			point += 6000;
+		}else if(point == 100000){
+			point += 20000;
+		}
 		
 		String id = (String) request.getSession().getAttribute("memId");
 		
@@ -26,10 +36,11 @@ public class PointChargeAction implements CommandAction{
 		System.out.println(total_point);
 		
 //		***** total_point 에 현재 충전한 point 만큼 더함
-		total_point =+ point;
+		total_point += point;
 
 //		***** 중천한만큼 더해졌는지 확인
 		System.out.println(total_point);
+		 
 		
 		if(point!=0){			
 			PayDataBean article = new PayDataBean();
@@ -40,7 +51,7 @@ public class PointChargeAction implements CommandAction{
 			article.setPdate(new Timestamp(System.currentTimeMillis()));
 			article.setTotal_point(total_point);
 			
-			paydb.InsertPAY(article);
+			paydb.InsertPay(article);
 			System.out.println("db등록");
 			
 			}
