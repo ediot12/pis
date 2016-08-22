@@ -3,7 +3,7 @@
 <html>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
  
-<body>
+<body> 
 <c:if test="${!empty id }">
 <form name=reservation  method=post action="/Pis/pointcharge/paymentForm.do">
 <table width="560" border="0" cellspacing="0" cellpadding="0" >

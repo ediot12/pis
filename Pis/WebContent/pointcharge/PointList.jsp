@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List"%>
-<!DOCTYPE>
+<!DOCTYPE> 
 <html>
 <head>
 <title>포인트 사용 내역</title>

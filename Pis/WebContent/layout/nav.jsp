@@ -193,7 +193,7 @@
 							</ul>
 						</li>
 					</ul>
-		</c:otherwise>
+		</c:otherwise> 
 	</c:choose>
 	</div>
 </div>

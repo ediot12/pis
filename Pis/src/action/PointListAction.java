@@ -34,7 +34,7 @@ public class PointListAction implements CommandAction{
 		
 		List articleList = null;
 		// DB¿¬µ¿
-		
+		 
 		count = paydb.getArticleCount();
 		
 		if(count > 0){

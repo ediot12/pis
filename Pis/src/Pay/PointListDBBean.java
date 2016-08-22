@@ -27,7 +27,7 @@ public class PointListDBBean {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        int x=0;
+        int x=0; 
 
         try {
             conn = getConnection();
