@@ -46,7 +46,7 @@ public class ReportDBBean {
 				pstmt.setString(1, article.getWriter());
 				pstmt.setString(2, article.getSubject());
 				pstmt.setString(3, article.getContent());
-				pstmt.setInt(4, article.getType());
+				pstmt.setString(4, article.getType());
 				
 				pstmt.executeUpdate();
 		}catch(Exception e){
@@ -116,7 +116,7 @@ public class ReportDBBean {
 						article.setSubject(rs.getString("subject"));
 						article.setContent(rs.getString("content"));
 						article.setRegdt(rs.getTimestamp("regdt"));
-						article.setType(rs.getInt("type"));
+						article.setType(rs.getString("type"));
 						articleList.add(article);
 					}while(rs.next());
 				}
@@ -163,7 +163,7 @@ public class ReportDBBean {
 					article.setSubject(rs.getString("subject"));
 					article.setContent(rs.getString("content"));
 					article.setRegdt(rs.getTimestamp("regdt"));
-					article.setType(rs.getInt("type"));
+					article.setType(rs.getString("type"));
 				
 				}
 			} catch (Exception e) {

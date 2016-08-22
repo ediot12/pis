@@ -27,7 +27,7 @@
 					<c:out value="${number}" />
 					<c:set var="number" value="${number - 1}" />
 				</td>
-				<td class="colorblack">${rdb.kind}</td>
+				<td class="colorblack">${rdb.type}</td>
 				<td class="colorblack"><a href="/Pis/admin/board/reportContent.do?num=${rdb.num}&pageNum=${currentPage}">${rdb.subject}</a></td>
 				<td class="colorblack">${rdb.writer}</td>
 				<td class="colorblack">${date.format(rdb.regdt)}</td>
@@ -58,10 +58,11 @@
 			</c:if>
 		<form>
 			<select name="searchn">
-			<option value="0">회원정보</option>
-			<option value="1">예약</option>
-			<option value="2">취소</option>
-			<option value="3">환불</option>
+			<option value="결제">결제</option>
+			<option value="불친절">불친절</option>
+			<option value="주차 불편">주차 불편</option>
+			<option value="불법주정차">불법주정차</option>
+			<option value="기타">기타</option>
 			</select>
 				
 			<input type="text" name="search" size="15" maxlength="50" /> <input type="submit" value="검색" class="button" />

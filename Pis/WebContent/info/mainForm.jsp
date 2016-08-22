@@ -27,9 +27,10 @@
 <body>
 	<center>
 		<b>주차장 제보 목록(전체글:${count})</b><br>
+		
 
 
-		<table width="700" cellpadding="0" cellspacing="0">
+		<table width="800" cellpadding="0" cellspacing="0">
 			<tr>
 				<td align="left"><b>주차장 제보 </b></td>
 			</tr>

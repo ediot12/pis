@@ -44,7 +44,7 @@
 
 				<tr>
 					<td align="center" width="70"><b>내용</b></td>
-					<td width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;"><img src="../fileSave/${article.bfile}" width="250px" height="250px" ><br><b>${article.content}</b></pre>
+					<td width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;"><img src="../filesave/${article.bfile}" width="250px" height="250px" ><br><b>${article.content}</b></pre>
 					</td>
 				</tr>
 	

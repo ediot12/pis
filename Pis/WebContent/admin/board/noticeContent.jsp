@@ -21,7 +21,7 @@
     <td align="center" width="200" class="color">조회수</td>
     <td align="center" width="100" align="center" class="colorblack">${bdb.readcount}</td>
   </tr>
-  <tr>
+  <tr height="450">
     <td align="center" width="200" height="450" class="color">글내용</td>
     <td align="left" colspan="3" width="950" class="colorblack" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">${bdb.content}</pre></td>
   </tr>

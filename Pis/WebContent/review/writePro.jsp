@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<%-- <%response.sendRedirect("mainForm.do");%> --%>
+<%response.sendRedirect("mainForm.do");%>
 <script>
 
 </script>

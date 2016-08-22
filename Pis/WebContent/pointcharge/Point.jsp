@@ -44,19 +44,19 @@
 	<td width="300">1,000P</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="6000">5,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="5000">5,000원</td>
 	<td align="left" width="300">5,000P + 1,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="12000">10,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="10000">10,000원</td>
 	<td align="left" width="300">10,000P + 2,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="56000">50,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="50000">50,000원</td>
 	<td align="left" width="300">50,000P + 6,000P 추가적립</td>
 	</tr>
 	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="120000">100,000원</td>
+	<td align="left" width="200"><input type="radio" name="point" value="100000">100,000원</td>
 	<td align="left" width="300">100,000P + 20,000P 추가적립</td>
 	</tr>
 	<tr>

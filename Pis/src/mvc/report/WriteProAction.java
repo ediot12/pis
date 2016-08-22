@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.CommandAction;
 import mvc.report.ReportDBBean;
@@ -15,13 +16,13 @@ public class WriteProAction implements CommandAction{
 	
 		
 		request.setCharacterEncoding("utf-8");
-		
+		HttpSession session = request.getSession();
 		ReportDataBean article = new ReportDataBean();
 		article.setNum(Integer.parseInt(request.getParameter("num")));
-		article.setWriter(request.getParameter("writer"));
+		article.setWriter((String)session.getAttribute("memId"));
 		article.setSubject(request.getParameter("subject"));
 		article.setContent(request.getParameter("content"));
-		article.setType(Integer.parseInt(request.getParameter("type")));
+		article.setType(request.getParameter("type"));
 		article.setRegdt(new Timestamp(System.currentTimeMillis()));
 		
 		ReportDBBean rdd = ReportDBBean.getInstance();

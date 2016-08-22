@@ -162,6 +162,8 @@ public class InfoDBBean {
 					article.setWriter(rs.getString("writer"));
 					article.setSubject(rs.getString("subject"));
 					article.setContent(rs.getString("content"));
+					article.setZipcode(rs.getString("zipcode"));
+					article.setAddress(rs.getString("address"));
 					article.setRegdt(rs.getTimestamp("regdt"));
 					article.setBfile(rs.getString("bfile"));
 				

@@ -77,10 +77,10 @@ public class QuestionDBBean {
 				List articleList = null;
 				try{
 					conn = getConnection();
-					pstmt = conn.prepareStatement("select num,"
+					pstmt = conn.prepareStatement("select num,writer,"
 							+ "kind,subject,checked, regdt, content, r  " +
-					        "from (select num,kind,subject,checked, regdt, content, rownum r " +
-					        "from (select num,kind,subject,checked, regdt, content " +
+					        "from (select num,writer,kind,subject,checked, regdt, content, rownum r " +
+					        "from (select num,writer,kind,subject,checked, regdt, content " +
 					        "from Question order by num desc) order by num desc) where r >= ? and r <= ?");
 					pstmt.setInt(1, start);
 					pstmt.setInt(2, end);
@@ -92,6 +92,7 @@ public class QuestionDBBean {
 							QuestionDataBean qdb = new QuestionDataBean();
 							qdb.setNum(rs.getInt("num"));
 							qdb.setKind(rs.getString("kind"));
+							qdb.setWriter(rs.getString("writer"));
 							qdb.setSubject(rs.getString("subject"));
 							qdb.setChecked(rs.getString("checked"));
 							qdb.setRegdt(rs.getTimestamp("regdt"));

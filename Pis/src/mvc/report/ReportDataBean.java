@@ -9,7 +9,7 @@ public class ReportDataBean {
 	private String subject;
 	private Timestamp regdt;
 	private String content;
-	private int type;
+	private String type;
 	
 	public int getNum() {
 		return num;
@@ -42,10 +42,10 @@ public class ReportDataBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	

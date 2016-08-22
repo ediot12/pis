@@ -56,18 +56,20 @@ public class ReviewDataBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
+	
 	public String getBfile() {
 		return bfile;
 	}
 	public void setBfile(String bfile) {
 		this.bfile = bfile;
 	}
+	public int getScore() {
+		return score;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 	
 	
 	
