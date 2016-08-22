@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.jasper.tagplugins.jstl.core.Catch;
+
 import logon.LogonDataBean;
 
 public class PayDBBean {
@@ -45,25 +47,72 @@ public class PayDBBean {
 	  
 	
 //	결제 내역 db에 저장
-	public void InsertPAY(PayDataBean article) throws Exception {
+	public void InsertPay(PayDataBean article) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int point = article.getPoint();
 		
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("insert into pointment values(?,?,?,?,?,?)" );
+			pstmt = conn.prepareStatement("select point from pointment where id=?");
 			pstmt.setString(1, article.getId());
-			pstmt.setInt(2, article.getPoint());
-			pstmt.setInt(3, article.getUse_point());
-			pstmt.setString(4, article.getInfo());	
-			pstmt.setTimestamp(5, article.getPdate());
-			pstmt.setInt(6, article.getTotal_point());		
-			pstmt.executeUpdate(); 
+			rs = pstmt.executeQuery();	
+			if(rs.next()){		
 			
-			System.out.println("db에 insert");
+			int befor_point = rs.getInt("point");			
+			
+			point += befor_point;			
+			
+			pstmt = conn.prepareStatement("update pointment set point=?, use_point=?, info=?, pdate=?, total_point=? where id=?" );
+			pstmt.setString(6, article.getId());
+			pstmt.setInt(1, point);
+			pstmt.setInt(2, article.getUse_point());
+			pstmt.setString(3, article.getInfo());	
+			pstmt.setTimestamp(4, article.getPdate());
+			pstmt.setInt(5, article.getTotal_point());		
+			pstmt.executeUpdate(); 			
+			
+//			*** test ::: DB insert ***
+			System.out.println("PayDBBean Update완료!");
+			
+			
+	
+			pstmt = conn.prepareStatement("select * from pointment where id=?");
+			pstmt.setString(1, article.getId());
+			rs = pstmt.executeQuery();
+
+			
+			if(rs.next()){
+			PointListDataBean member = new PointListDataBean();
+			member.setId(rs.getString("id"));
+			member.setPoint(rs.getInt("point"));
+			member.setUse_point(rs.getInt("use_point"));
+			member.setInfo(rs.getString("info"));
+			member.setReg_date(rs.getTimestamp("pdate"));
+
+			
+			// 저장된 결과를 pointlist DB에 insert
+			pstmt = conn.prepareStatement("insert into pointlist(num,id,point,use_point,info,parkname,pdate)"+
+					" values (pointlist_num.NEXTVAL,?,?,?,?,?,?)");
+			pstmt.setString(1, member.getId());
+			pstmt.setInt(2, member.getPoint());
+			pstmt.setInt(3, member.getUse_point());
+			pstmt.setString(4, member.getInfo());
+			pstmt.setString(5, member.getParking_name());
+			pstmt.setTimestamp(6, member.getReg_date());
+			pstmt.executeUpdate();
+			
+			}
+			
+//			*** test ::: DB insert ***
+			System.out.println("PayDBBean pointlist 테이블에 저장 완료!");
+			
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
+			if(rs!=null)try {rs.close();}catch(Exception e){}
 			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
 			if(conn != null) try{conn.close();} catch(Exception e){}
 		}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import Pay.PayDBBean;
 import Pay.PointListDBBean;
 import controller.CommandAction;
+import mvc.notice.PisDBBean;
 
 public class PointListAction implements CommandAction{
 	@Override
@@ -34,16 +35,18 @@ public class PointListAction implements CommandAction{
 		
 		List articleList = null;
 		// DB¿¬µ¿
+		
 		count = paydb.getArticleCount();
 		
 		if(count > 0){
-			articleList = paydb.getArticles(startRow, endRow);
-		}else{
-			articleList = Collections.EMPTY_LIST;
+			
+				articleList = paydb.getArticles(startRow, endRow);
+			
 		}
-		
-		number = count - (currentPage-1) * pageSize;
-		request.setAttribute("currentPage", new Integer(currentPage));
+
+	    number=count-(currentPage-1)*pageSize;
+	    
+	    request.setAttribute("currentPage", new Integer(currentPage));
 		request.setAttribute("startRow", new Integer(startRow));
 		request.setAttribute("endRow", new Integer(endRow));
 		request.setAttribute("count", new Integer(count));

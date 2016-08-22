@@ -10,6 +10,7 @@ import Pay.PayDBBean;
 import Pay.PayDataBean;
 import Pay.PaymentDBBean;
 import controller.CommandAction;
+import email.SendEmail;
 
 public class PointmentAction implements CommandAction{
 	@Override
@@ -18,15 +19,20 @@ public class PointmentAction implements CommandAction{
 		request.getSession().setAttribute("point", point);
 		
 		String id = (String) request.getSession().getAttribute("memId");
+		request.setAttribute("id", id);
 		   
 		PayDBBean paydb = PayDBBean.getInstance();
 		String name = paydb.selectName(id);
 		request.setAttribute("name", name);
 		
 		System.out.println("pointmentAction!");
+		
+//		***** test *****
 		System.out.println(point);
 		System.out.println(id);
 		System.out.println(name);
+		
+		System.out.println("pointmentAction에서 결과 확인 후 pointment.jsp 이동");
 		
 		return "/pointcharge/pointment.jsp";
 	}

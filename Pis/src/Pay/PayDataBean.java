@@ -10,6 +10,8 @@ public class PayDataBean {
 	private String info;
 	private Timestamp pdate;
 	private int total_point;
+	
+	
 	public String getId() {
 		return id;
 	}

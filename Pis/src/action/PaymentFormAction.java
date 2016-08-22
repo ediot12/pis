@@ -23,21 +23,18 @@ public class PaymentFormAction implements CommandAction {
 		
 		
 //		***** TEST *****
-		System.out.println(point);
-		System.out.println(pay_method);
+		System.out.println(point);			// 충전할 포인트 
+		System.out.println(pay_method);		// 결제수단 check
 		
 		  
 		PayDBBean paydb = PayDBBean.getInstance();
-		System.out.println(id);
-		System.out.println("1단계");
+		System.out.println(id);				// id check
+
 //		매개변수 id값을 이용해 members테이블에 저장된 id의 정보를 가져옴
 		LogonDataBean member = paydb.selectUserInfo(id);
 		   
-		System.out.println("2단계");
 //		가져온 정보를 member에 저장
 		request.setAttribute("member", member);
-		
-		System.out.println("여기는 3단계");
 		
 		return "/pointcharge/paymentForm.jsp";
 	}

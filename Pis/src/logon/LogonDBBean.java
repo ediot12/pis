@@ -51,6 +51,16 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             pstmt.setString(12, member.getDiscount());
             pstmt.setString(13, member.getGrade());
             pstmt.executeUpdate();
+            
+//          회원 가입시 회원 정보 DB에 저장 후 pointment 테이블에 아래 값을 초기화로 등록
+            pstmt = conn.prepareStatement("insert into pointment values(?,?,?,?,sysdate,?)");
+            pstmt.setString(1, member.getId());
+            pstmt.setInt(2, 0);
+            pstmt.setInt(3, 0);
+            pstmt.setString(4, "logon");
+            pstmt.setInt(5, 0);
+            pstmt.executeQuery();
+            
            
         } catch(Exception ex) {
             ex.printStackTrace();
