@@ -18,7 +18,7 @@ public class PayDBBean {
 		String jdbcDriver = "jdbc:apache:commons:dbcp:/pool";
 			return DriverManager.getConnection(jdbcDriver);
 	} 
-	   
+	      
 //	PointChargeAction ::: 최근 total_point 값을 가져옴. 
 	public int getTotalPoint(String id)throws Exception{
 		Connection conn = null;

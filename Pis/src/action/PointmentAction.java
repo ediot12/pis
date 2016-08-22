@@ -24,7 +24,7 @@ public class PointmentAction implements CommandAction{
 		PayDBBean paydb = PayDBBean.getInstance();
 		String name = paydb.selectName(id);
 		request.setAttribute("name", name);
-		
+		  
 		System.out.println("pointmentAction!");
 		
 //		***** test *****

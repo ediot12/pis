@@ -16,7 +16,7 @@ public class PointChargeAction implements CommandAction{
 		request.setCharacterEncoding("utf-8");
 		
 		int point =  Integer.parseInt((String) request.getSession().getAttribute("point"));
-		   
+		     
 		if(point == 5000){
 			point += 1000;
 		}else if(point == 10000){
