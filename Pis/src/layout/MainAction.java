@@ -3,11 +3,13 @@ package layout;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Pay.PayDBBean;
 import board.FAQDBBean;
 import board.NoticeDBBean;
 import chart.ChartDBBean;
 import chart.ChartDataBean;
 import controller.CommandAction;
+import logon.LogonDBBean;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,19 @@ public class MainAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
+		
+//		main에 표현할 id정보에 따른 등급,point
+		String memId = (String) request.getSession().getAttribute("memId");
+		LogonDBBean logdb = LogonDBBean.getInstance();
+		String grade = logdb.getGrade(memId);
+		request.setAttribute("grade", grade);
+		
+		PayDBBean paydb = PayDBBean.getInstance();
+		int point = paydb.getPoint(memId);
+		request.setAttribute("point", point);
+		
+		
+		
 		
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -82,6 +97,7 @@ public class MainAction implements CommandAction{
 	    request.setAttribute("num", new Integer(num));
 	    request.setAttribute("articleList", articleList);
 	    request.setAttribute("articleList2", articleList2);
+	   
 		
 		return "/layout/main.jsp";
 	}
