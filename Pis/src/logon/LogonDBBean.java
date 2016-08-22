@@ -31,7 +31,7 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         PreparedStatement pstmt = null;
         ResultSet rs = null;
        
-        
+         
         try {
             conn = getConnection();
  //DriverManager.getConnection(jdbc:apache:commons:dbcp:/pool);
