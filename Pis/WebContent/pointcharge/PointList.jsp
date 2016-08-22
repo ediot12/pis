@@ -28,11 +28,16 @@
 		<td align="center" width="200">내역</td>
 		<td align="center" width="100">충전포인트</td>
 		<td align="center" width="100">사용포인트</td>
-		<td align="center" width="100">사용일</td>
+		<td align="center" width="200">사용일</td>
 	</tr>
 		<c:forEach var="article" items="${articleList}" >
 			<tr height="30" align="center">
 				<td>${article.num }</td>
+				<td>${article.parking_name }</td>
+				<td>${article.info }</td>
+				<td>${article.point }</td>
+				<td>${article.use_point }</td>
+				<td>${article.reg_date }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -47,18 +52,19 @@
 	<c:if test="${endPage>pageCount }">
 		<c:set var="endPage" value="${pageCount }"/>
 	</c:if>
-	
+	<div align="center">
 	<c:if test="${startPage>10 }">
-		<a href="/Pis/notice/list.do?pageNum=${startPage-10 }">[이전]</a>
+		<a href="/Pis/pointcharge/pointlist.do?pageNum=${startPage-10 }">[이전]</a>
 	</c:if>
 	
 	<c:forEach var="i" begin="${startPage}" end="${endPage}">
-		<a href="/Pis/notice/list.do?pageNum=${i}">[${i}]</a>
+		<a href="/Pis/pointcharge/pointlist.do?pageNum=${i}">[${i}]</a>
 	</c:forEach>
 	
 	<c:if test="${endPage<pageCount }">
-		<a href="/Pis/notice/list.do?pageNum=${startPage+10 }">[다음]</a>
+		<a href="/Pis/pointcharge/pointlist?pageNum=${startPage+10 }">[다음]</a>
 	</c:if>
+	</div>
 </c:if>
 
 </body>

@@ -20,7 +20,6 @@ public class PointListAction implements CommandAction{
 		String id = (String)request.getSession().getAttribute("memId");
 				
 		PointListDBBean paydb = PointListDBBean.getInstance();
-		paydb.InsertList(id);
 				     
 		String pageNum = request.getParameter("pageNum");
 

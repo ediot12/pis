@@ -94,8 +94,8 @@
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="/Pis/admin/member/member.do">회원관리</a></b></li>
@@ -149,8 +149,8 @@
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
 							</ul>
 						</li>
 					</ul>
@@ -188,8 +188,8 @@
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
 								<hr/>
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
 							</ul>
 						</li>
 					</ul>

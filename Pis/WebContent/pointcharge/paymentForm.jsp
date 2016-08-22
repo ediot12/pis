@@ -32,8 +32,11 @@ IMP.request_pay({
 		location.href="/Pis/pointcharge/pointcharge.do";
 		
 	} else {
-		var msg = '결제에 실패하였습니다.';
+		var msg = '결제에 실패하였습니다.\n';
 		msg += '에러내용 : ' + rsp.error_msg;
+		
+		alert(msg);
+		location.href="/Pis/pointcharge/point.do";
 	}
 });
   
