@@ -18,7 +18,7 @@ public class LogonDataBean {
 	private String certifyKey;
 	private String discount;
 	private String grade;
-	
+	private String checked;
 	
 	
 	public String getId() {
@@ -104,5 +104,11 @@ public class LogonDataBean {
 	}
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
 	}
 }
