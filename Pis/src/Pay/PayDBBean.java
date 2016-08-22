@@ -147,7 +147,32 @@ public class PayDBBean {
 		return name;
 	}
 	
-	
+//	main.jsp ::: point 값
+	public int getPoint(String memId)throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int point = 0;
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select point from pointment where id=?" );
+			pstmt.setString(1, memId);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				point = rs.getInt("point");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(rs!=null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
+			if(conn != null) try{conn.close();} catch(Exception e){}
+		}
+		return point;
+	}	
 
 //	paymentForm.jsp ::: el로 출력될 id정보값 
 	public LogonDataBean selectUserInfo(String id)throws Exception{

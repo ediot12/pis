@@ -391,5 +391,33 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         }
         return vecList;
     }
+	    
+	//  main.jsp  ::: 회원등급 가져오는 메소드 
+	  public String getGrade(String memId)throws Exception{
+		  Connection conn = null;
+		  PreparedStatement pstmt = null;
+		  ResultSet rs = null;
+		  String grade = "";
+		  try{
+			  conn = getConnection();
+			  pstmt = conn.prepareStatement("select grade from members where id=?" );
+			  pstmt.setString(1, memId);
+			  rs = pstmt.executeQuery();
+			  
+			  if(rs.next()){
+				grade = rs.getString("grade");
+			  }
+			  
+		  }catch(Exception e){
+			  e.printStackTrace();
+		  }finally{
+			  if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+	          if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+	          if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		  }		  
+		  return grade;
+	  }
+	    
+
 
 }
