@@ -6,7 +6,6 @@
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<body>
 <form action="/Pis/Join/mailPro.do" method="post">
 <table border="1" cellpadding="0" cellspacing="0" class="shorttable">
 <tr>

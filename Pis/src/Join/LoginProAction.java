@@ -28,8 +28,11 @@ public class LoginProAction implements CommandAction {
 			session.setAttribute("memId",id);
 			//response.sendRedirect("main.jsp");
 		 } //체크가 1일때 세션에 "memId 라는 값으로 id를 저장
+		LogonDataBean member = new LogonDataBean();
+		member.setGrade(request.getParameter("grade"));
+	
 		request.setAttribute("check", new Integer(check));
-		//
+	
 		
 		return "/Join/loginPro.jsp";
 		

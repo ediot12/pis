@@ -13,7 +13,7 @@ public class UpdatePWDAction implements CommandAction {
 		String passwd = request.getParameter("passwd");
 		String passwd2 = request.getParameter("passwd2");
 		String id = request.getParameter("id");
-	    
+		
 		LogonDBBean manager = LogonDBBean.getInstance();
 		int x = manager.updatePwd(passwd,passwd2,id);
 		
