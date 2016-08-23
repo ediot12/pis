@@ -64,6 +64,7 @@ public class ViewReservAction implements CommandAction {
 				reservList.add(rsb);
 				count += 1;
 				
+				
 			}
 			
 			request.setAttribute("recount", count);

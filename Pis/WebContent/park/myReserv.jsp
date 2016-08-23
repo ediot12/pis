@@ -31,7 +31,6 @@ div#myReserv {
 		</div>
 		<c:if test="${myreservList!=null }">
 			<c:forEach var="myreservList" items="${myreservList }" begin="0">
-
 				<div id="myReserv" align="center"> 
 					<form name="myReserv" onsubmit="checkoutTime()">
 					<table >				
