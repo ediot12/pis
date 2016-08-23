@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page import="java.sql.*, java.util.*, java.util.Date, java.text.*" %>
 <!DOCTYPE html>
-<html> 
+<html>  
 <head>
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
@@ -47,8 +47,8 @@
 		<tr height="10"></tr>
 		<tr height="10">
 			<td width="50px" class="maintext" >번호</td>
-			<td width="150px" class="maintext">문의유형</td>
-			<td width="350px" class="maintext" >제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
+			<td width="100px" class="maintext">문의유형</td>
+			<td width="400px" class="maintext" >제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 		</tr>
 		<c:forEach var="fdb" items="${articleList2}">
         	<tr>

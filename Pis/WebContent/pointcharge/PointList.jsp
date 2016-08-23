@@ -27,7 +27,7 @@
 		<td align="center" width="200">주차장명</td>
 		<td align="center" width="200">내역</td>
 		<td align="center" width="100">충전포인트</td>
-		<td align="center" width="100">사용포인트</td>
+		<td align="center" width="100">사용포인트</td> 
 		<td align="center" width="200">사용일</td>
 	</tr>
 		<c:forEach var="article" items="${articleList}" >

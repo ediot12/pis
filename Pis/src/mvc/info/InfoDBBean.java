@@ -94,6 +94,53 @@ public class InfoDBBean {
 			return x;
 		}
 		
+		public List getArticles(int start, int end, String writer)throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			List articleList = null;
+			try{
+				conn = getConnection();
+				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,address, rownum r from info where rownum >= ? and rownum <= ? order by num desc");
+				
+				pstmt.setInt(1, start);
+				pstmt.setInt(2, end);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()){
+					articleList = new ArrayList(end);
+					do{
+						InfoDataBean article = new InfoDataBean();
+						article.setNum(rs.getInt("num"));
+						article.setWriter(rs.getString("writer"));
+						article.setSubject(rs.getString("subject"));
+						article.setContent(rs.getString("content"));
+						article.setRegdt(rs.getTimestamp("regdt"));
+						article.setAddress(rs.getString("address"));
+						articleList.add(article);
+					}while(rs.next());
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException se) {
+					}
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException se) {
+					}
+				if (conn != null)
+					try {
+						conn.close();
+					} catch (SQLException se) {
+					}
+			}
+			return articleList;
+			}
 		public List getArticles(int start, int end)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;

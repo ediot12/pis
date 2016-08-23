@@ -31,13 +31,14 @@ public class MainAction implements CommandAction{
 		int endRow = currentPage * pageSize;
 		int count = 0;
 		int number = 0;
+		String writer=(String)request.getSession().getAttribute("memId");
 		
 		List articleList = null;
 		ReportDBBean rdd = ReportDBBean.getInstance();
 		count = rdd.getArticleCount();
 		
 		if(count > 0){
-			articleList = rdd.getArticles(startRow, endRow);
+			articleList = rdd.getArticles(startRow, endRow, writer);
 		}
 		
 		number=count-(currentPage-1)*pageSize;

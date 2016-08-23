@@ -28,7 +28,7 @@
 							</c:when>
 							<c:otherwise>
 								<ul>
-								    <li>${memId}</li>
+								    <li>${memId} [회원등급 : ${grade}/ 현재포인트 : ${point}]</li>
 									<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
 						    		<li>사이트맵</li>
 						    	</ul>
