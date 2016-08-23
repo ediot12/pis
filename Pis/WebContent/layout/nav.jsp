@@ -102,7 +102,7 @@
 						<li><b><a href="/Pis/admin/carpark/carpark.do">주차장관리</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/admin/carpark/carpark.do">주차장 관리</a></b></li>
-								<li><b><a href="#">지역별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/admin/chart/area.do">지역별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/days.do">일별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/month.do">월별 사용자빈도</a></b></li>
 							</ul>
