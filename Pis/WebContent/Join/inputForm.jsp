@@ -20,7 +20,7 @@
 <td width="70%" class="colorblack">
 <input type="text" id="ID" name="id" size="10" maxlength="12" onblur="id_nohan(this.form)">
 <input type="button" name="confirm_id" value="ID중복확인" OnClick="openConfirmid(this.form)" class="button">
-<input type="hidden" name="confirm_ok"  value="no">
+<input type="hidden" name="confirm_ok"  value="y">
 </td>
 </tr>
 <tr>
@@ -36,8 +36,8 @@
 <td class="colorblack"> <input type="text" name="name" size="15" maxlength="15" onblur="id_noNumber(this.form)"></td>
 </tr>
 <tr> 
-<td class="color">전화번호</td>
-<td class="colorblack"> <input type="text" name="phone" size="15" maxlength="11"></tr>
+<td class="color">전화번호</td> 
+<td class="colorblack"> <input type="text" name="phone" size="15" maxlength="11"> '-'없이 입력해주세요</tr>
 <tr>
 <td class="color">우편번호</td>
 <td class="colorblack"><input type="text" name="zipcode" size="7" readonly>
@@ -54,10 +54,9 @@
 <td class="colorblack">
 <input type="text" name="email" size="30" maxlength="40">
 <input type="button" value="인증받기" onClick="mail(this.form)" class="button">
-<input type="hidden" name="certify"> 
+<input type="hidden" name="certify" value="n"> 
 </td>
 </tr>
-<form name="form"> 
 <tr>
 <td class="color">거주자여부</td>
 <td class="colorblack">
@@ -71,7 +70,6 @@
 <input type="file" name="upload" disabled>
 </td>
 </tr>
-</form>
 </table>
 <input type="submit" name="confirm" value="등 록" class="button">
 <input type="button" value="취 소" onclick="document.location.href='/Pis/layout/main.do'" class="button">

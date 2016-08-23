@@ -110,23 +110,22 @@ function checkIt(){
 <td class="color">E-Mail</td>
 <td class="colorblack">
 <c:if test="${c.email==null}">
-<input type="text" name="email" size="30" maxlength="30">
+<input type="text" name="email" size="30" maxlength="30" >
 </c:if>
 <c:if test="${c.email!=null}">
-<input type="text" name="email" size="30" maxlength="30" value="${c.email}">
+<input type="text" name="email" size="30" maxlength="30" value="${c.email}" readonly>
 </c:if>
 </td>
-</tr>
+</tr> 
 <tr>
 <td class="color">거주자여부</td>
 <td class="colorblack">
 <c:if test="${c.resident==1}">
-<input type="radio" name="resident" value="1" checked="checked">거주자
-<input type="radio" name="resident" value="2">비거주자
+<input type="radio" name="resident" value="1" checked="checked" onClick="this.form.upload.disabled=false">거주자
 </c:if>
 <c:if test="${c.resident==2}">
-<input type="radio" name="resident" value="1">거주자
-<input type="radio" name="resident" value="2" checked="checked">비거주자
+<input type="radio" name="resident" value="1" onClick="this.form.upload.disabled=false">거주자
+<input type="radio" name="resident" value="2" onclick="this.form.upload.disabled=true">비거주자
 </c:if>
 
 </td>

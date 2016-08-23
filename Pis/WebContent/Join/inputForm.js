@@ -33,7 +33,7 @@ function checkId(){
 			alert("ID를 입력하세요");
 			return false;
 		}
-		
+	
 		if(!userinput.passwd.value){
 			alert("비밀번호를 입력하세요");
 			return false;
@@ -58,18 +58,15 @@ function checkId(){
 			alert("주소를 전부 입력해주세요");
 			return false;
 		}
-		if(!userinput.email.value){
-			alert("이메일을 적어주세요");
-			return false;
-		}
 		
-       /*if(!userinput.upload.value){
-			alert("파일선택 후 전송버튼을 눌러주세요");
+		if(!userinput.email.value){
+			alert("이메일 입력하여 주세요.");
 			return false;
 		}
-		*/
-	
-	
+		if(!userinput.resident.value){
+			alert("거주자 여부를 선택하여 주세요");
+			return false;
+		}
 		return true;
 	}
 
@@ -97,10 +94,30 @@ function checkId(){
 	
 	function mail(userinput){
 		
+		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; 
+		
+		if(userinput.email.value ==""){
+			alert("이메일을 입력하여 주세요.");
+			return;
+		}
+		
+		if (!regExp.test(userinput.email.value)) {
+			alert("이메일을 재대로 적어주세요.");
+			userinput.email.value = "";
+			userinput.email.focus();
+			return false;
+		}
+		
+	/*	if(userinput.email.value !="@"){
+			alert("이메일을 다 입력.");
+			return;
+		}*/
+		
 		url="/Pis/Join/certifyForm.do?email="+userinput.email.value;
 		window.open(url,"post","toolbar=no,width=100, heignt=100,directories=no,status=yes,scrollbars=yes,menubar=no");
 		
 	}
 	
-
+	
+	
 

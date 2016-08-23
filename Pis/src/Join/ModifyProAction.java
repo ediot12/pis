@@ -1,5 +1,6 @@
 package Join;
 
+
 import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +21,15 @@ public class ModifyProAction implements CommandAction {
 
 	
 		request.setCharacterEncoding("utf-8");
-		String savePath = request.getServletContext().getRealPath("filesave");
+		
+		String savePath = "C:/Users/ÀåÂù±Ô/git/pis/Pis/WebContent/filesave";
 		String realPath = ""; 
 		String type = "utf-8";
+		
 		int sizeLimit = 5*1024*1024;//5M
+		
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, type, new DefaultFileRenamePolicy());
+		
 		String fileName = multi.getFilesystemName("upload");
 		String m_fileFullPath = savePath + "/" + fileName;
 		File file = multi.getFile("upload");
@@ -41,7 +46,7 @@ public class ModifyProAction implements CommandAction {
 		ldb.setAddress(multi.getParameter("address"));
 		ldb.setEmail(multi.getParameter("email"));
 		ldb.setResident(multi.getParameter("resident"));
-		ldb.setUpload(file_name);
+		ldb.setUpload(real_file);
 		LogonDBBean manager = LogonDBBean.getInstance();
 	    
 		manager.updateMember(ldb);

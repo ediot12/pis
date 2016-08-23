@@ -26,33 +26,43 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
     }
      
     //inputPro.jsp
-    public void insertMember(LogonDataBean member) throws Exception {
+    public int insertMember(LogonDataBean member) throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-       
-         
+        int x = 0;
+        String s = "y";
+        
         try {
             conn = getConnection();
- //DriverManager.getConnection(jdbc:apache:commons:dbcp:/pool);
-            pstmt = conn.prepareStatement(
-            "insert into MEMBERS values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pstmt = conn.prepareStatement("select id from MEMBERS where id = ?");
             pstmt.setString(1, member.getId());
-            pstmt.setString(2, member.getPasswd());
-            pstmt.setString(3, member.getName());
-            pstmt.setString(4, member.getPhone());
-            pstmt.setString(5, member.getZipcode());
-            pstmt.setString(6, member.getAddress());
-            pstmt.setString(7, member.getEmail());
-            pstmt.setString(8, member.getCertify());
-            pstmt.setString(9, member.getResident());
-            pstmt.setString(10, member.getUpload());
-            pstmt.setTimestamp(11, member.getReg_date());
-            pstmt.setString(12, member.getDiscount());
-            pstmt.setString(13, member.getGrade());
-            pstmt.executeUpdate();
-            
-//          회원 가입시 회원 정보 DB에 저장 후 pointment 테이블에 아래 값을 초기화로 등록
+            rs= pstmt.executeQuery();
+            if(rs.next()){
+            	x= 0; //해당 아이디 있음
+            } 
+             else {
+            pstmt = conn.prepareStatement("insert into MEMBERS values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pstmt.setString(1, member.getId());
+	        pstmt.setString(2, member.getPasswd());
+	        pstmt.setString(3, member.getName());
+	        pstmt.setString(4, member.getPhone());
+	        pstmt.setString(5, member.getZipcode());
+	        pstmt.setString(6, member.getAddress());
+	        pstmt.setString(7, member.getEmail());
+	        pstmt.setString(8, member.getCertify());
+	        pstmt.setString(9, member.getResident());
+	        pstmt.setString(10, member.getUpload());
+	        pstmt.setTimestamp(11, member.getReg_date());
+	        pstmt.setString(12, member.getDiscount());
+	        pstmt.setString(13, member.getGrade());
+	        pstmt.setString(14, member.getChecked());
+	            
+	        pstmt.executeUpdate();        
+	        x=1; 
+	       
+            }
+//         회원 가입시 회원 정보 DB에 저장 후 pointment 테이블에 아래 값을 초기화로 등록
             pstmt = conn.prepareStatement("insert into pointment values(?,?,?,?,sysdate,?)");
             pstmt.setString(1, member.getId());
             pstmt.setInt(2, 0);
@@ -65,10 +75,11 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         } catch(Exception ex) {
             ex.printStackTrace();
         } finally {
+        	if (rs != null) try { rs.close(); } catch(SQLException ex) {}
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
-     
+        return x;
     }
           
     public int setCertify(String id) throws Exception {
@@ -342,8 +353,8 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             if(rs.next()){
             	dbpasswd= rs.getString("passwd");
             	if(dbpasswd.equals(passwd)){
-            		pstmt = conn.prepareStatement(
-                  "delete from MEMBERS where id=?");
+            	pstmt = conn.prepareStatement(
+                "delete from MEMBERS where id=?");
                     pstmt.setString(1, id);
                     pstmt.executeUpdate();
                     x= 1; //회원탈퇴 성공
@@ -391,8 +402,7 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         }
         return vecList;
     }
-	    
-	//  main.jsp  ::: 회원등급 가져오는 메소드 
+//  main.jsp  ::: 회원등급 가져오는 메소드 
 	  public String getGrade(String memId)throws Exception{
 		  Connection conn = null;
 		  PreparedStatement pstmt = null;
@@ -417,7 +427,4 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
 		  }		  
 		  return grade;
 	  }
-	    
-
-
 }

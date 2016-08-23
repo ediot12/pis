@@ -25,11 +25,12 @@ public class InputProAction implements CommandAction {
 		// String savePath = "c:/Pis/workspace/Pis/WebContent/fileSave";
 		/*String savePath = request.getServletContext().getRealPath("filesave");*/
 		request.setCharacterEncoding("utf-8");
-		String savePath = request.getServletContext().getRealPath("filesave");
+		String savePath = "C:/Users/장찬규/git/pis/Pis/WebContent/filesave";
 		String realPath = ""; 
 		String type = "utf-8";
 		int sizeLimit = 5*1024*1024;//5M
-				
+		int exist = 0;
+		
 		MultipartRequest multi = new MultipartRequest(request, savePath, sizeLimit, type, new DefaultFileRenamePolicy());
 				
 		// MultipartRequest로 전송받은 데이터를 불러온다.
@@ -40,10 +41,14 @@ public class InputProAction implements CommandAction {
 		String m_fileFullPath = savePath + "/" + fileName;
 		File file = multi.getFile("upload");
 		String file_name = String.valueOf(file);
-		String real_file = new File(file_name).getName();
-		
+		String real_file = new File(file_name).getName(); // 파일명만 DB저장
 		LogonDataBean member = new LogonDataBean();
+		String certify = (String)request.getSession().getAttribute("certify");
+		
+		if(certify==null) certify="n";
 
+	    if(certify.equals("y")){
+		
 		member.setId(multi.getParameter("id"));
         member.setPasswd(multi.getParameter("passwd"));
         member.setName(multi.getParameter("name"));
@@ -53,19 +58,23 @@ public class InputProAction implements CommandAction {
         member.setEmail(multi.getParameter("email"));
         member.setCertify((String)(request.getSession().getAttribute("certify")));
         member.setResident(multi.getParameter("resident"));
-        member.setUpload(file_name);
+        member.setUpload(real_file);
         member.setReg_date(new Timestamp(System.currentTimeMillis())); 
         member.setDiscount("0");        
         member.setGrade("일반");
-        
-        
-        
-		
+        member.setChecked("거주자 미 승인");
         LogonDBBean manager = LogonDBBean.getInstance();
-        manager.insertMember(member);
         
-        request.setAttribute("member", member);
-      
-		return "/Join/inputPro.jsp";
+        exist = manager.insertMember(member);
+        
 	}
-}
+	    else 
+	    	
+		exist = -1;
+        request.setAttribute("exist", exist);
+        request.setAttribute("member", member);
+        
+        return "/Join/inputPro.jsp";
+        
+        }  
+	}
