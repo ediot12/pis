@@ -12,6 +12,17 @@ public class ReservBean {
 	private String outTime;// Á¾·á½Ã°£
 	private int cost;// µ·
 	private int num;
+	private boolean check;
+	
+	
+
+	public boolean isCheck() {
+		return check;
+	}
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
 
 	public String getId() {
 		return id;
@@ -92,5 +103,6 @@ public class ReservBean {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	
 
 }

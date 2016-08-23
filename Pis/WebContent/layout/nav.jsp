@@ -78,15 +78,12 @@
 								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
-								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
-								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
@@ -102,7 +99,7 @@
 						<li><b><a href="/Pis/admin/carpark/carpark.do">주차장관리</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/admin/carpark/carpark.do">주차장 관리</a></b></li>
-								<li><b><a href="#">지역별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/admin/chart/area.do">지역별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/days.do">일별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/month.do">월별 사용자빈도</a></b></li>
 							</ul>
@@ -133,15 +130,12 @@
 								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
-								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
-								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
@@ -172,7 +166,7 @@
 								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
 								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
@@ -180,7 +174,7 @@
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
 								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>

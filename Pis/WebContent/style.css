@@ -279,3 +279,14 @@ ul.menu:after {
 	left: 90%;
 	border: 2px solid;
 }
+
+#linechart_material{
+	width : 1150px;
+	height: 500px;
+	font-size:10;
+}
+#columnchart_material{
+	width : 1450px;
+	height: 500px;
+	font-size:10;
+}

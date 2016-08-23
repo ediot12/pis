@@ -9,7 +9,8 @@
 </head>
 <body>
 	<center>
-	<b>- 전체 주차장 :${count} -</b>
+	<br>
+	- 전체 주차장 : ${count} -
 	<div class="title"> 
 	<b>주차장관리</b>
 		<a href="/Pis/admin/carpark/carparkInput.do">
@@ -17,14 +18,14 @@
 		</a>
 	</div>
 	<table class="table" border="1" cellpadding="0" cellspacing="0" >
-		<tr class="color">
-			<td width="250px" height="30px">주차장명</td>
-			<td width="350px" height="30px">주차장 주소</td>
-			<td width="150px" height="30px">전화번호</td>
-			<td width="50px" height="30px">주중</td>
-			<td width="50px" height="30px">주말</td>
-			<td width="130px" height="30px">운영구분</td>
-			<td width="100px" height="30px">이용대수</td>
+		<tr>
+			<td width="250px" height="30px" class="color">주차장명</td>
+			<td width="350px" height="30px" class="color">주차장 주소</td>
+			<td width="150px" height="30px" class="color">전화번호</td>
+			<td width="50px" height="30px" class="color">주중</td>
+			<td width="50px" height="30px" class="color">주말</td>
+			<td width="130px" height="30px" class="color">운영구분</td>
+			<td width="100px" height="30px" class="color">이용대수</td>
 		</tr>
 		<c:forEach var="parkList" items="${parkList}">
 		<tr>

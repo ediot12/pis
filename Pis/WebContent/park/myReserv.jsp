@@ -31,7 +31,6 @@ div#myReserv {
 		</div>
 		<c:if test="${myreservList!=null }">
 			<c:forEach var="myreservList" items="${myreservList }" begin="0">
-
 				<div id="myReserv" align="center"> 
 					<form name="myReserv" onsubmit="checkoutTime()">
 					<table >				
@@ -40,7 +39,9 @@ div#myReserv {
 					<tr align="left">입차예정시간 : ${myreservList.beginTime }</tr><br>
 					<tr align="left" name="outtime"><font color="red">출차예정시간 : ${myreservList.outTime }</font></tr><br> 
 					<tr align="left">결제금액 : ${myreservList.cost }포인트</tr><br>
-					<tr align="right"><input type="submit" value="예약취소"></tr>					
+					<c:if test="${myreservList.check==true }">
+					<tr align="right"><input type="submit" value="예약취소"></tr>
+					</c:if>					
 					</table>
 					</form>
 				</div>

@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +31,10 @@ public class ViewReservAction implements CommandAction {
 		Vector<ReservBean> reservList = new Vector<ReservBean>();
 		String id = (String) session.getAttribute("memId");
 		int count = 0;
+		SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date date = new Date();//날짜비교
+		Date date2 = new Date();//오늘날짜
+		
 
 		try {
 			conn = getConnection();
@@ -46,8 +52,19 @@ public class ViewReservAction implements CommandAction {
 				rsb.setOutTime(rs.getString(8));
 				rsb.setCost(rs.getInt(9));
 				rsb.setNum(rs.getInt(10));
+				date = smf.parse(rs.getString(7));
+				long gap = date2.getTime()-date.getTime();
+				if(gap<600000){
+					rsb.setCheck(true);
+				}
+				else{
+					rsb.setCheck(false);
+				}
+
 				reservList.add(rsb);
 				count += 1;
+				
+				
 			}
 			
 			request.setAttribute("recount", count);

@@ -32,7 +32,7 @@
 				<c:out value="${number}" />
 				<c:set var="number" value="${number - 1}" />
 			</td>
-			<td class="maincolor"><a href="/Pis/admin/board/noticeContent.do?num=${bdb.num}&pageNum=${currentPage}">${bdb.subject}</a></td>
+			<td class="maincolor"><a href="/Pis/notice/list.do?num=${bdb.num}&pageNum=${currentPage}">${bdb.subject}</a></td>
 			<td class="maincolor">${date.format(bdb.regdt)}</td>
 		</tr>
 		</c:forEach>
@@ -55,7 +55,7 @@
 	            <td class="maincolor"><c:out value="${num}" />
 					<c:set var="num" value="${num - 1}" /></td>
 				<td class="maincolor">${fdb.kind}</td>
-	            <td class="maincolor"><a href="/Pis/admin/board/FAQ.do">${fdb.subject}</a></td>
+	            <td class="maincolor"><a href="/Pis/faq/faqForm.do">${fdb.subject}</a></td>
            </tr>
        	</c:forEach>
     </td>

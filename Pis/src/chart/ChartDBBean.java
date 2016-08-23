@@ -163,4 +163,78 @@ public class ChartDBBean {
 		}
 		return x;
 	}
+	public int getArea(String area) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0;
+		
+		try{
+			conn = getConnection();
+			
+			pstmt = conn.prepareStatement("select count(*) from reservpark where substr(parkloca,'7',(instr(parkloca, '±¸')-6))=?");
+			pstmt.setString(1, area);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				x = rs.getInt(1);
+			}
+		}catch(Exception e){ e.printStackTrace(); }
+		finally{
+			jdbcUtil.close(rs);
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		return x;
+		}
+	
+	public int getYear(String date) throws Exception{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int x = 0;
+		
+		try{
+			conn = getConnection();
+			
+			stmt = conn.createStatement();
+			String sql ="select count(*) from reservpark where substr(to_char(beginTime),1,7)=substr(to_char('"+date+"'),1,7)";
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()){
+				x = rs.getInt(1);
+			}
+		}catch(Exception e){ e.printStackTrace(); }
+		finally{
+			jdbcUtil.close(rs);
+			jdbcUtil.close(stmt);
+			jdbcUtil.close(conn);
+		}
+		return x;
+	}
+	
+	public int getDays(String date) throws Exception{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int x = 0;
+		
+		try{
+			conn = getConnection();
+			
+			stmt = conn.createStatement();
+			String sql ="select count(*) from reservpark where substr(to_char(beginTime),1,10)=substr(to_char('"+date+"'),1,10)";
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()){
+				x = rs.getInt(1);
+			}
+		}catch(Exception e){ e.printStackTrace(); }
+		finally{
+			jdbcUtil.close(rs);
+			jdbcUtil.close(stmt);
+			jdbcUtil.close(conn);
+		}
+		return x;
+	}
 }
