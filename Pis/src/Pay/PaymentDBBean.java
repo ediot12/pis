@@ -79,6 +79,8 @@ public class PaymentDBBean implements CommandAction {
 				request.setAttribute("begintime", beginTime);
 				request.setAttribute("outtime", outTime);
 				request.setAttribute("payment", 0);
+				request.setAttribute("capacity", request.getParameter("capacity"));
+				request.setAttribute("parking_code", request.getParameter("parking_code"));
 
 			} else if (pay_nm.equals("À¯·á")) {
 				
@@ -90,6 +92,8 @@ public class PaymentDBBean implements CommandAction {
 				request.setAttribute("begintime", beginTime);
 				request.setAttribute("outtime", outTime);
 				request.setAttribute("payment", payment);
+				request.setAttribute("capacity", request.getParameter("capacity"));
+				request.setAttribute("parking_code", request.getParameter("parking_code"));
 			}
 
 		} catch (SQLException e) {

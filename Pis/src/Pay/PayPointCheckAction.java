@@ -35,6 +35,8 @@ public class PayPointCheckAction implements CommandAction {
 		String parkloca = request.getParameter("parkloca");
 		String begintime = request.getParameter("begintime");
 		String outtime = request.getParameter("outtime");
+		int parking_code = Integer.parseInt(request.getParameter("parking_code"));
+		int capacity = Integer.parseInt(request.getParameter("capacity"));
 		int pay = Integer.parseInt(request.getParameter("point"));// 계산된 금액
 		int remainPoint = 0; // 초기화
 		int sPoint, sUse_Point = 0;// update문을 위한 초기화 작업
@@ -67,6 +69,11 @@ public class PayPointCheckAction implements CommandAction {
 			pstmt.setInt(2, sUse_Point);
 			pstmt.executeUpdate();
 			//////////////
+			
+			pstmt = conn.prepareStatement("update firstdate set capacity2=? where parking_code = ?");
+			pstmt.setInt(1, capacity-1);
+			pstmt.setInt(2, parking_code);
+			pstmt.executeUpdate();
 
 			//////////// 예약현황과 admin이 볼 수 있는 포인트 사용 현황 테이블에 insert 작업
 			pstmt = conn.prepareStatement("insert into reservpark values(?,?,?,?,?,?,?,?,?,reserv_num.NEXTVAL)");

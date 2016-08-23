@@ -31,8 +31,9 @@ public class InsertReservAction implements CommandAction {
 
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		String parking_name = request.getParameter("parking_name");
 		String id = (String) session.getAttribute("memId");
+		String capacity = request.getParameter("capacity2");
+		String parking_code = request.getParameter("parking_code");
 		
 		//날짜 관련
 		String weekdayOpen = request.getParameter("time1");
@@ -69,7 +70,7 @@ public class InsertReservAction implements CommandAction {
 				searchList.setParking_type_nm(rs.getString(4));
 				searchList.setOperation_rule_nm(rs.getString(5));
 				searchList.setTel(rs.getString(6));
-				searchList.setCapacity2(rs.getInt(7));
+				searchList.setCapacity2(Integer.parseInt(capacity));//형변환해서 넣음
 				searchList.setPay_nm(rs.getString(8));
 				searchList.setWeekday_begin_time(rs.getString(9));
 				searchList.setWeekday_end_time(rs.getString(10));
@@ -89,6 +90,8 @@ public class InsertReservAction implements CommandAction {
 				request.setAttribute("wdclose", weekdayClose);
 				request.setAttribute("weopen", weekendOpen);
 				request.setAttribute("weclose", weekendClose);
+				request.setAttribute("capacity", capacity);
+				request.setAttribute("parking_code", parking_code);
 			} else {
 				System.out.println("잘못된 접근 입니다.");
 			}

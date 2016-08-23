@@ -8,7 +8,10 @@ public class SearchInfoBean {
 	private String parking_type_nm;
 	private String operation_rule_nm;
 	private String tel;
-	private int capacity2;
+	private int capacity2;//첫날
+	private int capacity3;//두번째날
+	private int capacity4;//세번째날
+	private int capacity5;//네번째날
 	private String pay_nm;
 	private String weekday_begin_time;
 	private String weekday_end_time;
@@ -24,6 +27,32 @@ public class SearchInfoBean {
 	private int day_maximum;
 	private String lat;
 	private String lng;
+	
+	
+
+	public int getCapacity3() {
+		return capacity3;
+	}
+
+	public void setCapacity3(int capacity3) {
+		this.capacity3 = capacity3;
+	}
+
+	public int getCapacity4() {
+		return capacity4;
+	}
+
+	public void setCapacity4(int capacity4) {
+		this.capacity4 = capacity4;
+	}
+
+	public int getCapacity5() {
+		return capacity5;
+	}
+
+	public void setCapacity5(int capacity5) {
+		this.capacity5 = capacity5;
+	}
 
 	public int getParking_code() {
 		return parking_code;

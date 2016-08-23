@@ -10,7 +10,8 @@
 <script src="reserv.js"></script>
 <script>
 	var date = new Date();
-
+	
+	
 	var wdopen = ${wdopen};
 	var wdclose = ${wdclose};
 	var weopen = ${weopen};
@@ -129,8 +130,16 @@
 
 <%
 	}
+	
 	Date date = new Date();
 %>
+<script>
+	var checkCapa = ${capacity};
+	if(checkCapa==0){
+		alert('해당 주차장에 자리가 없습니다.\n다시 선택해주세요.');
+		location.replace("/Pis/park/parkmap.do");
+	}
+</script>
 <title></title>
 </head>
 <body>
@@ -218,6 +227,8 @@
 
 
 						<input type="hidden" name="pay_nm" value="${vecList.pay_nm }">
+						<input type="hidden" name="capacity" value="${capacity }">
+						<input type="hidden" name="parking_code" value="${parking_code }">
 
 					</c:forEach>
 				</c:if>

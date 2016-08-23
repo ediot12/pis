@@ -45,7 +45,6 @@ public class ParkingInfoSelectAction implements CommandAction {
 				searchList.setParking_type_nm(rs.getString(4));
 				searchList.setOperation_rule_nm(rs.getString(5));
 				searchList.setTel(rs.getString(6));
-				searchList.setCapacity2(rs.getInt(7));
 				searchList.setPay_nm(rs.getString(8));
 				searchList.setWeekday_begin_time(rs.getString(9));
 				searchList.setWeekday_end_time(rs.getString(10));
@@ -69,6 +68,37 @@ public class ParkingInfoSelectAction implements CommandAction {
 					lat += Float.parseFloat(rs2.getString(1));
 					lng += Float.parseFloat(rs2.getString(2));
 				}
+				
+				////////////////
+				pstmt2.close();
+				rs2.close();
+				///////////////
+				pstmt2 = conn.prepareStatement("select capacity2 from firstdate where parking_code ="+rs.getInt(1));
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					searchList.setCapacity2(rs2.getInt(1));
+				}
+				
+				pstmt2 = conn.prepareStatement("select capacity2 from seconddate where parking_code ="+rs.getInt(1));
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					searchList.setCapacity3(rs2.getInt(1));
+				}
+				
+				pstmt2 = conn.prepareStatement("select capacity2 from thirddate where parking_code ="+rs.getInt(1));
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					searchList.setCapacity4(rs2.getInt(1));
+				}
+				
+				pstmt2 = conn.prepareStatement("select capacity2 from fourthdate where parking_code ="+rs.getInt(1));
+				rs2 = pstmt2.executeQuery();
+				if(rs2.next()){
+					searchList.setCapacity5(rs2.getInt(1));
+				}
+				///////////4일간 주차 가능대수
+				
+				
 				vecList.add(searchList);
 			}
 			
@@ -79,7 +109,6 @@ public class ParkingInfoSelectAction implements CommandAction {
 
 				request.setAttribute("lat", lat/rs.getInt(1));
 				request.setAttribute("lng", lng/rs.getInt(1));
-				System.out.println(rs.getInt(1));
 			}
 			request.setAttribute("search", vecList);
 			
