@@ -40,7 +40,7 @@ function checkIt(){
 <TR height="30">
 <TD colspan="2" align="middle" bgcolor="${value_c}">
 <INPUT type=submit value="예">
-<input type="button" value="아니요" onclick="javascript:window.location='/Pis/Join/main.do'"></TD></TR>
+<input type="button" value="아니요" onclick="javascript:window.location='/Pis/layout/main.do'"></TD></TR>
 </TABLE>
 </form>
 </BODY>

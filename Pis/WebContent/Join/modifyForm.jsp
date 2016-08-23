@@ -80,7 +80,7 @@ function checkIt(){
 </tr>
 <tr>
 <td class="color">전화번호</td>
-<td class="colorblack"><input type="text" name="phone" size="15" maxlength="11" value="${c.phone}">
+<td class="colorblack"><input type="text" name="phone" size="15" maxlength="11" value="${c.phone}"> '-'없이 입력해주세요
 </td>
 </tr>
 <tr>
