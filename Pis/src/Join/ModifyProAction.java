@@ -22,7 +22,7 @@ public class ModifyProAction implements CommandAction {
 	
 		request.setCharacterEncoding("utf-8");
 		
-		String savePath = "C:/Users/ÀåÂù±Ô/git/pis/Pis/WebContent/filesave";
+		String savePath = request.getServletContext().getRealPath("filesave");
 		String realPath = ""; 
 		String type = "utf-8";
 		
