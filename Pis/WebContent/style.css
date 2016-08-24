@@ -70,7 +70,7 @@
 }
 
 .table td {
-	height: 40;
+	height: 35;
 }
 
 .title {
@@ -253,7 +253,7 @@ ul.menu:after {
 	font-size: 16px;
 	font-weight: bold;
 	background-color: #31A0B4;
-	color: black;
+	color: #FFFFFF;
 	text-align: center;
 }
 
@@ -278,6 +278,7 @@ ul.menu:after {
 	top: 40%;
 	left: 90%;
 	border: 2px solid;
+	background: #FFFFFF;
 }
 
 #linechart_material{
