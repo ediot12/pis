@@ -66,13 +66,13 @@
 				<td class="maincolor">${fdb.kind}</td>
 	            <td class="maincolor" colspan="2"><a href="/Pis/faq/faqForm.do">${fdb.subject}</a></td>
            </tr>
-           <tr>
+       	</c:forEach>
+       		<tr>
 	            <td width="10%"></td>
 				<td width="15%"></td>
 	            <td width="60%"></td>
 	            <td width="15%"></td>
            </tr>
-       	</c:forEach>
     	</td>
     </tr>
 	</table>
