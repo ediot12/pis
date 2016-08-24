@@ -11,5 +11,5 @@ function writeSave() {
 		document.writeform.content.focus();
 		return false;
 	}
-	
+	 
 }

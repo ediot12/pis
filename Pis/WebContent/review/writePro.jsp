@@ -11,7 +11,7 @@
 
 <%response.sendRedirect("mainForm.do");%>
 <script>
-
+ 
 </script>
 </body>
 </html>

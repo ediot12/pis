@@ -14,7 +14,7 @@
 		<a href="/project/pis/list.do">
 		<input type="button" value="글목록" class="button"></a>
 	</div>
-	<br>
+	<br>  
 		<form method="post" name="writeform" action="/Pis/pis/writePro.do"
 			onsubmit="return writeSave()">
 			<input type="hidden" name="num" value="${num}">

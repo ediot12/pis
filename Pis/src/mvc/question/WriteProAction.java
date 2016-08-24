@@ -16,7 +16,7 @@ public class WriteProAction implements CommandAction{
 		
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		
+		 
 		QuestionDataBean article = new QuestionDataBean();
 		article.setNum(Integer.parseInt(request.getParameter("num")));
 		article.setWriter((String)session.getAttribute("memId"));

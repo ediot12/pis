@@ -16,7 +16,7 @@ public class InfoDBBean {
 	public static InfoDBBean getInstance() {
 		return instance;
 	}
-
+ 
 	private InfoDBBean() {
 	}
 

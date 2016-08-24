@@ -12,7 +12,7 @@ function zipCheck(){
 	window.open(url,"post","toolbar=no ,width=1000 ,height=1000,directories=no,status=yes,scrollbars=yes,menubar=no");
 }
 
-
+ 
 </script>
 </head>
 <body>

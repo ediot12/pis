@@ -12,7 +12,7 @@ public class WriteFormAction implements CommandAction {
 		try {
 			if (request.getParameter("num") != null) {
 				num = Integer.parseInt(request.getParameter("num"));
-
+ 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

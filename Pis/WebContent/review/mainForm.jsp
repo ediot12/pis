@@ -14,7 +14,6 @@
 				<input type="button" value="글작성" class="button"></a>
 				</div>
 				
-		
 			<table class="table" border=1 width="700" cellpadding="0" cellspacing="0">
 				<tr height="30">
 					<td class="color" align="center" width="10%">번 호</td>

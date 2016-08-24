@@ -9,7 +9,7 @@
 </head>
 <body>
 <center>
-	<br>
+	<br> 
 	<div class="title">
 		<b>불편신고</b>
 	</div>

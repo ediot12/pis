@@ -16,7 +16,7 @@ public class QuestionContentAction implements CommandAction {//글내용 처리
 		
 		int num = Integer.parseInt(request.getParameter("num")); //해당 글번호
 		String pageNum = request.getParameter("pageNum"); //해당 페이지 번호
-		
+		 
 		QuestionDBBean dbPro = QuestionDBBean.getInstance();//DB처리
 		QuestionDataBean qdb = dbPro.getArticle(num);//해당 글번호에 대한 해당 레코드
 		

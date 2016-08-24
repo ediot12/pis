@@ -12,7 +12,7 @@ public class ReviewDBBean {
 	private static ReviewDBBean instance = new ReviewDBBean();
 	public static ReviewDBBean getInstance(){
 		return instance;
-	}
+	} 
 	private ReviewDBBean(){
 		
 	}

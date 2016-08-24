@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 
 import controller.CommandAction;
 import mvc.notice.PisDBBean;
-
+ 
 public class ListAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{

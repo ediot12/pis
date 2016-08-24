@@ -3,7 +3,7 @@ package mvc.report;
 import java.sql.Timestamp;
 
 public class ReportDataBean {
-	
+	 
 	private int num;
 	private String writer;
 	private String subject;

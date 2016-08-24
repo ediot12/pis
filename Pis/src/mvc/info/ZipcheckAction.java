@@ -12,7 +12,7 @@ public class ZipcheckAction implements CommandAction{
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse sponse)throws Throwable{
 		
-		
+		 
 			request.setCharacterEncoding("utf-8");
 
 		   String check = request.getParameter("check");//n

@@ -10,7 +10,7 @@
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<center>
+<center> 
 		<br>
 		<div class="title">
 			<b>불편 신고 관리 </b>

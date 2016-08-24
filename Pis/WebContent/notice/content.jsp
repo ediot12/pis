@@ -9,7 +9,7 @@
 </head>
 <body>
 <center>
-	<br>
+	<br> 
 	<div class="title">
 		<b>공지사항</b>
 	</div>

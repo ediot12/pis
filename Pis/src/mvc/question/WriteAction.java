@@ -8,7 +8,7 @@ import controller.CommandAction;
 public class WriteAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
-		
+		 
 		int num=0;
 		try{
 			if(request.getParameter("num")!=null){

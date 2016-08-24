@@ -9,7 +9,7 @@ import mvc.report.*;
 public class ContentAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
-		
+		 
 		int num = Integer.parseInt(request.getParameter("num"));//글번호
 		String pageNum = request.getParameter("pageNum");//페이지
 		

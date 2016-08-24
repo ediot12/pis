@@ -13,7 +13,7 @@ import mvc.report.ReportDBBean;
 
 public class ReportDBBean {
 	
-	
+	 
 	private static ReportDBBean instance = new ReportDBBean();
 	public static ReportDBBean getInstance(){
 		return instance;

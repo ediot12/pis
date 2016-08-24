@@ -17,7 +17,7 @@ public class ContentFormAction implements CommandAction{
 		ReviewDBBean rdd = ReviewDBBean.getInstance();
 	    ReviewDataBean article =  rdd.getArticle(num);
 	    
-	    
+	     
 	    request.setAttribute("num", num);
 	    request.setAttribute("pageNum", new Integer(pageNum));	    
 	    request.setAttribute("article", article);

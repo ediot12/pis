@@ -12,6 +12,6 @@
 </head>
 <body>
 <%response.sendRedirect("list.do");%>
-</body>
+</body> 
 </html>
 

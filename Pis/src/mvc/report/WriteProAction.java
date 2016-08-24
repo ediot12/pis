@@ -14,7 +14,7 @@ public class WriteProAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 	
-		
+		 
 		request.setCharacterEncoding("utf-8"); // 茄臂 贸府
 		HttpSession session = request.getSession(); // 技记 积己
 		ReportDataBean article = new ReportDataBean();

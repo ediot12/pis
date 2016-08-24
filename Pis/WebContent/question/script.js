@@ -11,7 +11,7 @@ function writeSave() {
 		document.writeform.content.focus();
 		return false;
 	}
-	
+	 
 	if (document.writeform.kind.value == "") {
 		alert("문의유형을 입력하십시요.");
 		document.writeform.kind.focus();

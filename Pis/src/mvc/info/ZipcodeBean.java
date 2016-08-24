@@ -14,7 +14,7 @@ public class ZipcodeBean {
 	}
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
-	}
+	} 
 	public String getArea1() {
 		return area1;
 	}

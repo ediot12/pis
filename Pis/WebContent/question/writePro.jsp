@@ -4,7 +4,7 @@
 <head>
 <title></title>
 </head>
-<body>
+<body> 
 <%response.sendRedirect("mainForm.do");%>
 </body>
 </html>

@@ -16,7 +16,7 @@ import mvc.info.InfoDataBean;
 public class WriteProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 	
-		
+		 
 		request.setCharacterEncoding("utf-8"); //한글 인코딩
 		
 		// 파일이 저장될 서버의 경로. 되도록이면 getRealPath를 이용하자.

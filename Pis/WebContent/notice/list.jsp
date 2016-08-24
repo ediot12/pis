@@ -8,7 +8,7 @@
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body> 
 	<center>
 		<br>
 		<div class="title">

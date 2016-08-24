@@ -9,7 +9,7 @@
 		text-align: center;
 		margin : 20;
 		border-color: #31A0B4;
-	}
+	} 
 	.title{
 		font-size:30px;
 		text-align: left;

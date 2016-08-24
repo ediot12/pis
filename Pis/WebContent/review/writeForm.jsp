@@ -13,7 +13,7 @@
 	<br>
 	<div class="title">
 		<b>후기 글 작성</b>
-	</div>
+	</div> 
 	<br>
 		<form method="post" name="writeform"
 			action="/Pis/review/writePro.do" onsubmit="return writeSave()" enctype="multipart/form-data">

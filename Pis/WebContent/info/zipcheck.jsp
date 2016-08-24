@@ -14,7 +14,7 @@
 			alert("동이름을 입력하세요");
 			document.zipForm.area4.focus();
 			return;
-		}
+		} 
 		document.zipForm.submit();
 	}
 	

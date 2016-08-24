@@ -19,7 +19,7 @@ public class MainFormAction implements CommandAction{
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null){
 			pageNum = "1";
-		}
+		} 
 		
 		int pageSize = 10; // 한페이지 총 개수
 		int currentPage = Integer.parseInt(pageNum); //1

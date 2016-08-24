@@ -16,7 +16,7 @@ public class MainFormAction implements CommandAction {
 		
 		//날짜 년 월 일 
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd"); 
-		
+		 
 		//페이지 번호 
 		String pageNum = request.getParameter("pageNum");
 		if (pageNum == null) {

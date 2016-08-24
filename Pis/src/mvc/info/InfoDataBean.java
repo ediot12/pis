@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class InfoDataBean {
 	
-	
+	 
 	private int num;
 	private String writer;
 	private String subject;

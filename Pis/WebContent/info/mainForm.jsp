@@ -12,7 +12,7 @@
 <title></title>
 </head>
 <body>
-	<center>
+	<center> 
 		<br>
 		<div class="title">
 			<b>주차장 제보</b>

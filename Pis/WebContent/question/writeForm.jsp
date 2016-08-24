@@ -7,7 +7,7 @@
 <link href="../style.css" rel="stylesheet" type="text/css">
 <script src="script.js"></script>
 </head>
-<body>
+<body> 
 <center>
 	<br>
 	<div class="title">

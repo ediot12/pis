@@ -10,7 +10,7 @@ public class UpdateProAction implements CommandAction{
 	
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
-	
+	 
 		// 실제 데이터를 수정
 		String pageNum = request.getParameter("pageNum");
 		ReviewDataBean article = new ReviewDataBean();

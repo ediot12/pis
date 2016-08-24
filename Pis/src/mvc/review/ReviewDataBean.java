@@ -13,7 +13,7 @@ public class ReviewDataBean {
 	private String content;
 	private int score;
 	private String bfile;
-	
+	 
 	public int getNum() {
 		return num;
 	}
