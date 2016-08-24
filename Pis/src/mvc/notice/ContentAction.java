@@ -12,10 +12,10 @@ public class ContentAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 		
-		int num = Integer.parseInt(request.getParameter("num"));
-		String pageNum = request.getParameter("pageNum");
+		int num = Integer.parseInt(request.getParameter("num")); // 글번호
+		String pageNum = request.getParameter("pageNum"); // 페이지 번호
 		
-		PisDBBean dbPro = PisDBBean.getInstance();
+		PisDBBean dbPro = PisDBBean.getInstance(); //db연동
 	    PisDataBean article =  dbPro.getArticle(num);
 	    
 	    request.setAttribute("num", num);

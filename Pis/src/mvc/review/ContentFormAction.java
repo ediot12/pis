@@ -11,11 +11,12 @@ public class ContentFormAction implements CommandAction{
 			throws Throwable{
 		
 		
-		int num = Integer.parseInt(request.getParameter("num"));
-		String pageNum = request.getParameter("pageNum");
+		int num = Integer.parseInt(request.getParameter("num"));//글번호
+		String pageNum = request.getParameter("pageNum");//페이지 번호
 		
 		ReviewDBBean rdd = ReviewDBBean.getInstance();
 	    ReviewDataBean article =  rdd.getArticle(num);
+	    
 	    
 	    request.setAttribute("num", num);
 	    request.setAttribute("pageNum", new Integer(pageNum));	    

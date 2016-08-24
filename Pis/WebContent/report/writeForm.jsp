@@ -5,6 +5,7 @@
 
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
+<script src="script.js"></script>
 </head>
 <body>
 <center>
@@ -21,9 +22,11 @@
 			 style="table-layout:fixed">
 				<tr>
 					<td width="70" align="center" class="color"><b>작성자</b></td>
+					<!-- 로그인한 id  -->
 					<td width="150">${memId}</td>
 						<td width="70" align="center" class="color"><b>불편 종류</b>
 						<td width="230" colspan="3">
+						<!-- 불편 종류 클릭시 서버로 전송될 값 -->
 					<select name="type">
 					<option value="">불편종류</option>
 					<option value="결제">결제</option>

@@ -14,10 +14,11 @@
 		<br>
 		<div class="title">
 			<b>불편 신고 관리 </b>
-				<a href="/Pis/report/writeForm.do"></a>
+				<a href="/Pis/report/writeForm.do">
 				<input type="button" value="글 작성" class="button">
+				</a>
 			</div>
-			<table class="table" border=1 width="700" cellpadding="0" cellspacing="0">
+			<table class="table" border=1 cellpadding="0" cellspacing="0">
 				<tr height="30">
 					<td class="color" align="center" width="10%">번호</td>
 					<td class="color" align="center" width="20%">불편유형</td>
@@ -27,18 +28,18 @@
 				</tr>
 				<c:if test="${count != 0 }">
 				 <c:forEach var="article" items="${articleList}">
-					<tr height="30" align="center">
-						<td class="colorblack">${article.num }</td>
+					<tr>
+						<td><c:out value="${number}" />
+						<c:set var="number" value="${number -1}" /></td>
+						<!-- 불편 유형 -->
 						<td class="colorblack">${article.type }</td>
-						
 						<td class="colorblack"><a href="/Pis/report/content.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
-
-
 						<td class="colorblack">${article.writer }</td>
 						<td class="colorblack">${sd.format(article.regdt)}</td>
 				</c:forEach> 
+				</c:if>
 			</table>
-		</c:if>
+		
 		<br>
 		
 		<c:if test="${count > 0 }">
@@ -59,7 +60,7 @@
 			</c:if>
 
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="/Pis/report/mainForm.do?pageNum=${i}">[${i}]</a>
+				<a href="/Pis/report/mainForm.do?pageNum=${i}"><input type="button" value="${i}"  class="button"></a>
 			</c:forEach>
 
 			<c:if test="${endPage<pageCount }">

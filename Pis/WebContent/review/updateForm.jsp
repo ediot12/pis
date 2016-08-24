@@ -2,39 +2,29 @@
 <!DOCTYPE html >
 <html>
 <head>
-<style>
-.box-button {
-	padding-top: 20px;
-	padding-bottom: 10px;
-}
-
-
-.box-gray {
-	background: #555c67;
-	padding: 4px 7px;
-	border: 0px;
-	color: #ffffff !important;
-	cursor: pointer;
-}
-</style>
 <title></title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script src="script.js"></script>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <center>
-		<b>글수정</b> <br>
+	<br>
+	<div class="title">
+		<b>사용후기</b>
+	</div>
+	<br>
+	<!-- 글수정시 전송방식, 전송될 이름, 이동할 페이지에 페이지 번호 -->
 		<form method="post" name="writeform"
 			action="/Pis/review/updatePro.do?pageNum=${pageNum}"
 			onsubmit="return writeSave()" >
-			<table width="600" border="1" cellspacing="0" cellpadding="0"
+			<table width="800" border="1" cellspacing="0" cellpadding="0"
 			 align="center" style="table-layout:fixed">
 				<tr>
-					<td width="70" align="center">작성자</td>
+					<td width="70" height="40" class="color">작성자</td>
 					<td align="left" width="230">
 					<input type="text" size="20" maxlength="10" name="writer" value="${article.writer}">
 					<input type="hidden" name="num" value="${article.num}"></td>
-					<td width="70" align="center">평가하기</td>
+					<td width="70" height="40" class="color">평가하기</td>
+					<!-- 별점 평가... 별 선택에 맞는 벨류값 전송 -->
 					<td width="230">
 					<select name="score">
 					<option value="">선택</option>
@@ -46,30 +36,23 @@
 					</select>평가 : ${article.score}</td>
 				</tr>
 				<tr>
-					<td width="70" align="center">제 목</td>
+					<td width="70" height="40" class="color">제 목</td>
 					<td align="left" width="230" colspan="3"><input type="text" size="20"
 						maxlength="50" name="subject" value="${article.subject}"></td>
-					
+						
 				</tr>
 				
-			
-				
-				
-
 				<tr>
-					<td width="70" align="center">내 용</td>
-					<td align="left" width="330"><textarea name="content"
-							rows="12" cols="70">${article.content}</textarea><img src="../fileSave/${article.bfile}" width="230px" height="150px" ></td>
+					<td width="70" height="40" class="color">내 용</td>
+					<td align="left" width="330" colspan="3"><textarea name="content"
+							rows="12" cols="99">${article.content}</textarea><br><img src="../filesave/${article.bfile}" width="230px" height="150px" ></td>
 				</tr>
 
-				<tr>
-					<td colspan="5" align="right" >
-					<input class="box-gray" type="submit" value="글수정">
-						 <input class="box-gray" type="reset" value="다시작성">
-						 <input class="box-gray" type="button" value="목록보기" onclick="document.location.href='mainForm.do?pageNum=${pageNum}'">
-					</td>
-				</tr>
 			</table>
+			<br>
+						<input class="button" type="submit" value="글수정">
+						 <input class="button" type="reset" value="다시작성">
+						 <input class="button" type="button" value="목록보기" onclick="document.location.href='mainForm.do?pageNum=${pageNum}'">
 		</form>
 </body>
 </html>

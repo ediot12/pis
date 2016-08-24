@@ -25,7 +25,7 @@ public class PisDBBean {
 		return DriverManager.getConnection(jdbcDriver);
 	}
 
-	// writePro.jsp
+	//글 작성
 	public void insertArticle(PisDataBean article) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -71,7 +71,7 @@ public class PisDBBean {
 		}
 	}
 
-	// list.jsp : 페이징을 위해서 전체 db에 입력된 행의수가 필요함.
+	//  페이징을 위해서 전체 db에 입력된 행의총 개수가 필요함.
 	public int getArticleCount() throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -108,7 +108,7 @@ public class PisDBBean {
 		return x;
 	}
 
-	// list.jsp ==> Paging!!! DB로부터 여러행을 결과로 받는다.
+	// Paging!!! DB로부터 여러행을 결과로 받는다.
 	public List getArticles(int start, int end) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -118,13 +118,9 @@ public class PisDBBean {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(
-					"select num,readcount,subject,content,regdt,rownum r from Notice where rownum >= ? and rownum <= ? order by num desc");
-			// "select num,writer,readcount,subject,content,regdt,r" +
-			// "from (select num,writer,readcount,subject,content,regdt,rownum
-			// r" +
-			// "from (select num,writer,readcount,subject,content,regdt" +
-			// "from notice order by num desc) order by num desc) where r >= ?
-			// and r <= ?");
+					"select num,subject,readcount,content,regdt,r "+
+							"from (select num,subject,readcount,content,regdt,rownum r "+
+							"from (select num,subject,readcount,content,regdt from Notice order by num desc ) order by num desc ) where r >= ? and r <= ? ");
 
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -167,7 +163,7 @@ public class PisDBBean {
 
 	}
 
-	// read.jsp : db 로 부터 한줄의 데이터를 가져온다.
+	//  db 로 부터 한줄의 데이터를 가져온다.
 	public PisDataBean getArticle(int num) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -375,7 +371,8 @@ public class PisDBBean {
 		}
 		return x;
 	}
-
+	
+	//실제 검색 
 	public List getArticles(int start, int end, int n, String search) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

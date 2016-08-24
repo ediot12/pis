@@ -8,6 +8,7 @@
 <title></title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script>
+/* 주소 검색 */
 	function dongCheck() {
 		if (document.zipForm.area4.value == "") {
 			alert("동이름을 입력하세요");
@@ -16,7 +17,8 @@
 		}
 		document.zipForm.submit();
 	}
-
+	
+	/* 우편번호와 주소 검색후 클릭시 자동입력 */
 	function sendAddress(zipcode, area1, area2, area3, area4){
 		var address = area1+" "+area2+" "+area3+" "+area4;
 		opener.document.writeform.zipcode.value = zipcode;
@@ -37,7 +39,7 @@
 				<input type="hidden" name="check" value="n">
 			</form>
 
-
+			
 			<c:if test="${check=='n'}">
 				<c:if test="${totalList==0}">
 					<tr>

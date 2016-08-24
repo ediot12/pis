@@ -15,8 +15,8 @@ public class WriteProAction implements CommandAction{
 			throws Throwable{
 	
 		
-		request.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
+		request.setCharacterEncoding("utf-8"); // 茄臂 贸府
+		HttpSession session = request.getSession(); // 技记 积己
 		ReportDataBean article = new ReportDataBean();
 		article.setNum(Integer.parseInt(request.getParameter("num")));
 		article.setWriter((String)session.getAttribute("memId"));

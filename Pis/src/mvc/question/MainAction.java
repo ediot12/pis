@@ -13,7 +13,7 @@ public class MainAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws Throwable{
 		
-request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -22,10 +22,11 @@ request.setCharacterEncoding("utf-8");
 		if(pageNum == null){ pageNum = "1";}
 		int pageSize = 20; //한페이지의 글의 개수
 		int currentPage = Integer.parseInt(pageNum);
-		int startRow = (currentPage - 1) * pageSize + 1; //한페이지의 시작글 번호
-		int endRow = currentPage * pageSize;//한페이지의 마지막 글번호
+		int startRow = (currentPage -1)* pageSize+1;
+		int endRow = currentPage * pageSize;
 		int count = 0;
 		int number = 0;
+		//세션에 저장된 아이디 
 		String writer=(String)request.getSession().getAttribute("memId");
 		
 		

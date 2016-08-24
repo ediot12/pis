@@ -26,7 +26,7 @@ public class ReportDBBean {
         return DriverManager.getConnection(jdbcDriver);
 	}
 	
-	//writePro.jsp
+	// db에 저장될 글 작성
 		public void insertArticle(ReportDataBean article)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -57,7 +57,7 @@ public class ReportDBBean {
 	        if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 			}
 		}
-		
+		// db에 저장된 총 행의 수
 		public int getArticleCount() throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -94,6 +94,7 @@ public class ReportDBBean {
 			return x;
 		}
 		
+		//db 저장된 글 목록
 		public List getArticles(int start, int end, String writer)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -101,7 +102,9 @@ public class ReportDBBean {
 			List articleList = null;
 			try{
 				conn = getConnection();
-				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type, rownum r from Report where rownum >= ? and rownum <= ? and writer =? order by num desc");
+				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type,r "+
+						"from (select num,writer,subject,content,regdt,type,rownum r "+
+						"from (select num,writer,subject,content,regdt,type from Report order by num desc ) order by num desc ) where r >= ? and r <= ? ");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
@@ -143,6 +146,8 @@ public class ReportDBBean {
 			return articleList;
 			}
 		
+		
+		// db에 저장된 글 내용 보기
 		public ReportDataBean getArticle(int num) throws Exception {
 			Connection conn = null;
 			PreparedStatement pstmt = null;

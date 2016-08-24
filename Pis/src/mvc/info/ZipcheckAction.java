@@ -19,7 +19,7 @@ public class ZipcheckAction implements CommandAction{
 		   String area4 = request.getParameter("area4");//동이름
 		   InfoDBBean manager = InfoDBBean.getInstance();  
 		   Vector zipcodeList = manager.zipcodeRead(area4);
-		   int totalList = zipcodeList.size();
+		   int totalList = zipcodeList.size(); //db에 저장된  총 개수
 		   
 		   request.setAttribute("check", "n");
 		   request.setAttribute("zipcodeList", zipcodeList);

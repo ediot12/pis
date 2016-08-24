@@ -21,7 +21,7 @@ public class ReviewDBBean {
         return DriverManager.getConnection(jdbcDriver);
 	}
 	
-	//writePro.jsp
+	//db에 저장될 글 작성
 	public void insertArticle(ReviewDataBean article)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -52,7 +52,7 @@ public class ReviewDBBean {
         if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 		}
 	}
-	
+	// db 에 저장된 행의 총 개수
 	public int getArticleCount() throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -88,7 +88,7 @@ public class ReviewDBBean {
 		}
 		return x;
 	}
-	
+	//db에 저장된 글 목록 
 	public List getArticles(int start, int end)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -96,11 +96,12 @@ public class ReviewDBBean {
 		List articleList = null;
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,score, rownum r from Review where rownum >= ? and rownum <= ? order by num desc");
+			pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,score,r "+
+			"from (select num,writer,subject,content,regdt,score,rownum r "+
+			"from (select num,writer,subject,content,regdt,score from Review order by num desc ) order by num desc ) where r >= ? and r <= ? ");
 																				
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
-			
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -114,6 +115,8 @@ public class ReviewDBBean {
 					article.setRegdt(rs.getTimestamp("regdt"));
 					article.setScore(rs.getInt("score"));
 					articleList.add(article);
+					
+					
 				}while(rs.next());
 			}
 		}catch(Exception e){
@@ -137,7 +140,7 @@ public class ReviewDBBean {
 		}
 		return articleList;
 		}
-	
+	//db에 저장된 글 내용 보기
 	public ReviewDataBean getArticle(int num) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -219,7 +222,7 @@ public class ReviewDBBean {
 		}
 		return article;
 	}
-	
+	//실제 수정할 데이터
 	public int updateArticle(ReviewDataBean article)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -257,7 +260,7 @@ public class ReviewDBBean {
 		return x;
 	}
 	
-	public int deleteArticle(int num)throws Exception{
+	/*public int deleteArticle(int num)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int a = 1;
@@ -285,7 +288,7 @@ public class ReviewDBBean {
 			
 		}
 		return x;
-	}
+	}*/
 }
 
 	
