@@ -7,14 +7,15 @@ div#myReserv {
 	float: left;
 	display: inline-block;
 	background-color: #EAEAEA;
-	width: 300px;
-	height: 100px;
+	width: 350px;
+	height: 120px;
 	border: 5px solid #31A0B4;
 	padding: 15px;
 	margin: 15px;
 	border: 5px solid #31A0B4;
 	color: black;
 	font-size: 10pt;
+	text-align: left;
 	background-color: #EAEAEA;
 }
 </style>
@@ -32,17 +33,20 @@ div#myReserv {
 		<c:if test="${myreservList!=null }">
 			<c:forEach var="myreservList" items="${myreservList }" begin="0">
 				<div id="myReserv" align="center"> 
-					<form name="myReserv" onsubmit="checkoutTime()">
+					<form name="myReserv" method="post" action="deletereserv.do">
 					<table >				
-					<tr align="left">주차장이름 : ${myreservList.parking_name }</tr><br>
-					<tr align="left">주차장위치 : ${myreservList.parking_loca }</tr><br>
-					<tr align="left">입차예정시간 : ${myreservList.beginTime }</tr><br>
-					<tr align="left" name="outtime"><font color="red">출차예정시간 : ${myreservList.outTime }</font></tr><br> 
-					<tr align="left">결제금액 : ${myreservList.cost }포인트</tr><br>
+					<tr>주차장이름 : ${myreservList.parking_name }</tr><br>
+					<tr>주차장위치 : ${myreservList.parking_loca }</tr><br>
+					<tr>입차예정시간 : ${myreservList.beginTime }</tr><br>
+					<tr name="outtime"><font color="red">출차예정시간 : ${myreservList.outTime }</font></tr><br> 
+					<tr>결제금액 : ${myreservList.cost }포인트</tr><br>
+					
 					<c:if test="${myreservList.check==true }">
-					<tr align="right"><input type="submit" value="예약취소"></tr>
+					<tr><input type="submit" value="예약취소"></tr>
+					
 					</c:if>					
 					</table>
+					<input type="hidden" name="beginTime" value="${myreservList.beginTime }">
 					</form>
 				</div>
 			</c:forEach>

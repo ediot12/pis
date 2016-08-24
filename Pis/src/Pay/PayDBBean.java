@@ -55,18 +55,18 @@ public class PayDBBean {
 		
 		try{
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select point from pointment where id=?");
+			pstmt = conn.prepareStatement("select point from pointment where id=? order by pdate desc");
 			pstmt.setString(1, article.getId());
 			rs = pstmt.executeQuery();	
 			if(rs.next()){		
 			
 			int befor_point = rs.getInt("point");			
 			
-			point += befor_point;			
+			int after_point = point + befor_point;			
 			
 			pstmt = conn.prepareStatement("update pointment set point=?, use_point=?, info=?, pdate=?, total_point=? where id=?" );
 			pstmt.setString(6, article.getId());
-			pstmt.setInt(1, point);
+			pstmt.setInt(1, after_point);
 			pstmt.setInt(2, article.getUse_point());
 			pstmt.setString(3, article.getInfo());	
 			pstmt.setTimestamp(4, article.getPdate());
@@ -78,7 +78,7 @@ public class PayDBBean {
 			
 			
 	
-			pstmt = conn.prepareStatement("select * from pointment where id=?");
+			pstmt = conn.prepareStatement("select * from pointment where id=? order by pdate desc");
 			pstmt.setString(1, article.getId());
 			rs = pstmt.executeQuery();
 
@@ -86,10 +86,12 @@ public class PayDBBean {
 			if(rs.next()){
 			PointListDataBean member = new PointListDataBean();
 			member.setId(rs.getString("id"));
-			member.setPoint(rs.getInt("point"));
+			member.setPoint(point);
 			member.setUse_point(rs.getInt("use_point"));
 			member.setInfo(rs.getString("info"));
 			member.setReg_date(rs.getTimestamp("pdate"));
+			
+			
 
 			
 			// 저장된 결과를 pointlist DB에 insert
@@ -101,6 +103,10 @@ public class PayDBBean {
 			pstmt.setString(4, member.getInfo());
 			pstmt.setString(5, member.getParking_name());
 			pstmt.setTimestamp(6, member.getReg_date());
+			pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement("UPDATE pointlist SET parkname = '-' WHERE id=? and parkname is null");
+			pstmt.setString(1, member.getId());
 			pstmt.executeUpdate();
 			
 			}

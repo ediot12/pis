@@ -22,7 +22,7 @@ public class PointListDBBean {
 	
 	 
 //	pointlist :::  ÆäÀÌÂ¡À» À§ÇØ count
-    public int getArticleCount() throws Exception {
+    public int getArticleCount(String id) throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -32,7 +32,9 @@ public class PointListDBBean {
         try {
             conn = getConnection();
            
-            pstmt = conn.prepareStatement("select count(*) from pointlist");
+            pstmt = conn.prepareStatement("select count(*) from pointlist where id=?");
+            pstmt.setString(1, id);
+            
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
@@ -56,19 +58,25 @@ public class PointListDBBean {
         List articleList=null;
         try {
             conn = getConnection();
-            pstmt = conn.prepareStatement("select * from pointlist where id=?");
+            pstmt = conn.prepareStatement("select * from pointlist where id=? order by num desc");
             pstmt.setString(1, id);
+            
             rs = pstmt.executeQuery();
             
+            
+            
             if(rs.next()){
-           
+            	System.out.println("id ::: " + rs.getString("id"));
+
 	            pstmt = conn.prepareStatement(
 	            "select num,id,point,use_point,info,pdate,parkname, r  " +
 	            "from (select num,id,point,use_point,info,pdate,parkname,rownum r " +
 	            "from (select num,id,point,use_point,info,pdate,parkname " +
-	            "from pointlist order by pdate asc) order by pdate asc ) where r >= ? and r <= ? ");
-	            pstmt.setInt(1, start);
-	    		pstmt.setInt(2, end);
+	            "from pointlist order by num asc) where id=? order by num desc ) where r >= ? and r <= ?");
+	            pstmt.setString(1, id);
+	            pstmt.setInt(2, start);
+	    		pstmt.setInt(3, end);
+	    		
 	            rs = pstmt.executeQuery();
 	
 	            if (rs.next()) {
