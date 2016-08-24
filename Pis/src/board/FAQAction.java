@@ -40,6 +40,8 @@ public class FAQAction implements CommandAction {//글내용 처리
 		if(count > 0){
 		if(search.equals("") || search == null) articleList = dbpro.getArticles(startRow, endRow);
 		else articleList = dbpro.getArticles(startRow, endRow, searchn, search);
+		}else{
+			articleList = null;
 		}
 		/////////////////////////////////////////////////////////
 		number = count-(currentPage-1)*pageSize;

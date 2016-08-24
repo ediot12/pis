@@ -45,6 +45,8 @@ public class NoticeFormAction implements CommandAction {
 		if(count > 0){
 		if(search.equals("") || search == null) articleList = dbpro.getArticles(startRow, endRow);
 		else articleList = dbpro.getArticles(startRow, endRow, searchn, search);
+		}else{
+			articleList = null;
 		}
 		/////////////////////////////////////////////////////////
 		number = count-(currentPage-1)*pageSize;

@@ -58,11 +58,11 @@
 			</c:if>
 		<form>
 			<select name="searchn">
-			<option value="결제">결제</option>
-			<option value="불친절">불친절</option>
-			<option value="주차 불편">주차 불편</option>
-			<option value="불법주정차">불법주정차</option>
-			<option value="기타">기타</option>
+			<option value="0">결제</option>
+			<option value="1">불친절</option>
+			<option value="2">주차 불편</option>
+			<option value="3">불법주정차</option>
+			<option value="4">기타</option>
 			</select>
 				
 			<input type="text" name="search" size="15" maxlength="50" /> <input type="submit" value="검색" class="button" />

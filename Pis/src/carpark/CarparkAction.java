@@ -58,6 +58,8 @@ public class CarparkAction implements CommandAction{
 		if(count > 0){
 		if(search.equals("") || search == null) parkList = cdb.getArticles(startRow, endRow);
 		else parkList = cdb.getArticles(startRow, endRow, searchn, search);
+		}else{
+			parkList = null;
 		}
 		/////////////////////////////////////////////////////////
 		
