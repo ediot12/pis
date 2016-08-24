@@ -1,5 +1,6 @@
 //회원정보 입력란 체크
  
+
 function id_nohan(v) {
 	var hangle = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
 
