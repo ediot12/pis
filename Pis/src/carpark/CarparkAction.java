@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Parking.ParkInfoBean;
 import controller.CommandAction;
-
+ 
 public class CarparkAction implements CommandAction{
 
 	@Override

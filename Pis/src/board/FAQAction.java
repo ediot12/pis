@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.CommandAction;
 
-public class FAQAction implements CommandAction {//글내용 처리
+public class FAQAction implements CommandAction {//글내용 처리 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 

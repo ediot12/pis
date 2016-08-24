@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title> 
+<title></title>  
 <link href="../../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
