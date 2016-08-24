@@ -75,7 +75,7 @@ public class DeleteReservAction	implements CommandAction {
 							int before_point = use_point + point;
 							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 							rs.getString("pdate");
-							String date = sdf.format(date1);    
+							String date = sdf.format(date1);       
 							
 							
 							System.out.println("3단계 이후 ::: " + point);
