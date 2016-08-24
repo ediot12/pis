@@ -145,6 +145,7 @@
 <body>
  
 	<center>
+	<br>
 		<form method="post" name="insert" action="/Pis/park/paySuccess.do"
 			onsubmit="return checkPay()">
 			<table border="1" id="ok">

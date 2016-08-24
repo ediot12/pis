@@ -71,6 +71,7 @@ public class PaymentDBBean implements CommandAction {
 
 			if (pay_nm.equals("무료")) {//니놈이 운좋게 무료를 골랏다면
 				
+				request.setAttribute("beginday", beginday);
 				request.setAttribute("name", name);
 				request.setAttribute("phoneNum", phoneNum);
 				request.setAttribute("parkname", parkname);
@@ -83,7 +84,8 @@ public class PaymentDBBean implements CommandAction {
 				request.setAttribute("parking_code", request.getParameter("parking_code"));
 
 			} else if (pay_nm.equals("유료")) {
-				
+
+				request.setAttribute("beginday", beginday);
 				request.setAttribute("name", name);
 				request.setAttribute("phoneNum", phoneNum);
 				request.setAttribute("parkname", parkname);
@@ -114,7 +116,6 @@ public class PaymentDBBean implements CommandAction {
 				e.printStackTrace();
 			}
 		}
-
 		return "/park/paySuccess.jsp";
 	}
 

@@ -73,28 +73,32 @@ public class ParkingInfoSelectAction implements CommandAction {
 				pstmt2.close();
 				rs2.close();
 				///////////////
-				pstmt2 = conn.prepareStatement("select capacity2 from firstdate where parking_code ="+rs.getInt(1));
+				pstmt2 = conn.prepareStatement("select capacity2,checkdate from firstdate where parking_code ="+rs.getInt(1));
 				rs2 = pstmt2.executeQuery();
 				if(rs2.next()){
 					searchList.setCapacity2(rs2.getInt(1));
+					searchList.setFirstdate(rs2.getString(2));
 				}
 				
-				pstmt2 = conn.prepareStatement("select capacity2 from seconddate where parking_code ="+rs.getInt(1));
+				pstmt2 = conn.prepareStatement("select capacity2,checkdate from seconddate where parking_code ="+rs.getInt(1));
 				rs2 = pstmt2.executeQuery();
 				if(rs2.next()){
 					searchList.setCapacity3(rs2.getInt(1));
+					searchList.setSeconddate(rs2.getString(2));
 				}
 				
-				pstmt2 = conn.prepareStatement("select capacity2 from thirddate where parking_code ="+rs.getInt(1));
+				pstmt2 = conn.prepareStatement("select capacity2,checkdate from thirddate where parking_code ="+rs.getInt(1));
 				rs2 = pstmt2.executeQuery();
 				if(rs2.next()){
 					searchList.setCapacity4(rs2.getInt(1));
+					searchList.setThirddate(rs2.getString(2));
 				}
 				
-				pstmt2 = conn.prepareStatement("select capacity2 from fourthdate where parking_code ="+rs.getInt(1));
+				pstmt2 = conn.prepareStatement("select capacity2,checkdate from fourthdate where parking_code ="+rs.getInt(1));
 				rs2 = pstmt2.executeQuery();
 				if(rs2.next()){
 					searchList.setCapacity5(rs2.getInt(1));
+					searchList.setFourthdate(rs2.getString(2));
 				}
 				///////////4일간 주차 가능대수
 				

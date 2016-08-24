@@ -28,7 +28,7 @@
 			return false;
 		}
 	}
-
+	
 	
 	
 </script>
@@ -77,42 +77,41 @@
 			<c:choose>
 				<c:when test="${memId.equals('admin')}">	
 					<ul class="menu">
-						<li><b><a href="#">서비스</a></b>
+						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
 								<li><b><a href="#">예약정보</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">커뮤니티</a></b>
+						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
 								<li><b><a href="#">환불규정</a></b></li>
-								<li><b><a href="#">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
-							</ul>
-						</li>
-						<li><b><a href="#">마이페이지</a></b>
-							<ul class="sub">
-								<li><b><a href="#">회원정보수정</a></b></li>
 								<hr />
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">회원관리</a></b></li>
+						<li><b><a href="/Pis/Join/modifyForm.do">마이페이지</a></b>
+							<ul class="sub">
+								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
+								<hr />
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
+							</ul>
+						</li>
+						<li><b><a href="/Pis/admin/member/member.do">회원관리</a></b></li>
 						<li><b><a href="/Pis/admin/carpark/carpark.do">주차장관리</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/admin/carpark/carpark.do">주차장 관리</a></b></li>
-								<li><b><a href="#">지역별 사용자빈도</a></b></li>
+								<li><b><a href="/Pis/admin/chart/area.do">지역별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/days.do">일별 사용자빈도</a></b></li>
 								<li><b><a href="/Pis/admin/chart/month.do">월별 사용자빈도</a></b></li>
 							</ul>
@@ -122,45 +121,42 @@
 								<li><b><a href="/Pis/admin/board/noticeForm.do">공지사항</a></b></li>
 								<li><b><a href="/Pis/admin/board/FAQ.do">자주묻는질문관리</a></b></li>
 								<li><b><a href="/Pis/admin/board/question.do">1:1문의관리</a></b></li>
-								<li><b><a href="#">주차장제보관리</a></b></li>
-								<li><b><a href="#">불편신고관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/info.do">주차장제보관리</a></b></li>
+								<li><b><a href="/Pis/admin/board/report.do">불편신고관리</a></b></li>
 							</ul>
 						</li>
 					</ul>
 				</c:when>
 				<c:otherwise>
 			   	  	<ul class="menu">
-						<li><b><a href="#">서비스</a></b>
+						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
-								<li><b><a href="#">예약정보</a></b></li>
+								<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">커뮤니티</a></b>
+						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
-								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
-								<li><b><a href="#">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">마이페이지</a></b>
+						<li><b><a href="/Pis/Join/modifyForm.do">마이페이지</a></b>
 							<ul class="sub">
-								<li><b><a href="#">회원정보수정</a></b></li>
+								<li><b><a href="/Pis/Join/modifyForm.do">회원정보수정</a></b></li>
 								<hr />
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
 							</ul>
 						</li>
 					</ul>
@@ -169,42 +165,41 @@
 		</c:when>
 		<c:otherwise>
 			<ul class="menu">
-				<li><b><a href="#">서비스</a></b>
+				<li><b><a href="../park/parkmap.do">서비스</a></b>
 						<ul class="sub">
-							<li><b><a href="#">예약</a></b></li>
-							<li><b><a href="#">예약정보</a></b></li>
+							<li><b><a href="../park/parkmap.do">예약</a></b></li>
+							<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 						</ul>
 					</li>
-					<li><b><a href="#">커뮤니티</a></b>
+					<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
 							<ul class="sub">
-								<li><b><a href="#">공지사항</a></b></li>
-								<li><b><a href="#">사용후기</a></b></li>
-								<li><b><a href="#">불편신고</a></b></li>
+								<li><b><a href="/Pis/notice/list.do">공지사항</a></b></li>
+								<li><b><a href="/Pis/review/mainForm.do">사용후기</a></b></li>
+								<li><b><a href="/Pis/report/mainForm.do">불편신고</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">고객센터</a></b>
+						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">아이디찾기</a></b></li>
-								<li><b><a href="#">비밀번호찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
+								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<hr />
 								<li><b><a href="#">환불규정</a></b></li>
 								<hr />
-								<li><b><a href="#">주차장제보</a></b></li>
-								<li><b><a href="#">자주묻는질문</a></b></li>
-								<li><b><a href="#">1:1문의</a></b></li>
+								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
+								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
+								<li><b><a href="/Pis/question/mainForm.do">1:1문의</a></b></li>
 							</ul>
 						</li>
-						<li><b><a href="#">마이페이지</a></b>
+						<li><b><a href="/Pis/Join/loginForm.do">마이페이지</a></b>
 							<ul class="sub">
-								<li><b><a href="/Pis/logon/loginForm.do">로그인</a></b></li>
-								<li><b><a href="#">회원정보수정</a></b></li>
-								<hr />
-								<li><b><a href="#">포인트충전</a></b></li>
-								<li><b><a href="#">포인트사용내역</a></b></li>
+								<li><b><a href="/Pis/Join/loginForm.do">로그인</a></b></li>
+								<hr/>
+								<li><b><a href="/Pis/pointcharge/point.do">포인트충전</a></b></li>
+								<li><b><a href="/Pis/pointcharge/pointlist.do">포인트사용내역</a></b></li>
 							</ul>
 						</li>
 					</ul>
-		</c:otherwise>
+		</c:otherwise> 
 	</c:choose>
 	</div>
 </div>
@@ -407,7 +402,11 @@
 					return function() {
 						getValue('${search.lat}',
 								'${search.lng}','${search.addr }','${search.parking_name }',
-								'${search.tel }','${search.capacity2 }','${search.parking_type_nm }','${search.rates }','${search.weekday_begin_time}','${search.weekday_end_time}','${search.weekend_begin_time}','${search.weekend_end_time}');
+								'${search.tel }','${search.capacity2 }','${search.parking_type_nm }',
+								'${search.rates }','${search.weekday_begin_time}','${search.weekday_end_time}',
+								'${search.weekend_begin_time}','${search.weekend_end_time}','${search.parking_code }',
+								'${search.capacity3}','${search.capacity4}','${search.capacity5}','${search.firstdate }'
+								,'${search.seconddate }','${search.thirddate }','${search.fourthdate }');
 						map.setLevel(3);
 						map.setCenter(new daum.maps.LatLng(parseFloat(lat),parseFloat(lng)));
                         var infowindow = fInfo;
@@ -442,7 +441,8 @@
 						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }',
 						'${search.rates }','${search.weekday_begin_time}','${search.weekday_end_time}',
 						'${search.weekend_begin_time}','${search.weekend_end_time}','${search.parking_code }',
-						'${search.capacity3}','${search.capacity4}','${search.capacity5}')">
+						'${search.capacity3}','${search.capacity4}','${search.capacity5}','${search.firstdate }'
+						,'${search.seconddate }','${search.thirddate }','${search.fourthdate }')">
 					
 				</ul>
 				
@@ -502,20 +502,20 @@
 			}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
 		}
 		//최소한 지도가 뜬 이후에나
-		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates,fweekbt,fweeket,fweekebt,fweekeet,parking_code,capacity2,capacity3,capacity4) {
-	
+		function getValue(lat, lng, addr, parking_name, tel,capacity,parking_type_nm,rates,fweekbt,fweeket,fweekebt,fweekeet,parking_code,capacity2,capacity3,capacity4,first,second,third,fourth) {
+
 			map.setCenter(new daum.maps.LatLng(parseFloat(lat),
 							parseFloat(lng)));
-			
+			map.setLevel(1);
 			var seoul = '서울특별시 ';
 			/* map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); */
 			document.getElementById('addr').value = seoul + addr;
 			document.getElementById('parking_name').value = parking_name;
 			document.getElementById('tel').value = tel;
-			document.getElementById('capacity').innerHTML = '남은주차대수 : ' + capacity;
-			document.getElementById('capacity_2').innerHTML = '남은주차대수2 : ' + capacity2;
-			document.getElementById('capacity_3').innerHTML = '남은주차대수3 : ' + capacity3;
-			document.getElementById('capacity_4').innerHTML = '남은주차대수4 : ' + capacity4;
+			document.getElementById('capacity').innerHTML = first + ' 남은주차대수 : ' + capacity;
+			document.getElementById('capacity_2').innerHTML = second + ' 남은주차대수 : ' + capacity2;
+			document.getElementById('capacity_3').innerHTML = third + ' 남은주차대수 : ' + capacity3;
+			document.getElementById('capacity_4').innerHTML = fourth + ' 남은주차대수 : ' + capacity4;
 			document.getElementById('parking_type_nm').innerHTML = '주차장종류 : ' + parking_type_nm;
 			document.getElementById('rates').innerHTML = '기본요금 : 10분 /'+ rates+'원';
 			document.getElementById('time3').innerHTML = '평일운영시간 : ' +fweekbt+'시 ~ '+fweeket+'시';

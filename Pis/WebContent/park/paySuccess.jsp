@@ -9,6 +9,7 @@
 <br>
 
 	<form action="/Pis/park/payAfter.do" method="post">
+	<input type="hidden" value="${beginday }" name="beginday">
 	<input type="hidden" value="${capacity }" name="capacity">
 	<input type="hidden" value="${parking_code }" name="parking_code">
 		<table>
