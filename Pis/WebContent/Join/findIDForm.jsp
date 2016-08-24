@@ -25,5 +25,5 @@
 </tr>
 </table>
 <input type="submit" name="confirm" value="찾 기" class="button">
-<input type="button" value="취소" onclick="document.location.href='/Pis/Join/main.do?pageNum=${pageNum}'" class="button"> 
+<input type="button" value="취소" onclick="document.location.href='/Pis/layout/main.do'" class="button"> 
 </form>
