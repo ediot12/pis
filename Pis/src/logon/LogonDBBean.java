@@ -335,6 +335,7 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         }
     }
     
+    //delete
     public int deleteMember(String id, String passwd) throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -353,10 +354,25 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             if(rs.next()){
             	dbpasswd= rs.getString("passwd");
             	if(dbpasswd.equals(passwd)){
-            	pstmt = conn.prepareStatement(
-                "delete from MEMBERS where id=?");
-                    pstmt.setString(1, id);
-                    pstmt.executeUpdate();
+            		pstmt=conn.prepareStatement("delete from members where id=?");
+					pstmt.setString(1,id);
+					pstmt.executeUpdate();
+					System.out.println(id);
+					pstmt=conn.prepareStatement("delete from pointment where id=?");
+					pstmt.setString(1,id);
+					pstmt.executeUpdate();
+					System.out.println(id);
+					pstmt=conn.prepareStatement("delete from pointlist where id=?");
+					pstmt.setString(1,id);
+					pstmt.executeUpdate();
+					
+					pstmt=conn.prepareStatement("delete from reservpark where id=?");
+					pstmt.setString(1,id);
+					pstmt.executeUpdate();
+                    /*pstmt = conn.prepareStatement("delete from MEMBERS where id=?");
+                    if(){
+                    }*/
+                    
                     x= 1; //회원탈퇴 성공
             	}else
             		x= 0; //비밀번호 틀림
