@@ -20,7 +20,6 @@ function checkIt(){
 } 
 </script>
 </head>
-
 <BODY onload="begin()">
 <center>
 <div class="title">
