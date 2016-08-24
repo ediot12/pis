@@ -5,7 +5,6 @@
 <title>회원탈퇴</title>
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
-
 <c:if test="${check==1}">
 <body>
 <center>
