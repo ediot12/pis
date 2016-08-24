@@ -102,7 +102,7 @@ function checkId(){
 		}
 		
 		if (!regExp.test(userinput.email.value)) {
-			alert("이메일을 재대로 적어주세요.");
+			alert("이메일 형식에 올바르지 않습니다.\n다시 확인해 주세요.");
 			userinput.email.value = "";
 			userinput.email.focus();
 			return false;
