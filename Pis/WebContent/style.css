@@ -70,7 +70,7 @@
 }
 
 .table td {
-	height: 40;
+	height: 35;
 }
 
 .title {
@@ -155,14 +155,17 @@ a {
 	text-decoration: underline;
 }
 
-#maintext {
-	text-align: center
+.main, .main a, .main a:hover {
+	font-size:13px;
+	text-align: right;
+	color:#31A0B4;
 }
 
 .maintable {
 	font-size: 20px;
 	color: #31A0B4;
 	text-align: center;
+	width:550px;
 }
 
 #mainimg {
@@ -253,7 +256,7 @@ ul.menu:after {
 	font-size: 16px;
 	font-weight: bold;
 	background-color: #31A0B4;
-	color: black;
+	color: #FFFFFF;
 	text-align: center;
 }
 
@@ -278,6 +281,7 @@ ul.menu:after {
 	top: 40%;
 	left: 90%;
 	border: 2px solid;
+	background: #FFFFFF;
 }
 
 #linechart_material{

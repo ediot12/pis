@@ -23,6 +23,7 @@
 	</p>
 	<br>
 </c:if>
+<br>
 <a href="#" onclick="javascript:self.close();" class="button" >닫기</a>
 
 </div>

@@ -1,6 +1,6 @@
 package board;
 
-import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat; 
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
@@ -44,6 +44,8 @@ public class QuestionAction implements CommandAction {
 		if(count > 0){
 		if(search.equals("") || search == null) articleList = dbpro.getArticles(startRow, endRow);
 		else articleList = dbpro.getArticles(startRow, endRow, searchn, search);
+		}else{
+			articleList = null;
 		}
 		/////////////////////////////////////////////////////////
 		number = count-(currentPage-1)*pageSize;

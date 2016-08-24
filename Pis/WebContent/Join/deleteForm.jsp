@@ -21,27 +21,23 @@ function checkIt(){
 </script>
 </head>
 <BODY onload="begin()">
+<center>
+<div class="title">
+<b>회원탈퇴</b>
+</div>
 <form name="myform" action="/Pis/Join/deletePro.do" method="post" onSubmit="return checkIt()">
-<TABLE cellSpacing=1 cellPadding=1 width="260" border=1 align="center">
-
-<TR height="30">
-<TD colspan="2" align="left">
-<font size="+1"><b>회원탈퇴</b></font></TD></TR>
-
-<TR height="30">
-<TD width="110" bgcolor="${value_c}" align=center>비밀번호를 입력해주세요.</TD>
-</TR>
-<tr>
-<TD width="150" align=center>
-<INPUT type=password name="passwd" size="15" maxlength="12"></TD></tr>
-<TR height="30">
-<TD width="110" bgcolor="${value_c}" align=center>탈퇴하시겠습니까?</TD>
-</TR>
-<TR height="30">
-<TD colspan="2" align="middle" bgcolor="${value_c}">
-<INPUT type=submit value="예">
-<input type="button" value="아니요" onclick="javascript:window.location='/Pis/layout/main.do'"></TD></TR>
+<table border="1" cellspacing="0" cellpadding="0" class="shorttable">
+	<TR height="30">
+		<TD width="110"  align=center class=colorblack><br>비밀번호를 입력해주세요.<br><br>
+			<INPUT type=password name="passwd" size="15" maxlength="12"><br><br>
+		</TD>
+	</tr>
 </TABLE>
+<div class="colorblack">
+	탈퇴하시겠습니까?<br><br>
+	<INPUT type=submit value="예" class=button>
+	<input type="button" value="아니요" onclick="javascript:window.location='/Pis/layout/main.do'" class=button>
+</div>
 </form>
 </BODY>
 </HTML>

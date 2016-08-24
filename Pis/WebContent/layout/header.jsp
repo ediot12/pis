@@ -23,14 +23,14 @@
 						    	<ul>
 						    		<li>${memId}</li>
 						    		<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
-						    		<li>사이트맵</li>
+						    		<li><a href="/Pis/layout/siteMapAdmin.do">사이트맵</a></li>
 						    	</ul>
 							</c:when>
 							<c:otherwise>
 								<ul>
 								    <li>${memId} [회원등급 : ${grade}/ 현재포인트 : ${point}]</li>
 									<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
-						    		<li>사이트맵</li>
+						    		<li><a href="/Pis/layout/siteMapUser.do">사이트맵</a></li>
 						    	</ul>
 							</c:otherwise>
 						</c:choose>
@@ -39,7 +39,7 @@
 					    <ul>
 					    	<li><a href="/Pis/Join/loginForm.do">로그인</a></li>
 					    	<li><a href="/Pis/Join/inputForm.do">회원가입</a></li>
-					    	<li>사이트맵</li>
+					    	<li><a href="/Pis/layout/siteMap.do">사이트맵</a></li>
 					    </ul>
 			    	</c:otherwise>
 			    </c:choose>

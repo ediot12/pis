@@ -20,7 +20,7 @@
 
 </script>
 </head>
-
+ 
 <body>
     <center>
 	<br>
@@ -82,10 +82,11 @@
 		<select name="searchn">
 		<option value="0">회원정보</option>
 		<option value="1">예약</option>
-		<option value="2">취소</option>
+		<option value="2">결제</option>
 		<option value="3">환불</option>
+		<option value="4">기타</option>
 		</select>
 			
-		<input type="text" name="search" size="15" maxlength="50" /> <input type="submit" value="검색" class="button" />
+		<input type="text" name="search" size="15" maxlength="50" /><input type="submit" value="검색" class="button" />
 	</form>
 </body>
