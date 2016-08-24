@@ -26,8 +26,8 @@
 </head>
 <body bgcolor="#FFFFCC">
 <center>
-<div class="title">
-	<b>우편번호 찾기</b>
+<div class="title" >
+	<b><center>우편번호 찾기</center></b>
 </div>
 <form name="zipForm" method="post" action="Zipcheck.do">
 <table>
@@ -71,7 +71,7 @@
 			</tr>	
 			<tr>
 				<td align="center" class="colorblack"><br>
-				<a href="javascript:this.close();">닫기</a>
+				<a href="javascript:this.close();" class="button" >닫기</a>
 			<tr>
 				</td>
 		</table>

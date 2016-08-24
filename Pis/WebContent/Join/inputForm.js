@@ -107,15 +107,11 @@ function checkId(){
 			userinput.email.focus();
 			return false;
 		}
-		
-	/*	if(userinput.email.value !="@"){
-			alert("이메일을 다 입력.");
-			return;
-		}*/
-		
-		url="/Pis/Join/certifyForm.do?email="+userinput.email.value;
-		window.open(url,"post","toolbar=no,width=100, heignt=100,directories=no,status=yes,scrollbars=yes,menubar=no");
-		
+	      else{
+	          url="/Pis/Join/certifyForm.do?email="+userinput.email.value;
+	          window.open(url,"post","left=20,top=20,width=600,height=100,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
+	          
+	       }
 	}
 	
 	
