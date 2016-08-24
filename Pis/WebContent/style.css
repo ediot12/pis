@@ -155,14 +155,17 @@ a {
 	text-decoration: underline;
 }
 
-#maintext {
-	text-align: center
+.main, .main a, .main a:hover {
+	font-size:13px;
+	text-align: right;
+	color:#31A0B4;
 }
 
 .maintable {
 	font-size: 20px;
 	color: #31A0B4;
 	text-align: center;
+	width:550px;
 }
 
 #mainimg {
