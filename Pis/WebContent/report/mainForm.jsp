@@ -13,7 +13,7 @@
 <center> 
 		<br>
 		<div class="title">
-			<b>불편 신고 관리 </b>
+			<b>불편 신고 </b>
 				<a href="/Pis/report/writeForm.do">
 				<input type="button" value="글 작성" class="button">
 				</a>

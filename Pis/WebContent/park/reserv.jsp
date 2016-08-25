@@ -152,7 +152,7 @@
 	<br>
 		<form method="post" name="insert" action="/Pis/park/paySuccess.do"
 			onsubmit="return checkPay()">
-			<table border="1" id="ok">
+			<table border="1" id="ok" cellpadding="0" cellspacing="0">
 				<c:if test="${reserv!=null }">
 					<c:forEach var="vecList" items="${reserv }" begin="0">
 						<tr>
@@ -176,9 +176,9 @@
 						</tr>
 						<tr>
 							<td class="color">차종</td>
-							<td>소형 <input type="radio" value="소형" name="car" checked="checked">&nbsp;&nbsp;중형
-								<input type="radio" value="중형" name="car">&nbsp;&nbsp;대형 <input
-								type="radio" value="소형" name="car"></td>
+							<td >소형 <input class="colorblack" type="radio" value="소형" name="car" checked="checked">&nbsp;&nbsp;중형
+								<input class="colorblack" type="radio" value="중형" name="car">&nbsp;&nbsp;대형 <input
+								class="colorblack" type="radio" value="소형" name="car"></td>
 						</tr>
 						<tr>
 							<td class="color">이용 날짜</td>

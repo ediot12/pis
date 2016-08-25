@@ -51,7 +51,7 @@
 				
 				<tr>
 					<td class="color">내용</td>
-      				<td colspan="3"><textarea name="content"  cols="149" rows="20"></textarea></td>
+      				<td colspan="3"><textarea name="content"  cols="135" rows="20"></textarea></td>
 					</td>
 				</tr>
 			</table>

@@ -34,7 +34,7 @@
 		</tr>
 	</table>
 	<input type="button" value="목록보기" OnClick="window.location='/Pis/admin/board/FAQ.do'" class="button">
-		<input type="reset" value="다시작성" class="button">
+	<input type="reset" value="다시작성" class="button">
 	<input type="submit" value="글쓰기" class="button"> 
 	</form>     
 </body>

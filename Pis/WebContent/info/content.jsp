@@ -15,7 +15,7 @@
 	</div> 
 	<br>
 			<!-- 테이블 생성  사이즈 및 테투리 여백 -->
-			<table width="800" height="200"border="1" cellpadding="0" cellspacing="0" 
+			<table class="table" height="200"border="1" cellpadding="0" cellspacing="0" 
 			      align="center" style="table-layout:fixed">
 
 				<!-- 작성자 id  -->
@@ -44,7 +44,7 @@
 				<tr height="350">
 					<td  width="70" class="color"><b>내용</b></td>
 					<c:if test="${!article.bfile.equals('null')}">
-						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
+						<td class="colorblack" align="left" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
 						<div><img src="../filesave/${article.bfile}" width="250px" height="250px" ></div>
 						<br><h3>${article.content}</h3></pre>
 					</td>
@@ -52,7 +52,7 @@
 					
 					<!-- db에 저장된 파일이 없을시 즉 null 값일 경우 글내용만 출력 -->
 					<c:if test="${article.bfile.equals('null')}">
-						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
+						<td class="colorblack" align="left" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
 					<b><h3>${article.content}</h3></b></pre>
 					</c:if>
 				</tr>

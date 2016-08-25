@@ -84,13 +84,13 @@ function checkId(){
 		url = "/Pis/Join/confirmId.do?id=" + userinput.id.value;
 		
 		//새로운 윈도우를 엽니다.
-		open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
+		open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=700,height=500");
 	}
 	
 	function zipCheck(){
 		
 		url="Zipcheck.do?check=y";
-        window.open(url,"post","left=100,top=100,width=600,height=800,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
+        window.open(url,"post","left=100,top=100,width=800,height=800,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
 	}
 	
 	function mail(userinput){

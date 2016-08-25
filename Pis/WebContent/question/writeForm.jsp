@@ -35,13 +35,13 @@
 				
 				<tr>
 					<td width="70" class="color"><b>제 목</b></td>
-					<td width="330" colspan="5"align="left"><input type="text" size="45" maxlength="20"
+					<td width="330" colspan="5"align="left"><input type="text" size="40" maxlength="20"
 						name="subject"></td>
 				</tr>
 					
 				<tr>
 					<td width="70" class="color"><b>내 용</b></td>
-					<td width="100" colspan="5"><textarea name="content" rows="14" cols="133"></textarea>
+					<td width="100" colspan="5"><textarea name="content" rows="14" cols="121"></textarea>
 					</td>
 				</tr>
 				

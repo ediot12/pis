@@ -2,21 +2,25 @@
 <html>
 <head>
 <title>Insert title here</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<center>
-		<table>
+		<table class="table">
 			<tr>
-				<td>결제가 완료 되었습니다.</td>
+				<td><h1>결제가 완료 되었습니다.</h1></td><br>
 			</tr>
+			
 			<tr>
-				<td>사용포인트 :</td>
+				<td><h1>사용포인트 :</h1></td><br>
 			</tr>
+			
 			<tr>
-				<td>잔여포인트 :</td>
+				<td><h1>잔여포인트 :</h1></td><br>
 			</tr>
+			
 			<tr>
-				<td><input type="button" value="확인"
+				<td><br><input class="button" type="button" value="확인"
 					onclick="location.href='main.do'"></td>
 			</tr>
 

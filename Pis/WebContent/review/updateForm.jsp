@@ -16,7 +16,7 @@
 		<form method="post" name="writeform"
 			action="/Pis/review/updatePro.do?pageNum=${pageNum}"
 			onsubmit="return writeSave()" >
-			<table width="800" border="1" cellspacing="0" cellpadding="0"
+			<table class="table" border="1" cellspacing="0" cellpadding="0"
 			 align="center" style="table-layout:fixed">
 				<tr>
 					<td width="70" height="40" class="color">작성자</td>
@@ -45,7 +45,7 @@
 				<tr>
 					<td width="70" height="40" class="color">내 용</td>
 					<td align="left" width="330" colspan="3"><textarea name="content"
-							rows="12" cols="99">${article.content}</textarea><br><img src="../filesave/${article.bfile}" width="230px" height="150px" ></td>
+							rows="12" cols="135">${article.content}</textarea><br><img src="../filesave/${article.bfile}" width="250px" height="250px" ></td>
 				</tr>
 
 			</table>

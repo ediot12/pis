@@ -60,7 +60,7 @@ function zipCheck(){
 
 				<tr>
 					<td align="center" class="color">내용</td>
-      				<td colspan="3"><textarea name="content"  cols="155" rows="20"></textarea></td>
+      				<td colspan="3"><textarea name="content"  cols="143" rows="20"></textarea></td>
 					</td>
 				</tr>
 

@@ -22,13 +22,10 @@
 					${article.subject}</td>
 			</tr>
 
-			<tr height="350">
-				<td  class="colorblack"  width="375" align="left" height="150" colspan="4"
-					style="word-wrap: break-word">
-					<pre style="white-space: pre-wrap;">
-						<b>${article.content}</b>
-					</pre></td>
-			</tr>
+			<tr height="450">
+    <td align="center" width="200" height="450" class="color">글내용</td>
+    <td align="left" colspan="3" width="950" class="colorblack" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">${article.content}</pre></td>
+  </tr>
 
 		</table>
 		<br>
