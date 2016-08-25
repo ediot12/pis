@@ -90,7 +90,7 @@ function checkId(){
 	function zipCheck(){
 		
 		url="Zipcheck.do?check=y";
-		window.open(url,"post","toolbar=no,width=100, heignt=100,directories=no,status=yes,scrollbars=yes,menubar=no");
+        window.open(url,"post","left=100,top=100,width=600,height=800,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
 	}
 	
 	function mail(userinput){
@@ -110,8 +110,7 @@ function checkId(){
 		}
 	      else{
 	          url="/Pis/Join/certifyForm.do?email="+userinput.email.value;
-	          window.open(url,"post","left=20,top=20,width=600,height=100,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
-	          
+	          window.open(url,"post","left=100,top=100,width=600,height=200,toolbar=no,directories=no,status=yes,scrollbars=yes,menubar=no,fullscreen=no,resizable=no");
 	       }
 	}
 	
