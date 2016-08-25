@@ -25,16 +25,19 @@ if(userinput.passwd.value != userinput.passwd2.value){
 <body>
 <center>
 <br>
-<div class="title">
-	<b>비밀번호 변경</b>
-</div>
+<!-- <div class="title">
+</div> -->
 <c:if test="${empty pwd}">	
 <script>
 alert("입력하신 정보가 맞지 않습니다.");
 history.go(-1);
 </script>
 	</c:if>
+	 <div class="title">
+	 <b>비밀번호 변경</b>
+	 </div>
 	<c:if test="${!empty pwd}">
+	 <center>
 	<form action="/Pis/Join/updatePWD.do" name="userinput" method="post" >
 		<table border="1" cellpadding="0" cellspacing="0" class="shorttable">
 			<tr>
@@ -51,8 +54,9 @@ history.go(-1);
 				<td class="color">일치여부</td><td id="change" width="50"></td>
 			</tr>
 		</table>
+		</center>
 		<input type="hidden" name="id"  value="${id}">
-		<input type="submit" value="변경" class="button">
+		 <center><input type="submit" value="변경" class="button"></center>
 	</form>
 </c:if>
 </body>
