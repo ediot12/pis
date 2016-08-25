@@ -23,7 +23,7 @@ history.go(-1);
 요청하신 아이디는 ${id}입니다.
 </div>
 <br><a href="/Pis/Join/findPWForm.do"><input type="button" value="비밀번호찾기" class="button"></a>
-&nbsp;&nbsp;<a href="/Pis/Join/main.do"><input type="button" value="창닫기" class="button"></a>
+&nbsp;&nbsp;<a href="/Pis/layout/main.do"><input type="button" value="창닫기" class="button"></a>
 </c:if>
 </body>
 </html>
