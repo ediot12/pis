@@ -4,10 +4,12 @@ import java.util.*;
 import java.sql.*;
 
 public class DeleteDate {
-	
+
+	int count = 0;
+
 	private static DeleteDate fd = new DeleteDate();
-	
-	public static DeleteDate getInstance(){
+
+	public static DeleteDate getInstance() {
 		return fd;
 	}
 
@@ -36,7 +38,7 @@ public class DeleteDate {
 			if (rs.next()) {
 				checkTime2 = rs.getString(1);
 			}
-   
+
 			pstmt = conn.prepareStatement("select checkdate from thirddate where rownum=1");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -50,6 +52,11 @@ public class DeleteDate {
 			}
 
 			///////////////////////////////////////////// 모두찾은뒤엔 비교를 한다.
+			System.out.println("받은거 : " +date);
+			System.out.println("1거 : " +checkTime1);
+			System.out.println("2거 : " +checkTime2);
+			System.out.println("3거 : " +checkTime3);
+			System.out.println("4거 : " +checkTime4);
 
 			if (checkTime1.equals(date)) {
 				firstdate(capacity, parking_code);
@@ -57,8 +64,7 @@ public class DeleteDate {
 
 			else if (checkTime2.equals(date)) {
 				seconddate(capacity, parking_code);
-			}
-			else if (checkTime3.equals(date)) {
+			} else if (checkTime3.equals(date)) {
 				thirddate(capacity, parking_code);
 			} else if (checkTime4.equals(date)) {
 				fourthdate(capacity, parking_code);
@@ -88,45 +94,53 @@ public class DeleteDate {
 	}
 
 	private void firstdate(int capacity, int parking_code) throws Throwable {
+
 		conn = getConnection();
 		pstmt = conn.prepareStatement("update firstdate set capacity2=? where parking_code = ?");
-		
+
 		System.out.println(capacity);
-		
-		int capacity2 = capacity+1;
-		
+
+		int capacity2 = capacity + 1;
+
 		System.out.println(capacity2);
-		
+
 		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
-		pstmt.executeUpdate();
-		
+		count = pstmt.executeUpdate();
+
 		System.out.println("실행");
+		System.out.println("영향 수 1: " + count);
 
 	}
 
 	private void seconddate(int capacity, int parking_code) throws Throwable {
+		int capacity2 = capacity + 1;
 		conn = getConnection();
 		pstmt = conn.prepareStatement("update seconddate set capacity2=? where parking_code = ?");
-		pstmt.setInt(1, capacity + 1);
+		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
-		pstmt.executeUpdate();
+		count = pstmt.executeUpdate();
+		System.out.println("영향 수 2: " + count);
 	}
 
 	private void thirddate(int capacity, int parking_code) throws Throwable {
+		int capacity2 = capacity + 1;
 		conn = getConnection();
 		pstmt = conn.prepareStatement("update thirddate set capacity2=? where parking_code = ?");
-		pstmt.setInt(1, capacity + 1);
+		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
-		pstmt.executeUpdate();
+		count = pstmt.executeUpdate();
+		System.out.println("영향 수 3: " + count);
 	}
 
 	private void fourthdate(int capacity, int parking_code) throws Throwable {
+		int capacity2 = capacity + 1;
 		conn = getConnection();
 		pstmt = conn.prepareStatement("update fourthdate set capacity2=? where parking_code = ?");
-		pstmt.setInt(1, capacity + 1);
+		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
-		pstmt.executeUpdate();
+		count = pstmt.executeUpdate();
+		System.out.println("영향 수 4: " + count);
 	}
-      
+
 }

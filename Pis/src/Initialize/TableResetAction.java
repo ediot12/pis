@@ -27,7 +27,6 @@ public class TableResetAction {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("delete from firstdate");
 			count = pstmt.executeUpdate();
-
 			pstmt.close();// 한번 닫아준다.
 			pstmt = conn.prepareStatement("insert into firstdate select * from seconddate");
 			count = pstmt.executeUpdate();

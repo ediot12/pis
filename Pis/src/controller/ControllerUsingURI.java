@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Initialize.TableRefreshAction;
 import Initialize.TableResetAction;
 
 public class ControllerUsingURI extends HttpServlet {
@@ -121,12 +122,16 @@ public class ControllerUsingURI extends HttpServlet {
 			if (rs.next()) {
 				checkTime = rs.getString(1);
 			}
+			
+			TableRefreshAction trea = TableRefreshAction.getInstance();
+			trea.refreshTable();
 
 			if (!smf2.format(ca.getTime()).equals(checkTime)) {
 				TableResetAction tra = TableResetAction.getInstance();
 				tra.initDB();
-
 			}
+			
+			/////이하 기존에 있던 부분
 			String command = request.getRequestURI();
 			if (command.indexOf(request.getContextPath()) == 0) {
 				command = command.substring(request.getContextPath().length());

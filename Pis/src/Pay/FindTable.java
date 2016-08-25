@@ -23,7 +23,7 @@ public class FindTable {
 	}
 
 	public String FindDate(String date) throws Throwable {
-			
+			System.out.println("¤·¤·");
 		
 		try {
 			conn = getConnection();

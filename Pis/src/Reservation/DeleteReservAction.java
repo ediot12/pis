@@ -1,7 +1,6 @@
 package Reservation;
  
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +24,7 @@ public class DeleteReservAction	implements CommandAction {
 	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		System.out.println("¤¾¤·");
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession();
@@ -116,7 +116,7 @@ public class DeleteReservAction	implements CommandAction {
 							
 								if(result > 0){									
 									DeleteDate del = DeleteDate.getInstance();
-									del.FindDate(date, capacity, parking_code);
+									del.FindDate(day, capacity, parking_code);
 									
 									System.out.println("test ¿Ï·á");
 								}
