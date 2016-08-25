@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
 			<td class="colorblack"></td>
 			<td class="colorblack"><a href="/Pis/report/mainForm.do">불편신고</a></td>
 			<td class="colorblack"><hr /></td>
-			<td class="colorblack"><a href="#">환불규정</a></td>
+			<td class="colorblack"><a href="/Pis/Join/refundForm.do">환불규정</a></td>
 		</tr>
 		<tr>
 			<td class="colorblack"></td>
