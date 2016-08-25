@@ -33,7 +33,6 @@
 		<input type="button" value="글쓰기" class="button">
 	</a>
 	</div>
-	<br>
     <table class="report">
         <tr class="">
             <th width="10%" align="center">번호</th>

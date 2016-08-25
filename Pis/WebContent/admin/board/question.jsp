@@ -12,7 +12,6 @@
 	<div class="title">
 	<b>1:1문의 내역</b>
 	</div>
-	<br>
 	<table class="table" border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<td class="color" width="5%">번호</td>

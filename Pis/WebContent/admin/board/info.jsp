@@ -24,7 +24,8 @@
 				</tr>
 				 <c:forEach var="article" items="${articleList}">
 					<tr height="30" align="center">
-						<td class="colorblack">${article.num }</td>
+						<td class="colorblack"><c:out value="${number}" />
+					<c:set var="number" value="${number - 1}" /></td>
 						<td class="colorblack"><a href="/Pis/admin/board/infoContent.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
 						<td class="colorblack">${article.address}</td>
 						<td class="colorblack">${article.writer }</td>
