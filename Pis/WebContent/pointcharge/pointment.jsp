@@ -9,7 +9,7 @@
 <form name=reservation  method=post action="/Pis/pointcharge/paymentForm.do">
 
 <br>
-<center>
+<center> 
 			<p><h1>결제시스템 </h1></p>
 			<br>
 		

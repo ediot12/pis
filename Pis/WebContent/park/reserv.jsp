@@ -16,7 +16,7 @@
 	var wdclose = ${wdclose};
 	var weopen = ${weopen};
 	var weclose = ${weclose};
-	var today = date.getDay();//오늘
+	var today = date.getDay();//오늘 
 	var close;
 
 	var hour = date.getHours();//이것은 현재시간

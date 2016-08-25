@@ -12,7 +12,7 @@
 	<br>    
 	<div class="title">
 		<b>주차장 제보</b>
-	</div>
+	</div> 
 	<br>
 			<!-- 테이블 생성  사이즈 및 테투리 여백 -->
 			<table width="800" height="200"border="1" cellpadding="0" cellspacing="0" 

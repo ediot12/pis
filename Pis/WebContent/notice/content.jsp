@@ -12,7 +12,7 @@
 	<br> 
 	<div class="title">
 		<b>공지사항</b>
-	</div>
+	</div> 
 	<br>
 		<table width="900" border="1" cellspacing="0" cellpadding="0"
 			align="center" style="table-layout: fixed">

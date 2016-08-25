@@ -22,7 +22,7 @@
 	      		document.pointform.submit();
 	      	}
 	    
-		}
+		} 
 	
 	}	
 </script>

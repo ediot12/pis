@@ -8,7 +8,7 @@
 <head>
 <title>불편 신고 게시판</title>
 <link href="../style.css" rel="stylesheet" type="text/css">
-</head>
+</head> 
 <body>
 <center> 
 		<br>

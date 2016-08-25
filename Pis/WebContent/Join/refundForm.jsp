@@ -3,13 +3,15 @@
 <html>
 <head>
 <title>환불규정</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<br>
 	<div class="title">
 	<b>환불규정 안내</b>
 	</div>
-<br>
+<br> 
+<div class="colorblack">
  배정받은 구획의 변동(공사로 인한 구획선 삭제 등)이나 신청자의 변동(전출, 사용 포기 등)이 발생할시 
   동주민센터에 환불신청을 하면, 
 <br>
@@ -50,6 +52,7 @@
 ④구청에 통보
 <br>
 ⑤신청자(배정자)의 계좌에 입금
+</div>
 </body>
 </html>
 

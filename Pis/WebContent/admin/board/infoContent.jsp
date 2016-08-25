@@ -31,13 +31,21 @@
     <td align="center" class="color">주 소</td>
   	<td align="center" class="colorblack">${idb.address}</td>
   </tr>
-  <tr height="450px">
-    <td align="center" class="color">글내용</td>
-    <td align="left" colspan="3" class="colorblack" style="word-wrap:break-word">
-    <img src="../../filesave/${idb.bfile}" width="300px" height="300px">
-    	<pre style="white-space: pre-wrap;">
-    	<br>${idb.content}</pre></td>
-  </tr>
+  <!-- db 에 파일이 있을경우 파일과 글 내용  출력-->
+				<tr height="350">
+					<td width="70" class="color"><b>내용</b></td>
+					<c:if test="${!idb.bfile.equals('null')}">
+						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
+						<div><img src="../../filesave/${idb.bfile}" width="250px" height="250px" ></div>
+						<h3>${idb.content}</h3></pre>
+					</td>
+					</c:if>
+					<!-- db에 저장된 파일이 없을시 즉 null 값일 경우 글내용만 출력 -->
+					<c:if test="${idb.bfile.equals('null')}">
+						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word"> <pre style="white-space: pre-wrap;">
+					<p><b><h3>${idb.content}</h3></b></p></pre>
+					</c:if>
+				</tr>
 </table>
 		<input type="button" value="글목록" class="button"
        onclick="document.location.href='/Pis/admin/board/info.do?pageNum=${pageNum}'">

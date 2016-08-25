@@ -10,7 +10,7 @@
 	<div class="title">
 		<b>불편신고</b>
 	</div> 
-	
+	 
 	<table class="table" border="1" cellspacing="0" cellpadding="0"
 			 style="table-layout:fixed">
 				<tr>

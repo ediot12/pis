@@ -11,7 +11,7 @@
 <body> 
 	
 		<br>
-		
+		 
 			<b><h1>공지사항</h1> </b>
 		<center>
 		<c:if test="${count!=0}">

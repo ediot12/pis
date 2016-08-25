@@ -9,7 +9,7 @@
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body> 
-<center> 
+<center>  
 		<br>
 		<div class="title">
 			<b>1:1문의</b>

@@ -17,7 +17,7 @@ div#myReserv {
 	font-size: 10pt;
 	text-align: left;
 	background-color: #EAEAEA;
-}
+} 
 </style>
 <%
 	String id = (String) session.getAttribute("memId");

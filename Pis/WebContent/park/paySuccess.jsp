@@ -15,7 +15,7 @@
 	<input type="hidden" value="${parking_code }" name="parking_code">
 		
 			<br>
-		<div class="title">
+		<div class="title"> 
 			<b>공지사항 </b>
 		</div>
 		<table id="ok" border="1" cellpadding="0" cellspacing="0">
