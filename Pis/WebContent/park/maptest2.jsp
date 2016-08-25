@@ -80,7 +80,7 @@
 						<li><b><a href="/Pis/park/parkmap.do">서비스</a></b>
 							<ul class="sub">
 								<li><b><a href="/Pis/park/parkmap.do">예약</a></b></li>
-								<li><b><a href="#">예약정보</a></b></li>
+								<li><b><a href="/Pis/park/myReserv.do">예약정보</a></b></li>
 							</ul>
 						</li>
 						<li><b><a href="/Pis/notice/list.do">커뮤니티</a></b>
@@ -92,7 +92,7 @@
 						</li>
 						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">환불규정</a></b></li>
+								<li><b><a href="/Pis/Join/refundForm.do">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
@@ -144,7 +144,7 @@
 						</li>
 						<li><b><a href="/Pis/faq/faqForm.do">고객센터</a></b>
 							<ul class="sub">
-								<li><b><a href="#">환불규정</a></b></li>
+								<li><b><a href="/Pis/Join/refundForm.do">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
@@ -183,7 +183,7 @@
 								<li><b><a href="/Pis/Join/findIDForm.do">아이디찾기</a></b></li>
 								<li><b><a href="/Pis/Join/findPWForm.do">비밀번호찾기</a></b></li>
 								<hr />
-								<li><b><a href="#">환불규정</a></b></li>
+								<li><b><a href="/Pis/Join/refundForm.do">환불규정</a></b></li>
 								<hr />
 								<li><b><a href="/Pis/info/mainForm.do">주차장제보</a></b></li>
 								<li><b><a href="/Pis/faq/faqForm.do">자주묻는질문</a></b></li>
