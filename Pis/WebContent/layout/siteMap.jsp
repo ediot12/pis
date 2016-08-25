@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
