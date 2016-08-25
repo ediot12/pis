@@ -47,6 +47,7 @@ div#myReserv {
 					</c:if>					
 					</table>
 					<input type="hidden" name="beginTime" value="${myreservList.beginTime }">
+					<input type="hidden" name="parkname" value="${myreservList.parking_name }">
 					</form>
 				</div>
 			</c:forEach>

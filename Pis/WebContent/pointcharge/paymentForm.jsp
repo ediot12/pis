@@ -29,7 +29,7 @@ IMP.request_pay({
 		msg += '\n카드 승인번호 : ' + rsp.apply_num;
 		
 		alert(msg);
-		location.href="/Pis/pointcharge/pointlist.do";
+		location.href="/Pis/pointcharge/pointcharge.do";
 		
 	} else {
 		var msg = '결제에 실패하였습니다.\n';

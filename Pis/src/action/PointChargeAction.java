@@ -59,7 +59,7 @@ public class PointChargeAction implements CommandAction{
 		System.out.println("포인트 충전 내역 디비에 저장완료");
 		
 		
-		return "/pointcharge/PointList.jsp";
+		return "/pointcharge/pointlist.do";
 	}
 
 }

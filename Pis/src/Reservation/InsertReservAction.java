@@ -33,6 +33,10 @@ public class InsertReservAction implements CommandAction {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("memId");
 		String capacity = request.getParameter("capacity2");
+		
+//		*** 내가 추가한 부분 ***
+		request.getSession().setAttribute("capacity", capacity);
+		
 		String parking_code = request.getParameter("parking_code");
 		
 		//날짜 관련
@@ -42,7 +46,7 @@ public class InsertReservAction implements CommandAction {
 		String weekendClose = request.getParameter("time6");
 		////////
 		
-		
+		            
 
 		try {
 			conn = getConnection();
