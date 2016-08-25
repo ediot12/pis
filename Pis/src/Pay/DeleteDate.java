@@ -36,7 +36,7 @@ public class DeleteDate {
 			if (rs.next()) {
 				checkTime2 = rs.getString(1);
 			}
-
+   
 			pstmt = conn.prepareStatement("select checkdate from thirddate where rownum=1");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -90,9 +90,18 @@ public class DeleteDate {
 	private void firstdate(int capacity, int parking_code) throws Throwable {
 		conn = getConnection();
 		pstmt = conn.prepareStatement("update firstdate set capacity2=? where parking_code = ?");
-		pstmt.setInt(1, capacity + 1);
+		
+		System.out.println(capacity);
+		
+		int capacity2 = capacity+1;
+		
+		System.out.println(capacity2);
+		
+		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
 		pstmt.executeUpdate();
+		
+		System.out.println("½ÇÇà");
 
 	}
 

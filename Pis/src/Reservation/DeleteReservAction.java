@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Pay.DeleteDate;
+import Pay.FindTable;
 import controller.CommandAction;
 
 public class DeleteReservAction	implements CommandAction {
@@ -29,12 +30,18 @@ public class DeleteReservAction	implements CommandAction {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("memId");
 		String beginTime = request.getParameter("beginTime");
+		String fparkname = request.getParameter("parkname");
+
+		String day = beginTime.substring(0, 10);
 		
+		FindTable ft = FindTable.getInstance();
+		String table = ft.FindDate(day);
+		System.out.println("deletereservaction ::: " +table);
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-	
-		
+		int result = 0;	
 		
 		
 		try{
@@ -43,68 +50,82 @@ public class DeleteReservAction	implements CommandAction {
 			pstmt.setString(1, beginTime);
 			rs = pstmt.executeQuery();
 			
+//			*** test 1 ***
+			System.out.println("1단계 ::: reservpark select");
+			
+//			sql실행 결과 pay,parkname 각각 변수에 저장하고 pointment에서 point,pdate select
 			if(rs.next()){
 				int use_point = rs.getInt("pay");
 				String parkname = rs.getString("parkname");
 				
-				pstmt = conn.prepareStatement("delete from reservpark where id='" + id +"'and begintime=?");
-				pstmt.setString(1, beginTime);
+				pstmt = conn.prepareStatement("select point,pdate from pointment where id='"+id+"'");
 				rs = pstmt.executeQuery();
 				
-//				*** test 1단계 ***
-				System.out.println("reservpark테이블에서 레코드 삭제");
+//				*** test 2 ***
+				System.out.println("2단계 ::: pointment select");
+				
+//				sql실행 결과 point,before_point,date 값 저장
 				if(rs.next()){
-					pstmt = conn.prepareStatement("delete from pointlist where id='" + id +"'and use_point=? and parkname=?");
-					pstmt.setInt(1, use_point);
-					pstmt.setString(2, parkname);
-					rs = pstmt.executeQuery();
 					
-//					*** test 2단계 ***
-					System.out.println("pointlist테이블에서 레코드 삭제");
+					int point = rs.getInt("point");
+					int before_point = use_point + point;
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");					
+					String date = sdf.format(rs.getTimestamp("pdate"));   
 					
-					if(rs.next()){
-						pstmt = conn.prepareStatement("select point from pointment where id='"+id+"'");
+					
+					
+//					before_point값으로  pointment테이블의 point값 업데이트
+					pstmt = conn.prepareStatement("update pointment set point=?, use_point=? where id='"+id+"'");
+					pstmt.setInt(1, before_point);
+					pstmt.setInt(2, 0);
+					result = pstmt.executeUpdate();
+					
+					
+//					*** test 3 ***
+					System.out.println("3단계 ::: pointment에 update완료 ");
+					
+					if(result > 0 ){
+			
+						pstmt = conn.prepareStatement("SELECT parking_code,capacity2 from "+table+" WHERE addr in (SELECT substr(parkloca,7) FROM reservpark where id=? and parkname like '"
+								+ fparkname + "')");
+						pstmt.setString(1, id);
 						rs = pstmt.executeQuery();
 						
-//						*** test 3단계 ***
-						System.out.println("3단계");
-						
 						if(rs.next()){
+							int parking_code = rs.getInt("parking_code");
+							int capacity = rs.getInt("capacity2");
+							System.out.println("deleteaction ::: " + parking_code);
+							System.out.println("deleteaction ::: " + capacity);
 							
-							int point = rs.getInt("point");
-							int before_point = use_point + point;
-							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-							rs.getString("pdate");
-							String date = sdf.format(date1);       
+							pstmt = conn.prepareStatement("delete from reservpark where id='" + id +"'and begintime=?");
+							pstmt.setString(1, beginTime);
+							result = pstmt.executeUpdate();
+						
 							
+//						*** test 4 ***
+							System.out.println("reservpark테이블에서 레코드 삭제");
+						    
 							
-							System.out.println("3단계 이후 ::: " + point);
-							pstmt = conn.prepareStatement("update pointment set point=?, use_point=? where id='"+id+"'");
-							pstmt.setInt(1, before_point);
-							pstmt.setInt(2, 0);
-							pstmt.executeUpdate();
-							System.out.println("pointment에 update완료 ");
+							if(result > 0 ){
+							pstmt = conn.prepareStatement("delete from pointlist where id='" + id +"'and use_point=? and parkname=?");
+							pstmt.setInt(1, use_point);
+							pstmt.setString(2, parkname);
+							result = pstmt.executeUpdate();
 							
+							System.out.println("pointlist 삭제");
 							
-							pstmt = conn.prepareStatement("SELECT parking_code,capacity2 FROM FIRSTDATE WHERE addr in (SELECT substr(parkloca,7)  FROM reservpark where id='?'");
-							pstmt.setString(1, id);
-							rs = pstmt.executeQuery();
-							
-//							*** test ***
-							System.out.println("select parking_code!");
-							
-							if(rs.next()){
-								
-							DeleteDate del = DeleteDate.getInstance();
-							del.FindDate(date, rs.getInt("capacity2"), rs.getInt("parking_code"));
-							
-							System.out.println("test 완료");
-							
+								if(result > 0){									
+									DeleteDate del = DeleteDate.getInstance();
+									del.FindDate(date, capacity, parking_code);
+									
+									System.out.println("test 완료");
+								}
 							}
 						}
-					}
+					}     
 				}
-			}					
+			}						
+						
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
