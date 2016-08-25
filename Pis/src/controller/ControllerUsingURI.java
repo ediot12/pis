@@ -39,13 +39,6 @@ public class ControllerUsingURI extends HttpServlet {
 	// 명령어와 처리클래스가 매핑되어 있는 properties 파일은 Command.properties파일
 	public void init(ServletConfig config) throws ServletException {
 
-		/*
-		 * Date date = new Date(); String resetTime = "00:00";
-		 */
-		/* SimpleDateFormat smf = new SimpleDateFormat("HH:mm"); */
-
-		/* smf.format(date.getTime()).equals(resetTime); */
-
 		//////////////////////// 기존에 있던 부분
 		String props = config.getInitParameter("propertyConfig");
 		// web.xml에서 propertyConfig에 해당하는 init-param의 값을 읽어옴

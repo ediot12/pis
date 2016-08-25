@@ -36,8 +36,6 @@ public class TableRefreshAction {
 			while(rs.next()){
 				id = rs.getString(1);
 				parking_name = rs.getString(2);
-				System.out.println("나는 아이디 : " + id);
-				System.out.println("나는 이름 : " + parking_name);
 				pstmt2 = conn.prepareStatement(
 						"select parking_code,capacity2 from firstdate where addr in (select substr(parkloca,7) from reservpark where parkname like ? and id = ?)");
 				pstmt2.setString(1, parking_name);
@@ -58,7 +56,6 @@ public class TableRefreshAction {
 			//////////////
 			pstmt = conn.prepareStatement("delete from reservpark where to_date(outtime,'yyyy-MM-dd HH24:MI') < sysdate");
 			count = pstmt.executeUpdate();
-			System.out.println("ㅎㅇㅎㅇ" + count);
 			
 			
 		} catch (SQLException e) {
