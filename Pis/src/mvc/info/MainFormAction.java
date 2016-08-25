@@ -34,7 +34,7 @@ public class MainFormAction implements CommandAction {
 
 		List articleList = null;
 		InfoDBBean rdd = InfoDBBean.getInstance();//db연동
-		count = rdd.getArticleCount(); // 메서드 이동 
+		count = rdd.getArticleCount(writer); // 메서드 이동 
 
 		if (count > 0) {
 			//해당 아이디로 작성한 글만 보기

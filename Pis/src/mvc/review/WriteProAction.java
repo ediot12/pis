@@ -23,7 +23,6 @@ public class WriteProAction implements CommandAction{
 		// String savePath = "c:/Pis/workspace/Pis/WebContent/fileSave";
 		/*String savePath = request.getServletContext().getRealPath("fileSave");*/
 		String savePath = "C:/Users/coco/gitt/pis/Pis/WebContent/filesave";
-		String realPath = ""; 
 		String type = "utf-8";
 		int sizeLimit = 5*1024*1024;//5M
 		

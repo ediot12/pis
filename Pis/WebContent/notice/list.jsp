@@ -67,7 +67,7 @@
 </select>
 
 <input type="text" name="search" size="15" maxlength="50" /> 
-<input type="submit" value="검색" />
+<input class="button" type="submit" value="검색" />
 </form>	
 </br>
 </body>

@@ -29,18 +29,18 @@
 				</tr>
 				
 				<!-- db 에 파일이 있을경우 파일과 글 내용  출력-->
-				<tr height="450">
-					<td height="40" width="70" class="color"><b>내용</b></td>
+				<tr height="350">
+					<td width="70" class="color"><b>내용</b></td>
 					<c:if test="${!article.bfile.equals('null')}">
 						<td width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
-						<img src="../filesave/${article.bfile}" width="250px" height="250px" >
-						<br><b><h3>${article.content}</h3></b></pre>
+						<div><img src="../filesave/${article.bfile}" width="250px" height="250px" ></div>
+						<h3>${article.content}</h3></pre>
 					</td>
 					</c:if>
 					<!-- db에 저장된 파일이 없을시 즉 null 값일 경우 글내용만 출력 -->
 					<c:if test="${article.bfile.equals('null')}">
-						<td width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
-					<b><h3>${article.content}</h3></b></pre>
+						<td width="300" colspan="3" style="word-wrap:break-word"> <pre style="white-space: pre-wrap;">
+					<p><b><h3>${article.content}</h3></b></p></pre>
 					</c:if>
 				</tr>
 	

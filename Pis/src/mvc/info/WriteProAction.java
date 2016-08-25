@@ -43,6 +43,7 @@ public class WriteProAction implements CommandAction {
 		String file_name = String.valueOf(file);
 		//실제 파일 이름
 		String real_file = new File(file_name).getName();
+		
 		//session 불러옴
 		HttpSession session = request.getSession();
 		

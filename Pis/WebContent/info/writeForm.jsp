@@ -4,7 +4,7 @@
 <head>
 <title></title>
 <link href="../style.css" rel="stylesheet" type="text/css">
-<script src="script.js">
+<script>
 function zipCheck(){
 	
 	url="/Pis/info/zipcheck.do?check=y";

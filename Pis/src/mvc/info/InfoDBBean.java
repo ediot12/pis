@@ -59,6 +59,43 @@ public class InfoDBBean {
 		}
 		
 		//해당 테이블에 저장된 모든 개수 = 전체 DB에 입력된 행의 수가 필요하다!!
+		public int getArticleCount(String writer) throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			int x= 0;
+			
+			try{
+				conn = getConnection();
+				pstmt = conn.prepareStatement("select count(*) from info where writer = ?");
+				pstmt.setString(1, writer);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					x = rs.getInt(1);
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally{
+				if (rs != null)
+					try {
+						rs.close();
+					} catch (SQLException ex) {
+					}
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (SQLException ex) {
+					}
+				if (conn != null)
+					try {
+						conn.close();
+					} catch (SQLException ex) {
+					}
+			}
+			return x;
+		}
+		
 		public int getArticleCount() throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -68,6 +105,7 @@ public class InfoDBBean {
 			try{
 				conn = getConnection();
 				pstmt = conn.prepareStatement("select count(*) from info");
+				
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
@@ -155,7 +193,7 @@ public class InfoDBBean {
 				conn = getConnection();
 				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,address,r "+
 						"from (select num,writer,subject,content,regdt,address,rownum r "+
-						"from (select num,writer,subject,content,regdt,address from info order by num desc ) order by num desc ) where r >= ? and r <= ? ");
+						"from (select num,writer,subject,content,regdt,address from info order by num desc ) order by num desc ) where r >= ? and r <= ? and writer = ?");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);

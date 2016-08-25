@@ -25,7 +25,7 @@
 					<td width="330" colspan="5" align="left"><h3>&nbsp;${article.subject }</h3></td>
 				</tr>
 					
-				<tr height="450">
+				<tr height="350">
 					<td width="70" class="color"><b>내 용</b></td>
 					<td width="330" height="40" colspan="5" align="left" style="word-wrap:break-word">
 					<pre style="white-space: pre-wrap;"><h3>${article.content }</h3></pre>

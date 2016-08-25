@@ -480,13 +480,13 @@
 			<div id=rates></div>
 			<div id=time3></div>
 			<div id=time4></div>
-			<input type="submit" value="예약하기">
+			<input class="button" type="submit" value="예약하기">
 		</form>
 		<br>
 		<br>
 		<br>
 		
-		너님의 위치는 ? <input type="button" value="Where?" onclick="checkLocation()"><br>
+		너님의 위치는 ? <input class="button" type="button" value="Where?" onclick="checkLocation()"><br>
 		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
 		</div>
 		

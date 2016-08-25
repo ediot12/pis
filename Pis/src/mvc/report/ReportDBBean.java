@@ -58,7 +58,7 @@ public class ReportDBBean {
 			}
 		}
 		// db에 저장된 총 행의 수
-		public int getArticleCount() throws Exception{
+		public int getArticleCount(String writer) throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -66,7 +66,8 @@ public class ReportDBBean {
 			
 			try{
 				conn = getConnection();
-				pstmt = conn.prepareStatement("select count(*) from Report");
+				pstmt = conn.prepareStatement("select count(*) from Report where writer = ?");
+				pstmt.setString(1, writer);
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
@@ -104,7 +105,7 @@ public class ReportDBBean {
 				conn = getConnection();
 				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,type,r "+
 						"from (select num,writer,subject,content,regdt,type,rownum r "+
-						"from (select num,writer,subject,content,regdt,type from Report order by num desc ) order by num desc ) where r >= ? and r <= ? ");
+						"from (select num,writer,subject,content,regdt,type from Report order by num desc ) order by num desc ) where r >= ? and r <= ? and writer = ? ");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);

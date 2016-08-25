@@ -35,7 +35,7 @@ public class MainAction implements CommandAction{
 		
 		List articleList = null;
 		ReportDBBean rdd = ReportDBBean.getInstance();
-		count = rdd.getArticleCount();
+		count = rdd.getArticleCount(writer);
 		
 		if(count > 0){
 			articleList = rdd.getArticles(startRow, endRow, writer);
