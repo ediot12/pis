@@ -2,12 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<c:if test="${id==null}">
-	<script>
-		alert("로그인 후 이용해주세요");
-		location.href = "/Pis/Join/loginForm.do"; // 로그인페이지로 이동
-	</script>
-</c:if>
 <style>
 div#myReserv {
 	float: left;
@@ -25,11 +19,22 @@ div#myReserv {
 	background-color: #EAEAEA;
 }
 </style>
-<%
-	String id = (String) session.getAttribute("memId");
-%>
 <title></title>
 <link rel="stylesheet" href="style.css">
+
+<%
+	String id = (String) session.getAttribute("memId");
+	System.out.println(id);
+	if (id == null) {
+%>
+
+<script>
+	alert("로그인 후 이용해주세요");
+	location.href = "/Pis/Join/loginForm.do"; // 로그인페이지로 이동
+</script>
+<%
+	}
+%>
 </head>
 <body>
 	<div>
@@ -74,6 +79,7 @@ div#myReserv {
 				</div>
 			</c:forEach>
 		</c:if>
+		
 	</div>
 </body>
 </html>
