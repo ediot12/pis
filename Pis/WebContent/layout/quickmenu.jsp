@@ -12,7 +12,7 @@
 		<a href="/Pis/pointcharge/point.do"><img src="/Pis/image/point.png" width="70" height="60"><br>포인트충전</a>
 	</div>
 	<div name="qna" align="center" class="menubar2">
-		<a href="/Pis/faq/faqForm.do"><img src="/Pis/image/qna.png" width="70" height="60"><br>1:1 문의</a>
+		<a href="/Pis/question/mainForm.do"><img src="/Pis/image/qna.png" width="70" height="60"><br>1:1 문의</a>
 	</div>
 
 </div>
