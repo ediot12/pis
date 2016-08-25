@@ -144,7 +144,7 @@
 </head>
 <body>
  
-	<center>
+	<center>   
 	<br>
 		<form method="post" name="insert" action="/Pis/park/paySuccess.do"
 			onsubmit="return checkPay()">
