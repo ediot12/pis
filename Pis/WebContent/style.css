@@ -302,3 +302,11 @@ ul.submenu {
 .hide td {
 	display: none;
 }
+
+table#ok {
+	border-color: #31A0B4;
+	color: #31A0B4;
+	width: 600px;
+	height : 500px;
+
+}

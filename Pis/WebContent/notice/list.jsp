@@ -9,11 +9,11 @@
 <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body> 
-	<center>
+	
 		<br>
-		<div class="title">
-			<b>공지사항 </b>
-		</div>
+		
+			<b><h1>공지사항</h1> </b>
+		<center>
 		<c:if test="${count!=0}">
 
 			<table class="table" border=1 width="700" cellpadding="0" cellspacing="0"
@@ -26,7 +26,7 @@
 				</tr>
 				<c:forEach var="article" items="${articleList}" >
 					<tr>
-						<td><c:out value="${number}" />
+						<td class="colorblack"><c:out value="${number}" />
 						<c:set var="number" value="${number -1}" /></td>
 						<td class="colorblack"><a href="/Pis/notice/content.do?num=${article.num}&pageNum=${currentPage}">${article.subject}</a></td>
 						<td class="colorblack">${sd.format(article.regdt)}</td>

@@ -34,7 +34,7 @@
 				<c:forEach var="article" items="${articleList}">
 					<tr>
 					<!-- 해당 글번호 -->
-						<td><c:out value="${number}" />
+						<td class="colorblack"><c:out value="${number}" />
 						<c:set var="number" value="${number -1}" /></td>
 						<!-- 제목누를시 이동할 페이지 링크 .... 이동하면서 글번호와 페이지 번호  -->
 						<td class="colorblack"><a

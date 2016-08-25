@@ -109,7 +109,7 @@ div#right {
 	top: 24%;
 	right: 0px;
 	width: 20%;
-	color: #31A0B4;
+	color: #000000;
 	font-size: 9pt;
 	text-align: center;
 }
@@ -128,7 +128,7 @@ div#left {
 	left: 0px;
 	width: 20%;
 	height: 90%;
-	color: #31A0B4;
+	color: #000000;
 	font-size: 9pt;
 	text-align: center;
 }
@@ -181,7 +181,7 @@ table.search td#main {
 }
 
 ul#list li {
-	color: #31A0B4;
+	color: #000000;
 	text-align: left;
 	list-style-type: square;
 }
@@ -202,4 +202,12 @@ div#markin{
 	text-align : left;
 	background-color: white;
 	border-radius : 5px;
+}
+
+.button {
+	background: #31A0B4;
+	color: #FFFFFF;
+	margin: 0 2;
+	padding: 5;
+	border-radius: 5px;
 }

@@ -5,3 +5,17 @@ table#ok {
 	height : 500px;
 
 }
+
+.color {
+	background: #31A0B4;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.button {
+	background: #31A0B4;
+	color: #FFFFFF;
+	margin: 0 2;
+	padding: 5;
+	border-radius: 5px;
+}

@@ -23,6 +23,7 @@ div#myReserv {
 	String id = (String) session.getAttribute("memId");
 %>
 <title></title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div>
@@ -42,7 +43,7 @@ div#myReserv {
 					<tr>결제금액 : ${myreservList.cost }포인트</tr><br>
 					
 					<c:if test="${myreservList.check==true }">
-					<tr><input type="submit" value="예약취소"></tr>
+					<tr><input class="button" type="submit" value="예약취소"></tr>
 					
 					</c:if>					
 					</table>

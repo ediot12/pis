@@ -152,37 +152,37 @@
 				<c:if test="${reserv!=null }">
 					<c:forEach var="vecList" items="${reserv }" begin="0">
 						<tr>
-							<td>이름</td>
+							<td class="color">이름</td>
 							<td><input type="text" readonly name="name" value="${name }"></td>
 						</tr>
 						<tr>
-							<td>전화번호</td>
+							<td class="color"> 전화번호</td>
 							<td><input type="text" readonly name="phone"
 								value="${phone }"></td>
 						</tr>
 						<tr>
-							<td>주차장이름</td>
+							<td class="color">주차장이름</td>
 							<td><input type="text" readonly
 								value="${vecList.parking_name }" size="30" name="parkname"></td>
 						</tr>
 						<tr>
-							<td>주차장위치</td>
+							<td class="color">주차장위치</td>
 							<td><input type="text" readonly
 								value="서울특별시 ${vecList.addr }" size="30" name="parkloca"></td>
 						</tr>
 						<tr>
-							<td>차종</td>
+							<td class="color">차종</td>
 							<td>소형 <input type="radio" value="소형" name="car">중형
 								<input type="radio" value="중형" name="car">대형 <input
 								type="radio" value="소형" name="car"></td>
 						</tr>
 						<tr>
-							<td>이용 날짜</td>
+							<td class="color">이용 날짜</td>
 							<td><input type="text" id="calendar1" name="calendar1"></td>
 
 						</tr>
 						<tr>
-							<td>입차 예정 시간</td>
+							<td class="color">입차 예정 시간</td>
 							<td><select name="inhour" id="inhour"
 								onchange="checkTime(this)">
 							</select>시 <select name="inmin" id="inmin">
@@ -191,7 +191,7 @@
 
 
 						<tr>
-							<td>출차 예정 시간</td>
+							<td class="color">출차 예정 시간</td>
 							<td><select name="outhour" id="outhour"
 								onchange="checkOutTime(this)">
 							</select>시 <select name="outmin" id="outmin">
@@ -220,7 +220,7 @@
 						</tr> --%>
 
 						<tr>
-							<td>기본료(30분당)</td>
+							<td class="color">기본료(30분당)</td>
 							<td><input type="text" readonly value="${vecList.rates }"
 								size="30" name="rates"></td>
 						</tr>
@@ -235,7 +235,7 @@
 				</c:if>
 			</table>
 
-			<input type="submit" value="확인">
+			<input class="button" type="submit" value="확인">
 
 		</form>
 </body>

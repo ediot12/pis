@@ -284,7 +284,7 @@
 		</c:if>
 		
 		</div>
-		<div id="left" style="overflow-y: auto; overflow-x:hidden ">
+		<div id="left" style="overflow-y: auto; overflow-x:hidden">
 		<form name="test" method="post" action="parkmap.do">
 			P.I.S <input type="text" name="addr" value="${result }"> <!-- <input type="submit"
 				value="검색"><br> --><input type="image" src="icon/parksearch.png" width="30px"><br>
@@ -314,7 +314,7 @@
 			<c:forEach var="search" items="${search }" begin="0" end="${count }" varStatus="abc">
 			
 		<tr>
-		<td>
+		<td class="colorblack">
 				<script>
 				var check = ${count};
 				var lat = ${search.lat};
@@ -430,12 +430,12 @@
 				
 				</script>
 				<ul id="list">
-					<li>서울특별시 ${search.addr }</li>
-					<li>${search.parking_name }</li>
+					<li>서울특별시 ${search.addr}</li>
+					<li>${search.parking_name}</li>
 					<c:if test="${search.tel!=null }">
 					<li>${search.tel }</li>
 					</c:if>
-				<input type="button" value="선택"
+				<input class="button" type="button" value="선택"
 						onclick="getValue('${search.lat}',
 						'${search.lng}','${search.addr }','${search.parking_name }',
 						'${search.tel }','${search.capacity2 }','${search.parking_type_nm }',
@@ -485,9 +485,7 @@
 		<br>
 		<br>
 		<br>
-		
-		너님의 위치는 ? <input class="button" type="button" value="Where?" onclick="checkLocation()"><br>
-		<input type="text" id="loc" value="이것이 너의 위치" size="30" readonly="readonly">
+
 		</div>
 		
 		<script>

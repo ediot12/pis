@@ -24,7 +24,7 @@
 				</tr>
 				<c:forEach var="article" items="${articleList}" >
 					<tr>
-						<td><c:out value="${number}" />
+						<td class="colorblack"><c:out value="${number}" />
 						<c:set var="number" value="${number -1}" /></td>
 						
 						<!-- c:if 태그로 글 작성시 서버로 전송된 값 비교하여 맞는 조건문 실행 -->

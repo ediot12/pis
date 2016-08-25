@@ -29,7 +29,7 @@
 				<c:if test="${count != 0 }">
 				 <c:forEach var="article" items="${articleList}">
 					<tr>
-						<td><c:out value="${number}" />
+						<td class="colorblack"><c:out value="${number}" />
 						<c:set var="number" value="${number -1}" /></td>
 						<!-- 불편 유형 -->
 						<td class="colorblack">${article.type }</td>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>포인트 충전</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link href="../style.css" rel="stylesheet" type="text/css">
 
 <script>
 
@@ -30,39 +30,40 @@
 </head>
 <body>
 
-
-<p><h1>포인트충전</h1></p>
+<center>
+<br>
+<p><h1>포인트충전</h1></p><br>
 <form name="pointform"  action="pointment.do" onsubmit="pointcheck()">
 <!-- radio 버튼으로 클릭된 값이 on 으로 넘어감 -->
-<table>
+<table id="ok" border=1  cellpadding="0" cellspacing="0">
 	<tr class="hr" height="20">
-	<td height="10" align="center" width="150">충전캐시</td>
-	<td align="center" width="300">적립혜택</td>
+	<td height="10" class="color" width="150">충전캐시</td>
+	<td class="colorblack" width="300">적립혜택</td>
 	</tr>
-	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="1000">1,000원</td>
-	<td width="300">1,000P</td>
+	<tr height="20">
+	<td class="color" width="200"><input type="radio" name="point" value="1000">1,000원</td>
+	<td class="colorblack" width="300">1,000P</td>
 	</tr>
-	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="5000">5,000원</td>
-	<td align="left" width="300">5,000P + 1,000P 추가적립</td>
+	<tr height="20">
+	<td class="color" width="200"><input type="radio" name="point" value="5000">5,000원</td>
+	<td class="colorblack" align="left" width="300">5,000P + 1,000P 추가적립</td>
 	</tr>
-	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="10000">10,000원</td>
-	<td align="left" width="300">10,000P + 2,000P 추가적립</td>
+	<tr height="20">
+	<td class="color" width="200"><input type="radio" name="point" value="10000">10,000원</td>
+	<td class="colorblack" align="left" width="300">10,000P + 2,000P 추가적립</td>
 	</tr>
-	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="50000">50,000원</td>
-	<td align="left" width="300">50,000P + 6,000P 추가적립</td>
+	<tr height="20">
+	<td class="color" width="200"><input type="radio" name="point" value="50000">50,000원</td>
+	<td class="colorblack" align="left" width="300">50,000P + 6,000P 추가적립</td>
 	</tr>
-	<tr height="30">
-	<td align="left" width="200"><input type="radio" name="point" value="100000">100,000원</td>
-	<td align="left" width="300">100,000P + 20,000P 추가적립</td>
-	</tr>
-	<tr>
-	<td colspan="2" align="right"><input type="submit" value="결제하기"/></td>
+	<tr height="20">
+	<td class="color" width="200"><input type="radio" name="point" value="100000">100,000원</td>
+	<td class="colorblack" align="left" width="300">100,000P + 20,000P 추가적립</td>
 	</tr>
 </table>
+<br>
+<input class="button" type="submit" value="결제하기">
+
 </form>
 
 </body>

@@ -28,7 +28,7 @@
 				 <c:forEach var="article" items="${articleList}">
 					<tr>
 					<!-- 글번호 -->
-						<td><c:out value="${number}" />
+						<td class="colorblack"><c:out value="${number}" />
 						<c:set var="number" value="${number -1}" /></td>
 						<!-- 문의 유형 -->
 						<td class="colorblack">${article.kind }</td>
@@ -42,7 +42,7 @@
 				</c:if> 
 			</table>
 			<!-- 페이지 번호 설정 -->
-		<c:if test="${count > 0 }">
+			<c:if test="${count > 0 }">
 	<c:set var="pageCount" value="${count/pageSize+(count%pageSize==0 ? 0 : 1) }"/>
 	<c:set var="pageBlock" value="${10 }"/>
 	<fmt:parseNumber var="result" value="${currentPage/10 }" integerOnly="true"/>
@@ -53,16 +53,17 @@
 		<c:set var="endPage" value="${pageCount }"/>
 	</c:if>
 	
-	<c:if test="${startPage>10 }">
-		<a href="/Pis/qeustion/mainForm.do?pageNum=${startPage-10 }">[이전]</a>
+	<c:if test="${startPage>10 }" >
+		<a href="/Pis/question/mainForm.do?pageNum=${startPage-10 }">
+		<input type="button" value="<<이전"  class="button"></a>
 	</c:if>
 	
 	<c:forEach var="i" begin="${startPage}" end="${endPage}">
-		<a href="/Pis/qeustion/mainForm.do?pageNum=${i}"><input type="button" value="${i}"  class="button"></a>
+		<a href="/Pis/question/mainForm.do?pageNum=${i}"><input type="button" value="${i}"  class="button"></a>
 	</c:forEach>
 	
 	<c:if test="${endPage<pageCount }">
-		<a href="/Pis/qeustion/mainForm.do?pageNum=${startPage+10 }">[다음]</a>
+		<a href="/Pis/question/mainForm.do?pageNum=${startPage+10 }">[다음]</a>
 	</c:if>
 </c:if>
 
