@@ -24,7 +24,7 @@ public class InputProAction implements CommandAction {
 		
 		/*String savePath = request.getServletContext().getRealPath("filesave");*/
 		request.setCharacterEncoding("utf-8");
-		String savePath = "request.getServletContext().getRealPath"; // 파일저장 경로
+		String savePath = request.getServletContext().getRealPath("filesave"); // 파일저장 경로
 		String realPath = "";
 		String type = "utf-8";
 		int sizeLimit = 5*1024*1024;// 파일 제한용량 5M
