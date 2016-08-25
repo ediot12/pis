@@ -46,6 +46,10 @@ public class DeleteReservAction	implements CommandAction {
 		
 		try{
 			conn = getConnection();
+
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);   
+			
 			pstmt = conn.prepareStatement("select * from reservpark where id='" + id +"'and begintime=?");
 			pstmt.setString(1, beginTime);
 			rs = pstmt.executeQuery();
@@ -124,9 +128,12 @@ public class DeleteReservAction	implements CommandAction {
 						}
 					}     
 				}
-			}						
+			}	
+			
+			conn.commit();
 						
 		}catch(Exception e){
+			conn.rollback();
 			e.printStackTrace();
 		}finally{
 			if (rs != null){
@@ -139,9 +146,11 @@ public class DeleteReservAction	implements CommandAction {
 			if (conn != null) {
 				conn.close();
 			}
+			
+			conn.setAutoCommit(true); 
 		}
 		
-		return "/park/myReserv.jsp";
+		return "/park/myReserv.do";
 	}
 
 }

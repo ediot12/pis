@@ -22,6 +22,10 @@ public class CommentDBBean {
 		
 		try{
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);   
+			
 			pstmt = conn.prepareStatement("insert into q_comment values(?,?,?,?)");
 			pstmt.setInt(1, cdb.getComment_num());
 			pstmt.setInt(2, cdb.getContent_num());
@@ -35,11 +39,18 @@ public class CommentDBBean {
 			pstmt.setInt(1, cdb.getContent_num());
 			pstmt.executeUpdate();
 			
-		}catch(Exception e){ e.printStackTrace(); }
-		finally{
+			conn.commit();  
+			
+		}catch(Exception e){ 
+			conn.rollback();
+			e.printStackTrace(); 
+		}finally{
 			jdbcUtil.close(pstmt);
 			jdbcUtil.close(conn);
 		}
+		
+		conn.setAutoCommit(true);   
+		
 	}
 	
 	public ArrayList getComments(int con_num)throws Exception{
@@ -115,6 +126,10 @@ public class CommentDBBean {
 		
 		try{
 			conn=getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);  
+			
 			pstmt=conn.prepareStatement("delete from q_comment where content_num=? and comment_num=?");
 			pstmt.setInt(1, content_num);
 			pstmt.setInt(2, comment_num);
@@ -126,12 +141,16 @@ public class CommentDBBean {
 			pstmt.setInt(1, content_num);
 			pstmt.executeUpdate();
 			
+			conn.commit(); 
+			
 		}catch(Exception ex){
+			conn.rollback();
 			ex.printStackTrace();
 		}finally{
 			jdbcUtil.close(rs);
 			jdbcUtil.close(pstmt);
 			jdbcUtil.close(conn);
-		}
+		}		
+		conn.setAutoCommit(true);  
 	}
 }

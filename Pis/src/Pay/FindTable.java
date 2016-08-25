@@ -27,6 +27,10 @@ public class FindTable {
 		
 		try {
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);  
+			
 			pstmt = conn.prepareStatement("select checkdate from firstdate where rownum=1");
 			rs = pstmt.executeQuery();			
 			if (rs.next()) {
@@ -75,9 +79,11 @@ public class FindTable {
 				table = "fourthdate";
 
 			}
-
+			
+			conn.commit();    
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			conn.rollback();
 			e.printStackTrace();
 		}
 
@@ -97,6 +103,7 @@ public class FindTable {
 			}
 		}
 		
+		conn.setAutoCommit(true);  
 		return table;
 	}
 }

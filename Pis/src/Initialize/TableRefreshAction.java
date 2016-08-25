@@ -31,6 +31,10 @@ public class TableRefreshAction {
 
 		try {
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);  
+			
 			pstmt = conn.prepareStatement("select id,parkname from reservpark where outtime < to_char(sysdate,'yyyy-MM-dd')");
 			rs = pstmt.executeQuery();
 			while(rs.next()){
@@ -57,9 +61,9 @@ public class TableRefreshAction {
 			pstmt = conn.prepareStatement("delete from reservpark where to_date(outtime,'yyyy-MM-dd HH24:MI') < sysdate");
 			count = pstmt.executeUpdate();
 			
-			
+			conn.commit(); 
 		} catch (SQLException e) {
-
+			conn.rollback();
 			e.printStackTrace();
 		} finally {
 			try {
@@ -82,9 +86,12 @@ public class TableRefreshAction {
 					pstmt3.close();
 				}
 			} catch (SQLException e) {
+				conn.rollback();
 				e.printStackTrace();
 			}
 		}
+		
+		conn.setAutoCommit(true);
 
 	}
 

@@ -184,6 +184,10 @@ public class NoticeDBBean {
 			NoticeDataBean article = null;
 			try{
 				conn = getConnection();
+				
+//				*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+				conn.setAutoCommit(false);   
+				
 				pstmt = conn.prepareStatement("update notice set readcount = readcount+1 where num = ?");
 				pstmt.setInt(1, num);
 				pstmt.executeUpdate();
@@ -199,12 +203,18 @@ public class NoticeDBBean {
 					article.setReadcount(rs.getInt("readcount"));
 					article.setContent(rs.getString("content"));
 				}
-			}catch(Exception e){ e.printStackTrace(); }
-			finally{
+				
+				conn.commit();     
+			}catch(Exception e){
+				conn.rollback();
+				e.printStackTrace();
+			}finally{
 				jdbcUtil.close(rs);
 				jdbcUtil.close(pstmt);
 				jdbcUtil.close(conn);
 			}
+			
+			conn.setAutoCommit(true);
 			return article;
 		}
 		//noticeDelete.jsp

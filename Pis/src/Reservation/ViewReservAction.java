@@ -34,6 +34,7 @@ public class ViewReservAction implements CommandAction {
 		SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date date = new Date();//날짜비교
 		Date date2 = new Date();//오늘날짜
+
 		
 
 		try {

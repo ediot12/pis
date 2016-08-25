@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.apache.jasper.tagplugins.jstl.core.Catch;
 
@@ -37,8 +38,12 @@ public class PayDBBean {
 			}
 			
 		}catch(Exception e){
+			e.printStackTrace();
 			
-			
+		}finally{
+			 if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+	            if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+	            if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 		}
 		
 		return total_point;
@@ -52,9 +57,16 @@ public class PayDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int point = article.getPoint();
+		String id = article.getId();
+		String grade = null;
+		
 		
 		try{
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);
+			
 			pstmt = conn.prepareStatement("select point from pointment where id=? order by pdate desc");
 			pstmt.setString(1, article.getId());
 			rs = pstmt.executeQuery();	
@@ -84,6 +96,8 @@ public class PayDBBean {
 
 			
 			if(rs.next()){
+			
+				
 			PointListDataBean member = new PointListDataBean();
 			member.setId(rs.getString("id"));
 			member.setPoint(point);
@@ -109,19 +123,49 @@ public class PayDBBean {
 			pstmt.setString(1, member.getId());
 			pstmt.executeUpdate();
 			
+			pstmt = conn.prepareStatement("select total_point from pointment where id='"+ id +"'");
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+			int total_point = rs.getInt("total_point");
+			
+			pstmt = conn.prepareStatement("select grade from members where id='"+id+"'");
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				grade = rs.getString("grade");
+								
+				if(0 <= total_point && total_point < 30000){
+					grade = "일반";
+				}else if(30000 <= total_point && total_point <50000){
+					grade = "실버";
+				}else if(50000 <= total_point && total_point <100000){
+					grade = "골드";
+				}else if(100000 <= total_point){
+					grade = "VIP";
+				}
+				
+				pstmt = conn.prepareStatement("update members set grade=? where id='"+id+"'");
+				pstmt.setString(1, grade);
+				pstmt.executeUpdate();
+				
+				conn.commit();
+				
 			}
 			
 //			*** test ::: DB insert ***
 			System.out.println("PayDBBean pointlist 테이블에 저장 완료!");
-			
+			}
+			}
 			}
 		}catch(Exception e){
+			conn.rollback();
 			e.printStackTrace();
 		}finally{
 			if(rs!=null)try {rs.close();}catch(Exception e){}
 			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
 			if(conn != null) try{conn.close();} catch(Exception e){}
 		}
+		
+		conn.setAutoCommit(true); 
 		
 	}
 	 

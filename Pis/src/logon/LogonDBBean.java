@@ -35,6 +35,10 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         
         try {
             conn = getConnection();
+            
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);    
+			
             pstmt = conn.prepareStatement("select id from MEMBERS where id = ?");
             pstmt.setString(1, member.getId());
             rs= pstmt.executeQuery();
@@ -71,14 +75,19 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             pstmt.setInt(5, 0);
             pstmt.executeQuery();
             
+            conn.commit();
            
         } catch(Exception ex) {
+        	conn.rollback();
             ex.printStackTrace();
         } finally {
         	if (rs != null) try { rs.close(); } catch(SQLException ex) {}
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
+        
+        conn.setAutoCommit(true); 
+        
         return x;
     }
           
@@ -345,6 +354,9 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         
         try {
         	conn = getConnection();
+        	
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);   
 
             pstmt = conn.prepareStatement(
             "select passwd from MEMBERS where id = ?");
@@ -371,16 +383,22 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
 					pstmt.executeUpdate();
                     
                     x= 1; //회원탈퇴 성공
+                    
+                    conn.commit();
             	}else
             		x= 0; //비밀번호 틀림
             }
         } catch(Exception ex) {
+        	conn.rollback();
             ex.printStackTrace();
         } finally {
             if (rs != null) try { rs.close(); } catch(SQLException ex) {}
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
+        
+        conn.setAutoCommit(true); 
+        
         return x;
     }
     

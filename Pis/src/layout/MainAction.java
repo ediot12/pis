@@ -24,13 +24,13 @@ public class MainAction implements CommandAction{
 		
 //		main에 표현할 id정보에 따른 등급,point
 		String memId = (String) request.getSession().getAttribute("memId");
-		LogonDBBean logdb = LogonDBBean.getInstance();
-		String grade = logdb.getGrade(memId);
-		request.getSession().setAttribute("grade", grade); 
 		
-		PayDBBean paydb = PayDBBean.getInstance();
-		int point = paydb.getPoint(memId);
-		request.getSession().setAttribute("point", point);
+//		LogonDBBean logdb = LogonDBBean.getInstance();
+//		String grade = logdb.getGrade(memId);
+		
+//		PayDBBean paydb = PayDBBean.getInstance();
+//		int point = paydb.getPoint(memId);
+		
 		
 		
 		

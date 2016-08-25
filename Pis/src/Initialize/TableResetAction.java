@@ -24,7 +24,8 @@ public class TableResetAction {
 		PreparedStatement pstmt = null;
 		int count = 0;
 		try {
-			conn = getConnection();
+			conn = getConnection(); 
+
 			pstmt = conn.prepareStatement("delete from firstdate");
 			count = pstmt.executeUpdate();
 			pstmt.close();// 한번 닫아준다.
@@ -71,6 +72,8 @@ public class TableResetAction {
 			count = pstmt.executeUpdate();
 
 			System.out.println("네번째 통과 행 : " + count);
+			
+			conn.commit();     
 
 		} catch (Exception e) {
 			e.printStackTrace();

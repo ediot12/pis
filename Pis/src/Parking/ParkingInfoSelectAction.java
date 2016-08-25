@@ -32,6 +32,10 @@ public class ParkingInfoSelectAction implements CommandAction {
 
 		try {
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);   
+			
 			pstmt = conn.prepareStatement(
 					"select * from park_info where addr like '%" + request.getParameter("addr") + "%'",
 					ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -118,8 +122,11 @@ public class ParkingInfoSelectAction implements CommandAction {
 			
 			
 			request.setAttribute("result", request.getParameter("addr"));
-
+			
+			conn.commit();    
+			
 		} catch (SQLException e) {
+			conn.rollback();
 			e.printStackTrace();
 		} finally {
 			try {
@@ -143,6 +150,8 @@ public class ParkingInfoSelectAction implements CommandAction {
 			}
 		}
 
+		conn.setAutoCommit(true);
+		
 		return "/park/maptest2.jsp";
 
 	}

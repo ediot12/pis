@@ -25,6 +25,10 @@ public class FindDate {
 
 		try {
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);   
+			
 			pstmt = conn.prepareStatement("select checkdate from firstdate where rownum=1");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -63,9 +67,11 @@ public class FindDate {
 			} else if (checkTime4.equals(date)) {
 				fourthdate(capacity, parking_code);
 			}
+			
+			conn.commit();      
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			conn.rollback();
 			e.printStackTrace();
 		}
 
@@ -84,6 +90,8 @@ public class FindDate {
 				e.printStackTrace();
 			}
 		}
+		
+		conn.setAutoCommit(true);  
 
 	}
 
