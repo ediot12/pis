@@ -6,51 +6,53 @@
 <link href="../../style.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>  
-    $(document).ready(function(){
-
-        $("#report tr:odd").addClass("odd");
-        $("#report tr:not(.odd)").hide(); 
-        $("#report tr:first-child").show(); //열머리글 보여주기
-
-        $("#report tr.odd").click(function(){
-            $(this).next("tr").toggle();
-            $(this).find(".arrow").toggleClass("up");
-        });
-    });
+  $(function(){
+	  	var article=(".report .show");
+	  	
+		$(".report .faqmenu td").on('click',function(){
+			
+			var art = $(this).parents().next("tr");
+			
+		if($(art).hasClass('hide')){
+			$(article).removeClass('show').addClass('hide');
+			$(art).removeClass('hide').addClass('show');
+		}else{
+			$(art).addClass('hide').removeClass('show');
+		}
+		});
+	});
 
 </script>
 </head>
- 
 <body>
     <center>
 	<br>
 	<div class="title">
 	<b>자주묻는 질문</b>
-	
+	<a href="/Pis/admin/board/FAQwriteForm.do">
+		<input type="button" value="글쓰기" class="button">
 	</a>
 	</div>
 	<br>
-    <table id="report">
-        <tr>
+    <table class="report">
+        <tr class="">
             <th width="10%" align="center">번호</th>
             <th width="20%" align="center">문의유형</th>
-            <th width="50%" align="center">자주묻는질문</th>
-            
+            <th width="70%" align="center">자주묻는질문</th> 
         </tr>
         <c:forEach var="fdb" items="${articleList}">
-        <tr>
+        <tr class="faqmenu">
             <td><c:out value="${number}" />
 				<c:set var="number" value="${number - 1}" /></td>
 			<td>${fdb.kind}</td>
             <td>${fdb.subject}</td>
-            
         </tr>
-        <tr>
+        <tr class="hide">
         	<td></td>
-            <td colspan="3">             
+            <td colspan="2" class="colorblack"><br>          
 				<pre>${fdb.content}</pre>
+				<br>
             </td>
-           
         </tr>
         </c:forEach>
     </table>
@@ -67,15 +69,15 @@
 		</c:if>
 			         
 		<c:if test="${startPage > 10}">
-			<a href="/Pis/faq/faqForm.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="button"></a>
+			<a href="/Pis/admin/board/FAQ.do?pageNum=${startPage - 10 }&searchn=${searchn}&search=${search}"><input type="button" value="<<이전"  class="button"></a>
 		</c:if>
 			
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<a href="/Pis/faq/faqForm.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="button"></a>
+				<a href="/Pis/admin/board/FAQ.do?pageNum=${i}&searchn=${searchn}&search=${search}"><input type="button" value="${i}" class="button"></a>
 			</c:forEach>
 			
 			<c:if test="${endPage < pageCount}">
-				<a href="/Pis/faq/faqForm.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="button"></a>
+				<a href="/Pis/admin/board/FAQ.do?pageNum=${startPage + 10}&searchn=${searchn}&search=${search}"><input type="button" value="다음>>" class="button"></a>
 			</c:if>
 		</c:if>
 	<form>
@@ -87,6 +89,7 @@
 		<option value="4">기타</option>
 		</select>
 			
-		<input type="text" name="search" size="15" maxlength="50" /><input type="submit" value="검색" class="button" />
+		<input type="text" name="search" size="15" maxlength="50" /> <input type="submit" value="검색" class="button" />
 	</form>
 </body>
+</html>
