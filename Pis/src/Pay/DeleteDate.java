@@ -95,7 +95,6 @@ public class DeleteDate {
 
 	private void firstdate(int capacity, int parking_code) throws Throwable {
 
-		conn = getConnection();
 		pstmt = conn.prepareStatement("update firstdate set capacity2=? where parking_code = ?");
 
 		System.out.println(capacity);
@@ -115,7 +114,6 @@ public class DeleteDate {
 
 	private void seconddate(int capacity, int parking_code) throws Throwable {
 		int capacity2 = capacity + 1;
-		conn = getConnection();
 		pstmt = conn.prepareStatement("update seconddate set capacity2=? where parking_code = ?");
 		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
@@ -125,7 +123,6 @@ public class DeleteDate {
 
 	private void thirddate(int capacity, int parking_code) throws Throwable {
 		int capacity2 = capacity + 1;
-		conn = getConnection();
 		pstmt = conn.prepareStatement("update thirddate set capacity2=? where parking_code = ?");
 		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
@@ -135,7 +132,6 @@ public class DeleteDate {
 
 	private void fourthdate(int capacity, int parking_code) throws Throwable {
 		int capacity2 = capacity + 1;
-		conn = getConnection();
 		pstmt = conn.prepareStatement("update fourthdate set capacity2=? where parking_code = ?");
 		pstmt.setInt(1, capacity2);
 		pstmt.setInt(2, parking_code);
