@@ -7,8 +7,8 @@
 <link href="../../style.css" rel="stylesheet" type="text/css">
 <script>
 	function Checked(){
-			url="memberCheck.do?id="+${mdb.id};
-			window.open(url,"post","toolbar=no,width=100, heignt=100,directories=no,status=yes,scrollbars=yes,menubar=no");
+			url="/Pis/admin/member/memberCheck.do?id="+id.value;
+			window.open(url,"post","toolbar=no,width=200, heignt=200,directories=no,status=yes,scrollbars=yes,menubar=no");
 	}
 </script>
 </head>
@@ -39,20 +39,30 @@
 				<c:if test="${mdb.resident==2}">비거주자</c:if>
 			</td>
 			<td class="color">거주자승인</td>
-			<td class="colorblack">
 				<c:if test="${mdb.resident==1}">
 					<c:if test="${mdb.checked=='거주자 미 승인'}">
-						<form action="/Pis/admin/member/memberupdate.do?id=${mdb.id}" method="post">
-							거주자승인요청<input type="submit" value="승인" class="button">
-						</form>
+						<td class="colorblack">
+							<form action="/Pis/admin/member/memberupdate.do?id=${mdb.id}" method="post">
+								거주자승인요청<input type="submit" value="승인" class="button">
+							</form>
+						</td>
+						<td class="color">거주자승인 자료</td>
+						<td class="colorblack" colspan="3">
+							<input type="button" onClick="Checked()" class="button" value="${mdb.id}" id="id">
+						</td>
 					</c:if>
-					<c:if test="${mdb.checked=='거주자 승인'}">거주자승인완료</c:if>
+						
+					<c:if test="${mdb.checked=='거주자 승인'}"><td class="colorblack">거주자승인완료</td>
+						<td class="color">거주자승인 자료</td>
+						<td class="colorblack" colspan="3">
+							<input type="button" onClick="Checked()" class="button" value="${mdb.id}" id="id">
+						</td>
+					</c:if>
 				</c:if>
-				<c:if test="${mdb.resident==2}">비거주자</c:if>
-			</td>
+				<c:if test="${mdb.resident==2}"><td class="colorblack">비거주자</td>
+					<td class="color">거주자승인 자료</td><td colspan="3"></td>
+				</c:if>
 			
-			<td class="color">거주자승인 자료</td>
-			<td class="colorblack" colspan="3"><input type="button" value="정보보기" onClick="Checked()" class="button"></td>
 			
 		</tr>
 		<tr>
