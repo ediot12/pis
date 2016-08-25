@@ -20,7 +20,7 @@
 		<tr>
 			<td class="colorblack"><a href="/Pis/park/parkmap.do">예 약</a></td>
 			<td class="colorblack"><a href="/Pis/notice/list.do">공지사항</a></td>
-			<td class="colorblack"><a href="#">환불규정</a></td>
+			<td class="colorblack"><a href="/Pis/Join/refundForm.do">환불규정</a></td>
 			<td class="colorblack"><a href="/Pis/Join/modifyForm.do">회원정보 수정</a></td>
 		</tr>
 		<tr>
