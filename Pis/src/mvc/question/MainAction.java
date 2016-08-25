@@ -31,7 +31,7 @@ public class MainAction implements CommandAction{
 		
 		
 		QuestionDBBean dbpro = QuestionDBBean.getInstance();//DB연동		
-		count = dbpro.getArticleCount();//전체 글의 수
+		count = dbpro.getArticleCount(writer);//전체 글의 수
 		List articleList = null;
 		if (count > 0) {
 			articleList = dbpro.getArticles(startRow, endRow, writer);

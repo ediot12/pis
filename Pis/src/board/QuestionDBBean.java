@@ -47,6 +47,29 @@ public class QuestionDBBean {
 	}
 	
 	//Question.jsp : 페이징을 위해서 전체 DB에 입력된 행의 수가 필요하다!!
+			public int getArticleCount(String writer) throws Exception{
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				int x = 0;
+				try{
+					conn = getConnection();
+					pstmt = conn.prepareStatement("select count(*) from Question where writer = ?");
+					pstmt.setString(1, writer);
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) x = rs.getInt(1);
+					
+				}catch(Exception e){ e.printStackTrace(); }
+				finally{
+					jdbcUtil.close(rs);
+					jdbcUtil.close(pstmt);
+					jdbcUtil.close(conn);
+				}
+				return x;
+			}
+			
 			public int getArticleCount() throws Exception{
 				Connection conn = null;
 				PreparedStatement pstmt = null;
@@ -109,6 +132,8 @@ public class QuestionDBBean {
 				}
 				return articleList;
 			}
+			
+			
 			public List getArticles(int start, int end, String writer) throws Exception{
 				Connection conn = null;
 				PreparedStatement pstmt = null;
@@ -117,12 +142,9 @@ public class QuestionDBBean {
 				try{
 					conn = getConnection();
 					pstmt = conn.prepareStatement(
-							"select num,writer,subject,content,regdt,checked,kind, rownum from question where rownum >= ? and rownum <= ? and writer =? order by num desc");
-							/*"select num,"
-							+ "kind,subject,checked, regdt, content, r  " +
-					        "from (select num,kind,subject,checked, regdt, content, rownum r " +
-					        "from (select num,kind,subject,checked, regdt, content " +
-					        "from Question order by num desc) order by num desc) where r >= ? and r <= ? and writer = ?");*/
+							"select num,writer,subject,content,regdt,kind,checked,r "+
+							"from (select num,writer,subject,content,regdt,kind,checked,rownum r "+
+							"from (select num,writer,subject,content,regdt,kind,checked from Question order by num desc ) order by num desc ) where r >= ? and r <= ? and writer = ?"); 
 					pstmt.setInt(1, start);
 					pstmt.setInt(2, end);
 					pstmt.setString(3, writer);
