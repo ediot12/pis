@@ -24,7 +24,7 @@
 	}
 </script>
 </head>
-<body bgcolor="#FFFFCC">
+<body>
 <center>
 <div class="title" >
 	<b><center>우편번호 찾기</center></b>
