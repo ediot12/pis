@@ -25,7 +25,7 @@ public class PisDBBean {
 		return DriverManager.getConnection(jdbcDriver);
 	}
 
-	//글 작성
+	/*//글 작성
 	public void insertArticle(PisDataBean article) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -35,12 +35,12 @@ public class PisDBBean {
 		String sql = "";
 		try {
 			conn = getConnection();
-			/*
+			
 			 * pstmt=conn.prepareStatement("select max(num) from Notice"); rs =
 			 * pstmt.executeQuery();
-			 */
+			 
 
-			/* if (rs.next()) number = rs.getInt(1) + 1; else number = 1; */
+			 if (rs.next()) number = rs.getInt(1) + 1; else number = 1; 
 
 			// 쿼리문 작성
 			sql = "insert into Notice(num,subject,readcount,content)" + "values(Notice_num.NEXTVAL,?,?,?)";
@@ -70,7 +70,7 @@ public class PisDBBean {
 				}
 		}
 	}
-
+*/
 	//  페이징을 위해서 전체 db에 입력된 행의총 개수가 필요함.
 	public int getArticleCount() throws Exception {
 		Connection conn = null;

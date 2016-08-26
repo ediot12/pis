@@ -5,7 +5,7 @@ import java.util.*;
 
 
 import mvc.info.*;
-import mvc.review.ReviewDataBean;
+
 
 
 public class InfoDBBean {
@@ -181,7 +181,7 @@ public class InfoDBBean {
 					}
 			}
 			return articleList;
-			}
+		}
 		
 		//해당 id 로 작성한 글 목록 ~
 		public List getArticles(int start, int end, String writer)throws Exception{
@@ -191,9 +191,7 @@ public class InfoDBBean {
 			List articleList = null;
 			try{
 				conn = getConnection();
-				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,address,r "+
-						"from (select num,writer,subject,content,regdt,address,rownum r "+
-						"from (select num,writer,subject,content,regdt,address from info order by num desc ) order by num desc ) where r >= ? and r <= ? and writer = ?");
+				pstmt = conn.prepareStatement("select num,writer,subject,content,regdt,address,rownum from info where rownum >= ? and rownum <= ? and writer = ? order by num desc");
 				
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);

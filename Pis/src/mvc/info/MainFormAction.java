@@ -34,8 +34,8 @@ public class MainFormAction implements CommandAction {
 
 		List articleList = null;
 		InfoDBBean rdd = InfoDBBean.getInstance();//db연동
-		count = rdd.getArticleCount(writer); // 메서드 이동 
-
+		count = rdd.getArticleCount(writer); // 메서드 이동
+		
 		if (count > 0) {
 			//해당 아이디로 작성한 글만 보기
 			articleList = rdd.getArticles(startRow, endRow, writer);
@@ -52,7 +52,7 @@ public class MainFormAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 		request.setAttribute("articleList", articleList);
 		request.setAttribute("sd", sd);
-
+		
 		return "/info/mainForm.jsp";// 해당 뷰 이동
 	}
 
