@@ -1,5 +1,8 @@
+<%@page import="logon.LogonDBBean"%>
+<%@page import="Pay.PayDBBean"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 <link rel="stylesheet" href="park.css">
@@ -24,6 +27,15 @@
 		}
 	}
 </script>
+<%
+String memId = (String) request.getSession().getAttribute("memId");
+PayDBBean paydb = PayDBBean.getInstance();
+int p1 = paydb.getPoint(memId);
+
+LogonDBBean logdb = LogonDBBean.getInstance();
+String grade = logdb.getGrade(memId);
+
+%>
 
 <title>PIS(주차장안내시스템)</title>
 <body>
@@ -46,7 +58,7 @@
 							</c:when>
 							<c:otherwise>
 								<ul>
-								    <li>${memId} [회원등급 : ${grade}/ 현재포인트 : ${point}]</li>
+								    <li>${memId} [회원등급 : <%=grade %>/ 현재포인트 : <%=p1 %>]</li>
 									<li><a href="/Pis/Join/logout.do">로그아웃</a></li>
 						    		<li><a href="/Pis/layout/siteMapUser.do">사이트맵</a></li>
 						    	</ul>
