@@ -84,10 +84,7 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
         	if (rs != null) try { rs.close(); } catch(SQLException ex) {}
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
-        }
-        
-        conn.setAutoCommit(true); 
-        
+        }       
         return x;
     }
           
@@ -396,8 +393,6 @@ public class LogonDBBean {//DB와 관련된 일을 하는 클래스: DBBean, DAO
             if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
             if (conn != null) try { conn.close(); } catch(SQLException ex) {}
         }
-        
-        conn.setAutoCommit(true); 
         
         return x;
     }

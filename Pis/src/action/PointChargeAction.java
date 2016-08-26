@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 
 import Pay.PayDBBean;
 import Pay.PayDataBean;
@@ -15,8 +16,13 @@ public class PointChargeAction implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("utf-8");
 		
+		if(request.getSession().getAttribute("point")==null){
+			return "/pointcharge/pointlist.do";
+		}
+		
 		int point =  Integer.parseInt((String) request.getSession().getAttribute("point"));
-		     
+		
+		
 		if(point == 5000){
 			point += 1000;
 		}else if(point == 10000){
@@ -35,6 +41,8 @@ public class PointChargeAction implements CommandAction{
 //		***** total_point 가져왔는지 확인
 		System.out.println(total_point);
 		
+		
+		
 //		***** total_point 에 현재 충전한 point 만큼 더함
 		total_point += point;
 
@@ -52,11 +60,18 @@ public class PointChargeAction implements CommandAction{
 			article.setTotal_point(total_point);
 			
 			paydb.InsertPay(article);
-			System.out.println("db등록");
+			System.out.println("db등록");			
+
+			request.getSession().removeAttribute("point");
+			
 			
 			}
 		  
 		System.out.println("포인트 충전 내역 디비에 저장완료");
+		
+		
+		
+		
 		
 		
 		return "/pointcharge/pointlist.do";

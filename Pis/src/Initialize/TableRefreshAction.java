@@ -90,8 +90,6 @@ public class TableRefreshAction {
 				e.printStackTrace();
 			}
 		}
-		
-		conn.setAutoCommit(true);
 
 	}
 

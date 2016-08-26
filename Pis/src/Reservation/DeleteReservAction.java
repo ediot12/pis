@@ -146,8 +146,7 @@ public class DeleteReservAction	implements CommandAction {
 			if (conn != null) {
 				conn.close();
 			}
-			
-			conn.setAutoCommit(true); 
+
 		}
 		
 		return "/park/myReserv.do";

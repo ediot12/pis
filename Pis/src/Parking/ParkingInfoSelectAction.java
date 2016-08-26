@@ -123,10 +123,10 @@ public class ParkingInfoSelectAction implements CommandAction {
 			
 			request.setAttribute("result", request.getParameter("addr"));
 			
-			conn.commit();    
+			conn.commit();
 			
 		} catch (SQLException e) {
-			conn.rollback();
+
 			e.printStackTrace();
 		} finally {
 			try {
@@ -145,15 +145,20 @@ public class ParkingInfoSelectAction implements CommandAction {
 				if (conn != null) {
 					conn.close();
 				}
+				
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		
 		}
 
-		conn.setAutoCommit(true);
-		
+
+
 		return "/park/maptest2.jsp";
 
 	}
+	
+	
 
 }

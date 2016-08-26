@@ -35,13 +35,21 @@ public class ViewReservAction implements CommandAction {
 		Date date = new Date();//날짜비교
 		Date date2 = new Date();//오늘날짜
 
-		
+		System.out.println("예약정보페이지 접속");
 
 		try {
 			conn = getConnection();
+			
+//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
+			conn.setAutoCommit(false);  
+			
 			pstmt = conn.prepareStatement("select * from reservpark where id ='" + id + "'");
+			
+			System.out.println("예약정보페이지 select문 실행");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
+				
+				System.out.println("while문 안에 들와따");
 				ReservBean rsb = new ReservBean();
 				rsb.setId(rs.getString(1));
 				rsb.setName(rs.getString(2));
@@ -70,6 +78,8 @@ public class ViewReservAction implements CommandAction {
 			
 			request.setAttribute("recount", count);
 			request.setAttribute("myreservList", reservList);
+			
+			conn.commit();
 
 		} catch (SQLException e) {
 			e.printStackTrace();

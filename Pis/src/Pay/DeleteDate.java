@@ -96,8 +96,7 @@ public class DeleteDate {
 				e.printStackTrace();
 			}
 		}
-		
-		conn.setAutoCommit(true);
+
 
 	}
 

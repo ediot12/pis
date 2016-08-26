@@ -32,9 +32,10 @@ div#myReserv {
 	alert("로그인 후 이용해주세요");
 	location.href = "/Pis/Join/loginForm.do"; // 로그인페이지로 이동
 </script>
-<%
+<%  
 	}
 %>
+
 </head>
 <body>
 	<div>

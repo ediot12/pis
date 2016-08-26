@@ -50,10 +50,7 @@ public class InsertReservAction implements CommandAction {
 
 		try {
 			conn = getConnection();
-			
-//			*** 자동COMMIT 안되게 FALSE로 지정 (오류 발생시 실행 X)
-			conn.setAutoCommit(false);  
-			
+
 			pstmt = conn.prepareStatement("select name,phone from members where id ='" + id + "'");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -103,11 +100,9 @@ public class InsertReservAction implements CommandAction {
 			} else {
 				System.out.println("잘못된 접근 입니다.");
 			}
-			
-			conn.commit();
+
 
 		} catch (SQLException e) {
-			conn.rollback();
 			e.printStackTrace();
 		} finally {
 			try {

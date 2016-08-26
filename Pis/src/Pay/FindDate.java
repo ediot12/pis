@@ -90,8 +90,6 @@ public class FindDate {
 				e.printStackTrace();
 			}
 		}
-		
-		conn.setAutoCommit(true);  
 
 	}
 

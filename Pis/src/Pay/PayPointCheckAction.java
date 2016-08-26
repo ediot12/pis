@@ -39,6 +39,7 @@ public class PayPointCheckAction implements CommandAction {
       int parking_code = Integer.parseInt(request.getParameter("parking_code"));
       int capacity = Integer.parseInt(request.getParameter("capacity"));
       int pay = Integer.parseInt(request.getParameter("point"));// 계산된 금액
+      
       int remainPoint = 0; // 초기화
       int sPoint, sUse_Point = 0;// update문을 위한 초기화 작업
       SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -117,8 +118,6 @@ public class PayPointCheckAction implements CommandAction {
     	  if(pstmt != null) try{pstmt.close();}catch(Exception e){}
     	  if(conn != null) try{conn.close();} catch(Exception e){}
       }
-      
-      conn.setAutoCommit(true); 
 
       return "/park/payAfter.jsp";
    }

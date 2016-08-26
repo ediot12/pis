@@ -48,9 +48,6 @@ public class CommentDBBean {
 			jdbcUtil.close(pstmt);
 			jdbcUtil.close(conn);
 		}
-		
-		conn.setAutoCommit(true);   
-		
 	}
 	
 	public ArrayList getComments(int con_num)throws Exception{
@@ -151,6 +148,5 @@ public class CommentDBBean {
 			jdbcUtil.close(pstmt);
 			jdbcUtil.close(conn);
 		}		
-		conn.setAutoCommit(true);  
 	}
 }

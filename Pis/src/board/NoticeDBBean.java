@@ -213,8 +213,6 @@ public class NoticeDBBean {
 				jdbcUtil.close(pstmt);
 				jdbcUtil.close(conn);
 			}
-			
-			conn.setAutoCommit(true);
 			return article;
 		}
 		//noticeDelete.jsp

@@ -102,8 +102,7 @@ public class FindTable {
 				e.printStackTrace();
 			}
 		}
-		
-		conn.setAutoCommit(true);  
+
 		return table;
 	}
 }
