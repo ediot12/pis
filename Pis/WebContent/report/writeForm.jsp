@@ -47,12 +47,12 @@
 					
 				<tr>
 					<td width="70" class="color"><b>내 용</b></td>
-					<td width="330" colspan="5"><textarea name="content" rows="14" cols="146"></textarea>
+					<td width="330" colspan="5"><textarea name="content" rows="14" cols="132"></textarea>
 					</td>
 				</tr>
 
 			</table>
-			<input  type="submit" value="신고하기" class="button" OnClick="window.location='/Pis/report/mainForm.do'">
+			<input  type="submit" value="신고하기" class="button">
 		</form>
 </body>
 </html>

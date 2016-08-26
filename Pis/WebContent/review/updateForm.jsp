@@ -1,4 +1,5 @@
 <%@ page  contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -21,7 +22,7 @@
 				<tr>
 					<td width="70" height="40" class="color">작성자</td>
 					<td align="left" width="230">
-					<input type="text" size="20" maxlength="10" name="writer" value="${article.writer}">
+					${article.writer}
 					<input type="hidden" name="num" value="${article.num}"></td>
 					<td width="70" height="40" class="color">평가하기</td>
 					<!-- 별점 평가... 별 선택에 맞는 벨류값 전송 -->
@@ -42,10 +43,20 @@
 						
 				</tr>
 				
-				<tr>
-					<td width="70" height="40" class="color">내 용</td>
-					<td align="left" width="330" colspan="3"><textarea name="content"
-							rows="12" cols="135">${article.content}</textarea><br><img src="../filesave/${article.bfile}" width="250px" height="250px" ></td>
+				<!-- db 에 파일이 있을경우 파일과 글 내용  출력-->
+				<tr height="350">
+					<td width="70" class="color"><b>내용</b></td>
+					<c:if test="${!article.bfile.equals('null')}">
+						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word"><pre style="white-space: pre-wrap;">
+						<div><img src="../filesave/${article.bfile}" width="250px" height="250px" ></div>
+						<textarea name="content"  cols="135" rows="20">${article.content}</textarea></pre>
+					</td>
+					</c:if>
+					<!-- db에 저장된 파일이 없을시 즉 null 값일 경우 글내용만 출력 -->
+					<c:if test="${article.bfile.equals('null')}">
+						<td class="colorblack" width="300" colspan="3" style="word-wrap:break-word">
+					<textarea name="content"  cols="135" rows="40">${article.content}</textarea>
+					</c:if>
 				</tr>
 
 			</table>
