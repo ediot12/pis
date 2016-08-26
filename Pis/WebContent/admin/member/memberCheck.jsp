@@ -9,7 +9,7 @@
 </head>
 <body>
 <center>
-	<img src="../fileSave/${mdb.upload}" width="300px" height="300px" ><br>
+	<img src="../../filesave/${mdb.upload}" width="300px" height="300px" ><br>
 	<a href="javascript:this.close();">닫기</a>
 </body>
 </html> 
