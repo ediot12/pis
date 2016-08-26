@@ -378,9 +378,9 @@ public class PisDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List articleList = null;
-		System.out.println(n);
+		
 
-		String[] column_name = {  "subject", "num" };
+		String[] column_name = {  "subject" };
 
 		try {
 			conn = getConnection();
@@ -391,7 +391,7 @@ public class PisDBBean {
 					+ "from Notice order by num desc ) where " + column_name[n] + " like '%" + search
 					+ "%') where r >= ? and r <= ?";
 			
-			System.out.println(sql);
+			
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);

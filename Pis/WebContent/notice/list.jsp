@@ -63,7 +63,6 @@
 <form>
 <select name="searchn">
 <option value="0">제목</option>
-<option value="1">번호</option>
 </select>
 
 <input type="text" name="search" size="15" maxlength="50" /> 
