@@ -37,10 +37,10 @@
 
 #container {
 	position: relative;
-	top: 20%;
+	top: 12.5%;
 	border-top: 4px solid #31A0B4;
 	border-bottom: 4px solid #31A0B4;
-	height: 50px;
+	height: 5%;
 	z-index: 2;
 }
 
@@ -106,7 +106,7 @@ ul.menu:after {
 div#right {
 	position: relative;
 	float: right;
-	top: 24%;
+	top: 17%;
 	right: 0px;
 	width: 20%;
 	color: #000000;
@@ -124,7 +124,7 @@ div#right {
 div#left {
 	position: relative;
 	float: left;
-	top: 24%;
+	top: 17%;
 	left: 0px;
 	width: 20%;
 	height: 90%;
@@ -135,7 +135,7 @@ div#left {
 
 div#map {
 	position: absolute;
-	top: 30%;
+	top: 20%;
 	left: 20%;
 	width: 60%;
 	height: 90%;
@@ -194,8 +194,8 @@ ul#list li {
 }
 div#markin{
 	padding:5px; 
-	width:220px;
-	height:150px;
+	width:230px;
+	height:100px;
 	font-size:9pt;
 	border-color : red;
 	color : purple;

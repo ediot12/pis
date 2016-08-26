@@ -4,15 +4,10 @@
 <head>
 <link rel="stylesheet" href="park.css">
 <script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=695ba71a42e2ca4d5170303619a2f56a&libraries=services"></script>
+		src="//apis.daum.net/maps/maps3.js?apikey=421bee34f427ca0e30df2e951e2a3692&libraries=services"></script>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
-		$(document).ready(function(){
-		    $("div#markin").click(function(){
-		        alert("The paragraph was clicked.");
-		    });
-		});
 	$(function(){
 		$("ul.menu li").hover(function(){
 			$(">ul:not(:animated)",this).slideDown("fast");
@@ -37,7 +32,6 @@
 	    		<img alt="로고" src="/Pis/image/logo.jpg" width="500px" height="90px">
 	    	</a>
 	    </div>
-	   	 
 	    <nav>
 	    	<div id="one">
 	    		<c:choose>
@@ -386,10 +380,9 @@
 				var fInfo = new daum.maps.InfoWindow({
                     content: '<div id="markin">주소 : 서읕륵별시 ' + faddress +
                     '<br>전화번호 : '+ftel+
-                    '<br>남은대수 : '+fcapa+
                     '<br>평일운영시간 : '+fweekd_bt+'시~'+fweekd_et+'시'+
                     '<br>주말운영시간 : '+fweeke_bt+'시~'+fweeke_et+'시'+
-                    '<br>기본요금 : 10분/'+frates+'원'+
+                    '<br>기본요금 : 30분/'+frates+'원'+
                     '</div>',
                     removable : true
                 });
@@ -511,7 +504,7 @@
 			document.getElementById('capacity_3').innerHTML = third + ' 남은주차대수 : ' + capacity3;
 			document.getElementById('capacity_4').innerHTML = fourth + ' 남은주차대수 : ' + capacity4;
 			document.getElementById('parking_type_nm').innerHTML = '주차장종류 : ' + parking_type_nm;
-			document.getElementById('rates').innerHTML = '기본요금 : 10분 /'+ rates+'원';
+			document.getElementById('rates').innerHTML = '기본요금 : 30분 /'+ rates+'원';
 			document.getElementById('time3').innerHTML = '평일운영시간 : ' +fweekbt+'시 ~ '+fweeket+'시';
 			document.getElementById('time4').innerHTML = '주말운영시간 : ' +fweekebt+'시 ~ '+fweekeet+'시';
 
