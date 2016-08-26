@@ -49,7 +49,7 @@ public class WriteProAction implements CommandAction {
 		article.setContent(multi.getParameter("content"));
 		article.setAddress(multi.getParameter("address"));
 		article.setZipcode(multi.getParameter("zipcode"));
-		article.setBfile(real_file); //DB에 경로가 아닌 파일이름으로 저장
+		article.setBfile(real_file); //ㄴ 경로가 아닌 파일이름으로 저장
 		article.setRegdt(new Timestamp(System.currentTimeMillis()));
 		
 

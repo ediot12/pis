@@ -133,6 +133,7 @@ public class InfoDBBean {
 			return x;
 		}
 		
+		//관리자 계정에서 db에 저장된 모든 글을 볼수 있는 기능
 		public List getArticles(int start, int end)throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
